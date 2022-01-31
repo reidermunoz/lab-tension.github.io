@@ -70,7 +70,7 @@
 		var materialabajo = new THREE.MeshBasicMaterial({ color: 0xa62745 });
 		var cubeabajo = new THREE.Mesh(geometryabajo, materialabajo);
 		scene.add(cubeabajo);
-		cubeabajo.position.y = 0.6
+		cubeabajo.position.y = 0.9
 
 
 
@@ -79,13 +79,13 @@
 		var material2 = new THREE.MeshBasicMaterial({ color: 0xa62745 });
 		var cube2 = new THREE.Mesh(geometry2, material2);
 		scene.add(cube2);
-		cube2.position.y = 0.2
+		cube2.position.y = 0.6
 
 		var geometryabajo2 = new THREE.CylinderGeometry(0.01, 0.05, 0.01, 32);
 		var materialabajo2 = new THREE.MeshBasicMaterial({ color: 0xa62745 });
 		var cubeabajo2 = new THREE.Mesh(geometryabajo2, materialabajo2);
 		scene.add(cubeabajo2);
-		cubeabajo2.position.y = 0.5
+		cubeabajo2.position.y = 0.7
 
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
