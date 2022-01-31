@@ -106,23 +106,23 @@
 
 		renderer.render(scene, camera);
 
-		//function animate() {
-		//	requestAnimationFrame(animate);
-		//	controls.update();
-//
-//			if (cubeabajo.position.y < 3.5) {
-//				cube.position.y += 0.005
-//				cubeabajo.position.y += 0.005
-//			} else {
-//				cube.position.y = 7.5
-//				cubeabajo.position.y = 4
-//			}
+		function animate() {
+			requestAnimationFrame(animate);
+			controls.update();
+
+			if (cubeabajo2.position.y < 3.5) {
+				cube2.position.y += 0.005
+				cubeabajo2.position.y += 0.005
+			} else {
+				cube2.position.y = 7.5
+				cubeabajo2.position.y = 4
+			}
 
 
-//			renderer.render(scene, camera);
+			renderer.render(scene, camera);
 
-//		}
-//		animate()
+		}
+		animate()
 		
 		// Instantiate a loader
 const loader = new THREE.GLTFLoader();
