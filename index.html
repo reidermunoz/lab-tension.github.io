@@ -60,22 +60,22 @@
 		mesh.receiveShadow = true;
 		scene.add(mesh);
 
-		var geometry = new THREE.CylinderGeometry(0.05, 0.05, 0.5, 32);
-		var material = new THREE.MeshBasicMaterial({ color: 0xa62745 });
-		var cube = new THREE.Mesh(geometry, material);
-		scene.add(cube);
-		cube.position.y = 1
+		//var geometry = new THREE.CylinderGeometry(0.05, 0.05, 0.3, 32);
+		//var material = new THREE.MeshBasicMaterial({ color: 0xa62745 });
+		//var cube = new THREE.Mesh(geometry, material);
+		//scene.add(cube);
+		//cube.position.y = 1
 
-		var geometryabajo = new THREE.CylinderGeometry(0.05, 0.04, 0.06, 32);
-		var materialabajo = new THREE.MeshBasicMaterial({ color: 0xa62745 });
-		var cubeabajo = new THREE.Mesh(geometryabajo, materialabajo);
-		scene.add(cubeabajo);
-		cubeabajo.position.y = 0.9
-
-
+		//var geometryabajo = new THREE.CylinderGeometry(0.05, 0.01, 0.05, 32);
+		//var materialabajo = new THREE.MeshBasicMaterial({ color: 0xa62745 });
+		//var cubeabajo = new THREE.Mesh(geometryabajo, materialabajo);
+		//scene.add(cubeabajo);
+		//cubeabajo.position.y = 0.9
 
 
-		var geometry2 = new THREE.CylinderGeometry(0.05, 0.05, 0.3, 32);
+
+
+		var geometry2 = new THREE.CylinderGeometry(0.05, 0.05, 0.5, 32);
 		var material2 = new THREE.MeshBasicMaterial({ color: 0xa62745 });
 		var cube2 = new THREE.Mesh(geometry2, material2);
 		scene.add(cube2);
@@ -85,7 +85,7 @@
 		var materialabajo2 = new THREE.MeshBasicMaterial({ color: 0xa62745 });
 		var cubeabajo2 = new THREE.Mesh(geometryabajo2, materialabajo2);
 		scene.add(cubeabajo2);
-		cubeabajo2.position.y = 0.7
+		cubeabajo2.position.y = 0.9
 
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -96,23 +96,23 @@
 
 		renderer.render(scene, camera);
 
-		function animate() {
-			requestAnimationFrame(animate);
-			controls.update();
+		//function animate() {
+		//	requestAnimationFrame(animate);
+		//	controls.update();
 
-			if (cubeabajo.position.y < 3.5) {
-				cube.position.y += 0.00005
-				cubeabajo.position.y += 0.00005
-			} else {
-				cube.position.y = 7.5
-				cubeabajo.position.y = 4
-			}
+		//	if (cubeabajo.position.y < 3.5) {
+		//		cube.position.y += 0.00005
+		//		cubeabajo.position.y += 0.00005
+		//	} else {
+		//		cube.position.y = 7.5
+		//		cubeabajo.position.y = 4
+		//	}
+//
 
+			//renderer.render(scene, camera);
 
-			renderer.render(scene, camera);
-
-		}
-		animate()
+	//	}
+	//	animate()
 		
 		// Instantiate a loader
 const loader = new THREE.GLTFLoader();
