@@ -62,11 +62,11 @@
 
 		var geometry = new THREE.CylinderGeometry(0.05, 0.05, 0.3, 32);
 		var material = new THREE.MeshBasicMaterial({ color: 0xbeefea });
-		var cube = new THREE.Mesh(geometry, material);
+		var cube = new THREE.Mesh(geometry, material);s
 		scene.add(cube);
 		cube.position.y = 1.035
 
-		var geometryabajo = new THREE.CylinderGeometry(0.05, 0.045, 0.02, 32);
+		var geometryabajo = new THREE.CylinderGeometry(0.05, 0.04, 0.01, 32);
 		var materialabajo = new THREE.MeshBasicMaterial({ color: 0xbeefea });
 		var cubeabajo = new THREE.Mesh(geometryabajo, materialabajo);
 		scene.add(cubeabajo);
@@ -101,8 +101,8 @@
 			controls.update();
 
 			if (cubeabajo.position.y < 3.5) {
-				cube.position.y += 0.005
-				cubeabajo.position.y += 0.005
+				cube.position.y += 0.0005
+				cubeabajo.position.y += 0.0005
 			} else {
 				cube.position.y = 7.5
 				cubeabajo.position.y = 4
