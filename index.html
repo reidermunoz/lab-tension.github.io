@@ -25,6 +25,7 @@
 
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+		var garra;
 
 		const renderer = new THREE.WebGLRenderer();
 		renderer.setSize(window.innerWidth, window.innerHeight);
@@ -114,47 +115,81 @@
 			}
 			*/
 
+			if (garra) {
+
+				if(garra.position.y<=0.7){
+					garra.position.y+=0.0001
+				}else{
+					garra.position.y=0.8
+				}
+				console.log(garra.position.y)
+
+
+			}
 
 			renderer.render(scene, camera);
 
 		}
 		animate()
 		
-		// Instantiate a loader
+// Instantiate a loader
 const loader = new THREE.GLTFLoader();
-
 
 // Load a glTF resource
 loader.load(
 	'maquinaCompletaConmesa.gltf',//'scene.gltf'
 	function ( gltf ) {
-
 		scene.add( gltf.scene );
-
 		gltf.animations; // Array<THREE.AnimationClip>
 		gltf.scene; // THREE.Group
 		gltf.scenes; // Array<THREE.Group>
 		gltf.cameras; // Array<THREE.Camera>
 		gltf.asset; // Object
 
-		console.log('completado')
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	},
+	// called when loading has errors
+	function ( error ) {
+		console.log( 'An error happened' );
+	}
+);
+
+
+
+// Instantiate a loader
+const loader2 = new THREE.GLTFLoader();
+
+// Load a glTF resource
+loader2.load(
+	'Garra.gltf',//'scene.gltf'
+	function ( gltf ) {
+		garra = gltf.scene; 
+		scene.add( garra );
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+		console.log('completado!.....')
+		garra.position.z+=1.585
+		garra.position.y+=0.6
 
 	},
 	// called while loading is progressing
 	function ( xhr ) {
-
-		console.log(xhr)
-
 		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
 	},
 	// called when loading has errors
 	function ( error ) {
-
 		console.log( 'An error happened' );
-
 	}
 );
+
+
 
 
 		/*
