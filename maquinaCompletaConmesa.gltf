@@ -4,9 +4,6 @@
         "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
-    "extensionsUsed" : [
-        "KHR_materials_clearcoat"
-    ],
     "scene" : 0,
     "scenes" : [
         {
@@ -118,20 +115,7 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Material_2",
-            "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0.36000001430511475,
-                    0.36000001430511475,
-                    0.36000001430511475,
-                    1
-                ],
-                "roughnessFactor" : 0.10000000149011612
-            }
-        },
-        {
-            "doubleSided" : true,
-            "name" : "DefaultMaterial",
+            "name" : "Material.003",
             "normalTexture" : {
                 "index" : 0
             },
@@ -146,21 +130,33 @@
         },
         {
             "doubleSided" : true,
-            "extensions" : {
-                "KHR_materials_clearcoat" : {
-                    "clearcoatFactor" : 0.5,
-                    "clearcoatRoughnessFactor" : 1
-                }
+            "name" : "DefaultMaterial",
+            "normalTexture" : {
+                "index" : 3
             },
-            "name" : "Material",
             "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0.13609842956066132,
-                    0.04926607012748718,
-                    0.013008909299969673,
-                    1
-                ],
-                "roughnessFactor" : 0.5
+                "baseColorTexture" : {
+                    "index" : 4
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 5
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.004",
+            "normalTexture" : {
+                "index" : 6
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 7
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 8
+                }
             }
         }
     ],
@@ -219,9 +215,48 @@
         {
             "sampler" : 0,
             "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 3
+        },
+        {
+            "sampler" : 0,
+            "source" : 4
+        },
+        {
+            "sampler" : 0,
+            "source" : 5
+        },
+        {
+            "sampler" : 0,
+            "source" : 6
+        },
+        {
+            "sampler" : 0,
+            "source" : 7
+        },
+        {
+            "sampler" : 0,
+            "source" : 8
         }
     ],
     "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "green_metal_rust_nor_gl_4k",
+            "uri" : "Texturas/green_metal_rust_nor_gl_4k.png"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "green_metal_rust_diff_4k",
+            "uri" : "Texturas/green_metal_rust_diff_4k.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "green_metal_rust_diff_4k.jpg-green_metal_rust_rough_4k",
+            "uri" : "Texturas/green_metal_rust_diff_4k_jpg-green_metal_rust_rough_4k.png"
+        },
         {
             "mimeType" : "image/png",
             "name" : "DefaultMaterial_normal",
@@ -236,6 +271,21 @@
             "mimeType" : "image/png",
             "name" : "DefaultMaterial_metallicRoughness",
             "uri" : "Texturas/DefaultMaterial_metallicRoughness.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "rust_coarse_01_nor_gl_4k",
+            "uri" : "Texturas/rust_coarse_01_nor_gl_4k.png"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "rust_coarse_01_diff_4k",
+            "uri" : "Texturas/rust_coarse_01_diff_4k.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "rust_coarse_01_rough_4k",
+            "uri" : "Texturas/rust_coarse_01_rough_4k.png"
         }
     ],
     "accessors" : [
