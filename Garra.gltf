@@ -45,13 +45,13 @@
             "mesh" : 1,
             "name" : "Cilindro",
             "scale" : [
-                0.019999999552965164,
-                0.25,
-                0.019999999552965164
+                0.012500000186264515,
+                0.15000000596046448,
+                0.012500000186264515
             ],
             "translation" : [
                 0.002506999997422099,
-                2.404910087585449,
+                2.4859085083007812,
                 -0.9487789869308472
             ]
         }
@@ -149,32 +149,32 @@
         {
             "mimeType" : "image/png",
             "name" : "green_metal_rust_nor_gl_4k",
-            "uri" : "Texturas_Garra/green_metal_rust_nor_gl_4k.png"
+            "uri" : "Texturas/green_metal_rust_nor_gl_4k.png"
         },
         {
             "mimeType" : "image/jpeg",
             "name" : "green_metal_rust_diff_4k",
-            "uri" : "Texturas_Garra/green_metal_rust_diff_4k.jpg"
+            "uri" : "Texturas/green_metal_rust_diff_4k.jpg"
         },
         {
             "mimeType" : "image/png",
             "name" : "green_metal_rust_diff_4k.jpg-green_metal_rust_rough_4k",
-            "uri" : "Texturas_Garra/green_metal_rust_diff_4k_jpg-green_metal_rust_rough_4k.png"
+            "uri" : "Texturas/green_metal_rust_diff_4k_jpg-green_metal_rust_rough_4k.png"
         },
         {
             "mimeType" : "image/png",
             "name" : "rust_coarse_01_nor_gl_4k",
-            "uri" : "Texturas_Garra/rust_coarse_01_nor_gl_4k.png"
+            "uri" : "Texturas/rust_coarse_01_nor_gl_4k.png"
         },
         {
             "mimeType" : "image/jpeg",
             "name" : "rust_coarse_01_diff_4k",
-            "uri" : "Texturas_Garra/rust_coarse_01_diff_4k.jpg"
+            "uri" : "Texturas/rust_coarse_01_diff_4k.jpg"
         },
         {
             "mimeType" : "image/png",
             "name" : "rust_coarse_01_rough_4k",
-            "uri" : "Texturas_Garra/rust_coarse_01_rough_4k.png"
+            "uri" : "Texturas/rust_coarse_01_rough_4k.png"
         }
     ],
     "accessors" : [
@@ -215,35 +215,35 @@
         {
             "bufferView" : 4,
             "componentType" : 5126,
-            "count" : 414,
+            "count" : 392,
             "max" : [
                 1,
                 1,
-                1
+                0.9999923706054688
             ],
             "min" : [
                 -1,
                 -1,
-                -1
+                -1.0000076293945312
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 414,
+            "count" : 392,
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
             "componentType" : 5126,
-            "count" : 414,
+            "count" : 392,
             "type" : "VEC2"
         },
         {
             "bufferView" : 7,
             "componentType" : 5123,
-            "count" : 816,
+            "count" : 768,
             "type" : "SCALAR"
         }
     ],
@@ -270,23 +270,23 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 4968,
+            "byteLength" : 4704,
             "byteOffset" : 168588
         },
         {
             "buffer" : 0,
-            "byteLength" : 4968,
-            "byteOffset" : 173556
+            "byteLength" : 4704,
+            "byteOffset" : 173292
         },
         {
             "buffer" : 0,
-            "byteLength" : 3312,
-            "byteOffset" : 178524
+            "byteLength" : 3136,
+            "byteOffset" : 177996
         },
         {
             "buffer" : 0,
-            "byteLength" : 1632,
-            "byteOffset" : 181836
+            "byteLength" : 1536,
+            "byteOffset" : 181132
         }
     ],
     "samplers" : [
@@ -297,7 +297,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 183468,
+            "byteLength" : 182668,
             "uri" : "Garra.bin"
         }
     ]

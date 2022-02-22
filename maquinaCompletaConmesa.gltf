@@ -101,14 +101,14 @@
             "mesh" : 2,
             "name" : "Cilindro",
             "scale" : [
-                0.019999999552965164,
-                0.25,
-                0.019999999552965164
+                0.012500000186264515,
+                0.15000000596046448,
+                0.012500000186264515
             ],
             "translation" : [
-                -0.006492000073194504,
-                2.617767095565796,
-                0.6377859711647034
+                0.0011289999820291996,
+                2.502229928970337,
+                0.6382259726524353
             ]
         }
     ],
@@ -145,7 +145,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.004",
+            "name" : "Material",
             "normalTexture" : {
                 "index" : 6
             },
@@ -189,7 +189,7 @@
             ]
         },
         {
-            "name" : "Cilindro",
+            "name" : "Cilindro.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -274,8 +274,8 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "rust_coarse_01_nor_gl_4k",
-            "uri" : "Texturas/rust_coarse_01_nor_gl_4k.png"
+            "name" : "rust_coarse_01_nor_gl_4k.exr",
+            "uri" : "Texturas/rust_coarse_01_nor_gl_4k_exr.png"
         },
         {
             "mimeType" : "image/jpeg",
@@ -284,8 +284,8 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "rust_coarse_01_rough_4k",
-            "uri" : "Texturas/rust_coarse_01_rough_4k.png"
+            "name" : "rust_coarse_01_rough_4k.exr",
+            "uri" : "Texturas/rust_coarse_01_rough_4k_exr.png"
         }
     ],
     "accessors" : [
@@ -354,35 +354,35 @@
         {
             "bufferView" : 7,
             "componentType" : 5126,
-            "count" : 414,
+            "count" : 392,
             "max" : [
                 1,
-                1,
-                1.0000019073486328
+                0.9999980926513672,
+                1
             ],
             "min" : [
                 -1,
-                -1,
-                -0.9999980926513672
+                -1.0000019073486328,
+                -1
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 8,
             "componentType" : 5126,
-            "count" : 414,
+            "count" : 392,
             "type" : "VEC3"
         },
         {
             "bufferView" : 9,
             "componentType" : 5126,
-            "count" : 414,
+            "count" : 392,
             "type" : "VEC2"
         },
         {
             "bufferView" : 10,
             "componentType" : 5123,
-            "count" : 816,
+            "count" : 768,
             "type" : "SCALAR"
         }
     ],
@@ -424,23 +424,23 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 4968,
+            "byteLength" : 4704,
             "byteOffset" : 2992004
         },
         {
             "buffer" : 0,
-            "byteLength" : 4968,
-            "byteOffset" : 2996972
+            "byteLength" : 4704,
+            "byteOffset" : 2996708
         },
         {
             "buffer" : 0,
-            "byteLength" : 3312,
-            "byteOffset" : 3001940
+            "byteLength" : 3136,
+            "byteOffset" : 3001412
         },
         {
             "buffer" : 0,
-            "byteLength" : 1632,
-            "byteOffset" : 3005252
+            "byteLength" : 1536,
+            "byteOffset" : 3004548
         }
     ],
     "samplers" : [
@@ -451,7 +451,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 3006884,
+            "byteLength" : 3006084,
             "uri" : "maquinaCompletaConmesa.bin"
         }
     ]
