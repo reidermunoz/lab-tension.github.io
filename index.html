@@ -141,7 +141,7 @@ const loader = new THREE.GLTFLoader();
 
 // Load a glTF resource
 loader.load(
-	'maquinaCompletaConmesa.gltf',//'scene.gltf'
+	'VibracionLibre.gltf',//'scene.gltf'
 	function ( gltf ) {
 		scene.add( gltf.scene );
 		gltf.animations; // Array<THREE.AnimationClip>
@@ -160,7 +160,6 @@ loader.load(
 		console.log( 'An error happened' );
 	}
 );
-
 
 
 // Instantiate a loader
@@ -193,7 +192,7 @@ loader2.load(
 		console.log( 'An error happened' );
 	}
 );
-
+/*
 // create an AudioListener and add it to the camera
 const listener = new THREE.AudioListener();
 camera.add( listener );
