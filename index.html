@@ -11,7 +11,7 @@
 
 		#ventana {
 			background-color: #ffffff;
-			width: 300px;
+			width: 400px;
 			height: 200px;
 			position: absolute;
 			top: 0;
@@ -35,7 +35,7 @@
 
 
 	 <div id="ventana">
-		<canvas id="myChart" height="200px" width="300px"></canvas>
+		<canvas id="myChart" height="200px" width="400px"></canvas>
 	</div>
 
 
@@ -186,7 +186,7 @@
 				if(garra.position.y<=0.29){
 					garra.position.y+=0.00001
 
-					if(contador_barra1.length %40 ==0){
+					if(contador_barra1.length %31 ==0){
 						chart.data.datasets[0].data.push({x: tension_barra1[cant][0], y:  tension_barra1[cant][1]});
       					chart.update();
 					}
