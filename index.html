@@ -9,10 +9,15 @@
 			margin: 0;
 		}
 
-		canvas {
-			width: 100%;
-			height: 100%
+		#ventana {
+			background-color: #ffffff;
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
+
 	</style>
 </head>
 
@@ -25,63 +30,56 @@
 
 
 
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-	 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-	 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
-	 <script src="plotly.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="tension_barra1.js"></script>
 
 
-	<h1 style="background-color: rgb(160,160,160);">
-	Lavoratorio virtual
-	</h1>
-	<form style="background-color: rgb(160, 160, 160);">
-	<fieldset>
-		<legend style="color: rgb(5, 10, 14); font-size: 200%;">propiedades fisicas</legend>
+	 <div id="ventana">
+		<canvas id="myChart" height="200px" width="300px"></canvas>
+	</div>
 
-		<label style="color: rgb(0, 0, 0);">Masa</label>
-		<input type="text"; name="masa"; id="nomest"; placeholder="[Kg]"><br>
-	</fieldset>
-	
-	</form>
-	<div id="myfirstchart" style="height: 250px;"></div>
 
-	<div id="chart"></div>
 
 	<script>
-function getData() {
-         return Math.random();
-}
 
-Plotly.plot('chart',[{
-        y:[getData()],
-        type:'line'
-}]);
+	var ctx = document.getElementById("myChart").getContext("2d");
+	const contador_barra1 = []; 
+	const chart = new Chart(ctx, {
+	type: 'line',
+	data: {
+		datasets: [{
+		borderColor: 'rgb(222,42,22)',
+		borderWidth: 2,
+		pointRadius:0,
+		data: [],
+		}]
+	},
+	options: {
+		animation: {
+        duration: 0
+    },
+		interaction: {
+		intersect: false
+		},
+		plugins: {
+		legend: false
+		},
+		scales: {
+		x: {
+			type: 'linear',
+			max:0.5,
+			min:0
+		},
+		y: {
+			type: 'linear',
+			max:400,
+			min:1
+		}
+		}
+	}
+	});
 
-		new Morris.Line({
-		// ID of the element in which to draw the chart.
-		element: 'myfirstchart',
-		// Chart data records -- each entry in this array corresponds to a point on
-		// the chart.
-		data: [
-			{ year: '2008', value: 20 },
-			{ year: '2009', value: 10 },
-			{ year: '2010', value: 5 },
-			{ year: '2011', value: 5 },
-			{ year: '2012', value: 20 }
-		],
-		// The name of the data record attribute that contains x-values.
-		xkey: 'year',
-		// A list of names of data record attributes that contain y-values.
-		ykeys: ['value'],
-		// Labels for the ykeys -- will be displayed when you hover over the
-		// chart.
-		labels: ['Value']
-		});
-	</script>
 
-	<script>
 
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -162,6 +160,8 @@ Plotly.plot('chart',[{
 
 		renderer.render(scene, camera);
 
+
+
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
@@ -175,20 +175,26 @@ Plotly.plot('chart',[{
 				cubeabajo.position.y = 4
 			}
 			*/
-		
+
+				
 
 			if (garra) {
+				var cant = chart.data.datasets[0].data.length;
+				contador_barra1.push(1);
+			
 
 				if(garra.position.y<=0.29){
 					garra.position.y+=0.00001
+
+					if(contador_barra1.length %40 ==0){
+						chart.data.datasets[0].data.push({x: tension_barra1[cant][0], y:  tension_barra1[cant][1]});
+      					chart.update();
+					}
+					
 				}else{
 					garra.position.y=0.35
-
-					
 				}
 				console.log(garra.position.y)
-
-
 			}
 
 			renderer.render(scene, camera);
@@ -243,6 +249,7 @@ loader2.load(
 		garra.position.x+=-0.001
 		garra.position.y+=0.258
 
+
 	},
 	// called while loading is progressing
 	function ( xhr ) {
@@ -281,6 +288,7 @@ audioLoader.load( 'sound_ogg.ogg', function( buffer ) {
 			renderer.render( scene, camera );
 		};
 		animate(); */
+
 
 	</script>
 </body>
