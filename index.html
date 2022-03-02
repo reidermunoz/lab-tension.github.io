@@ -30,7 +30,7 @@
 	 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 	 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
-
+	 <script src="plotly.min.js"></script>
 
 
 	<h1 style="background-color: rgb(160,160,160);">
@@ -47,7 +47,18 @@
 	</form>
 	<div id="myfirstchart" style="height: 250px;"></div>
 
+	<div id="chart"></div>
+
 	<script>
+function getData() {
+         return Math.random();
+}
+
+Plotly.plot('chart',[{
+        y:[getData()],
+        type:'line'
+}]);
+
 		new Morris.Line({
 		// ID of the element in which to draw the chart.
 		element: 'myfirstchart',
