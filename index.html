@@ -35,8 +35,9 @@
 
 
 	<div id="ventana">
-		<canvas id="myChart" height="200px" width="500px"></canvas>
-		<a href="Datos.xlsx" align="center" class="btn" download="Datos.xlsx" ><h3>Datos</h3></a>
+		<canvas id="myChart" height="200px" width="400px"></canvas>
+		<a href="Datos.xlsx" align="left" class="btn" download="Datos.xlsx" ><h3>Datos</h3></a>
+		<a onclick="zoom()" align="left" class="btn"  ><h3>Zoom</h3></a>
 	</div> 
 
 
@@ -157,6 +158,12 @@
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5)
 
+		function zoom(){
+			camera.position.set(0.5, 4, 0.067); // posicion de la camara (0, 5, 5)
+			//camera.position.y=3 // posicion de la camara (0, 5, 5)
+		
+		}
+
 		controls.update();
 
 
@@ -167,6 +174,7 @@
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
+			console.log(camera.position)
 			/*
 
 			if (cubeabajo.position.y < 3.5) {
