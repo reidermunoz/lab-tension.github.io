@@ -122,31 +122,24 @@
 		mesh.rotation.x = - Math.PI / 2;
 		mesh.receiveShadow = true;
 		scene.add(mesh);
-
 		var geometry = new THREE.CylinderGeometry(0.05, 0.05, 0.3, 32);
 		var material = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
 		var cube = new THREE.Mesh(geometry, material);
 		scene.add(cube);
 		cube.position.y = 3.005
 		cube.position.z = 0.63
-
 		var geometryabajo = new THREE.CylinderGeometry(0.05, 0.04, 0.024, 32);
 		var materialabajo = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
 		var cubeabajo = new THREE.Mesh(geometryabajo, materialabajo);
 		scene.add(cubeabajo);
 		cubeabajo.position.y = 2.828
 		cubeabajo.position.z = 0.63
-
-
-
-
 		var geometry2 = new THREE.CylinderGeometry(0.05, 0.05, 0.4, 32);
 		var material2 = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
 		var cube2 = new THREE.Mesh(geometry2, material2);
 		scene.add(cube2);
 		cube2.position.y = 2.63
 		cube2.position.z = 0.63
-
 		var geometryabajo2 = new THREE.CylinderGeometry(0.04, 0.05, 0.024, 32);
 		var materialabajo2 = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
 		var cubeabajo2 = new THREE.Mesh(geometryabajo2, materialabajo2);
@@ -159,11 +152,8 @@
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5)
 
 		function zoom(){
-			camera.position.set(0.12919880687743968, 2.6638040193874937, 0.6323951661347889); // posicion de la camara (0, 5, 5)
+			camera.position.set(0.5, 4, 0.067); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicion de la camara (0, 5, 5)
-			//x: 0.12919880687743968
-//y: 2.6638040193874937
-//z: 0.6323951661347889
 		
 		}
 
@@ -178,9 +168,8 @@
 			requestAnimationFrame(animate);
 			controls.update();
 			console.log(camera.position)
-
+			
 			/*
-
 			if (cubeabajo.position.y < 3.5) {
 				cube.position.y += 0.0002
 				cubeabajo.position.y += 0.0002
