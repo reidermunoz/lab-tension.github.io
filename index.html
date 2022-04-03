@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta charset="utf-8">
 	<title>Laboratorio de tension - Universidad del Valle - Reider Muñoz</title>
 	<style>
@@ -38,6 +39,13 @@
 		<canvas id="myChart" height="200px" width="400px"></canvas>
 		<a href="Datos.xlsx" align="left" class="btn" download="Datos.xlsx" ><h3>Datos</h3></a>
 		<a onclick="zoom()" align="left" class="btn"  ><h3>Zoom</h3></a>
+
+		<a onclick="modulo_elastico()" align="left" class="btn"  ><h3>play</h3></a>
+
+		<a align="left" ><h4>Modulo Elastico</h4s></a>		
+		<input type="text"; name="modulo_elastico"; id="modulo_elastico"><br> 
+
+
 	</div> 
 
 
@@ -88,6 +96,7 @@
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 		var garra;
 
+		document.addEventListener( 'keydown', onKeyDown );	
 
 		const renderer = new THREE.WebGLRenderer();
 		renderer.setSize(window.innerWidth, window.innerHeight);
@@ -148,6 +157,71 @@
 		cubeabajo2.position.z = 0.63
 */
 
+(function(){
+
+/**
+ * Ajuste decimal de un número.
+ *
+ * @param	{String}	type	El tipo de ajuste.
+ * @param	{Number}	value	El número.
+ * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
+ * @returns	{Number}			El valor ajustado.
+ */
+function decimalAdjust(type, value, exp) {
+	// Si el exp es indefinido o cero...
+	if (typeof exp === 'undefined' || +exp === 0) {
+		return Math[type](value);
+	}
+	value = +value;
+	exp = +exp;
+	// Si el valor no es un número o el exp no es un entero...
+	if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+		return NaN;
+	}
+	// Cambio
+	value = value.toString().split('e');
+	value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+	// Volver a cambiar
+	value = value.toString().split('e');
+	return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+}
+
+// Redondeo decimal
+if (!Math.round10) {
+	Math.round10 = function(value, exp) {
+		return decimalAdjust('round', value, exp);
+	};
+}
+// Redondeo hacia abajo
+if (!Math.floor10) {
+	Math.floor10 = function(value, exp) {
+		return decimalAdjust('floor', value, exp);
+	};
+}
+// Redondeo hacia arriba
+if (!Math.ceil10) {
+	Math.ceil10 = function(value, exp) {
+		return decimalAdjust('ceil', value, exp);
+	};
+}
+
+})();
+
+
+function modulo_elastico(){
+	var num1 = (202.358513779528-5.08919783464567);
+	var num2 = (0.00647290640394089-0);
+	var modulo_elastico = Math.round10(num1/num2,-2);
+	document.getElementById('modulo_elastico').value=modulo_elastico + ' MPa';
+
+}
+
+
+
+
+
+
+
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5)
 
@@ -162,6 +236,30 @@
 
 		renderer.render(scene, camera);
 
+		function onKeyDown( event ) {
+
+			switch ( event.code ) {
+
+				case 'ArrowUp':
+				case 'KeyW': camera.position.x = camera.position.x - 1;
+
+				case 'ArrowDown':
+				case 'KeyS': camera.position.x = camera.position.x + 1;
+
+				case 'ArrowLeft':
+				case 'KeyA': camera.position.z = camera.position.z + 1;
+
+				case 'ArrowRight':
+				case 'KeyD': camera.position.z = camera.position.z - 1;
+
+				// case 'KeyC': controls.crouch = true; break;
+				// case 'Space': controls.jump = true; break;
+				// case 'ControlLeft':
+				// case 'ControlRight': controls.attack = true; break;
+
+			}
+
+		}
 
 
 		function animate() {
@@ -169,17 +267,7 @@
 			controls.update();
 			console.log(camera.position)
 			
-			/*
-			if (cubeabajo.position.y < 3.5) {
-				cube.position.y += 0.0002
-				cubeabajo.position.y += 0.0002
-			} else {
-				cube.position.y = 7.5
-				cubeabajo.position.y = 4
-			}
-			*/
-
-				
+			
 
 			if (garra) {
 				var cant = chart.data.datasets[0].data.length;
@@ -205,6 +293,10 @@
 		}
 		animate()
 		
+		
+
+
+
 // Instantiate a loader
 const loader = new THREE.GLTFLoader();
 
@@ -252,6 +344,33 @@ loader2.load(
 		garra.position.x+=-0.001
 		garra.position.y+=0.258
 
+
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	},
+	// called when loading has errors
+	function ( error ) {
+		console.log( 'An error happened' );
+	}
+);
+
+// Instantiate a loader
+const loader3 = new THREE.GLTFLoader();
+
+// Load a glTF resource
+loader3.load(
+	'Tablero.gltf',//'scene.gltf'
+	function ( gltf ) {
+		scene.add( gltf.scene );
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Groups
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+	
 
 	},
 	// called while loading is progressing
