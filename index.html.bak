@@ -40,11 +40,7 @@
 		<a href="Datos.xlsx" align="left" class="btn" download="Datos.xlsx" ><h3>Datos</h3></a>
 		<a onclick="zoom()" align="left" class="btn"  ><h3>Zoom</h3></a>
 
-		<!--
 		<a onclick="modulo_elastico()" align="left" class="btn"  ><h3>play</h3></a>
-		-->
-
-		<button onclick="iniciar()" align="left" class="btn"  >play</button>
 
 		<a align="left" ><h4>Modulo Elastico</h4s></a>		
 		<input  type="text"; name="modulo_elastico"; id="modulo_elastico"><br> 
@@ -262,51 +258,38 @@ function modulo_elastico(){
 
 		}
 
-		var iniciar_ =false;
-
 
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
 			console.log(camera.position)
-
-			if(iniciar_){
-				if (garra) {
-					var cant = chart.data.datasets[0].data.length;
-					contador_barra1.push(1);
-
-					if(garra.position.y>0.264){
-						modulo_elastico();			
-					}
-				
-
-					if(garra.position.y<=0.29){
-						garra.position.y+=0.00001
-
-						if(contador_barra1.length %31 ==0){
-							chart.data.datasets[0].data.push({x: tension_barra1[cant][0], y:  tension_barra1[cant][1]});
-							chart.update();
-						}
-						
-					}else{
-						garra.position.y=0.35
-					}
-					console.log(garra.position.y)
-				}	
-
-			}
-	
 			
+			
+
+			if (garra) {
+				var cant = chart.data.datasets[0].data.length;
+				contador_barra1.push(1);
+			
+
+				if(garra.position.y<=0.29){
+					garra.position.y+=0.00001
+
+					if(contador_barra1.length %31 ==0){
+						chart.data.datasets[0].data.push({x: tension_barra1[cant][0], y:  tension_barra1[cant][1]});
+      					chart.update();
+					}
+					
+				}else{
+					garra.position.y=0.35
+				}
+				console.log(garra.position.y)
+			}
+
 			renderer.render(scene, camera);
 
 		}
-
 		animate()
-
-
-		function iniciar(){
-			iniciar_=true;
-		}
+		
 		
 
 
@@ -324,7 +307,6 @@ loader.load(
 		gltf.scenes; // Array<THREE.Group>
 		gltf.cameras; // Array<THREE.Camera>
 		gltf.asset; // Object
-		renderer.render(scene, camera);
 
 	},
 	// called while loading is progressing
@@ -358,7 +340,6 @@ loader2.load(
 		garra.position.z+=1.587
 		garra.position.x+=-0.001
 		garra.position.y+=0.258
-		renderer.render(scene, camera);
 
 
 	},
@@ -371,12 +352,6 @@ loader2.load(
 		console.log( 'An error happened' );
 	}
 );
-
-
-
-
-
-
 
 // Instantiate a loader
 const loader3 = new THREE.GLTFLoader();
@@ -391,7 +366,6 @@ loader3.load(
 		gltf.scenes; // Array<THREE.Group>
 		gltf.cameras; // Array<THREE.Camera>
 		gltf.asset; // Object
-		renderer.render(scene, camera);
 
 	
 
@@ -399,7 +373,6 @@ loader3.load(
 	// called while loading is progressing
 	function ( xhr ) {
 		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
 	},
 	// called when loading has errors
 	function ( error ) {
