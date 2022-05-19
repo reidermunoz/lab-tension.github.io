@@ -52,8 +52,9 @@
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
 			</div>
-			<div class="col-md-9" style="text-align: right;" >
-				<a  class="btn btn-sm btn-outline-secondary" href="index_barra2.html">Aluminio</a>
+			<div class="col-md-9" style="text-align: right;">
+				<a class="btn btn-sm btn-outline-secondary" href="index.html">Acero</a>
+
 			</div>
 		<!--	<div class="col-md-9" style="text-align: right;">
 				
@@ -79,7 +80,7 @@
 				<div style="text-align: center;">
 					<button type="button" onclick="zoom()" class="btn btn-primary">Zoom</button>
 					<button type="button" onclick="iniciar()" class="btn btn-secondary">Iniciar</button>
-					<button type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</button>
+					<button type="button" download="Datos.xlsx" class="btn btn-success">Datos</button>
 				</div>
 			</div>
 		</div>
@@ -142,7 +143,7 @@
 
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="tension_barra1.js"></script>
+	<script src="tension_barra2.js"></script>
 
 
 	<script>
@@ -174,13 +175,13 @@
 				scales: {
 					x: {
 						type: 'linear',
-						max: 0.5,
+						max: 0.07,
 						min: 0
 					},
 					y: {
 						type: 'linear',
-						max: 400,
-						min: 1
+						max: 116000,
+						min: 4900
 					}
 				}
 			}
@@ -308,41 +309,41 @@
 
 
 		function modulo_elastico() {
-			var num1 = (202.358513779528 - 5.08919783464567);
-			var num2 = (0.00647290640394089 - 0);
+			var num1 = (69896,494957 - 4992.606783);
+			var num2 = (0.0045000 - 0.0001000);
 			var modulo_elastico = Math.round10(num1 / num2, -2);
-			document.getElementById('modulo_elastico').value = modulo_elastico + ' MPa';
+			document.getElementById('modulo_elastico').value = modulo_elastico + ' Psi';
 
 		}
 
 		function punto_fluencia() {
-			var num3 = (202.358513779528);
+			var num3 = (64404.62750);
 			var punto_fluencia = Math.round10(num3, -2);
-			document.getElementById('punto_fluencia').value = punto_fluencia + ' Mpa';
+			document.getElementById('punto_fluencia').value = punto_fluencia + ' Psi';
 		}
 
 		function resistencia_traccion() {
-			var num4 = (338.411663385827);
+			var num4 = (111834.39193);
 			var resistencia_traccion = Math.round10(num4, -2);
-			document.getElementById('resistencia_traccion').value = resistencia_traccion + ' Mpa';
+			document.getElementById('resistencia_traccion').value = resistencia_traccion + ' Psi';
 		}
 
 		function punto_rotura() {
-			var num5 = (250.703125);
+			var num5 = (112832.9133);
 			var punto_rotura = Math.round10(num5, -2);
-			document.getElementById('punto_rotura').value = punto_rotura + ' Mpa';
+			document.getElementById('punto_rotura').value = punto_rotura + ' Psi';
 		}
 
 		function resiliencia() {
-			var num6 = (0.623700451034677);
+			var num6 = (71.593981);
 			var resiliencia = Math.round10(num6, -2);
-			document.getElementById('resiliencia').value = resiliencia + ' Mpa';
+			document.getElementById('resiliencia').value = resiliencia + ' Psi';
 		}
 
 		function tenacidad() {
-			var num7 = (121.844989519595);
+			var num7 = (5244.059423);
 			var tenacidad = Math.round10(num7, -2);
-			document.getElementById('tenacidad').value = tenacidad + ' Mpa';
+			document.getElementById('tenacidad').value = tenacidad + ' Psis';
 		}
 
 
@@ -402,7 +403,7 @@
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
 
-					if (garra.position.y > 0.264) {
+					if (garra.position.y > 0.274) {
 						modulo_elastico();
 						punto_fluencia();
 						resiliencia();
@@ -417,7 +418,7 @@
 
 
 					if (garra.position.y <= 0.29) {
-						garra.position.y += 0.00001
+						garra.position.y += 0.000057
 
 
 						if (contador_barra1.length % 31 == 0) {
