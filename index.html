@@ -356,8 +356,13 @@
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
 		function zoom() {
-			camera.position.set(0.5, 4, 0.067); // posicion de la camara (0, 5, 5)
+				camera.position.set(2.0701752008273955, 2.8630253789382745, 1.3838742436368454); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicion de la camara (0, 5, 5)
+			controls.target.set(-0.9133656071827974, 2.5295885698932192, 1.9919671193962032);
+
+			console.log(camera.position)
+			console.log(controls.target)
+
 
 		}
 
@@ -397,7 +402,7 @@
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
-			console.log(camera.position)
+			//console.log(camera.position)
 
 			if (iniciar_) {
 				if (garra) {
