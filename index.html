@@ -356,9 +356,9 @@
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
 		function zoom() {
-				camera.position.set(2.0701752008273955, 2.8630253789382745, 1.3838742436368454); // posicion de la camara (0, 5, 5)
+				camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicion de la camara (0, 5, 5)
-			controls.target.set(-0.9133656071827974, 2.5295885698932192, 1.9919671193962032);
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 
 			console.log(camera.position)
 			console.log(controls.target)
@@ -403,6 +403,10 @@
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
+			console.log(camera.position)
+			console.log('target')
+
+			console.log(controls.target)
 
 			if (iniciar_) {
 				if (garra) {
@@ -460,7 +464,7 @@
 
 		// Load a glTF resource
 		loader.load(
-			'salon.gltf',//'scene.gltf'
+			'salontraccion.glb',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -516,7 +520,7 @@
 			}
 		);
 
-
+		
 
 
 

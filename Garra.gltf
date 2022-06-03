@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "copyright" : "Reider Mu\u00f1oz",
+        "copyright" : "Reider Munoz",
         "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
@@ -76,9 +76,9 @@
             "name" : "Material.001",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
-                    0.17299999296665192,
-                    0.17299999296665192,
-                    0.17299999296665192,
+                    0.5088814496994019,
+                    0.5088813304901123,
+                    0.5088813900947571,
                     1
                 ],
                 "metallicFactor" : 0,
@@ -120,7 +120,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 4521,
+            "count" : 4891,
             "max" : [
                 142,
                 450.9996337890625,
@@ -136,13 +136,13 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 4521,
+            "count" : 4891,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 4521,
+            "count" : 4891,
             "type" : "VEC2"
         },
         {
@@ -154,7 +154,7 @@
         {
             "bufferView" : 4,
             "componentType" : 5126,
-            "count" : 392,
+            "count" : 588,
             "max" : [
                 1,
                 1,
@@ -170,13 +170,13 @@
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 392,
+            "count" : 588,
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
             "componentType" : 5126,
-            "count" : 392,
+            "count" : 588,
             "type" : "VEC2"
         },
         {
@@ -189,48 +189,48 @@
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 54252,
+            "byteLength" : 58692,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 54252,
-            "byteOffset" : 54252
+            "byteLength" : 58692,
+            "byteOffset" : 58692
         },
         {
             "buffer" : 0,
-            "byteLength" : 36168,
-            "byteOffset" : 108504
+            "byteLength" : 39128,
+            "byteOffset" : 117384
         },
         {
             "buffer" : 0,
             "byteLength" : 23916,
-            "byteOffset" : 144672
+            "byteOffset" : 156512
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 7056,
+            "byteOffset" : 180428
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 7056,
+            "byteOffset" : 187484
         },
         {
             "buffer" : 0,
             "byteLength" : 4704,
-            "byteOffset" : 168588
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 4704,
-            "byteOffset" : 173292
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 3136,
-            "byteOffset" : 177996
+            "byteOffset" : 194540
         },
         {
             "buffer" : 0,
             "byteLength" : 1536,
-            "byteOffset" : 181132
+            "byteOffset" : 199244
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 182668,
+            "byteLength" : 200780,
             "uri" : "Garra.bin"
         }
     ]
