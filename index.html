@@ -80,7 +80,7 @@
 		<div class="card" style="width: 100%;">
 			<div class="card-body">
 				<div style="text-align: center;">
-					<button type="button" onclick="zoom()" class="btn btn-primary">Zoom</button>
+					<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>
 					<button type="button" onclick="iniciar()" class="btn btn-secondary">Iniciar</button>
 					<button type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</button>
 				</div>
@@ -179,6 +179,9 @@
 						type: 'linear',
 						max: 0.5,
 						min: 0
+						
+						
+						
 					},
 					y: {
 						type: 'linear',
@@ -366,7 +369,12 @@
 
 
 		}
-
+function open_win(){
+	window.open("index.html","hola","width=400, height=200,")
+	camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			//camera.position.y=3 // posicion de la camara (0, 5, 5)
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+}
 		controls.update();
 
 
@@ -447,6 +455,8 @@
 
 
 			renderer.render(scene, camera);
+
+
 
 		}
 
