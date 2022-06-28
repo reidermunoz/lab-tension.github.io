@@ -4,45 +4,38 @@
 <head>
     <title>Dentro de la caja</title>
     <style>
+      
 
- 
 
         #garra2d{
-            top: 0%;
-            left: 36.5%;
             position: absolute;
-            animation: movimiento 80s linear;
         }
-        @keyframes movimiento{
-            0%{
-                transform: translateY(20px);
-            }
 
-            100%{
-                transform: translateY(2px);
-            }
-
-        }
     </style>
 </head>
 
-<body>
+<body style="padding: 0px;height: 300px;width: 400px;padding: 0px;overflow: hidden;background-color: #cccccc;zoom: 125%;">
     <div class="caja">
-        <div id="garra2d"><img src="garra3.png" width="1000"></div>
-
+        <div id="garra2d"><img src="garra3.png" style="width:300px;padding: 0px 0px 0px 0px;"></div>
     </div>
     <div class="cajaabajo">
-        <br>
-        <br>
-        <br>
-        <br>
-        <div id="abajo2d"><img src="soporte3.png" width="1300"></div>
+        <div id="abajo2d"><img src="soporte33.png" style="width:175px;padding: 0px 0px 0px 65.2px"></div>
     </div>
     <script>
-var aaaaa = document.getElementById("garra2d");
-var l=0;
-var s=0
-console.log(l)
+        
+        var movimniento = setInterval(() => {
+            var garra = document.getElementById('garra2d');
+            var posicion = garra.style.top.replace('px','');
+            console.log(posicion)
+            garra.style.top = ( posicion- 1) +'px';
+
+            if(posicion < -4){
+                clearInterval(movimniento)
+
+                garra.style.top = '-35px';
+
+            }            
+        }, 8900);
 
 
     </script>
