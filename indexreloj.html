@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
 
@@ -22,9 +22,6 @@
 	<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 
 
-
-
-	
 	<style>
 		html,
 		body {
@@ -48,8 +45,82 @@
 <body>
 
 
+	<div class="collapse" id="navbarToggleExternalContent">
+		<div class="bg-dark p-1">
 
+
+
+		  <form class="row g-2">
+			<div class="col-auto" style="width:180px">
+				<label class="form-label text-white" style="font-size:14px">punto fluencia <i
+						data-tippy-content="Punto donde la gráfica deja de comportarse de forma lineal "
+						class="ti ti-question-mark text-primary"></i></label>
+				<input type="text" class="form-control form-control-sm" name="punto_fluencia"
+					id="punto_fluencia" placeholder="">
+			</div>
+			<div class="col-auto" style="width:180px">
+				<label class="form-label text-white" style="font-size: 14px">modulo elastico <i
+						data-tippy-content="El módulo de elasticidad es la pendiente del diagrama esfuerzo-deformación unitaria en la región linealmente elástica; esfuerzo/deformación"
+						class="ti ti-question-mark text-primary"></i></label>
+				<input type="text" class="form-control form-control-sm" name="modulo_elastico"
+					id="modulo_elastico" placeholder="">
+			</div>
+			<div class="col-auto" style="width:180px">
+				<label class="form-label text-white" style="font-size: 14px">Resistencia a la tracción <i
+						data-tippy-content="Punto máximo de la grafica"
+						class="ti ti-question-mark text-primary"></i></label>
+				<input type="text" class="form-control form-control-sm" name="resistencia_traccion"
+					id="resistencia_traccion" placeholder="">
+			</div>
+			<div class="col-auto" style="width:180px">
+				<label class="form-label text-white" style="font-size: 14px">Punto de rotura <i
+						data-tippy-content="Punto final de la gráfica, donde se rompe la probeta"
+						class="ti ti-question-mark text-primary"></i></label>
+				<input type="text" class="form-control form-control-sm" name="punto_rotura" id="punto_rotura"
+					placeholder="">
+			</div>
+			<div class="col-auto" style="width:180px">
+				<label class="form-label text-white" style="font-size: 14px">Resiliencia <i
+						data-tippy-content="Es igual al área debajo de la curva esfuerzo-deformación hasta el límite de proporcionalidad. La resiliencia representa la capacidad de un material para absorber y liberar energía dentro del intervalo elástico"
+						class="ti ti-question-mark text-primary"></i></label>
+				<input type="text" class="form-control form-control-sm" name="resiliencia" id="resiliencia"
+					placeholder="">
+			</div>
+			<div class="col-auto" style="width:180px">
+				<label class="form-label text-white" style="font-size: 14px">Tenacidad <i
+						data-tippy-content="Es igual al área debajo de toda la curva esfuerzo-deformación. La tenacidad, se refiere a la capacidad de un material para absorber energía sin fracturarse"
+						class="ti ti-question-mark text-primary"></i></label>
+				<input type="text" class="form-control form-control-sm" name="tenacidad" id="tenacidad"
+					placeholder="">
+			</div>
+		</form>
+
+
+
+
+
+
+
+
+
+		  
+		  
+		</div>
+	  </div>
+	  <nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		</div>
+	  </nav>
+
+
+
+	  
 	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
+	
+
 		<div class="row">
 			<div class="col-md-3">
 				<a href="/" class="d-flex align-items-center text-dark text-decoration-none">
@@ -57,10 +128,20 @@
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
 			</div>
+
+		
+
 			<div class="col-md-9" style="text-align: right;" >
 				<a  class="btn btn-sm btn-outline-secondary" href="index_barra2.html">Aluminio</a>
+				<a  class="btn btn-sm btn-outline-secondary" href="index_flexion.html">Lab_flexion2cargas</a>
+				<a  class="btn btn-sm btn-outline-secondary" href="index_flexionunacarga.html">Lab_flexion1carga</a>
 			</div>
-		<!--	<div class="col-md-9" style="text-align: right;">
+
+
+		
+		
+
+		<!--	<div class="col-md-9" style="text-align: right;">s
 				
 				<a class="btn btn-sm btn-outline-secondary" href="index copy.html">aaTorsión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="https://reidermunoz.github.io/lab-tension.github.io/">SISTorsión</a>
@@ -77,14 +158,15 @@
 
 		<div class="card mb-2" style="width: 100%;">
 			<div class="card-body">
-				<canvas id="myChard" style="width: 200px;height: 100px;"></canvas>
+				<canvas id="myChart" style="width: 200px;height: 100px;"></canvas>
 			</div>
 		</div>
+
 		<div class="card" style="width: 100%;">
 			<div class="card-body">
 				<div style="text-align: center;">
-					<button type="button" onclick="zoom()" class="btn btn-primary">Zoom</button>
-					<button type="button" onclick="iniciar()" class="btn btn-secondary">Iniciar</button>
+				<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
+					<button type="button" onclick="iniciar(),open_win()" class="btn btn-secondary">Iniciar</button>
 					<button type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</button>
 				</div>
 			</div>
@@ -93,50 +175,27 @@
 			<div class="card-body">
 				<form class="row g-2">
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Punto de fluencia <i
-								data-tippy-content="Punto donde la gráfica deja de comportarse de forma lineal"
+						<label class="form-label" style="font-size:14px">Alargamiento <i
+								data-tippy-content="La deformacion de la probeta entre dos puntos fijos "
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="punto_fluencia"
-							id="punto_fluencia" placeholder="">
+						<input type="text" class="form-control form-control-sm" name="Alargamiento"
+							id="Alargamiento" placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Módulo elástico <i
-								data-tippy-content="El módulo de elasticidad es la pendiente del diagrama esfuerzo-deformación unitaria en la región linealmente elástica; esfuerzo/deformación"
+						<label class="form-label" style="font-size: 14px">Carga <i
+								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="modulo_elastico"
-							id="modulo_elastico" placeholder="">
+						<input type="text" class="form-control form-control-sm" name="Carga"
+							id="Carga" placeholder="">
 					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Resistencia a la tracción <i
-								data-tippy-content="Punto máximo de la grafica"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="resistencia_traccion"
-							id="resistencia_traccion" placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Punto de rotura <i
-								data-tippy-content="Punto final de la gráfica, donde se rompe la probeta"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="punto_rotura" id="punto_rotura"
-							placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Resiliencia <i
-								data-tippy-content="Es igual al área debajo de la curva esfuerzo-deformación hasta el límite de proporcionalidad. La resiliencia representa la capacidad de un material para absorber y liberar energía dentro del intervalo elástico"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="resiliencia" id="resiliencia"
-							placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Tenacidad <i
-								data-tippy-content="Es igual al área debajo de toda la curva esfuerzo-deformación. La tenacidad, se refiere a la capacidad de un material para absorber energía sin fracturarse"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="tenacidad" id="tenacidad"
-							placeholder="">
-					</div>
+			
 				</form>
 			</div>
 		</div>
+	</div>
+	
+	<div class="position-fixed" id="ventanamini2d" style="bottom: 0px;right:0px;height: 300px;width: 400px;background-color: #ffffff;overflow: hidden;display: none"  >
+		<iframe id="mini2d" src="index2d.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
@@ -148,14 +207,14 @@
 
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="tension_flexion.js"></script>
+	<script src="tension_barra1.js"></script>
 
 
 	<script>
 		tippy('[data-tippy-content]');
 
 
-		var ctx = document.getElementById("myChard").getContext("2d");
+		var ctx = document.getElementById("myChart").getContext("2d");
 		const contador_barra1 = [];
 		const chart = new Chart(ctx, {
 			type: 'line',
@@ -177,20 +236,33 @@
 				plugins: {
 					legend: false
 				},
-				scales: {
+				scales: {				
 					x: {
 						type: 'linear',
-						max: 20.5,
-						min: 0
+						max: 0.5,
+						min: 0,
+						title:{
+							display: true,
+							text:'Alargamiento'
+						}
 					},
+					
 					y: {
 						type: 'linear',
-						max: 30,
-						min: 1
+						max: 400,
+						min: 1,
+						title:{
+							display: true,
+							text:'Carga'
+						}
 					}
+					
+
+
 				}
 			}
 		});
+
 
 
 
@@ -200,9 +272,9 @@
 
 		document.addEventListener('keydown', onKeyDown);
 
-		const container = document.getElementById('c');
+		const container = document.getElementById('3d');
 
-	
+
 		const renderer = new THREE.WebGLRenderer();
 
 		renderer.setSize(window.innerWidth, window.innerHeight);
@@ -353,20 +425,32 @@
 		}
 
 
+
+
+
+
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
 		function zoom() {
-				camera.position.set(1.8098110142777268, 2.3699534899936925, -1.875407660853348); // posicion de la camara (0, 5, 5)
+				camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicion de la camara (0, 5, 5)
-			controls.target.set(-0.6324779133060269, 1.9741005439577692, -1.5543945868801592);
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 
-			console.log(camera.position)
-			console.log(controls.target)
+		//	console.log(camera.position)
+		//	console.log(controls.target)
 
 
 		}
-
+function open_win(){
+	window.open("index2d.html","hola","width=400px, height=300px,")
+	camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			//camera.position.y=3 // posicion de la camara (0, 5, 5)
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+}
+function open_winmini(){
+	
+}
 		controls.update();
 
 
@@ -397,28 +481,6 @@
 
 		}
 
-		var mixer;
-        var clock = new THREE.Clock();
-
-		function animate() {
-			requestAnimationFrame(animate);
-			controls.update();
-			console.log(camera.position)
-			console.log('target')
-			console.log(controls.target)
-
-            var delta = clock.getDelta();
-
-	        if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
-
-			renderer.render(scene, camera);
-
-		}
-
-		animate()
-
-
-
 		var iniciar_ = false;
 
 
@@ -426,63 +488,138 @@
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
+			
 
 			if (iniciar_) {
-				requestAnimationFrame(animate);
-			controls.update();
-			//console.log(camera.position)
+				if (garra) {
+					var cant = chart.data.datasets[0].data.length;
+					contador_barra1.push(1);
 
-            var delta = clock.getDelta();
+					if (garra.position.y > 0.264) {
+						modulo_elastico();
+						punto_fluencia();
+						resiliencia();
+					}
+					if (garra.position.y > 0.2838) {
+						resistencia_traccion();
+					}
+					if (garra.position.y > 0.29) {
+						punto_rotura();
+						tenacidad();
+					}
 
-	        if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
-			renderer.render(scene, camera);
+
+					if (garra.position.y <= 0.29) {
+						garra.position.y += 0.00001
+
+
+						if (contador_barra1.length % 31 == 0) {
+							chart.data.datasets[0].data.push({ x: tension_barra1[cant][0], y: tension_barra1[cant][1] });
+							chart.update();
+							console.log(chart.data.datasets[0].data[cant].x)
+
+							let prierox=chart.data.datasets[0].data[cant].x;
+							let segundoy=chart.data.datasets[0].data[cant].y
+
+							document.getElementById('Alargamiento').value = prierox;
+							document.getElementById('Carga').value = segundoy;
+						}
+
+					} else {
+						garra.position.y = 0.35
+					}
+				//	console.log(garra.position.y)
+				}
+
 			}
 
 
-			
+			renderer.render(scene, camera);
+
+
 
 		}
+
+	
 		animate()
+
+function relojx(){
+	
+}
 
 
 		function iniciar() {
 			iniciar_ = true;
+			document.getElementById("ventanamini2d").style.display = "block";
+			document.getElementById('mini2d').src="index2d.html";
+
 		}
+
+
 
 
 		// Instantiate a loader
 		const loader = new THREE.GLTFLoader();
 
-
 		// Load a glTF resource
 		loader.load(
-			'vigaflexion_dos_cargacongltf.gltf',//'scene.gltf'
+			'salontraccion.glb',//'scene.gltf'
 			function (gltf) {
-                mixer= new THREE.AnimationMixer(gltf.scene);
-                gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
-
 				scene.add(gltf.scene);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+				renderer.render(scene, camera);
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+			//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+			//	console.log('An error happened');
+			}
+		);
+
+
+
+		// Instantiate a loader
+		const loader2 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader2.load(
+			'Garra.gltf',//'scene.gltf'
+			function (gltf) {
+				garra = gltf.scene;
+				scene.add(garra);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+
+				console.log('completado!.....')
+				garra.position.z += 1.587
+				garra.position.x += -0.001
+				garra.position.y += 0.258
 				renderer.render(scene, camera);
 
 
 			},
 			// called while loading is progressing
 			function (xhr) {
-				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 			},
 			// called when loading has errors
 			function (error) {
-				console.log('An error happened');
+			//	console.log('An error happened');
 			}
 		);
 
-
-
-
 		
-
-
-
 
 
 
