@@ -402,17 +402,18 @@ function open_winmini(){
 			switch (event.code) {
 
 				case 'ArrowUp':
-				case 'KeyW': camera.position.x = camera.position.x - 1;
+				case 'KeyW': camera.position.x = camera.position.x - 2;
+				console.log(camera.position.x)
 
 				case 'ArrowDown':
 				case 'KeyS': camera.position.x = camera.position.x + 1;
-
+				console.log(camera.position.x)
 				case 'ArrowLeft':
-				case 'KeyA': camera.position.z = camera.position.z + 1;
-
+				case 'KeyA': camera.position.z = camera.position.z + 2;
+				console.log(camera.position.z)
 				case 'ArrowRight':
 				case 'KeyD': camera.position.z = camera.position.z - 1;
-
+				console.log(camera.position.z)
 				// case 'KeyC': controls.crouch = true; break;
 				// case 'Space': controls.jump = true; break;
 				// case 'ControlLeft':
