@@ -415,36 +415,36 @@
 
 
 
-	//	var iniciar_ = false;
+		var iniciar_ = false;
 
 
-	//	function animate() {
-	//		requestAnimationFrame(animate);
-	//		controls.update();
+		//function animate() {
+		//	requestAnimationFrame(animate);
+		//	controls.update();
 			//console.log(camera.position)
 
-	//		if (iniciar_) {
-	//			requestAnimationFrame(animate);
-	//		controls.update();
+		//	if (iniciar_) {
+		//		requestAnimationFrame(animate);
+		//	controls.update();
 			//console.log(camera.position)
 
-    //        var delta = clock.getDelta();
-
-	//        if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
-	//		renderer.render(scene, camera);
-	//		}
+        //    var delta = clock.getDelta();
+//
+	    //    if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
+		//	renderer.render(scene, camera);
+		//	}
 
 
 			
 
-	//	}
+		//}
 
-	//	animate()
+		//animate()
 
 
-	//	function iniciar() {
-	//		iniciar_ = true;
-	//	}
+		//function iniciar() {
+		//	iniciar_ = true;
+		//}
 
 
 		// Instantiate a loader
@@ -453,7 +453,7 @@
 
 		// Load a glTF resource
 		loader.load(
-			'flexionunacargarRISK.glb',//'scene.gltf'
+			'flexiondoscargarRISK.glb',//'scene.gltf'
 			function (gltf) {
                 mixer= new THREE.AnimationMixer(gltf.scene);
                 gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
