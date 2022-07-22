@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dentro de la caja</title>
+    <style>
+      
+
+
+        #garra2d{
+            position: absolute;
+        }
+
+        #elipse{
+            position: absolute;
+        }
+
+    </style>
+</head>
+
+<body style="padding: 0px;height: 300px;width: 400px;padding: 0px;overflow: hidden;background-color: #cccccc;zoom: 125%;">
+    <canvas id="elipse" width="300px" height="300px" style="border: 2px solid gray;"></canvas>
+<!--     <div class="cajaelipse">
+        <div id="elipse" style="width:170px;height:300px ;zoom:115%;border: 2px solid gray;"></div>
+    </div> -->
+    <div class="caja">
+        <div id="garra2d"><img src="garracompresion2d.png" style="width:170px;padding: 0px 0px 0px 74px;zoom:115%"></div>
+    </div>
+    <div class="cajaabajo">
+        <div id="abajo2d"><img src="garracompresion2darriba.png" style="width:160px;padding: 200px 0px 0px 66.5px;zoom: 125%"></div>
+    </div>
+    
+    <script>
+        
+        var movimniento = setInterval(() => {
+            var garra = document.getElementById('garra2d');
+            var posicion = garra.style.top.replace('px','');
+ /*            console.log(posicion) */
+            garra.style.top = ( posicion+1-9*posicion) +'px';
+
+            if(posicion >= 30){
+                clearInterval(movimniento)
+
+                garra.style.top = '30px';
+
+            }            
+        }, 890);
+
+    window.addEventListener('load', () => {
+            let canvasElipse = document.getElementById('elipse');
+            let ctx = canvasElipse.getContext('2d');
+            
+            var elipsecambia = 5;
+
+
+            ctx.beginPath();
+            ctx.ellipse(150, 150, elipsecambia, 150, Math.PI / 90, 0, 2 * Math.PI);
+            ctx.stroke();
+        });
+
+
+        
+
+    </script>
+</body>
+
+</html>
