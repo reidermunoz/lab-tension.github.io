@@ -453,7 +453,7 @@
 
 		// Load a glTF resource
 		loader.load(
-			'flexiondoscargarRISK.glb',//'scene.gltf'
+			'flexiondoscargarRISKcilindrico.glb',//'scene.gltf'
 			function (gltf) {
                 mixer= new THREE.AnimationMixer(gltf.scene);
                 gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
