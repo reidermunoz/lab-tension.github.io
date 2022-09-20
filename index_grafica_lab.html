@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
 
@@ -44,8 +44,6 @@
 
 <body>
 
-
-
 	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
 		<div class="row">
 			<div class="col-md-3">
@@ -56,8 +54,10 @@
 			</div>
 			<div class="col-md-9" style="text-align: right;" >
 				<a  class="btn btn-sm btn-outline-secondary" href="index_barra2.html">Aluminio</a>
+				<a  class="btn btn-sm btn-outline-secondary" href="index_flexion.html">Lab_flexion2cargas</a>
+				<a  class="btn btn-sm btn-outline-secondary" href="index_flexionunacarga.html">Lab_flexion1carga</a>
 			</div>
-		<!--	<div class="col-md-9" style="text-align: right;">
+		<!--	<div class="col-md-9" style="text-align: right;">s
 				
 				<a class="btn btn-sm btn-outline-secondary" href="index copy.html">aaTorsión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="https://reidermunoz.github.io/lab-tension.github.io/">SISTorsión</a>
@@ -74,13 +74,14 @@
 
 		<div class="card mb-2" style="width: 100%;">
 			<div class="card-body">
-				<canvas id="myChard" style="width: 200px;height: 100px;"></canvas>
+				<canvas id="myChart" style="width: 200px;height: 100px;"></canvas>
 			</div>
 		</div>
+
 		<div class="card" style="width: 100%;">
 			<div class="card-body">
 				<div style="text-align: center;">
-					<button type="button" onclick="zoom()" class="btn btn-primary">Zoom</button>
+				<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
 					<button type="button" onclick="iniciar()" class="btn btn-secondary">Iniciar</button>
 					<button type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</button>
 				</div>
@@ -89,10 +90,6 @@
 		<div class="card mt-2" style="width: 100%;">
 			<div class="card-body">
 				<form class="row g-2">
-					<select name="material" id="material">
-						<option>Pino</option>
-						<option>Eucalipto</option>
-					</select>
 					<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Punto de fluencia <i
 								data-tippy-content="Punto donde la gráfica deja de comportarse de forma lineal"
@@ -135,11 +132,15 @@
 						<input type="text" class="form-control form-control-sm" name="tenacidad" id="tenacidad"
 							placeholder="">
 					</div>
-					
 				</form>
 			</div>
 		</div>
 	</div>
+	
+	<div class="position-fixed" id="ventanamini2d" style="bottom: 0px;right:0px;height: 500px;width: 400px;background-color: #ffffff;overflow: hidden;display: none"  >
+		<iframe id="mini2d" src="index2dcorta.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
+	</div>
+
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -149,14 +150,14 @@
 
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="tension_flexion_Pino.js"></script>
+	<script src="tension_flexion_Lab.js"></script>
 
 
 	<script>
 		tippy('[data-tippy-content]');
 
 
-		var ctx = document.getElementById("myChard").getContext("2d");
+		var ctx = document.getElementById("myChart").getContext("2d");
 		const contador_barra1 = [];
 		const chart = new Chart(ctx, {
 			type: 'line',
@@ -178,21 +179,32 @@
 				plugins: {
 					legend: false
 				},
-				scales: {
+				scales: {				
 					x: {
 						type: 'linear',
-						max: 3,
-						min: 0
+						max: 1400,
+						min: 0,
+						title:{
+							display: true,
+							text:'Alargamiento (mm)'
+						}
 					},
+					
 					y: {
 						type: 'linear',
-						max: 260,
-						min: 1
+						max: 750,
+						min: 1,
+						title:{
+							display: true,
+							text:'Carga (Kg)'
+						}
 					}
+					
+
+
 				}
 			}
 		});
-
 
 
 		var scene = new THREE.Scene();
@@ -201,9 +213,9 @@
 
 		document.addEventListener('keydown', onKeyDown);
 
-		const container = document.getElementById('c');
+		const container = document.getElementById('3d');
 
-	
+
 		const renderer = new THREE.WebGLRenderer();
 
 		renderer.setSize(window.innerWidth, window.innerHeight);
@@ -354,20 +366,32 @@
 		}
 
 
+
+
+
+
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
 		function zoom() {
-				camera.position.set(1.8098110142777268, 2.3699534899936925, -1.875407660853348); // posicion de la camara (0, 5, 5)
+				camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicion de la camara (0, 5, 5)
-			controls.target.set(-0.6324779133060269, 1.9741005439577692, -1.5543945868801592);
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 
 			console.log(camera.position)
 			console.log(controls.target)
 
 
 		}
-
+function open_win(){
+	window.open("index2dcorta.html","hola","width=400px, height=600px,")
+	camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			//camera.position.y=3 // posicion de la camara (0, 5, 5)
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+}
+function open_winmini(){
+	
+}
 		controls.update();
 
 
@@ -378,17 +402,18 @@
 			switch (event.code) {
 
 				case 'ArrowUp':
-				case 'KeyW': camera.position.x = camera.position.x - 1;
+				case 'KeyW': camera.position.x = camera.position.x - 2;
+				console.log(camera.position.x)
 
 				case 'ArrowDown':
 				case 'KeyS': camera.position.x = camera.position.x + 1;
-
+				console.log(camera.position.x)
 				case 'ArrowLeft':
-				case 'KeyA': camera.position.z = camera.position.z + 1;
-
+				case 'KeyA': camera.position.z = camera.position.z + 2;
+				console.log(camera.position.z)
 				case 'ArrowRight':
 				case 'KeyD': camera.position.z = camera.position.z - 1;
-
+				console.log(camera.position.z)
 				// case 'KeyC': controls.crouch = true; break;
 				// case 'Space': controls.jump = true; break;
 				// case 'ControlLeft':
@@ -398,49 +423,55 @@
 
 		}
 
-		var mixer;
-        var clock = new THREE.Clock();
-
-		function animate() {
-			requestAnimationFrame(animate);
-			controls.update();
-			console.log(camera.position)
-			console.log('target')
-			console.log(controls.target)
-
-            var delta = clock.getDelta();
-
-	        if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
-
-			renderer.render(scene, camera);
-
-		}
-
-		animate()
-
-
-
 		var iniciar_ = false;
 
 
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
-			console.log(camera.position)
+			//console.log(camera.position)
+			
 
 			if (iniciar_) {
-				requestAnimationFrame(animate);
-			controls.update();
-			console.log(camera.position)
+				if (garra) {
+					var cant = chart.data.datasets[0].data.length;
+					contador_barra1.push(1);
 
-            var delta = clock.getDelta();
+					if (garra.position.y > 0.264) {
+						modulo_elastico();
+						punto_fluencia();
+						resiliencia();
+					}
+					if (garra.position.y > 0.2838) {
+						resistencia_traccion();
+					}
+					if (garra.position.y > 0.29) {
+						punto_rotura();
+						tenacidad();
+					}
 
-	        if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
-			renderer.render(scene, camera);
+
+					if (garra.position.y <= 0.29) {
+						garra.position.y += 0.00001
+
+
+						if (contador_barra1.length % 31 == 0) {
+							chart.data.datasets[0].data.push({ x: tension_flexion_Lab[cant][0], y: tension_flexion_Lab[cant][1] });
+							chart.update();
+						}
+
+					} else {
+						garra.position.y = 0.35
+					}
+					console.log(garra.position.y)
+				}
+
 			}
 
 
-			
+			renderer.render(scene, camera);
+
+
 
 		}
 
@@ -449,21 +480,61 @@
 
 		function iniciar() {
 			iniciar_ = true;
+			document.getElementById("ve0ntanamini2d").style.display = "block";
+			document.getElementById('mini2d').src="index2dcorta.html";
+
 		}
+
+
 
 
 		// Instantiate a loader
 		const loader = new THREE.GLTFLoader();
 
-
 		// Load a glTF resource
 		loader.load(
-			'flexionunacargarRISK.glb',//'scene.gltf'
+			'salontraccion.glb',//'scene.gltf'
 			function (gltf) {
-                mixer= new THREE.AnimationMixer(gltf.scene);
-                gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
-
 				scene.add(gltf.scene);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+				renderer.render(scene, camera);
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				console.log('An error happened');
+			}
+		);
+
+
+
+		// Instantiate a loader
+		const loader2 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader2.load(
+			'Garra.gltf',//'scene.gltf'
+			function (gltf) {
+				garra = gltf.scene;
+				scene.add(garra);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+
+				console.log('completado!.....')
+				garra.position.z += 1.587
+				garra.position.x += -0.001
+				garra.position.y += 0.258
 				renderer.render(scene, camera);
 
 
@@ -477,6 +548,10 @@
 				console.log('An error happened');
 			}
 		);
+
+		
+
+
 
 		// create an AudioListener and add it to the camera
 		const listener = new THREE.AudioListener();
