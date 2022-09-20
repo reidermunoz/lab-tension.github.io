@@ -80,58 +80,33 @@
 
 		<div class="card" style="width: 100%;">
 			<div class="card-body">
-				<div style="text-align: center;">
+				<div style="text-align: center;"> 
 				<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<button type="button" onclick="iniciar(),open_win()" class="btn btn-secondary">Iniciar</button>
-					<a type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</a>
+					<button type="button" onclick="Diametro(),cons_elasticidad(),cambio(),iniciar()" class="btn btn-secondary">Iniciar</button>
+					<button type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</button>
+					<button type="button" onclick="recargar()" class="btn btn-primary">Reiniciar</button>
 				</div>
 			</div>
 		</div>
 		<div class="card mt-2" style="width: 100%;">
 			<div class="card-body">
 				<form class="row g-2">
+				
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Punto de fluencia <i
+						<label class="form-label" style="font-size:14px">Diametro <i
 								data-tippy-content="Punto donde la gráfica deja de comportarse de forma lineal"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="punto_fluencia"
-							id="punto_fluencia" placeholder="">
+						<input type="text" class="form-control form-control-sm" name="Diametro"
+							id="Diametro" placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Módulo elástico <i
+						<label class="form-label" style="font-size: 14px">constante elástica <i
 								data-tippy-content="El módulo de elasticidad es la pendiente del diagrama esfuerzo-deformación unitaria en la región linealmente elástica; esfuerzo/deformación"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="modulo_elastico"
-							id="modulo_elastico" placeholder="">
+						<input type="text" class="form-control form-control-sm" name="cons_elasticidad"
+							id="cons_elasticidad" placeholder="">
 					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Resistencia a la tracción <i
-								data-tippy-content="Punto máximo de la grafica"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="resistencia_traccion"
-							id="resistencia_traccion" placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Punto de rotura <i
-								data-tippy-content="Punto final de la gráfica, donde se rompe la probeta"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="punto_rotura" id="punto_rotura"
-							placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Resiliencia <i
-								data-tippy-content="Es igual al área debajo de la curva esfuerzo-deformación hasta el límite de proporcionalidad. La resiliencia representa la capacidad de un material para absorber y liberar energía dentro del intervalo elástico"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="resiliencia" id="resiliencia"
-							placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Tenacidad <i
-								data-tippy-content="Es igual al área debajo de toda la curva esfuerzo-deformación. La tenacidad, se refiere a la capacidad de un material para absorber energía sin fracturarse"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="tenacidad" id="tenacidad"
-							placeholder="">
-					</div>
+					
 				</form>
 			</div>
 		</div>
@@ -182,21 +157,21 @@
 				scales: {				
 					x: {
 						type: 'linear',
-						max: 0.5,
+						max: 0.013,
 						min: 0,
 						title:{
 							display: true,
-							text:'Alargamiento'
+							text:'Deformación'
 						}
 					},
 					
 					y: {
 						type: 'linear',
-						max: 400,
-						min: 1,
+						max: 350,
+						min: 0,
 						title:{
 							display: true,
-							text:'Carga'
+							text:'Esfuerzo'
 						}
 					}
 					
@@ -206,6 +181,8 @@
 			}
 		});
 
+	
+		
 
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
@@ -245,37 +222,37 @@
 		// scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
 
 		// ground
-		/*
+		
 		const mesh = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshPhongMaterial({ color: 0x999999, depthWrite: false }));
 		mesh.rotation.x = - Math.PI / 2;
 		mesh.receiveShadow = true;
 		scene.add(mesh);
-		var geometry = new THREE.CylinderGeometry(0.05, 0.05, 0.3, 32);
+
+		var D = 1;
+		var const_elas =1;
+
+		function Diametro() {
+		D = parseFloat(document.getElementById('Diametro').value);
+		}
+
+		function cons_elasticidad() {
+		const_elas = parseFloat(document.getElementById('cons_elasticidad').value);
+		}
+
+		function cambio() {
+		
+		
+
+		var geometry = new THREE.CylinderGeometry(D/100, D/100, 0.45, 32);
 		var material = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
 		var cube = new THREE.Mesh(geometry, material);
 		scene.add(cube);
-		cube.position.y = 3.005
+		cube.position.y = 2.62
 		cube.position.z = 0.63
-		var geometryabajo = new THREE.CylinderGeometry(0.05, 0.04, 0.024, 32);
-		var materialabajo = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
-		var cubeabajo = new THREE.Mesh(geometryabajo, materialabajo);
-		scene.add(cubeabajo);
-		cubeabajo.position.y = 2.828
-		cubeabajo.position.z = 0.63
-		var geometry2 = new THREE.CylinderGeometry(0.05, 0.05, 0.4, 32);
-		var material2 = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
-		var cube2 = new THREE.Mesh(geometry2, material2);
-		scene.add(cube2);
-		cube2.position.y = 2.63
-		cube2.position.z = 0.63
-		var geometryabajo2 = new THREE.CylinderGeometry(0.04, 0.05, 0.024, 32);
-		var materialabajo2 = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
-		var cubeabajo2 = new THREE.Mesh(geometryabajo2, materialabajo2);
-		scene.add(cubeabajo2);
-		cubeabajo2.position.y = 2.84
-		cubeabajo2.position.z = 0.63
-*/
+		
 
+		renderer.render(scene, camera);
+		}
 		(function () {
 
 			/**
@@ -424,48 +401,39 @@ function open_winmini(){
 		}
 
 		var iniciar_ = false;
-
+		var u2 = [];
+		u2[0] = 0;
+		var dt = 300;
 
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
 			
+			
 
 			if (iniciar_) {
-				if (garra) {
-					var cant = chart.data.datasets[0].data.length;
-					contador_barra1.push(1);
+				
+			var contador1 = 0;
+			var contadorr = 1;
+			var t = 0;
+			var Area = Math.PI * (D/2) * (D/2);
+			function graf(){
 
-					if (garra.position.y > 0.264) {
-						modulo_elastico();
-						punto_fluencia();
-						resiliencia();
-					}
-					if (garra.position.y > 0.2838) {
-						resistencia_traccion();
-					}
-					if (garra.position.y > 0.29) {
-						punto_rotura();
-						tenacidad();
-					}
+				var F = t *9.81;
+				var sig = F / Area;
+				var eee = sig / const_elas;
+				chart.data.datasets[0].data.push({ y: sig, x: eee })
+				chart.update();
+				console.log(sig)
+				console.log(eee)
+				//sig = F / Area;
+				//eee = sig / Area;
+				//F = t *9.81;
+				t = t + dt;
 
-
-					if (garra.position.y <= 0.29) {
-						garra.position.y += 0.00001
-
-
-						if (contador_barra1.length % 31 == 0) {
-							chart.data.datasets[0].data.push({ x: tension_barra1[cant][0], y: tension_barra1[cant][1] });
-							chart.update();
-						}
-
-					} else {
-						garra.position.y = 0.35
-					}
-					console.log(garra.position.y)
-				}
-
+			}
+			tiempo2 = setInterval(graf, 1)
 			}
 
 
@@ -485,7 +453,9 @@ function open_winmini(){
 
 		}
 
-
+		function recargar() {
+					window.location.href = window.location.href;
+		}
 
 
 		// Instantiate a loader
@@ -569,9 +539,9 @@ function open_winmini(){
 			sound.play();
 		});
 
+/*
 
-
-		/*
+		
 		var animate = function () {
 			requestAnimationFrame( animate );
 			cube.rotation.x += 0.01;
