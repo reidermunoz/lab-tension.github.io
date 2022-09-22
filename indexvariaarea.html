@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
 
@@ -44,8 +44,6 @@
 
 <body>
 
-
-
 	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
 		<div class="row">
 			<div class="col-md-3">
@@ -56,8 +54,10 @@
 			</div>
 			<div class="col-md-9" style="text-align: right;" >
 				<a  class="btn btn-sm btn-outline-secondary" href="index_barra2.html">Aluminio</a>
+				<a  class="btn btn-sm btn-outline-secondary" href="index_flexion.html">Lab_flexion2cargas</a>
+				<a  class="btn btn-sm btn-outline-secondary" href="index_flexionunacarga.html">Lab_flexion1carga</a>
 			</div>
-		<!--	<div class="col-md-9" style="text-align: right;">
+		<!--	<div class="col-md-9" style="text-align: right;">s
 				
 				<a class="btn btn-sm btn-outline-secondary" href="index copy.html">aaTorsión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="https://reidermunoz.github.io/lab-tension.github.io/">SISTorsión</a>
@@ -74,72 +74,48 @@
 
 		<div class="card mb-2" style="width: 100%;">
 			<div class="card-body">
-				<canvas id="myChard" style="width: 200px;height: 100px;"></canvas>
+				<canvas id="myChart" style="width: 200px;height: 100px;"></canvas>
 			</div>
 		</div>
+
 		<div class="card" style="width: 100%;">
 			<div class="card-body">
-				<div style="text-align: center;">
-					<button type="button" onclick="zoom()" class="btn btn-primary">Zoom</button>
-					<button type="button" onclick="iniciar()" class="btn btn-secondary">Iniciar</button>
+				<div style="text-align: center;"> 
+				<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
+					<button type="button" onclick="Diametro(),cons_elasticidad(),cambio(),iniciar()" class="btn btn-secondary">Iniciar</button>
 					<button type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</button>
+					<button type="button" onclick="recargar()" class="btn btn-primary">Reiniciar</button>
 				</div>
 			</div>
 		</div>
 		<div class="card mt-2" style="width: 100%;">
 			<div class="card-body">
 				<form class="row g-2">
-					<select name="material" id="material">
-						<option>Pino</option>
-						<option>Eucalipto</option>
-					</select>
+				
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Punto de fluencia <i
+						<label class="form-label" style="font-size:14px">Diametro <i
 								data-tippy-content="Punto donde la gráfica deja de comportarse de forma lineal"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="punto_fluencia"
-							id="punto_fluencia" placeholder="">
+						<input type="text" class="form-control form-control-sm" name="Diametro"
+							id="Diametro" placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Módulo elástico <i
+						<label class="form-label" style="font-size: 14px">constante elástica <i
 								data-tippy-content="El módulo de elasticidad es la pendiente del diagrama esfuerzo-deformación unitaria en la región linealmente elástica; esfuerzo/deformación"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="modulo_elastico"
-							id="modulo_elastico" placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Resistencia a la tracción <i
-								data-tippy-content="Punto máximo de la grafica"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="resistencia_traccion"
-							id="resistencia_traccion" placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Punto de rotura <i
-								data-tippy-content="Punto final de la gráfica, donde se rompe la probeta"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="punto_rotura" id="punto_rotura"
-							placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Resiliencia <i
-								data-tippy-content="Es igual al área debajo de la curva esfuerzo-deformación hasta el límite de proporcionalidad. La resiliencia representa la capacidad de un material para absorber y liberar energía dentro del intervalo elástico"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="resiliencia" id="resiliencia"
-							placeholder="">
-					</div>
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Tenacidad <i
-								data-tippy-content="Es igual al área debajo de toda la curva esfuerzo-deformación. La tenacidad, se refiere a la capacidad de un material para absorber energía sin fracturarse"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="tenacidad" id="tenacidad"
-							placeholder="">
+						<input type="text" class="form-control form-control-sm" name="cons_elasticidad"
+							id="cons_elasticidad" placeholder="">
 					</div>
 					
 				</form>
 			</div>
 		</div>
 	</div>
+	
+	<div class="position-fixed" id="ventanamini2d" style="bottom: 0px;right:0px;height: 500px;width: 400px;background-color: #ffffff;overflow: hidden;display: none"  >
+		<iframe id="mini2d" src="index2dcorta.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
+	</div>
+
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -149,14 +125,14 @@
 
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="tension_flexion_Pino.js"></script>
+	<script src="tension_barra1.js"></script>
 
 
 	<script>
 		tippy('[data-tippy-content]');
 
 
-		var ctx = document.getElementById("myChard").getContext("2d");
+		var ctx = document.getElementById("myChart").getContext("2d");
 		const contador_barra1 = [];
 		const chart = new Chart(ctx, {
 			type: 'line',
@@ -178,22 +154,35 @@
 				plugins: {
 					legend: false
 				},
-				scales: {
+				scales: {				
 					x: {
 						type: 'linear',
-						max: 3,
-						min: 0
+						max: 0.013,
+						min: 0,
+						title:{
+							display: true,
+							text:'Deformación'
+						}
 					},
+					
 					y: {
 						type: 'linear',
-						max: 260,
-						min: 1
+						max: 350,
+						min: 0,
+						title:{
+							display: true,
+							text:'Esfuerzo'
+						}
 					}
+					
+
+
 				}
 			}
 		});
 
-
+	
+		
 
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
@@ -201,9 +190,9 @@
 
 		document.addEventListener('keydown', onKeyDown);
 
-		const container = document.getElementById('c');
+		const container = document.getElementById('3d');
 
-	
+
 		const renderer = new THREE.WebGLRenderer();
 
 		renderer.setSize(window.innerWidth, window.innerHeight);
@@ -233,37 +222,37 @@
 		// scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
 
 		// ground
-		/*
+		
 		const mesh = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshPhongMaterial({ color: 0x999999, depthWrite: false }));
 		mesh.rotation.x = - Math.PI / 2;
 		mesh.receiveShadow = true;
 		scene.add(mesh);
-		var geometry = new THREE.CylinderGeometry(0.05, 0.05, 0.3, 32);
+
+		var D = 1;
+		var const_elas =1;
+
+		function Diametro() {
+		D = parseFloat(document.getElementById('Diametro').value);
+		}
+
+		function cons_elasticidad() {
+		const_elas = parseFloat(document.getElementById('cons_elasticidad').value);
+		}
+
+		function cambio() {
+		
+		
+
+		var geometry = new THREE.CylinderGeometry(D/100, D/100, 0.45, 32);
 		var material = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
 		var cube = new THREE.Mesh(geometry, material);
 		scene.add(cube);
-		cube.position.y = 3.005
+		cube.position.y = 2.62
 		cube.position.z = 0.63
-		var geometryabajo = new THREE.CylinderGeometry(0.05, 0.04, 0.024, 32);
-		var materialabajo = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
-		var cubeabajo = new THREE.Mesh(geometryabajo, materialabajo);
-		scene.add(cubeabajo);
-		cubeabajo.position.y = 2.828
-		cubeabajo.position.z = 0.63
-		var geometry2 = new THREE.CylinderGeometry(0.05, 0.05, 0.4, 32);
-		var material2 = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
-		var cube2 = new THREE.Mesh(geometry2, material2);
-		scene.add(cube2);
-		cube2.position.y = 2.63
-		cube2.position.z = 0.63
-		var geometryabajo2 = new THREE.CylinderGeometry(0.04, 0.05, 0.024, 32);
-		var materialabajo2 = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
-		var cubeabajo2 = new THREE.Mesh(geometryabajo2, materialabajo2);
-		scene.add(cubeabajo2);
-		cubeabajo2.position.y = 2.84
-		cubeabajo2.position.z = 0.63
-*/
+		
 
+		renderer.render(scene, camera);
+		}
 		(function () {
 
 			/**
@@ -354,20 +343,32 @@
 		}
 
 
+
+
+
+
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
 		function zoom() {
-				camera.position.set(1.8098110142777268, 2.3699534899936925, -1.875407660853348); // posicion de la camara (0, 5, 5)
+				camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicion de la camara (0, 5, 5)
-			controls.target.set(-0.6324779133060269, 1.9741005439577692, -1.5543945868801592);
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 
 			console.log(camera.position)
 			console.log(controls.target)
 
 
 		}
-
+function open_win(){
+	window.open("index2dcorta.html","hola","width=400px, height=600px,")
+	camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			//camera.position.y=3 // posicion de la camara (0, 5, 5)
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+}
+function open_winmini(){
+	
+}
 		controls.update();
 
 
@@ -378,17 +379,18 @@
 			switch (event.code) {
 
 				case 'ArrowUp':
-				case 'KeyW': camera.position.x = camera.position.x - 1;
+				case 'KeyW': camera.position.x = camera.position.x - 2;
+				console.log(camera.position.x)
 
 				case 'ArrowDown':
 				case 'KeyS': camera.position.x = camera.position.x + 1;
-
+				console.log(camera.position.x)
 				case 'ArrowLeft':
-				case 'KeyA': camera.position.z = camera.position.z + 1;
-
+				case 'KeyA': camera.position.z = camera.position.z + 2;
+				console.log(camera.position.z)
 				case 'ArrowRight':
 				case 'KeyD': camera.position.z = camera.position.z - 1;
-
+				console.log(camera.position.z)
 				// case 'KeyC': controls.crouch = true; break;
 				// case 'Space': controls.jump = true; break;
 				// case 'ControlLeft':
@@ -398,49 +400,46 @@
 
 		}
 
-		var mixer;
-        var clock = new THREE.Clock();
-
-		function animate() {
-			requestAnimationFrame(animate);
-			controls.update();
-			console.log(camera.position)
-			console.log('target')
-			console.log(controls.target)
-
-            var delta = clock.getDelta();
-
-	        if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
-
-			renderer.render(scene, camera);
-
-		}
-
-		animate()
-
-
-
 		var iniciar_ = false;
-
+		var u2 = [];
+		u2[0] = 0;
+		var dt = 300;
 
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
-			console.log(camera.position)
+			//console.log(camera.position)
+			
+			
 
 			if (iniciar_) {
-				requestAnimationFrame(animate);
-			controls.update();
-			console.log(camera.position)
+				
+			var contador1 = 0;
+			var contadorr = 1;
+			var t = 0;
+			var Area = Math.PI * (D/2) * (D/2);
+			function graf(){
 
-            var delta = clock.getDelta();
+				var F = t *9.81;
+				var sig = F / Area;
+				var eee = sig / const_elas;
+				chart.data.datasets[0].data.push({ y: sig, x: eee })
+				chart.update();
+				console.log(sig)
+				console.log(eee)
+				//sig = F / Area;
+				//eee = sig / Area;
+				//F = t *9.81;
+				t = t + dt;
 
-	        if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
-			renderer.render(scene, camera);
+			}
+			tiempo2 = setInterval(graf, 1)
 			}
 
 
-			
+			renderer.render(scene, camera);
+
+
 
 		}
 
@@ -449,21 +448,63 @@
 
 		function iniciar() {
 			iniciar_ = true;
+			document.getElementById("ve0ntanamini2d").style.display = "block";
+			document.getElementById('mini2d').src="index2dcorta.html";
+
+		}
+
+		function recargar() {
+					window.location.href = window.location.href;
 		}
 
 
 		// Instantiate a loader
 		const loader = new THREE.GLTFLoader();
 
-
 		// Load a glTF resource
 		loader.load(
-			'flexionunacargarRISK.glb',//'scene.gltf'
+			'salontraccion.glb',//'scene.gltf'
 			function (gltf) {
-                mixer= new THREE.AnimationMixer(gltf.scene);
-                gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
-
 				scene.add(gltf.scene);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+				renderer.render(scene, camera);
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				console.log('An error happened');
+			}
+		);
+
+
+
+		// Instantiate a loader
+		const loader2 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader2.load(
+			'Garra.gltf',//'scene.gltf'
+			function (gltf) {
+				garra = gltf.scene;
+				scene.add(garra);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+
+				console.log('completado!.....')
+				garra.position.z += 1.587
+				garra.position.x += -0.001
+				garra.position.y += 0.258
 				renderer.render(scene, camera);
 
 
@@ -477,6 +518,10 @@
 				console.log('An error happened');
 			}
 		);
+
+		
+
+
 
 		// create an AudioListener and add it to the camera
 		const listener = new THREE.AudioListener();
@@ -494,9 +539,9 @@
 			sound.play();
 		});
 
+/*
 
-
-		/*
+		
 		var animate = function () {
 			requestAnimationFrame( animate );
 			cube.rotation.x += 0.01;

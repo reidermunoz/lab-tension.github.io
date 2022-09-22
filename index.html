@@ -46,7 +46,7 @@
 	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
 		<div class="row">
 			<div class="col-md-3">
-				<a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+				<a href="https://reidermunoz.github.io/lab-tension.github.io/" class="d-flex align-items-center text-dark text-decoration-none">
 					<img src="logo.png" style="height: 30px;">
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
@@ -55,6 +55,7 @@
 				<a  class="btn btn-sm btn-outline-secondary" href="index_barra2.html">Aluminio</a>
 				<a  class="btn btn-sm btn-outline-secondary" href="index_flexion.html">Lab_flexion2cargas</a>
 				<a  class="btn btn-sm btn-outline-secondary" href="index_flexionunacarga.html">Lab_flexion1carga</a>
+				<a  class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">T</a>
 			</div>
 		<!--	<div class="col-md-9" style="text-align: right;">s
 				
@@ -82,7 +83,7 @@
 				<div style="text-align: center;">
 				<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
 					<button type="button" onclick="iniciar(),open_win()" class="btn btn-secondary">Iniciar</button>
-					<button type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</button>
+					<a type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</a>
 				</div>
 			</div>
 		</div>
@@ -477,7 +478,7 @@ function open_winmini(){
 
 		function iniciar() {
 			iniciar_ = true;
-			document.getElementById("ventanamini2d").style.display = "block";
+			document.getElementById("ve0ntanamini2d").style.display = "block";
 			document.getElementById('mini2d').src="index2dcorta.html";
 
 		}
