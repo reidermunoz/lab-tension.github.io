@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="entrada"><br>
+    <input type="number" id="cantidad" value="103">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" ></script>
+    <script>
+
+        
+        function intepolacion(x1,y1,x2,y2,xi){
+            var m = (y2-y1)/(x2-x1);
+            var yi = m*(xi-x1) + y1;
+            console.log({
+                x1:x1,
+                y1:y1,
+                x2:x2,
+                y2:y2,
+                m:m,
+                xi:xi,
+                yi:yi,
+            })
+            return yi;
+        }
+        function rangos(inicial,final,cant) {
+            var sep = ((final - inicial)/(cant-1));
+            var cont = inicial;
+            var result = [];
+            while (cont<=final) {
+                result.push(parseFloat(cont.toFixed(3)));
+                cont = cont+ sep
+            }
+            return result;
+        }
+
+
+        var entrada = document.getElementById("entrada");
+
+        entrada.onchange = function() {
+            var file = this.files[0];
+
+            const reader = new FileReader()
+
+            reader.readAsArrayBuffer(file)
+            reader.onload = () => {
+                const data= reader.result;
+                var workbook = XLSX.read(data,{
+                    type:'binary'
+                })
+                var sheet_name_list = workbook.SheetNames;
+                var rowObject  =  XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet_name_list[0]]);
+                
+                var x = [], y= [];
+                for (const key in rowObject) {
+                    var row = rowObject[key];
+                    var columns = Object.keys(row);
+                    x.push(row[columns[0]]);
+                    y.push(row[columns[1]]);
+                }
+
+                var xi = rangos(x[0],x[x.length -1],document.getElementById('cantidad').value);
+                var yi = [];
+                var jsonSheet = [];
+
+                for (const k in xi) {
+                    var val = xi[k];
+                    var pos1;
+                    for (const kx in x) {
+                        if ( x[kx] <= val) {
+                            pos1 = parseInt(kx);
+                        }   
+                    }
+                    
+                    if((pos1+1) < x.length){
+                        var inter = intepolacion(x[pos1],y[pos1],x[(pos1+1)],y[(pos1+1)],val)
+                    }else{
+                        var inter = intepolacion(x[(pos1-1)],y[(pos1-1)],x[pos1],y[pos1],val)
+                    }
+                    yi.push(inter);
+                    jsonSheet.push({x:val,y:inter})
+                    
+                }
+                //console.log(xi)
+                //console.log(yi)
+
+                var ws = XLSX.utils.json_to_sheet(jsonSheet);
+
+                /* add to workbook */
+                var wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, "People");
+
+                /* generate an XLSX file */
+                XLSX.writeFile(wb, "sheetjs.xlsx");
+
+                
+            }
+
+        };
+
+
+   
+
+
+
+
+
+    </script>
+</body>
+</html>
