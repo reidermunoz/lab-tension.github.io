@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Ingrese el valor 1</label>
+    <input type="number" id="dato1">
+
+    <label>Ingrese el valor 2</label>
+    <input type="number" id="dato2">
+    <br>
+    <button onclick="calculadora()">Calcular</button>
+    <br>
+    <label>Suma</label>
+    <input type="number" id="suma">
+    <label>Resta</label>
+    <input type="number" id="resta">
+
+    <script>
+        var a = 0
+        var b = 0
+        var suma = 0
+        var resta = 0
+
+        function calculadora() {
+            a = parseFloat(document.getElementById('dato1').value);
+            b = parseFloat(document.getElementById('dato2').value);
+            suma = a+b;
+            resta = a-b;
+            document.getElementById('suma').value = suma;
+            document.getElementById('resta').value = resta;
+
+        }
+
+        
+    </script>
+</body>
+</html>

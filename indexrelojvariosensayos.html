@@ -84,15 +84,15 @@
 		</div>
 	</div>
 
-	<div class="position-fixed" style="width: 400px;background-color: #ffffff;padding: 90px 5px; height: 100%;">
+	<div class="position-fixed" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
 		
-		<div class="card mb-2" style="width: 100%;">
+		<div class="card mb-1" style="width: 100%;">
 			<div class="card-body">
 				<canvas id="myChart" style="width: 200px;height: 100px;"></canvas>
 			</div>
 		</div>
 
-		<div class="card mb-2" style="width: 100%;">
+		<div class="card mb-1" style="width: 100%;">
 			<div class="card-body">
 
 				<form class="row g-2">
@@ -114,9 +114,8 @@
 					
 				</form>
 
-			</br>
 
-			<label class="form-label" style="font-size:14px; display: inline-block ;width: 350px; text-align: center;">Tipo de Probeta<i
+			<label class="form-label mt-3" style="font-size:14px; display: inline-block ;width: 350px; text-align: center;">Tipo de Probeta<i
 				data-tippy-content="Texto de Probeta"
 				class="ti ti-question-mark text-primary"></i>
 			</label>
@@ -426,6 +425,7 @@ function open_winmini(){
 		}
 
 		var iniciar_ = false;
+		var max_y_canvas = 0;
 
 
 		function animate() {
@@ -438,9 +438,6 @@ function open_winmini(){
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
-
-
-
 
 					if (garra.position.y <= 0.29) {
 						garra.position.y += 0.00001
@@ -459,8 +456,10 @@ function open_winmini(){
 
 
 						if (contador_barra1.length % 31 == 0) {
+							max_y_canvas = (datos_traccion[cant][1] +50) > max_y_canvas ? (datos_traccion[cant][1] +50) : max_y_canvas;
+
 							chart.data.datasets[0].data.push({ x: datos_traccion[cant][0], y: datos_traccion[cant][1] });
-							chart.options.scales.y.max = parseInt(datos_traccion[cant][1] +50);
+							chart.options.scales.y.max = parseInt(max_y_canvas);
 
 							chart.update();
 							console.log(chart.data.datasets[0].data[cant].x)
