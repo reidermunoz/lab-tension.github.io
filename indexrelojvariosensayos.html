@@ -141,7 +141,7 @@
 			<div class="card-body">
 				<div style="text-align: center;">
 				<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<button type="button" onclick="iniciar(),open_win()" class="btn btn-secondary">Iniciar</button>
+					<button type="button" onclick="Diametro(),Altura(), iniciar(),open_win()" class="btn btn-secondary">Iniciar</button>
 					<a type="button" href="Datos.xlsx" download="Datos.xlsx" class="btn btn-success">Datos</a>
 				</div>
 			</div>
@@ -238,7 +238,7 @@
 						min: 1,
 						title:{
 							display: true,
-							text:'Carga (Kn)'
+							text:'Carga (N)'
 						}
 					}
 				}
@@ -396,7 +396,7 @@
 function open_win(){
 	window.open("index2dcorta.html","hola","width=400px, height=600px,")
 	camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
-			//camera.position.y=3 // posicion de la camara (0, 5, 5)
+			//camera.position.y=3 // posicison de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 }
 function open_winmini(){
@@ -404,6 +404,17 @@ function open_winmini(){
 }
 		controls.update();
 
+
+		var D=1;
+		var Alt=1;
+		function Diametro() {
+			D = parseFloat(document.getElementById('Diametro (mm)').value);
+		}
+
+		function Altura() {
+			Alt = parseFloat(document.getElementById('Altura (mm)').value);
+			
+		}
 
 		renderer.render(scene, camera);
 
@@ -434,8 +445,8 @@ function open_winmini(){
 
 		var iniciar_ = false;
 		var max_y_canvas = 0;
-
-
+		var max_x_canvas = 0;
+		
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
@@ -443,6 +454,9 @@ function open_winmini(){
 			
 
 			if (iniciar_) {
+
+				var Area = Math.PI * (D/2) * (D/2);
+
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
@@ -485,18 +499,33 @@ function open_winmini(){
 							break;
 						}
 
+						new_vec=[]
+							for (const key in datos_traccion) {
+								operavec=[datos_traccion[key][0]*Alt, datos_traccion[key][1]*D];
+								new_vec.push(operavec)
+							}
 						/* max_y_canvas = (datos_traccion[cant][1] +50) > max_y_canvas ? (datos_traccion[cant][1] +50) : max_y_canvas;
 
 */
+var margen=1;
 						if (contador_barra1.length % 31 == 0) {
-							max_y_canvas = (datos_traccion[cant][1]) > max_y_canvas ? (datos_traccion[cant][1]) : max_y_canvas;
+							
+							margen=new_vec[cant][1]*0.15;
+							margenx=new_vec[cant][0]*0.15;
+							console.log(margen)
 
-							chart.data.datasets[0].data.push({ x: datos_traccion[cant][0], y: datos_traccion[cant][1] });
+							max_y_canvas = (new_vec[cant][1]+margen) > max_y_canvas ? (new_vec[cant][1] + margen) : max_y_canvas;
+							max_x_canvas = (new_vec[cant][0]+margenx) > max_x_canvas ;
+
+
+							chart.data.datasets[0].data.push({ x: new_vec[cant][0], y: new_vec[cant][1] });
 							chart.options.scales.y.max = parseInt(max_y_canvas);
+							chart.options.scales.x.max = parseInt(max_x_canvas);
+
 
 							chart.update();
-							console.log(chart.data.datasets[0].data[cant].x)
-
+							/*console.log(chart.data.datasets[0].data[cant].x)
+*/
 							let prierox=chart.data.datasets[0].data[cant].x;
 							let segundoy=chart.data.datasets[0].data[cant].y
 
@@ -508,9 +537,12 @@ function open_winmini(){
 					}
 				//	console.log(garra.position.y)
 				}
+				
 			}
 			renderer.render(scene, camera);
 		}
+
+		
 		animate()
 
 
