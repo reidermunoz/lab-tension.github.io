@@ -11,12 +11,12 @@
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
 
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
 		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
@@ -27,7 +27,7 @@
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
 	<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
 
 	<style>
@@ -46,34 +46,33 @@
 			top: 0;
 			left: 0;
 		}
-	
-
 	</style>
 
 </head>
 
 <body>
- 
+
 	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
-	
+
 
 		<div class="row">
 			<div class="col-md-3">
-				<a href="https://reidermunoz.github.io/lab-tension.github.io/" class="d-flex align-items-center text-dark text-decoration-none">
+				<a href="https://reidermunoz.github.io/lab-tension.github.io/"
+					class="d-flex align-items-center text-dark text-decoration-none">
 					<img src="logo.png" style="height: 30px;">
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
 			</div>
 
-		
 
-			<div class="col-md-9" style="text-align: right;" >
-				<a  class="btn btn-sm btn-outline-secondary" href="index_barra2.html">Aluminio</a>
-				<a  class="btn btn-sm btn-outline-secondary" href="index_flexion.html">Lab_flexion2cargas</a>
-				<a  class="btn btn-sm btn-outline-secondary" href="index_flexionunacarga.html">Lab_flexion1carga</a>
+
+			<div class="col-md-9" style="text-align: right;">
+				<a class="btn btn-sm btn-outline-secondary" href="index_barra2.html">Aluminio</a>
+				<a class="btn btn-sm btn-outline-secondary" href="index_flexion.html">Lab_flexion2cargas</a>
+				<a class="btn btn-sm btn-outline-secondary" href="index_flexionunacarga.html">Lab_flexion1carga</a>
 			</div>
 
-		<!--	<div class="col-md-9" style="text-align: right;">s
+			<!--	<div class="col-md-9" style="text-align: right;">s
 				
 				<a class="btn btn-sm btn-outline-secondary" href="index copy.html">aaTorsión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="https://reidermunoz.github.io/lab-tension.github.io/">SISTorsión</a>
@@ -86,7 +85,7 @@
 	</div>
 
 	<div class="position-fixed" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
-		
+
 		<div class="card mb-1" style="width: 100%;">
 			<div class="card-body">
 				<canvas id="myChart" style="width: 200px;height: 100px;"></canvas>
@@ -97,43 +96,43 @@
 			<div class="card-body">
 
 				<form class="row g-2">
-				
+
 					<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Diametro (mm)<i
 								data-tippy-content="Texto de altura"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="number" class="form-control form-control-sm" name="Diametro"
-							id="Diametro" placeholder="">
+						<input type="number" class="form-control form-control-sm" name="Diametro" id="Diametro"
+							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size: 14px">Altura (mm)<i
 								data-tippy-content="Texto de altura"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="number" class="form-control form-control-sm" name="Altura"
-							id="Altura" placeholder="">
+						<input type="number" class="form-control form-control-sm" name="Altura" id="Altura"
+							placeholder="">
 					</div>
-					
+
 				</form>
 
 
-			<label class="form-label mt-3" style="font-size:14px; display: inline-block ;width: 350px; text-align: center;">Tipo de Probeta<i
-				data-tippy-content="Texto de Probeta"
-				class="ti ti-question-mark text-primary"></i>
-			</label>
+				<label class="form-label mt-3"
+					style="font-size:14px; display: inline-block ;width: 350px; text-align: center;">Tipo de Probeta<i
+						data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+				</label>
 
-			<select id="select_barra" class="form-select" aria-label="Default select example">
-				<option value="tension_barra1" selected>Estandar (investigar)</option>
-				<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
+				<select id="select_barra" class="form-select" aria-label="Default select example">
+					<option value="tension_barra1" selected>Estandar (investigar)</option>
+					<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-				<option value="Trac_Acer_Corten">Acero Corten</option>
-				<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option>
-				<option value="Trac_Acer_Alum">Aluminio 6061</option>
-				<option value="Trac_ASTM_A37">ASTM A37</option>
-				<option value="Trac_ASTM_A48">ASTM A48</option>
-				<option value="Trac_ASTM_A53">ASTM A53</option>
-				<option value="Trac_ASTM_A370">ASTM A370</option>
-				<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E</option>
-			  </select>
+					<option value="Trac_Acer_Corten">Acero Corten</option>
+					<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option>
+					<option value="Trac_Acer_Alum">Aluminio 6061</option>
+					<option value="Trac_ASTM_A37">ASTM A37</option>
+					<option value="Trac_ASTM_A48">ASTM A48</option>
+					<option value="Trac_ASTM_A53">ASTM A53</option>
+					<option value="Trac_ASTM_A370">ASTM A370</option>
+					<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E</option>
+				</select>
 
 			</div>
 		</div>
@@ -141,8 +140,9 @@
 		<div class="card" style="width: 100%;">
 			<div class="card-body">
 				<div style="text-align: center;">
-				<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<button type="button" onclick="Diametro(),Altura(), iniciar(),open_win()" class="btn btn-secondary">Iniciar</button>
+					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
+					<button type="button" onclick="Diametro(),Altura(), iniciar(),open_win()"
+						class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
 				</div>
 			</div>
@@ -154,25 +154,25 @@
 						<label class="form-label" style="font-size:14px">Alargamiento <i
 								data-tippy-content="La deformacion de la probeta entre dos puntos fijos "
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="Alargamiento"
-							id="Alargamiento" placeholder="">
+						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
+							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size: 14px">Carga <i
 								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="Carga"
-							id="Carga" placeholder="">
+						<input type="text" class="form-control form-control-sm" name="Carga" id="Carga" placeholder="">
 					</div>
-			
-				</form>			
+
+				</form>
 			</div>
 
 		</div>
 
 	</div>
 
-	<div class="position-fixed" id="ventanamini2d" style="bottom: 0px;right:0px;height: 300px;width: 400px;background-color: #ffffff;overflow: hidden;display: none"  >
+	<div class="position-fixed" id="ventanamini2d"
+		style="bottom: 0px;right:0px;height: 300px;width: 400px;background-color: #ffffff;overflow: hidden;display: none">
 		<iframe id="mini2d" src="index2d.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
 
@@ -222,24 +222,24 @@
 				plugins: {
 					legend: false
 				},
-				scales: {				
+				scales: {
 					x: {
 						type: 'linear',
 						max: 0.5,
 						min: 0,
-						title:{
+						title: {
 							display: true,
-							text:'Alargamiento (mm)'
+							text: 'Alargamiento (mm)'
 						}
 					},
-					
+
 					y: {
 						type: 'linear',
 						max: 400,
 						min: 1,
-						title:{
+						title: {
 							display: true,
-							text:'Carga (N)'
+							text: 'Carga (N)'
 						}
 					}
 				}
@@ -375,7 +375,7 @@
 			var modulo_elastico = Math.round10(num1 / num2, -2);
 			document.getElementById('modulo_elastico').value = modulo_elastico + ' MPa';
 
-				}
+		}
 
 
 
@@ -385,36 +385,36 @@
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
 		function zoom() {
-				camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicion de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 
-		//	console.log(camera.position)
-		//	console.log(controls.target)
+			//	console.log(camera.position)
+			//	console.log(controls.target)
 
 
 		}
-function open_win(){
-	window.open("index2dcorta.html","hola","width=400px, height=600px,")
-	camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+		function open_win() {
+			window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
+			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicison de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
-}
-function open_winmini(){
-	
-}
+		}
+		function open_winmini() {
+
+		}
 		controls.update();
 
 
-		var D=1;
-		var Alt=1;
+		var D = 1;
+		var Alt = 1;
 		function Diametro() {
 			D = parseFloat(document.getElementById('Diametro').value);
 		}
 
 		function Altura() {
 			Alt = parseFloat(document.getElementById('Altura').value);
-			
+
 		}
 
 		renderer.render(scene, camera);
@@ -447,16 +447,16 @@ function open_winmini(){
 		var iniciar_ = false;
 		var max_y_canvas = 0;
 		var max_x_canvas = 0;
-		
+
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
-			
+
 
 			if (iniciar_) {
 
-				var Area = Math.PI * (D/2) * (D/2);
+				var Area = Math.PI * (D / 2) * (D / 2);
 
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
@@ -466,57 +466,58 @@ function open_winmini(){
 						garra.position.y += 0.00001
 
 						var datos_traccion;
-	
+
 						switch (document.getElementById('select_barra').value) {
 							case 'tension_barra1':
-							datos_traccion = tension_barra1;
-							break;
+								datos_traccion = tension_barra1;
+								break;
 							case 'tension_compresion':
-							datos_traccion = tension_compresion;
-							break;
+								datos_traccion = tension_compresion;
+								break;
 							case 'Trac_Acer_Corten':
-							datos_traccion = Trac_Acer_Corten;
-							break;
+								datos_traccion = Trac_Acer_Corten;
+								break;
 							case 'Trac_Acer_Dulce':
-							datos_traccion = Trac_Acer_Dulce;
-							break;
+								datos_traccion = Trac_Acer_Dulce;
+								break;
 							case 'Trac_Acer_Alum':
-							datos_traccion = Trac_Acer_Alum;
-							break;
+								datos_traccion = Trac_Acer_Alum;
+								break;
 							case 'Trac_ASTM_A37':
-							datos_traccion = Trac_ASTM_A37;
-							break;
+								datos_traccion = Trac_ASTM_A37;
+								break;
 							case 'Trac_ASTM_A48':
-							datos_traccion = Trac_ASTM_A48;
-							break;
+								datos_traccion = Trac_ASTM_A48;
+								break;
 							case 'Trac_ASTM_A53':
-							datos_traccion = Trac_ASTM_A53;
-							break;
+								datos_traccion = Trac_ASTM_A53;
+								break;
 							case 'Trac_ASTM_A370':
-							datos_traccion = Trac_ASTM_A370;
-							break;
+								datos_traccion = Trac_ASTM_A370;
+								break;
 							case 'Trac_Poli_1200E':
-							datos_traccion = Trac_Poli_1200E;
-							break;
+								datos_traccion = Trac_Poli_1200E;
+								break;
 						}
 
-						new_vec=[]
-							for (const key in datos_traccion) {
-								operavec=[datos_traccion[key][0]*Alt, datos_traccion[key][1]*D];
-								new_vec.push(operavec)
-							}
+						new_vec = []
+						for (const key in datos_traccion) {
+							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * D];
+							new_vec.push(operavec)
+						}
 						/* max_y_canvas = (datos_traccion[cant][1] +50) > max_y_canvas ? (datos_traccion[cant][1] +50) : max_y_canvas;
 
 */
-var margen=1;
+
+						var margen = 1;
 						if (contador_barra1.length % 31 == 0) {
-							
-							margen=new_vec[cant][1]*0.15;
-							margenx=new_vec[cant][0]*0.15;
+
+							margen = new_vec[cant][1] * 0.15;
+							margenx = new_vec[cant][0] * 0.20;
 							console.log(margen)
 
-							max_y_canvas = (new_vec[cant][1]+margen) > max_y_canvas ? (new_vec[cant][1] + margen) : max_y_canvas;
-							max_x_canvas = (new_vec[cant][0]+margenx) > max_x_canvas ;
+							max_y_canvas = (new_vec[cant][1] + margen) > max_y_canvas ? (new_vec[cant][1] + margen) : max_y_canvas;
+							max_x_canvas = (new_vec[cant][0] + margenx) > max_x_canvas;
 
 
 							chart.data.datasets[0].data.push({ x: new_vec[cant][0], y: new_vec[cant][1] });
@@ -527,8 +528,8 @@ var margen=1;
 							chart.update();
 							/*console.log(chart.data.datasets[0].data[cant].x)
 */
-							let prierox=chart.data.datasets[0].data[cant].x;
-							let segundoy=chart.data.datasets[0].data[cant].y
+							let prierox = chart.data.datasets[0].data[cant].x;
+							let segundoy = chart.data.datasets[0].data[cant].y
 
 							document.getElementById('Alargamiento').value = prierox;
 							document.getElementById('Carga').value = segundoy;
@@ -536,9 +537,9 @@ var margen=1;
 					} else {
 						garra.position.y = 0.35
 					}
-				//	console.log(garra.position.y)
+					//	console.log(garra.position.y)
 				}
-				
+
 			}
 			renderer.render(scene, camera);
 		}
@@ -546,12 +547,12 @@ var margen=1;
 		function descaga() {
 			var ws = XLSX.utils.json_to_sheet(new_vec);
 
-                /* add to workbook */
-                var wb = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
+			/* add to workbook */
+			var wb = XLSX.utils.book_new();
+			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
 
-                /* generate an XLSX file */
-                XLSX.writeFile(wb, "Datos.xlsx");
+			/* generate an XLSX file */
+			XLSX.writeFile(wb, "Datos.xlsx");
 		}
 		animate()
 
@@ -559,7 +560,7 @@ var margen=1;
 		function iniciar() {
 			iniciar_ = true;
 			document.getElementById("ventanamini2d").style.display = "block";
-			document.getElementById('mini2d').src="index2d.html";
+			document.getElementById('mini2d').src = "index2d.html";
 
 		}
 
@@ -584,11 +585,11 @@ var margen=1;
 			},
 			// called while loading is progressing
 			function (xhr) {
-			//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 			},
 			// called when loading has errors
 			function (error) {
-			//	console.log('An error happened');
+				//	console.log('An error happened');
 			}
 		);
 
@@ -619,15 +620,15 @@ var margen=1;
 			},
 			// called while loading is progressing
 			function (xhr) {
-			//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 			},
 			// called when loading has errors
 			function (error) {
-			//	console.log('An error happened');
+				//	console.log('An error happened');
 			}
 		);
 
-		
+
 
 
 
