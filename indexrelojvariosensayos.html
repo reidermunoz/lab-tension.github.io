@@ -109,7 +109,7 @@
 								data-tippy-content="Texto de altura"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="number" class="form-control form-control-sm" name="Altura" id="Altura"
-							placeholder="">
+							placeholder="" onchange="cambioAltura()">
 					</div>
 
 				</form>
@@ -180,8 +180,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
 
-
-
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -199,6 +198,21 @@
 	<script>
 		tippy('[data-tippy-content]');
 
+		function cambioAltura(){
+			var altura = document.getElementById('Altura').value;
+			if(altura < 100 || altura >200){
+				document.getElementById('Altura').value = '';
+				Swal.fire({
+					title: 'Error!',
+					text: 'El valor debe ser mayor a 100 y menor a 200',
+					icon: 'error',
+					confirmButtonText: 'OK',
+					timer: 10000,
+  					timerProgressBar: true,
+				})
+
+			}
+		}
 
 		var ctx = document.getElementById("myChart").getContext("2d");
 		const contador_barra1 = [];
@@ -500,11 +514,18 @@
 								break;
 						}
 
+						new_vec = datos_traccion;
+
+						
 						new_vec = []
+						
 						for (const key in datos_traccion) {
 							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * D];
 							new_vec.push(operavec)
 						}
+
+						console.log(new_vec)
+
 						/* max_y_canvas = (datos_traccion[cant][1] +50) > max_y_canvas ? (datos_traccion[cant][1] +50) : max_y_canvas;
 
 */
@@ -513,11 +534,11 @@
 						if (contador_barra1.length % 31 == 0) {
 
 							margen = new_vec[cant][1] * 0.15;
-							margenx = new_vec[cant][0] * 0.20;
-							console.log(margen)
+							margenx = new_vec[cant][0] > 1 ? new_vec[cant][0] * 0.20 : 1;
+							//console.log(margen)
 
 							max_y_canvas = (new_vec[cant][1] + margen) > max_y_canvas ? (new_vec[cant][1] + margen) : max_y_canvas;
-							max_x_canvas = (new_vec[cant][0] + margenx) > max_x_canvas;
+							max_x_canvas = (new_vec[cant][0] + margenx) > max_x_canvas ? (new_vec[cant][0] + margenx) : max_x_canvas;
 
 
 							chart.data.datasets[0].data.push({ x: new_vec[cant][0], y: new_vec[cant][1] });
