@@ -612,7 +612,7 @@
 			if (iniciar_) {
 
 				var Area = Math.PI * (D / 2) * (D / 2);
-
+console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
@@ -664,7 +664,7 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * D];
+							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area];
 							new_vec.push(operavec)
 						}
 
