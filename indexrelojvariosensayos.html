@@ -93,10 +93,12 @@
 		</div>
 
 		<div class="card mb-1" style="width: 100%;">
-			<h4 style="text-align: center; padding: 0;">Ingrese los datos de: </h4>
+			<div class="card-header text-center bg-primary text-white">Ingrese los valores</div>
 
 			<div class="card-body">
-
+				<!--
+				<span style="text-align: center; padding: 0; padding-left: 100px; font-size: 30px;">Ingrese los datos de: </span>
+				-->
 				<form class="row g-2">
 
 					<label class="form-label mt-3"
@@ -107,7 +109,8 @@
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
-						<option value="tension_barra1" selected>Estandar (investigar)</option>
+						<option value="Profe" selected>Profe</option>
+						<option value="tension_barra1" >Estandar (investigar)</option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 						<option value="Trac_Acer_Corten">Acero Corten</option>
@@ -172,24 +175,22 @@
 
 				</form>
 
-
-
-
-			</div>
-		</div>
-
-		<div class="card" style="width: 100%;">
-			<div class="card-body">
-				<div style="text-align: center;">
+				<div style="text-align: center;" class="mt-3">
 					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<button type="button" onclick="Diametro(),Altura(), iniciar(),open_win()"
+					<button type="button" onclick="Diametro(),Altura(), iniciar()"
 						class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
 				</div>
+
+
+
+
 			</div>
 		</div>
+
+	
 		<div class="card mt-2" style="width: 100%;">
-			<h4 style="text-align: center; padding: 0;"> Resultados </h4>
+			<div class="card-header text-center bg-primary text-white">Resultados</div>
 
 			<div class="card-body">
 				<form class="row g-2">
@@ -237,17 +238,18 @@
 	<script src="Trac_ASTM_A53.js"></script>
 	<script src="Trac_ASTM_A370.js"></script>
 	<script src="Trac_Poli_1200E.js"></script>
+	<script src="Profe.js"></script>
 
 	<script>
 		tippy('[data-tippy-content]');
 
 		function cambioAltura() {
 			var altura = document.getElementById('Altura').value;
-			if (altura < 100 || altura > 200) {
+			if (altura < 50 || altura > 200) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 100 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 50 mm y menor a 200 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -265,6 +267,12 @@
 			var prueba565656 = 120;
 			switch (document.getElementById('select_barra').value) {
 
+				case 'Profe':
+					document.getElementById('Altura').value = 100;
+					document.getElementById('Diametro_barra').value = "Numero5";
+
+					break;
+
 				case 'tension_barra1':
 					document.getElementById('Altura').value = 110;
 					document.getElementById('Diametro_barra').value = "Numero4";
@@ -276,38 +284,38 @@
 
 					break;
 				case 'Trac_Acer_Corten':
-					document.getElementById('Altura').value = 130;
-					document.getElementById('Diametro_barra').value = "Numero6";
+					document.getElementById('Altura').value = 50.8;
+					document.getElementById('Diametro_barra').value = "Numero4";
 
 					break;
 				case 'Trac_Acer_Dulce':
-					document.getElementById('Altura').value = 140;
-					document.getElementById('Diametro_barra').value = "Numero7";
+					document.getElementById('Altura').value = 200;
+					document.getElementById('Diametro_barra').value = "Numero4";
 
 					break;
 				case 'Trac_Acer_Alum':
-					document.getElementById('Altura').value = 150;
-					document.getElementById('Diametro_barra').value = "NUmero8";
+					document.getElementById('Altura').value = 50;
+					document.getElementById('Diametro_barra').value = "Numero4";
 
 					break;
 				case 'Trac_ASTM_A37':
-					document.getElementById('Altura').value = 160;
-					document.getElementById('Diametro_barra').value = "Numero9";
+					document.getElementById('Altura').value = 100;
+					document.getElementById('Diametro_barra').value = "";
 
 					break;
 				case 'Trac_ASTM_A48':
-					document.getElementById('Altura').value = 170;
-					document.getElementById('Diametro_barra').value = "Numero10";
+					document.getElementById('Altura').value = 100;
+					document.getElementById('Diametro_barra').value = "";
 
 					break;
 				case 'Trac_ASTM_A53':
-					document.getElementById('Altura').value = 180;
-					document.getElementById('Diametro_barra').value = "Numero11";
+					document.getElementById('Altura').value = 136;
+					document.getElementById('Diametro_barra').value = "Numero5";
 
 					break;
 				case 'Trac_ASTM_A370':
-					document.getElementById('Altura').value = 190;
-					document.getElementById('Diametro_barra').value = "Numero14";
+					document.getElementById('Altura').value = 92.2;
+					document.getElementById('Diametro_barra').value = "Numero2";
 
 					break;
 				case 'Trac_Poli_1200E':
@@ -529,31 +537,31 @@
 		function Diametro() {
 			var Diaetro_barra_en_mm = document.getElementById('Diametro_barra').value;
 			if (Diaetro_barra_en_mm == "Numero2") {
-				D = 102;
+				D = 6.4;
 
 			} else if (Diaetro_barra_en_mm == "Numero3") {
-				D = 103;
+				D = 9.5;
 
 			} else if (Diaetro_barra_en_mm == "Numero4") {
-				D = 104;
+				D = 12.7;
 			} else if (Diaetro_barra_en_mm == "Numero5") {
-				D = 105;
+				D = 15.9;
 			} else if (Diaetro_barra_en_mm == "Numero6") {
-				D = 106;
+				D = 19.1;
 			} else if (Diaetro_barra_en_mm == "Numero7") {
-				D = 107;
+				D = 22.2;
 			} else if (Diaetro_barra_en_mm == "NUmero8") {
-				D = 108;
+				D = 25.4;
 			} else if (Diaetro_barra_en_mm == "Numero9") {
-				D = 109;
+				D = 28.7;
 			} else if (Diaetro_barra_en_mm == "Numero10") {
-				D = 110;
+				D = 32.3;
 			} else if (Diaetro_barra_en_mm == "Numero11") {
-				D = 111;
+				D = 35.8;
 			} else if (Diaetro_barra_en_mm == "Numero14") {
-				D = 114;
+				D = 43;
 			} else if (Diaetro_barra_en_mm == "Numero18") {
-				D = 118;
+				D = 57.3;
 			}
 			console.log(D)
 		}
@@ -615,6 +623,9 @@
 						var datos_traccion;
 
 						switch (document.getElementById('select_barra').value) {
+							case 'Profe':
+								datos_traccion = Profe;
+								break;
 							case 'tension_barra1':
 								datos_traccion = tension_barra1;
 								break;
@@ -712,9 +723,26 @@
 
 
 		function iniciar() {
-			iniciar_ = true;
-			document.getElementById("ventanamini2d").style.display = "block";
-			document.getElementById('mini2d').src = "index2d.html";
+
+			var altura = document.getElementById('Altura').value;
+			if (altura < 50 || altura > 200) {
+				document.getElementById('Altura').value = '';
+				Swal.fire({
+					title: 'Error!',
+					text: 'El valor debe ser mayor a 50 mm y menor a 200 mm',
+					icon: 'error',
+					confirmButtonText: 'OK',
+					timer: 10000,
+					timerProgressBar: true,
+				})
+
+			}else{
+				iniciar_ = true;
+				document.getElementById("ventanamini2d").style.display = "block";
+				document.getElementById('mini2d').src = "index2d.html";
+				open_win();
+			}
+
 
 		}
 
