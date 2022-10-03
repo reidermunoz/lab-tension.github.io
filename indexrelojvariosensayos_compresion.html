@@ -110,7 +110,7 @@
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
 						<option value="Copr_Acer_E9" selected>ACERO (ASTM) E9)</option>
-						<option value="Copr_Madera_AStM_D_143" >Madera (ASTM D143) </option>
+						<option value="Copr_Madera_AStm_D_143" >Madera (ASTM D143) </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 
@@ -146,10 +146,10 @@
 
 						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
 							style="width:180px; ">
-							<option value="Numero1" selected>28.96066083</option>
+							<option value="df" selected> </option>
 							<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-							<option value="Numero3">#3</option>
+							<option value="Numero1">28.96066083</option>
 							<option value="Numero4">#4</option>
 							<option value="Numero5">#5</option>
 							<option value="Numero6">#6</option>
@@ -231,11 +231,11 @@
 
 		function cambioAltura() {
 			var altura = document.getElementById('Altura').value;
-			if (altura < 30 || altura > 200) {
+			if (altura < 20 || altura > 200) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 20 mm y menor a 200 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -257,7 +257,7 @@
 
 					break;
 
-				case 'Copr_Madera_AStM_D_143':
+				case 'Copr_Madera_AStm_D_143':
 					document.getElementById('Altura').value = 150.74;
 					document.getElementById('Diametro_barra').value = "Numero1";
 
@@ -479,11 +479,11 @@
 		var Alt = 1;
 		function Diametro() {
 			var Diaetro_barra_en_mm = document.getElementById('Diametro_barra').value;
-			if (Diaetro_barra_en_mm == "Numero1") {
+			if (Diaetro_barra_en_mm == "Numero66") {
 				D = 28.96066083;
 
-			} else if (Diaetro_barra_en_mm == "Numero3") {
-				D = 9.5;
+			} else if (Diaetro_barra_en_mm == "Numero1") {
+				D = 28.9;
 
 			} else if (Diaetro_barra_en_mm == "Numero4") {
 				D = 12.7;
@@ -568,8 +568,8 @@ console.log(Area)
 						var datos_traccion;
 
 						switch (document.getElementById('select_barra').value) {
-							case 'Copr_Madera_AStM_D_143':
-								datos_traccion = Copr_Madera_AStM_D_143;
+							case 'Copr_Madera_AStm_D_143':
+								datos_traccion = Copr_Madera_AStm_D_143;
 								break;
 							case 'Copr_Acer_E9':
 								datos_traccion = Copr_Acer_E9;
@@ -644,11 +644,11 @@ console.log(Area)
 		function iniciar() {
 
 			var altura = document.getElementById('Altura').value;
-			if (altura < 30 || altura > 200) {
+			if (altura < 20 || altura > 200) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 20 mm y menor a 200 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
