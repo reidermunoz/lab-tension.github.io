@@ -189,14 +189,14 @@
 			<div class="card-body">
 				<form class="row g-2">
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Alargamiento <i
+						<label class="form-label" style="font-size:14px">Alargamiento (mm) <i
 								data-tippy-content="La deformacion de la probeta entre dos puntos fijos "
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Carga <i
+						<label class="form-label" style="font-size: 14px">Carga (N)<i
 								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="text" class="form-control form-control-sm" name="Carga" id="Carga" placeholder="">
@@ -673,7 +673,7 @@ console.log(Area)
 
 		// Load a glTF resource
 		loader.load(
-			'salontraccion.glb',//'scene.gltf'
+			'laboratorio-compresion.gltf',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -701,7 +701,7 @@ console.log(Area)
 
 		// Load a glTF resource
 		loader2.load(
-			'Garra.gltf',//'scene.gltf'
+			'compresion-carga.gltf',//'scene.gltf'
 			function (gltf) {
 				garra = gltf.scene;
 				scene.add(garra);
