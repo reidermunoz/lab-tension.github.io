@@ -108,17 +108,17 @@
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
 						<option value="Profe" selected>acero 2.005e5 Mpa (Profesor Albert)</option>
-						<option value="tension_barra1">Estandar (investigar)</option>
+				<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-						<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
-						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option>
+				<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
+						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
 						<option value="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
-						<option value="Trac_ASTM_A37">ASTM A37 (Acero estructural)(norma ASTM A6 (ASTM A370))</option>
-						<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>
+						<option value="Trac_ASTM_A37">ASTM A36 (Acero estructural)(norma ASTM A6 (ASTM A370))</option>
+				<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
 						<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>
 						<option value="Trac_ASTM_A370">ASTM A370</option>
-						<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>
+				<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
 					</select>
 
 					<!--		<div class="col-auto" style="width:180px">
@@ -142,21 +142,21 @@
 							barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
 						</label>
 						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
-							style="width:180px; ">
-							<option value="Numero2" selected>#2</option>
-							<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
+							style="width:180px; " onclick="cambiossegunacero()">
+				<!--		<option value="Numero2" selected>#2</option>
+							<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 							<option value="Numero3">#3</option>
-							<option value="Numero4">#4</option>
+				<!--		<option value="Numero4">#4</option>-->
 							<option value="Numero5">#5</option>
-							<option value="Numero6">#6</option>
-							<option value="Numero7">#7</option>
+				<!--		<option value="Numero6">#6</option>
+							<option value="Numero7">#7</option>-->
 							<option value="NUmero8">#8</option>
-							<option value="Numero9">#9</option>
+				<!--		<option value="Numero9">#9</option>
 							<option value="Numero10">#10</option>
 							<option value="Numero11">#11</option>
 							<option value="Numero14">#14</option>
-							<option value="Numero18">#18</option>
+							<option value="Numero18">#18</option>-->
 						</select>
 					</div>
 				</form>
@@ -257,11 +257,11 @@
 
 		function cambioAltura() {
 			var altura = document.getElementById('Altura').value;
-			if (altura < 50 || altura > 200) {
+			if (altura < 30 || altura > 200) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 50 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -273,64 +273,25 @@
 
 		function cambiossegunacero() {
 			var prueba565656 = 120;
-			switch (document.getElementById('select_barra').value) {
+			switch (document.getElementById('Diametro_barra').value) {
 
-				case 'Profe':
-					document.getElementById('Altura').value = 100;
-					document.getElementById('Diametro_barra').value = "Numero5";
-
-					break;
-
-				case 'tension_barra1':
-					document.getElementById('Altura').value = 110;
-					document.getElementById('Diametro_barra').value = "Numero4";
+				case 'Numero3':
+					document.getElementById('Altura').value = 4*9.5;
+				/*	document.getElementById('Diametro_barra').value = "Numero5";*/
 
 					break;
-				case 'tension_compresion':
-					document.getElementById('Altura').value = 120;
-					document.getElementById('Diametro_barra').value = "Numero5";
+
+				case 'Numero5':
+					document.getElementById('Altura').value = 15.9*4;
+					break;
+				case 'NUmero8':
+					document.getElementById('Altura').value = 25.4*4;
 
 					break;
-				case 'Trac_Acer_Corten':
-					document.getElementById('Altura').value = 50.8;
-					document.getElementById('Diametro_barra').value = "Numero4";
-
-					break;
-				case 'Trac_Acer_Dulce':
-					document.getElementById('Altura').value = 200;
-					document.getElementById('Diametro_barra').value = "Numero4";
-
-					break;
-				case 'Trac_Acer_Alum':
-					document.getElementById('Altura').value = 50;
-					document.getElementById('Diametro_barra').value = "Numero4";
-
-					break;
-				case 'Trac_ASTM_A37':
-					document.getElementById('Altura').value = 100;
-					document.getElementById('Diametro_barra').value = "";
-
-					break;
-				case 'Trac_ASTM_A48':
-					document.getElementById('Altura').value = 100;
-					document.getElementById('Diametro_barra').value = "";
-
-					break;
-				case 'Trac_ASTM_A53':
-					document.getElementById('Altura').value = 136;
-					document.getElementById('Diametro_barra').value = "Numero5";
-
-					break;
-				case 'Trac_ASTM_A370':
-					document.getElementById('Altura').value = 50;
-					document.getElementById('Diametro_barra').value = "Numero4";
-
-					break;
-				case 'Trac_Poli_1200E':
-					document.getElementById('Altura').value = 195;
-					document.getElementById('Diametro_barra').value = "Numero18";
-
-					break;
+				
+					    
+				
+				
 			}
 
 		}
@@ -760,11 +721,11 @@
 		function iniciar() {
 
 			var altura = document.getElementById('Altura').value;
-			if (altura < 50 || altura > 200) {
+			if (altura < 30 || altura > 200) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 50 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
