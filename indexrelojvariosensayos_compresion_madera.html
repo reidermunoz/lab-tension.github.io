@@ -170,8 +170,6 @@
 
 						</select> -->
 
-
-
 						<div class="row">
 							<div class="col" style="width:180px">
 								<label class="form-label" style="font-size: 14px">base (mm)<i
@@ -339,9 +337,6 @@
 			}
 		});
 
-
-
-
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 		var garra;
@@ -470,10 +465,6 @@
 
 		}
 
-
-
-
-
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
@@ -493,8 +484,6 @@
 			//camera.position.y=3 // posicison de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 		}
-
-
 
 		controls.update();
 
@@ -698,11 +687,7 @@
 				open_win();
 			}
 
-
 		}
-
-
-
 
 		// Instantiate a loader
 		const loader = new THREE.GLTFLoader();
@@ -764,9 +749,6 @@
 				//	console.log('An error happened');
 			}
 		);
-
-
-
 
 
 		// create an AudioListener and add it to the camera
