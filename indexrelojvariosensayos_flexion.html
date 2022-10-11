@@ -46,6 +46,13 @@
 			top: 0;
 			left: 0;
 		}
+
+		.lbl {
+
+			text-align: center;
+
+
+		}
 	</style>
 
 </head>
@@ -63,6 +70,8 @@
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
 			</div>
+
+
 
 			<div class="col-md-9" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary" href="index_barra2.html">Aluminio</a>
@@ -107,19 +116,13 @@
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
-						<option value="Profe" selected>acero de 200Gpa</option>
-				<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
+						<option value="Copr_Madera_AStm_D_143" selected>Madera (ASTM D143) </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-				<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
-						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
-						<option value="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
-						<option value="Trac_ASTM_A37">ASTM A36 (Acero estructural)(norma ASTM A6 (ASTM A370))</option>
-				<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
-					<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
-						<option value="Trac_ASTM_A370">ASTM A370</option>
-				<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
+
 					</select>
+
+
 
 					<!--		<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Diametro (mm)<i
@@ -128,44 +131,81 @@
 						<input type="number" class="form-control form-control-sm" name="Diametro" id="Diametro"
 							placeholder="">
 					</div>
+
 -->
-					<div class="col-auto" style="width:180px">
+					<div class="lbl">
 						<label class="form-label" style="font-size: 14px">Longitud inicial (mm)<i
 								data-tippy-content="Texto de altura"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="number" class="form-control form-control-sm" style="height:37px" name="Altura"
 							id="Altura" placeholder="" onchange="cambioAltura()">
 					</div>
-					<div class="col-auto" style="width: 180px">
+
+
+					<div class="row g-2">
+						<!--
 						<label class="form-label"
 							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
 							barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
 						</label>
+
 						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
-							style="width:180px; " onclick="cambiossegunacero()">
-				<!--		<option value="Numero2" selected>#2</option>
-							<option value="tension_barra1">Acero AISI SAE 1020</option>
+							style="width:180px; ">
+							<option value="df" selected> </option>
+							<!-- <option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-							<option value="Numero3">#3</option>
-				<!--		<option value="Numero4">#4</option>-->
+						<!--
+							<option value="Numero1">28.96066083</option>
+							<option value="Numero4">#4</option>
 							<option value="Numero5">#5</option>
-				<!--		<option value="Numero6">#6</option>
-							<option value="Numero7">#7</option>-->
+							<option value="Numero6">#6</option>
+							<option value="Numero7">#7</option>
 							<option value="NUmero8">#8</option>
-				<!--		<option value="Numero9">#9</option>
+							<option value="Numero9">#9</option>
 							<option value="Numero10">#10</option>
 							<option value="Numero11">#11</option>
 							<option value="Numero14">#14</option>
-							<option value="Numero18">#18</option>-->
-						</select>
+							<option value="Numero18">#18</option>
+
+						</select> -->
+
+
+
+						<div class="row">
+							<div class="col" style="width:180px">
+								<label class="form-label" style="font-size: 14px">base (mm)<i
+										data-tippy-content="Texto de altura"
+										class="ti ti-question-mark text-primary"></i></label>
+								<input type="number" class="form-control form-control-sm" style="height:37px"
+									name="base_perfil" id="base_perfil" placeholder="" value="20"
+									onchange="cambioAltura()">
+							</div>
+							<div class="col" style="width:180px">
+								<label class="form-label" style="font-size: 14px">altura (mm)<i
+										data-tippy-content="Texto de altura"
+										class="ti ti-question-mark text-primary"></i></label>
+								<input type="number" class="form-control form-control-sm" style="height:37px"
+									name="altura_perfil" id="altura_perfil" placeholder="" value="20"
+									onchange="cambioAltura()">
+							</div>
+						</div>
+
+
 					</div>
+
 				</form>
+
 				<div style="text-align: center;" class="mt-3">
 					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<a type="button" onclick="Diametro(),Altura(), iniciar()" class="btn btn-secondary">Iniciar</a>
+					<button type="button" onclick="Altura(),alt_per(),base_per(), iniciar()"
+						class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
 					<a type="button" href="indexrelojvariosensayos.html" class="btn btn-primary">Reiniciar</a>
 				</div>
+
+
+
+
 			</div>
 		</div>
 
@@ -194,7 +234,6 @@
 
 		</div>
 
-
 		<div style="text-align: center;" class="mt-1	">
 			<svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
 				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
@@ -220,6 +259,7 @@
 			</svg>
 				</div>
 
+
 	</div>
 
 	<div class="position-fixed" id="ventanamini2d"
@@ -232,29 +272,23 @@
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="tension_barra1.js"></script>
-	<script src="tension_compresion.js"></script>
-	<script src="Trac_Acer_Corten.js"></script>
-	<script src="Trac_Acer_Dulce.js"></script>
-	<script src="Trac_Acer_Alum.js"></script>
-	<script src="Trac_ASTM_A37.js"></script>
-	<script src="Trac_ASTM_A48.js"></script>
-	<script src="Trac_ASTM_A53.js"></script>
-	<script src="Trac_ASTM_A370.js"></script>
-	<script src="Trac_Poli_1200E.js"></script>
-	<script src="Profe.js"></script>
+	<script src="Flexion_carga_Madera_ASTM143.js"></script>
+
+
 
 	<script>
 		tippy('[data-tippy-content]');
 
 		function cambioAltura() {
 			var altura = document.getElementById('Altura').value;
-			if (altura < 30 || altura > 200) {
+			if (altura < 20 || altura > 500) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 20 mm y menor a 500 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -264,27 +298,19 @@
 			}
 		}
 
+
 		function cambiossegunacero() {
 			var prueba565656 = 120;
-			switch (document.getElementById('Diametro_barra').value) {
+			switch (document.getElementById('select_barra').value) {
 
-				case 'Numero3':
-					document.getElementById('Altura').value = 4*9.5;
-				/*	document.getElementById('Diametro_barra').value = "Numero5";*/
+				
+
+				case 'Copr_Madera_AStm_D_143':
+					document.getElementById('Altura').value = 300;
 
 					break;
 
-				case 'Numero5':
-					document.getElementById('Altura').value = 15.9*4;
-					break;
-				case 'NUmero8':
-					document.getElementById('Altura').value = 25.4*4;
 
-					break;
-				
-					    
-				
-				
 			}
 
 		}
@@ -407,55 +433,59 @@
 		cubeabajo2.position.z = 0.63
 */
 
-		(function () {
 
-			/**
-			 * Ajuste decimal de un número.
-			 *
-			 * @param	{String}	type	El tipo de ajuste.
-			 * @param	{Number}	value	El número.
-			 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
-			 * @returns	{Number}			El valor ajustado.
-			 */
-			function decimalAdjust(type, value, exp) {
-				// Si el exp es indefinido o cero...
-				if (typeof exp === 'undefined' || +exp === 0) {
-					return Math[type](value);
+		
+		
+
+			(function () {
+
+				/**
+				 * Ajuste decimal de un número.
+				 *
+				 * @param	{String}	type	El tipo de ajuste.
+				 * @param	{Number}	value	El número.
+				 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
+				 * @returns	{Number}			El valor ajustado.
+				 */
+				function decimalAdjust(type, value, exp) {
+					// Si el exp es indefinido o cero...
+					if (typeof exp === 'undefined' || +exp === 0) {
+						return Math[type](value);
+					}
+					value = +value;
+					exp = +exp;
+					// Si el valor no es un número o el exp no es un entero...
+					if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+						return NaN;
+					}
+					// Cambio
+					value = value.toString().split('e');
+					value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+					// Volver a cambiar
+					value = value.toString().split('e');
+					return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
 				}
-				value = +value;
-				exp = +exp;
-				// Si el valor no es un número o el exp no es un entero...
-				if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-					return NaN;
+
+				// Redondeo decimal
+				if (!Math.round10) {
+					Math.round10 = function (value, exp) {
+						return decimalAdjust('round', value, exp);
+					};
 				}
-				// Cambio
-				value = value.toString().split('e');
-				value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-				// Volver a cambiar
-				value = value.toString().split('e');
-				return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-			}
+				// Redondeo hacia abajo
+				if (!Math.floor10) {
+					Math.floor10 = function (value, exp) {
+						return decimalAdjust('floor', value, exp);
+					};
+				}
+				// Redondeo hacia arriba
+				if (!Math.ceil10) {
+					Math.ceil10 = function (value, exp) {
+						return decimalAdjust('ceil', value, exp);
+					};
+				}
 
-			// Redondeo decimal
-			if (!Math.round10) {
-				Math.round10 = function (value, exp) {
-					return decimalAdjust('round', value, exp);
-				};
-			}
-			// Redondeo hacia abajo
-			if (!Math.floor10) {
-				Math.floor10 = function (value, exp) {
-					return decimalAdjust('floor', value, exp);
-				};
-			}
-			// Redondeo hacia arriba
-			if (!Math.ceil10) {
-				Math.ceil10 = function (value, exp) {
-					return decimalAdjust('ceil', value, exp);
-				};
-			}
-
-		})();
+			})();
 
 
 		function modulo_elastico() {
@@ -474,23 +504,24 @@
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
 		function centroflecha(){
-			camera.position.set(1.66709100739706, 2.533636599894739, 0.8891350287239972);
-			controls.target.set(-0.4703463268087177, 2.4514580675204374, 0.8747976642979516);
+			camera.position.set(1.7635816353914981, 1.8347950925610317, 0.16463116563173347);
+			controls.target.set(-0.47968991718879844, 1.7819228371923617, 0.35131564004338245);
 				}
 
 			function Derechaflecha(){
-			camera.position.set(-0.04301167125926145, 2.6131826458308764, -0.5088322837551023);
-			controls.target.set(-0.14794006744903476, 2.3788762058317654, 0.8868513800017561);
+			camera.position.set(0.06126837168823679, 1.8755083832142612, -1.2708440270559638);
+			controls.target.set(0.14533605948724349, 1.730226894676921, -0.24126841056202938);
 				}
 				function Izquierdaflecha(){
-			camera.position.set(0.000734195804004939, 2.621712779629144, 1.7274071564896971);
-			controls.target.set(-0.10064350117795648, 2.516294002361346, 0.7973774927475255);
+			camera.position.set(-0.01364266170339136, 1.8549514906947322, 1.129527550691957);
+			controls.target.set(-0.04140357232327803, 1.8463011750021652, 0.7161876768959998);
 				}
 
 				function Arribaflecha(){
-			camera.position.set(-0.008251580272468723, 3.683612547774721, 0.6457435778972822);
-			controls.target.set(-0.17057968240305285, 2.3452823030051353, 0.6419385819636291);
+			camera.position.set(-0.049771421686070995, 3.100206014401884, 0.05500078024639481);
+			controls.target.set(-0.09139378917770244, 2.3345121792479646, 0.05437087104429345);
 				}
+
 
 		function zoom() {
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
@@ -502,34 +533,26 @@
 
 
 		}
-		console.log(camera.position)
-		function zoom3d() {
-			window.open("indexrelojvariosensayos.html", "hola", "width=400px, height=600px,")
-			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
-			//camera.position.y=3 // posicison de la camara (0, 5, 5)
-			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
-		}
-
-		function open_win() {
+	/*	function open_win() {
 			window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicison de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
-		}
+		}*/
 
 
-		
+
 		controls.update();
 
 		var D = 1;
 		var Alt = 1;
-		function Diametro() {
+		/* function Diametro() {
 			var Diaetro_barra_en_mm = document.getElementById('Diametro_barra').value;
-			if (Diaetro_barra_en_mm == "Numero2") {
-				D = 6.4;
+			if (Diaetro_barra_en_mm == "Numero66") {
+				D = 28.96066083;
 
-			} else if (Diaetro_barra_en_mm == "Numero3") {
-				D = 9.5;
+			} else if (Diaetro_barra_en_mm == "Numero1") {
+				D = 28.9;
 
 			} else if (Diaetro_barra_en_mm == "Numero4") {
 				D = 12.7;
@@ -553,6 +576,19 @@
 				D = 57.3;
 			}
 			console.log(D)
+		}*/
+
+		var bas_per = 1;
+		var altu_per = 1;
+
+		function base_per() {
+			bas_per = parseFloat(document.getElementById('base_perfil').value);
+		}
+
+		function alt_per() {
+
+			altu_per = parseFloat(document.getElementById('altura_perfil').value);
+
 		}
 
 
@@ -568,16 +604,16 @@
 			switch (event.code) {
 
 				case 'ArrowUp':
-				case 'KeyW': controls.target.y = controls.target.y + 2;
+				case 'KeyW': camera.position.x = camera.position.x - 2;
 
 				case 'ArrowDown':
-				case 'KeyS': controls.target.y = controls.target.y - 1;
+				case 'KeyS': camera.position.x = camera.position.x + 1;
 
 				case 'ArrowLeft':
-				case 'KeyA': controls.target.z = controls.target.z + 2;
+				case 'KeyA': camera.position.z = camera.position.z + 2;
 
 				case 'ArrowRight':
-				case 'KeyD': controls.target.z = controls.target.z - 1;
+				case 'KeyD': camera.position.z = camera.position.z - 1;
 
 				// case 'KeyC': controls.crouch = true; break;
 				// case 'Space': controls.jump = true; break;
@@ -600,7 +636,7 @@
 
 			if (iniciar_) {
 
-				var Area = Math.PI * (D / 2) * (D / 2);
+				var Area = bas_per * altu_per;
 				console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
@@ -609,42 +645,18 @@
 					if (garra.position.y <= 0.29) {
 						garra.position.y += 0.00001
 
+
+
 						var datos_traccion;
 
 						switch (document.getElementById('select_barra').value) {
-							case 'Profe':
-								datos_traccion = Profe;
+							case 'Copr_Madera_AStm_D_143':
+								datos_traccion = Flexion_carga_Madera_ASTM143;
 								break;
-							case 'tension_barra1':
-								datos_traccion = tension_barra1;
+							case 'Copr_Acer_E9':
+								datos_traccion = Copr_Acer_E9;
 								break;
-							case 'tension_compresion':
-								datos_traccion = tension_compresion;
-								break;
-							case 'Trac_Acer_Corten':
-								datos_traccion = Trac_Acer_Corten;
-								break;
-							case 'Trac_Acer_Dulce':
-								datos_traccion = Trac_Acer_Dulce;
-								break;
-							case 'Trac_Acer_Alum':
-								datos_traccion = Trac_Acer_Alum;
-								break;
-							case 'Trac_ASTM_A37':
-								datos_traccion = Trac_ASTM_A37;
-								break;
-							case 'Trac_ASTM_A48':
-								datos_traccion = Trac_ASTM_A48;
-								break;
-							case 'Trac_ASTM_A53':
-								datos_traccion = Trac_ASTM_A53;
-								break;
-							case 'Trac_ASTM_A370':
-								datos_traccion = Trac_ASTM_A370;
-								break;
-							case 'Trac_Poli_1200E':
-								datos_traccion = Trac_Poli_1200E;
-								break;
+
 						}
 
 						new_vec = datos_traccion;
@@ -714,11 +726,11 @@
 		function iniciar() {
 
 			var altura = document.getElementById('Altura').value;
-			if (altura < 30 || altura > 200) {
+			if (altura < 20 || altura > 500) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 20 mm y menor a 500 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -743,7 +755,7 @@
 
 		// Load a glTF resource
 		loader.load(
-			'salontraccion.glb',//'scene.gltf'
+			'escenario-flexion1.glb',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -771,7 +783,7 @@
 
 		// Load a glTF resource
 		loader2.load(
-			'Garra.gltf',//'scene.gltf'
+			'carga-flexion1puntos.gltf',//'scene.gltf'
 			function (gltf) {
 				garra = gltf.scene;
 				scene.add(garra);
@@ -782,9 +794,9 @@
 				gltf.asset; // Object
 
 				console.log('completado!.....')
-				garra.position.z += 1.587
-				garra.position.x += -0.001
-				garra.position.y += 0.258
+				garra.position.z += 0
+				garra.position.x += 0
+				garra.position.y += -0.2
 				renderer.render(scene, camera);
 
 
