@@ -177,7 +177,7 @@
 										data-tippy-content="Texto de altura"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
-									name="base_perfil" id="base_perfil" placeholder="" value="20"
+									name="base_perfil" id="base_perfil" placeholder="" value="47.8"
 									onchange="cambioAltura()">
 							</div>
 							<div class="col" style="width:180px">
@@ -185,7 +185,7 @@
 										data-tippy-content="Texto de altura"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
-									name="altura_perfil" id="altura_perfil" placeholder="" value="20"
+									name="altura_perfil" id="altura_perfil" placeholder="" value="48.3"
 									onchange="cambioAltura()">
 							</div>
 						</div>
@@ -284,11 +284,11 @@
 
 		function cambioAltura() {
 			var altura = document.getElementById('Altura').value;
-			if (altura < 20 || altura > 500) {
+			if (altura < 360 || altura > 900) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 20 mm y menor a 500 mm',
+					text: 'El valor debe ser mayor a 360 mm y menor a 900 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -306,7 +306,7 @@
 				
 
 				case 'Copr_Madera_AStm_D_143':
-					document.getElementById('Altura').value = 300;
+					document.getElementById('Altura').value = 763.5;
 
 					break;
 
@@ -344,7 +344,7 @@
 						min: 0,
 						title: {
 							display: true,
-							text: 'Alargamiento (mm)'
+							text: 'Deflexion (mm)'
 						}
 					},
 
@@ -636,7 +636,7 @@
 
 			if (iniciar_) {
 
-				var Area = bas_per * altu_per;
+				var Area = 2* bas_per * altu_per * altu_per / (3 * Alt);
 				console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
@@ -665,7 +665,7 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area];
+							operavec = [datos_traccion[key][0], datos_traccion[key][1] * Area];
 							new_vec.push(operavec)
 						}
 
@@ -726,11 +726,11 @@
 		function iniciar() {
 
 			var altura = document.getElementById('Altura').value;
-			if (altura < 20 || altura > 500) {
+			if (altura < 360 || altura > 900) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 20 mm y menor a 500 mm',
+					text: 'El valor debe ser mayor a 360 mm y menor a 900 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,

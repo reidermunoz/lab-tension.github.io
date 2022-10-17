@@ -108,8 +108,9 @@
 					</label>
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
-						onclick="cambiossegunacero()">
-						<option value="Copr_Acer_E9" selected>ACERO (ASTM) E9)</option>
+						onchange="cambiossegunacero()" >
+						<option value="" selected></option>
+						<option value="Copr_Acer_E9" >ACERO (ASTM) E9)</option>
 						<option value="Copr_Madera_AStm_D_143">Madera (ASTM D143) </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
@@ -281,8 +282,12 @@
 				case 'Copr_Madera_AStm_D_143':
 					document.getElementById('Altura').value = 150.74;
 					document.getElementById('Diametro_barra').value = "Numero1";
+					location.href="indexrelojvariosensayos_compresion_madera.html";
 
 					break;
+				 default:
+				 	document.getElementById('Altura').value = '';
+					document.getElementById('Diametro_barra').value = "";
 
 
 			}
