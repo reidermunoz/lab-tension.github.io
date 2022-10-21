@@ -423,10 +423,10 @@
 		cubeabajo2.position.y = 2.84
 		cubeabajo2.position.z = 0.63
 */
-var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.62, 32);
+var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.09, 32);
 		var materialcilindro = new THREE.MeshPhongMaterial({ color: 0x4B463F  });
 		var cubecilindri = new THREE.Mesh(geometrycilindro, materialcilindro);
-		cubecilindri.position.y = 1.74
+		cubecilindri.position.y = 1.48
 		cubecilindri.position.z = -0.04
 		scene.add(cubecilindri);
 
@@ -522,12 +522,12 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.62, 32);
 
 		}
 
-		function open_win() {
+		/*function open_win() {
 			window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicison de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
-		}
+		}*/
 
 		controls.update();
 
@@ -609,6 +609,33 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.62, 32);
 
 
 			if (iniciar_) {
+			
+	var geometrycilindroarr = new THREE.CylinderGeometry(0.05, 0.065, 0.045, 32); //0.05, 0.15, 0.31, 32
+			var materialcilindroar = new THREE.MeshPhongMaterial({ color: 0x4B463F  });
+			var cubecilindriar = new THREE.Mesh(geometrycilindroarr, materialcilindroar);
+			cubecilindriar.position.y = 1.505
+			cubecilindriar.position.z = -0.04
+			scene.add(cubecilindriar);
+
+			var geometrycilindrobaj = new THREE.CylinderGeometry(0.065, 0.05, 0.045, 32); //(0.15, 0.05, 0.31, 32)
+			var materialcilindrobaj = new THREE.MeshPhongMaterial({ color: 0x4B463F  });
+			var cubecilindribaj = new THREE.Mesh(geometrycilindrobaj, materialcilindrobaj);
+			cubecilindribaj.position.y = 1.46
+			cubecilindribaj.position.z = -0.04
+			scene.add(cubecilindribaj);
+	
+
+	
+
+				
+
+			//aaaaaa += 0.001
+		
+
+
+
+
+
 
 				var Area = Math.PI * (D / 2) * (D / 2);
 				console.log(Area)
@@ -616,8 +643,10 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.62, 32);
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
 
-					if (garra.position.y <= 0.29) {
-						garra.position.y += 0.00001
+					if (garra.position.y <= -0.6) {
+						
+						garra.position.y += -0.0001
+						//garra.position.y += -0.00001
 
 
 
@@ -674,9 +703,9 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.62, 32);
 							document.getElementById('Carga').value = segundoy;
 						}
 					} else {
-						garra.position.y = 0.35
+						garra.position.y = -0.53
 					}
-					//	console.log(garra.position.y)
+					//	console.log(garra.position.y) -0.52
 				}
 
 			}
@@ -766,7 +795,7 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.62, 32);
 				console.log('completado!.....')
 				garra.position.z += 0
 				garra.position.x += 0
-				garra.position.y += 0
+				garra.position.y += -0.52
 
 
 				renderer.render(scene, camera);

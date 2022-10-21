@@ -456,10 +456,10 @@
 		cubeabajo2.position.z = 0.63
 */
 
-		var geometrycubomadera = new THREE.BoxGeometry(0.1, 0.62, 0.1);
+		var geometrycubomadera = new THREE.BoxGeometry(0.1, 0.30, 0.1);
 		var materialcubo = new THREE.MeshPhongMaterial({ color: 0xE7B158 });
 		var cubecubo = new THREE.Mesh(geometrycubomadera, materialcubo);
-		cubecubo.position.y = 1.74
+		cubecubo.position.y = 1.585
 		cubecubo.position.z = -0.04
 		scene.add(cubecubo);
 
@@ -816,7 +816,7 @@
 				console.log('completado!.....')
 				garra.position.z += 0
 				garra.position.x += 0
-				garra.position.y += 0
+				garra.position.y += -0.309
 				renderer.render(scene, camera);
 
 
