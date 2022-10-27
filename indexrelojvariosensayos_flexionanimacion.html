@@ -197,7 +197,7 @@
 					<button type="button" onclick="Altura(),alt_per(),base_per(), iniciar()"
 						class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
-					<a type="button" href="indexrelojvariosensayos.html" class="btn btn-primary">Reiniciar</a>
+					<a type="button" href="indexrelojvariosensayos_flexionanimacion.html" class="btn btn-primary">Reiniciar</a>
 				</div>
 
 
@@ -387,7 +387,7 @@
 
 
 		var scene = new THREE.Scene();
-		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000); //1,1000
 		var garra;
 
 		document.addEventListener('keydown', onKeyDown);
@@ -523,8 +523,8 @@
 
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
-		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
-
+		camera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713); // posicion de la camara (0, 5, 5) 
+		controls.target.set(-0.7032029168893309, 1.5781128106857465, -2.674084323532686);
 		function centroflecha(){
 			camera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713);
 			controls.target.set(-0.7032029168893309, 1.5781128106857465, -2.674084323532686);
@@ -657,24 +657,39 @@
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
-			var delta = clock.getDelta();
+			
+		
 
-if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
+			
+				
+			
 
-renderer.render(scene, camera);
+	
+
+			
 
 			if (iniciar_) {
+
+				var delta = clock.getDelta();
+
+				if ( mixer ) mixer.update( delta/5.353 ); //if ( mixer ) mixer.update( delta/20 );
+
+				renderer.render(scene, camera);
+
+
+
 
 				var Area = 2* bas_per * altu_per * altu_per / (3 * Alt);
 			//	console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
+					console.log(garra.position.y)
 
-					if (garra.position.y <= 0.29) {
-						garra.position.y += 0.00001
+					if (garra.position.y >= -0.221930) {
+						garra.position.y += -0.00001
 
-console.log(garra.position.y)
+						console.log(garra.position.y)
 
 						var datos_traccion;
 
@@ -730,7 +745,7 @@ console.log(garra.position.y)
 							document.getElementById('Carga').value = segundoy;
 						}
 					} else {
-						garra.position.y = 0.35
+						garra.position.y = -0.221930
 					}
 					//	console.log(garra.position.y)
 				}
@@ -768,9 +783,10 @@ console.log(garra.position.y)
 
 			} else {
 				iniciar_ = true;
-				document.getElementById("ventanamini2d").style.display = "block";
-				document.getElementById('mini2d').src = "index2d.html";
-				//open_win();
+				
+				//document.getElementById("ventanamini2d").style.display = "block";
+				//document.getElementById('mini2d').src = "index2d.html";
+				open_win();
 			}
 
 
@@ -825,7 +841,7 @@ console.log(garra.position.y)
 				console.log('completado!.....')
 				garra.position.z += 0
 				garra.position.x += 0
-				garra.position.y += -0.2
+				garra.position.y += -0.19
 			
 				renderer.render(scene, camera);
 
@@ -851,7 +867,7 @@ console.log(garra.position.y)
                 gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
 				vigafle.position.z += -3.5
 				vigafle.position.x += 0
-				vigafle.position.y += 1.38
+				vigafle.position.y += 1.405
 				vigafle.scale.z = 0.15
 				vigafle.scale.y = 0.9
 
