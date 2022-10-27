@@ -630,8 +630,8 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.09, 32);
 
 				var radiusTop = cubecilindribaj.geometry.parameters.radiusTop;
 				var radiusBottom = cubecilindriar.geometry.parameters.radiusBottom;
-				console.log(radiusTop)
-				if(radiusTop<0.065){
+				//console.log(radiusTop)
+				if(radiusTop<0.061){
 					radiusTop = radiusTop + 0.000001;
 					radiusBottom = radiusBottom + 0.000001;
 
@@ -661,9 +661,9 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.09, 32);
 
 					if (garra.position.y >= -0.531) {
 						
-						garra.position.y += -0.00001
+						garra.position.y += -0.0000028
 						//garra.position.y += -0.00001
-//console.log(garra.position.y)
+console.log(garra.position.y)
 
 
 						var datos_traccion;
@@ -758,7 +758,7 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.09, 32);
 				iniciar_ = true;
 				document.getElementById("ventanamini2d").style.display = "block";
 				document.getElementById('mini2d').src = "index2d.html";
-				open_win();
+				//open_win();
 			}
 
 
@@ -810,7 +810,7 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.09, 32);
 				console.log('completado!.....')
 				garra.position.z += 0
 				garra.position.x += 0
-				garra.position.y += -0.52
+				garra.position.y += -0.515
 
 
 				renderer.render(scene, camera);
