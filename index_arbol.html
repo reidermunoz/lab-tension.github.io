@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THREE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="c"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
+
+
+
+    <script>
+        
+
+		var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+		var garra;
+
+
+		const container = document.getElementById('c');
+
+
+		const renderer = new THREE.WebGLRenderer();
+
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		document.body.appendChild(renderer.domElement);
+
+
+		scene = new THREE.Scene();
+		scene.background = new THREE.Color(0xa0a0a0);
+		scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+
+		const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+		hemiLight.position.set(0, 20, 0);
+		scene.add(hemiLight);
+
+		const dirLight = new THREE.DirectionalLight(0xffffff);
+		dirLight.position.set(- 3, 10, - 10);
+		dirLight.castShadow = true;
+		dirLight.shadow.camera.top = 2;
+		dirLight.shadow.camera.bottom = - 2;
+		dirLight.shadow.camera.left = - 2;
+		dirLight.shadow.camera.right = 2;
+		dirLight.shadow.camera.near = 0.1;
+		dirLight.shadow.camera.far = 40;
+		scene.add(dirLight);
+
+
+
+		const controls = new THREE.OrbitControls(camera, renderer.domElement);
+		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
+
+
+		controls.update();
+
+
+		renderer.render(scene, camera);
+
+
+        
+        var mixer;
+        var clock = new THREE.Clock();
+
+
+		function animate() {
+			requestAnimationFrame(animate);
+			controls.update();
+			//console.log(camera.position)
+
+            var delta = clock.getDelta();
+
+	        if ( mixer ) mixer.update( delta ); //if ( mixer ) mixer.update( delta/20 );
+
+			renderer.render(scene, camera);
+
+		}
+
+		animate()
+
+
+		// Instantiate a loader
+		const loader = new THREE.GLTFLoader();
+
+
+		// Load a glTF resource
+		loader.load(
+			'arbol-viento.glb',//'scene.gltf'
+			function (gltf) {
+                mixer= new THREE.AnimationMixer(gltf.scene);
+                gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
+
+				scene.add(gltf.scene);
+				renderer.render(scene, camera);
+
+
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				console.log('An error happened');
+			}
+		);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
