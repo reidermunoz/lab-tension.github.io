@@ -666,7 +666,7 @@ renderer.render(scene, camera);
 			if (iniciar_) {
 
 				var Area = 2* bas_per * altu_per * altu_per / (3 * Alt);
-				console.log(Area)
+			//	console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
@@ -674,7 +674,7 @@ renderer.render(scene, camera);
 					if (garra.position.y <= 0.29) {
 						garra.position.y += 0.00001
 
-
+console.log(garra.position.y)
 
 						var datos_traccion;
 
