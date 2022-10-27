@@ -784,7 +784,7 @@ renderer.render(scene, camera);
 
 		// Load a glTF resource
 		loader.load(
-			'escenario-flexion1.glb',//'scene.gltf'
+			'escenario_flexion_madera1.gltf',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -844,7 +844,7 @@ renderer.render(scene, camera);
 		const loader3 = new THREE.GLTFLoader();
 
 		loader3.load(
-			'vigasola1c.gltf',//'scene.gltf'
+			'vigasolad.gltf',//'scene.gltf'
 			function (gltf) {
 				vigafle = gltf.scene;
                 mixer= new THREE.AnimationMixer(gltf.scene);
