@@ -497,6 +497,7 @@
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(1.66709100739706, 2.533636599894739, 0.8891350287239972); // posicion de la camara (0, 5, 5) 
 		controls.target.set(-0.4703463268087177, 2.4514580675204374, 0.8747976642979516);
+
 		function centroflecha(){
 			camera.position.set(1.66709100739706, 2.533636599894739, 0.8891350287239972);
 			controls.target.set(-0.4703463268087177, 2.4514580675204374, 0.8747976642979516);
@@ -672,9 +673,9 @@
 						}
 
 						var minrandom = 0;
-var maxrandom = 1;
+						var maxrandom = 1;
 
-var yradnom = Math.random()*(maxrandom - minrandom)+minrandom;
+						var yradnom = Math.random()*(maxrandom - minrandom)+minrandom;
 
 
 						new_vec = datos_traccion;
