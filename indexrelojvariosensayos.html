@@ -107,14 +107,14 @@
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
 						<option value="" selected></option>
-						<option value="Profe" >Acero 200 Gpa</option>
+						<option value="Profe" >Acero ASTM A36</option>
 				<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 				<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
 						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
 						<option value="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
-						<option value="Trac_ASTM_A37">ASTM A-36 (Acero estructural)(norma ASTM A6 (ASTM A370))</option>
+						<option value="Trac_ASTM_A37">Acero ASTM A37</option>
 				<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
 					<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
 						<option value="Trac_ASTM_A370">Acero ASTM A-370</option>
@@ -495,8 +495,8 @@
 
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
-		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
-
+		camera.position.set(1.66709100739706, 2.533636599894739, 0.8891350287239972); // posicion de la camara (0, 5, 5) 
+		controls.target.set(-0.4703463268087177, 2.4514580675204374, 0.8747976642979516);
 		function centroflecha(){
 			camera.position.set(1.66709100739706, 2.533636599894739, 0.8891350287239972);
 			controls.target.set(-0.4703463268087177, 2.4514580675204374, 0.8747976642979516);
@@ -671,21 +671,28 @@
 								break;
 						}
 
+						var minrandom = -1;
+var maxrandom = 1;
+
+var yradnom = Math.random()*(maxrandom - minrandom)+minrandom;
+
+
 						new_vec = datos_traccion;
 
 
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area/1000];
+							operavec = [datos_traccion[key][0] * Alt,yradnom+ datos_traccion[key][1] * Area/1000];
 							new_vec.push(operavec)
 						}
 
-						//	console.log(new_vec)
+							console.log(new_vec)
 
 						/* max_y_canvas = (datos_traccion[cant][1] +50) > max_y_canvas ? (datos_traccion[cant][1] +50) : max_y_canvas;
 
 */
+
 
 						var margen = 1;
 						if (contador_barra1.length % 31 == 0) {
