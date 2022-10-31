@@ -75,8 +75,8 @@
 
 			<div class="col-md-9" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Traccion</a>
-				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_compresion.html">Compresión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a>
+				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_compresion56.html">Compresión</a>
+				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a> -->
 			</div>
 
 			<!--	<div class="col-md-9" style="text-align: right;">s
@@ -672,7 +672,7 @@
 
 				var delta = clock.getDelta();
 
-				if ( mixer ) mixer.update( delta/5.353 ); //if ( mixer ) mixer.update( delta/20 );
+				if ( mixer ) mixer.update( delta/5.353 ); //if ( mixer ) mixer.update( delta/5.353);
 
 				renderer.render(scene, camera);
 
@@ -800,7 +800,7 @@
 
 		// Load a glTF resource
 		loader.load(
-			'escenario_flexion_madera1.gltf',//'scene.gltf'
+			'escenario_flexion_mader2.gltf',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -864,7 +864,17 @@
 			function (gltf) {
 				vigafle = gltf.scene;
                 mixer= new THREE.AnimationMixer(gltf.scene);
-                gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
+
+                //gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
+
+				const clock = new THREE.Clock();
+				var clip = gltf.animations[ 0 ];
+				var action = mixer.clipAction( clip );
+				action.loop = THREE.LoopOnce;
+				action.clampWhenFinished = true;
+				action.play();
+
+
 				vigafle.position.z += -3.5
 				vigafle.position.x += 0
 				vigafle.position.y += 1.405

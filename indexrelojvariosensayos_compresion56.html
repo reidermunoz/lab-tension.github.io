@@ -68,8 +68,8 @@
 
 			<div class="col-md-9" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Traccion</a>
-				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_flexion.html">Flexion</a>
-				<a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a>
+				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_flexionanimacion.html">Flexion</a>
+				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a> -->
 			</div>
 
 			<!--	<div class="col-md-9" style="text-align: right;">s
@@ -111,7 +111,7 @@
 						onchange="cambiossegunacero()" >
 						<option value="" selected></option>
 						<option value="Copr_Acer_E9" >ACERO (ASTM) E9)</option>
-						<option value="Copr_Madera_AStm_D_143">Madera (ASTM D143) </option>
+						<!-- <option value="Copr_Madera_AStm_D_143">Madera (ASTM D143) </option> -->
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 
@@ -769,10 +769,10 @@ console.log(garra.position.y)
 
 		// Load a glTF resource
 		loader.load(
-			'laboratorio-compresion.gltf',//'scene.gltf'
+			'laboratorio-compresion6.gltf',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
-				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.animations; // Array<THsREE.AnimationClip>
 				gltf.scene; // THREE.Group
 				gltf.scenes; // Array<THREE.Group>
 				gltf.cameras; // Array<THREE.Camera>
@@ -797,7 +797,7 @@ console.log(garra.position.y)
 
 		// Load a glTF resource
 		loader2.load(
-			'compresion-carga.gltf',//'scene.gltf'
+			'compresion-carga1.gltf',//'scene.gltf'
 			function (gltf) {
 				garra = gltf.scene;
 				scene.add(garra);
