@@ -524,6 +524,7 @@ function open_winmini(){
 		loader2.load(
 			'Garra.gltf',//'scene.gltf'
 			function (gltf) {
+
 				garra = gltf.scene;
 				scene.add(garra);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -531,6 +532,8 @@ function open_winmini(){
 				gltf.scenes; // Array<THREE.Group>
 				gltf.cameras; // Array<THREE.Camera>
 				gltf.asset; // Object
+
+				garra.name = "garra__"
 
 				console.log('completado!.....')
 				garra.position.z += 1.587
@@ -569,6 +572,40 @@ function open_winmini(){
 			sound.setVolume(0.5);
 			sound.play();
 		});
+
+		
+		var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2()
+
+		renderer.domElement.addEventListener('click', onClick, false);
+
+		function onClick(event) {
+
+			event.preventDefault();
+
+			mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+			mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+
+			raycaster.setFromCamera(mouse, camera);
+
+			var intersects = raycaster.intersectObjects(scene.children);
+		
+
+			switch (intersects[0].object.name) {
+				case 'garra_10961914':
+					console.log('link para nueva ventana')
+					location.href="http://google.com";
+					break;
+			
+				default:
+				console.log('no')
+
+					break;
+			}
+
+			}
+
 
 
 
