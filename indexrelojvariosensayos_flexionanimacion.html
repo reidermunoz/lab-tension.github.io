@@ -389,6 +389,7 @@
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000); //1,1000
 		var garra;
+		
 
 		document.addEventListener('keydown', onKeyDown);
 
@@ -684,12 +685,12 @@
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
-					console.log(garra.position.y)
+				//	console.log(garra.position.y)
 
 					if (garra.position.y >= -0.221930) {
 						garra.position.y += -0.00001
 
-						console.log(garra.position.y)
+					//	console.log(garra.position.y)
 
 						var datos_traccion;
 
@@ -746,6 +747,9 @@
 						}
 					} else {
 						garra.position.y = -0.221930
+						scene.remove(vigafle)
+						scene.add(vigafle_rota)
+					
 					}
 					//	console.log(garra.position.y)
 				}
@@ -786,7 +790,7 @@
 				
 				//document.getElementById("ventanamini2d").style.display = "block";
 				//document.getElementById('mini2d').src = "index2d.html";
-				open_win();
+				//open_win();
 			}
 
 
@@ -856,10 +860,11 @@
 				//	console.log('An error happened');
 			}
 		);
-
+		
+	
 		const loader3 = new THREE.GLTFLoader();
-
 		loader3.load(
+			
 			'vigasolad.gltf',//'scene.gltf'
 			function (gltf) {
 				vigafle = gltf.scene;
@@ -900,7 +905,41 @@
 		);
 
 
+// Instantiate a loader
 
+		 
+const loader4 = new THREE.GLTFLoader();
+
+// Load a glTF resource
+loader4.load(
+	'vigasolad_esta.gltf',//'scene.gltf'
+	function (gltf) {
+		vigafle_rota = gltf.scene;
+
+	//	scene.add(gltf.scene);
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+		renderer.render(scene, camera);
+
+		vigafle_rota.position.z += -3.5
+		vigafle_rota.position.x += 0
+		vigafle_rota.position.y += 1.405
+		vigafle_rota.scale.z = 0.15
+		vigafle_rota.scale.y = 0.9
+
+	},
+	// called while loading is progressing
+	function (xhr) {
+		//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+	},
+	// called when loading has errors
+	function (error) {
+		//	console.log('An error happened');
+	}
+);
 
 
 		// create an AudioListener and add it to the camera
