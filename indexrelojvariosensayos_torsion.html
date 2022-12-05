@@ -107,19 +107,16 @@
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
 						<option value="" selected></option>
-						<option value="Profe" >Acero ASTM A36</option>
+						<!-- <option value="torsion_Cobre" >Cobre</option> -->
 				<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 				<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
 						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
-						<option value="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
-						<option value="Trac_ASTM_A37">Acero ASTM A37</option>
+						<option value="torque_Dulce">Acero Mild </option>
 				<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
 					<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
-						<option value="Trac_ASTM_A370">Acero ASTM A-370</option>
 				<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
-						<option value="Trac_ASTM_A572">Acero ASTM A-572</option>
 					</select>
 					<!--		<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Diametro (mm)<i
@@ -138,8 +135,7 @@
 					</div>
 					<div class="col-auto" style="width: 180px">
 						<label class="form-label"
-							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
-							barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;">Diamtro de la barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
 						</label>
 						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
 							style="width:180px; " onclick="cambiossegunacero()">
@@ -147,17 +143,8 @@
 							<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 							<option value="" selected></option>
-							<option value="Numero3">#3</option>
-				<!--		<option value="Numero4">#4</option>-->
-							<option value="Numero5">#5</option>
-				<!--		<option value="Numero6">#6</option>
-							<option value="Numero7">#7</option>-->
-							<option value="NUmero8">#8</option>
-				<!--		<option value="Numero9">#9</option>
-							<option value="Numero10">#10</option>
-							<option value="Numero11">#11</option>
-							<option value="Numero14">#14</option>
-							<option value="Numero18">#18</option>-->
+							<option value="Numero3">11.1 mm</option>
+
 						</select>
 					</div>
 				</form>
@@ -246,7 +233,7 @@
 	</div>
 
 	<div class="position-fixed" id="ventanamini2d"
-		style="bottom: 0px;right:0px;height: 1000px;width: 400px;background-color: #ffffff;overflow: hidden;display: none">
+		style="bottom: 0px;right:0px;height: 330px;width: 540px;background-color: #ffffff;overflow: hidden;display: none">
 		<iframe id="mini2d" src="index2d.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
 
@@ -256,18 +243,9 @@
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="tension_barra1.js"></script>
-	<script src="tension_compresion.js"></script>
-	<script src="Trac_Acer_Corten.js"></script>
-	<script src="Trac_Acer_Dulce.js"></script>
-	<script src="Trac_Acer_Alum.js"></script>
-	<script src="Trac_ASTM_A37.js"></script>
-	<script src="Trac_ASTM_A48.js"></script>
-	<script src="Trac_ASTM_A53.js"></script>
-	<script src="Trac_ASTM_A370.js"></script>
-	<script src="Trac_Poli_1200E.js"></script>
-	<script src="Profe.js"></script>
-	<script src="Trac_ASTM_A572.js"></script>
+	<script src="torque_Dulce.js"></script>
+	<script src="torsion_Cobre.js"></script>
+
 
 	<script>
 		tippy('[data-tippy-content]');
@@ -293,21 +271,8 @@
 			switch (document.getElementById('Diametro_barra').value) {
 
 				case 'Numero3':
-					document.getElementById('Altura').value = 4*9.5;
+					document.getElementById('Altura').value = 190;
 				/*	document.getElementById('Diametro_barra').value = "Numero5";*/
-
-					break;
-
-				case 'Numero5':
-					document.getElementById('Altura').value = 15.9*4;
-					break;
-				case 'NUmero8':
-					document.getElementById('Altura').value = 25.4*4;
-
-					break;
-				
-					    
-				
 				
 			}
 
@@ -338,7 +303,7 @@
 				scales: {
 					x: {
 						type: 'linear',
-						max: 0.5,
+						max: 200,
 						min: 0,
 						title: {
 							display: true,
@@ -348,7 +313,7 @@
 
 					y: {
 						type: 'linear',
-						max: 400,
+						max: 6.5,
 						min: 1,
 						title: {
 							display: true,
@@ -554,29 +519,8 @@
 				D = 6.4;
 
 			} else if (Diaetro_barra_en_mm == "Numero3") {
-				D = 9.5;
-
-			} else if (Diaetro_barra_en_mm == "Numero4") {
-				D = 12.7;
-			} else if (Diaetro_barra_en_mm == "Numero5") {
-				D = 15.9;
-			} else if (Diaetro_barra_en_mm == "Numero6") {
-				D = 19.1;
-			} else if (Diaetro_barra_en_mm == "Numero7") {
-				D = 22.2;
-			} else if (Diaetro_barra_en_mm == "NUmero8") {
-				D = 25.4;
-			} else if (Diaetro_barra_en_mm == "Numero9") {
-				D = 28.7;
-			} else if (Diaetro_barra_en_mm == "Numero10") {
-				D = 32.3;
-			} else if (Diaetro_barra_en_mm == "Numero11") {
-				D = 35.8;
-			} else if (Diaetro_barra_en_mm == "Numero14") {
-				D = 43;
-			} else if (Diaetro_barra_en_mm == "Numero18") {
-				D = 57.3;
-			}
+				D = 11.1;
+			} 
 			console.log(D)
 		}
 
@@ -626,7 +570,6 @@
 			if (iniciar_) {
 
 				var Area = Math.PI * (D / 2) * (D / 2);
-				console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
@@ -635,40 +578,14 @@
 						garra.position.y += 0.00001
 
 						var datos_traccion;
-
+						datos_traccion=[];
+						datos_traccion = torque_Dulce;
 						switch (document.getElementById('select_barra').value) {
-							case 'Profe':
-								datos_traccion = Profe;
+							case 'torque_Dulce':
+								datos_traccion = torque_Dulce;
 								break;
-							case 'tension_barra1':
-								datos_traccion = tension_barra1;
-								break;
-							case 'tension_compresion':
-								datos_traccion = tension_compresion;
-								break;
-							case 'Trac_Acer_Corten':
-								datos_traccion = Trac_Acer_Corten;
-								break;
-							case 'Trac_Acer_Dulce':
-								datos_traccion = Trac_Acer_Dulce;
-								break;
-							case 'Trac_Acer_Alum':
-								datos_traccion = Trac_Acer_Alum;
-								break;
-							case 'Trac_ASTM_A37':
-								datos_traccion = Trac_ASTM_A37;
-								break;
-							case 'Trac_ASTM_A48':
-								datos_traccion = Trac_ASTM_A48;
-								break;
-							case 'Trac_ASTM_A53':
-								datos_traccion = Trac_ASTM_A53;
-								break;
-							case 'Trac_ASTM_A370':
-								datos_traccion = Trac_ASTM_A370;
-								break;
-							case 'Trac_Poli_1200E':
-								datos_traccion = Trac_Poli_1200E;
+							case 'torsion_Cobre':
+								datos_traccion = torsion_Cobre;
 								break;
 						}
 
@@ -680,13 +597,13 @@
 						var yradnom = Math.random()*(maxrandom - minrandom)+minrandom;
 
 
-						new_vec = datos_traccion;
+						new_vec = torque_Dulce;
 
 
-						new_vec = []
+						new_vec = [];
 
-						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0] * Alt,yradnom+ datos_traccion[key][1] * Area/1000];
+						for (const key in torque_Dulce) {
+							operavec = [torque_Dulce[key][0], torque_Dulce[key][1]];
 							new_vec.push(operavec)
 						}
 
@@ -718,7 +635,8 @@
 */
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y
-
+console.log(prierox)
+console.log(segundoy)
 							document.getElementById('Angulo').value = Math.round10(prierox,-3);
 							document.getElementById('Carga').value = Math.round10(segundoy,-3);
 						}
@@ -762,8 +680,8 @@
 			} else {
 				iniciar_ = true;
 				document.getElementById("ventanamini2d").style.display = "block";
-				document.getElementById('mini2d').src = "index2dcorta.html";
-				open_win();
+				document.getElementById('mini2d').src = "index2dcorta_torsion.html";
+				//open_win();
 			}
 
 
@@ -800,38 +718,38 @@
 
 
 
-		// // Instantiate a loader
-		// const loader2 = new THREE.GLTFLoader();
+		// Instantiate a loader
+		const loader2 = new THREE.GLTFLoader();
 
-		// // Load a glTF resource
-		// loader2.load(
-		// 	'Garra.gltf',//'scene.gltf'
-		// 	function (gltf) {
-		// 		garra = gltf.scene;
-		// 		scene.add(garra);
-		// 		gltf.animations; // Array<THREE.AnimationClip>
-		// 		gltf.scene; // THREE.Group
-		// 		gltf.scenes; // Array<THREE.Group>
-		// 		gltf.cameras; // Array<THREE.Camera>
-		// 		gltf.asset; // Object
+		// Load a glTF resource
+		loader2.load(
+			'vacio.gltf',//'scene.gltf'
+			function (gltf) {
+				garra = gltf.scene;
+				scene.add(garra);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
 
-		// 		console.log('completado!.....')
-		// 		garra.position.z += 1.587
-		// 		garra.position.x += -0.001
-		// 		garra.position.y += 0.258
-		// 		renderer.render(scene, camera);
+				console.log('completado!.....')
+				garra.position.z += 1.587
+				garra.position.x += -0.001
+				garra.position.y += 0.258
+				renderer.render(scene, camera);
 
 
-		// 	},
-		// 	// called while loading is progressing
-		// 	function (xhr) {
-		// 		//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-		// 	},
-		// 	// called when loading has errors
-		// 	function (error) {
-		// 		//	console.log('An error happened');
-		// 	}
-		// );
+			},
+			// called while loading is progressing
+			function (xhr) {
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				//	console.log('An error happened');
+			}
+		);
 
 
 
