@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dentro de la caja</title>
+    <style>
+        .cuadrado {
+            width: 100px;
+            /* Ancho de 150 píxeles */
+            height: 30px;
+            /* Alto de 150 píxeles */
+            background: rgb(228, 90, 26);
+            /* Fondo de color rojo */
+            border: 0px solid #000;
+            /* Borde color negro y de 1 píxel de grosor */
+            position: relative;
+            top: -106.2px;
+            left: 80px;
+            border-radius: 2px;
+        }
+
+        #garra2d {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body
+    style="padding: 0px;height: 900px;width: 400px;padding: 0px;overflow: hidden;background-color: #cccccc;zoom: 125%;">
+    <div class="caja">
+        <div id="garra2d"><img src="flexionarriba.png" style="width:250px;padding: -10px 0px 0px 0px;"></div>
+    </div>
+    <div class="cajaabajo">
+        <div id="abajo2d"><img src="flexionabajo.png" style="width:250px;padding: 40px 0px 0px 0px"></div>
+    </div>
+
+    <div class="cuadrado"></div>
+
+
+    <script>
+
+        // var movimniento = setInterval(() => {
+        //     var garra = document.getElementById('garra2d');
+        //     var posicion = garra.style.top.replace('px','');
+        //     console.log(posicion)
+        //     garra.style.top = ( posicion- 1) +'px';
+
+        //     if(posicion < -44){
+        //         clearInterval(movimniento)
+
+        //         garra.style.top = '-60px';
+
+        //     }
+        // }, 1160);
+
+
+    </script>
+</body>
+
+</html>
