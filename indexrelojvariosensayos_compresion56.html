@@ -185,10 +185,10 @@
 			<div class="card-body">
 				<form class="row g-2">
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Alargamiento (mm) <i
+						<label class="form-label" style="font-size:14px">Encogimiento (mm) <i
 								data-tippy-content="La deformacion de la probeta entre dos puntos fijos "
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
+						<input type="text" class="form-control form-control-sm" name="Encogimiento" id="Encogimiento"
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
@@ -339,7 +339,7 @@
 						min: 0,
 						title: {
 							display: true,
-							text: 'Alargamiento (mm)'
+							text: 'Encogimiento (mm)'
 						}
 					},
 
@@ -715,7 +715,7 @@ console.log(garra.position.y)
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y
 
-							document.getElementById('Alargamiento').value = prierox;
+							document.getElementById('Encogimiento').value = prierox;
 							document.getElementById('Carga').value = segundoy;
 						}
 					} else {
