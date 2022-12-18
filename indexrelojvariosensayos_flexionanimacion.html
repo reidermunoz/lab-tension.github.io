@@ -74,7 +74,7 @@
 
 
 			<div class="col-md-9" style="text-align: right;">
-				<a class="btn btn-sm btn-outline-secondary" href="Laboratorio_de_flexion.pdf">Manual de Flexión</a>
+				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual de Flexión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Tracción</a>
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_compresion56.html">Compresión</a>
 				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a> -->
@@ -563,6 +563,12 @@
 			//camera.position.y=3 // posicison de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 		}*/
+		function open_manual() {
+			window.open("Laboratorio_de_flexion.pdf", "hola", "width=400px, height=600px,")
+			// camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			// //camera.position.y=3 // posicison de la camara (0, 5, 5)
+			// controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+		}
 
 
 
