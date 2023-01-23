@@ -123,7 +123,7 @@
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 				<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
 						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
-						<option value="torque_Dulce">Acero Mild </option>
+						<option value="torque_Dulce_103">Acero Mild </option>
 				<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
 					<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
 				<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
@@ -253,8 +253,8 @@
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="torque_Dulce.js"></script>
-	<script src="torsion_Cobre.js"></script>
+	<script src="torque_Dulce_103.js"></script>
+	<script src="torsion_Cobre_103.js"></script>
 
 
 	<script>
@@ -340,6 +340,8 @@
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 		var garra;
+		var barra_cortaa;
+		var barra_tosio;
 
 		document.addEventListener('keydown', onKeyDown);
 
@@ -588,14 +590,15 @@
 						garra.position.y += 0.00001
 
 						var datos_traccion;
+						
 						datos_traccion=[];
-						datos_traccion = torque_Dulce;
+						
 						switch (document.getElementById('select_barra').value) {
-							case 'torque_Dulce':
-								datos_traccion = torque_Dulce;
+							case 'torque_Dulce_103':
+								datos_traccion = torque_Dulce_103;
 								break;
-							case 'torsion_Cobre':
-								datos_traccion = torsion_Cobre;
+							case 'torsion_Cobre_103':
+								datos_traccion = torsion_Cobre_103;
 								break;
 						}
 
@@ -607,13 +610,13 @@
 						var yradnom = Math.random()*(maxrandom - minrandom)+minrandom;
 
 
-						new_vec = torque_Dulce;
+						new_vec = datos_traccion;
 
 
 						new_vec = [];
 
-						for (const key in torque_Dulce) {
-							operavec = [torque_Dulce[key][0], torque_Dulce[key][1]];
+						for (const key in datos_traccion) {
+							operavec = [datos_traccion[key][0], datos_traccion[key][1]];
 							new_vec.push(operavec)
 						}
 
@@ -652,8 +655,11 @@ console.log(segundoy)
 						}
 					} else {
 						garra.position.y = 0.35
+						scene.remove(barra_tosricion)
+						scene.add(barra_tosricion_cortado)
+
 					}
-					//	console.log(garra.position.y)
+					console.log(garra.position.y)
 				}
 
 			}
@@ -705,7 +711,7 @@ console.log(segundoy)
 
 		// Load a glTF resource
 		loader.load(
-			'Lab_Torsion.gltf',//'scene.gltf'
+			'Lab_Torsion4.gltf',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -762,6 +768,73 @@ console.log(segundoy)
 		);
 
 
+
+		// Instantiate a loader
+		const loader3 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader3.load(
+			'barra_tosricion_cortado.gltf',//'scene.gltf'
+			function (gltf) {
+				barra_tosricion_cortado = gltf.scene;
+				scene.add(barra_cortaa);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+
+				console.log('completado!.....')
+				barra_tosricion_cortado.position.z += -9.3
+				barra_tosricion_cortado.position.x += 0.01
+				barra_tosricion_cortado.position.y += -0.001
+				renderer.render(scene, camera);
+
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				//	console.log('An error happened');
+			}
+		);
+
+		// Instantiate a loader
+		const loader4 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader4.load(
+			'barra_tosricion.gltf',//'scene.gltf'
+			function (gltf) {
+				barra_tosricion = gltf.scene;
+				scene.add(barra_tosio);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+
+				console.log('completado!.....')
+				barra_tosricion.position.z += -9.3
+				barra_tosricion.position.x += 0.01
+				barra_tosricion.position.y += -0.001
+				scene.add(gltf.scene);
+				renderer.render(scene, camera);
+
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				//	console.log('An error happened');
+			}
+		);
 
 
 
