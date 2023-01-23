@@ -153,7 +153,7 @@
 							<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 							<option value="" selected></option>
-							<option value="Numero3">11.1 mm</option>
+							<option value="Numero3">12.7 mm</option>
 
 						</select>
 					</div>
@@ -181,7 +181,7 @@
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Carga (kN)<i
+						<label class="form-label" style="font-size: 14px">Torque (N-m)<i
 								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="text" class="form-control form-control-sm" name="Carga" id="Carga" placeholder="">
@@ -281,7 +281,7 @@
 			switch (document.getElementById('Diametro_barra').value) {
 
 				case 'Numero3':
-					document.getElementById('Altura').value = 190;
+					document.getElementById('Altura').value = 200;
 				/*	document.getElementById('Diametro_barra').value = "Numero5";*/
 				
 			}
@@ -317,7 +317,7 @@
 						min: 0,
 						title: {
 							display: true,
-							text: 'Angulo '
+							text: 'Angulo (rad) '
 						}
 					},
 
@@ -327,7 +327,7 @@
 						min: 1,
 						title: {
 							display: true,
-							text: 'Carga (kN)'
+							text: 'Torque (N-m)'
 						}
 					}
 				}
@@ -517,6 +517,12 @@
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicison de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+		}
+		function open_manual() {
+			window.open("Laboratorio_de_Torsion.pdf", "Laboratorio de tracción", "width=800px, height=1000px,")
+			// camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			// //camera.position.y=3 // posicison de la camara (0, 5, 5)
+			// controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 		}
 
 
