@@ -689,8 +689,8 @@
 							case 'Trac_ASTM_A370':
 								datos_traccion = Trac_ASTM_A370;
 								break;
-							case 'Trac_Poli_1200E':
-								datos_traccion = Trac_Poli_1200E;
+							case 'Trac_ASTM_A572':
+								datos_traccion = Trac_ASTM_A572;
 								break;
 						}
 
@@ -708,7 +708,8 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0] * Alt,yradnom+ datos_traccion[key][1] * Area/1000];
+							// operavec = [datos_traccion[key][0] * Alt,yradnom+ datos_traccion[key][1] * Area/1000];
+							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area/1000];
 							new_vec.push(operavec)
 						}
 
@@ -722,6 +723,8 @@
 						var margen = 1;
 						if (contador_barra1.length % 31 == 0) {
 
+							// margen = new_vec[cant][1] * 0.15;
+							// margenx = new_vec[cant][0] > 1 ? new_vec[cant][0] * 0.20 : 1;
 							margen = new_vec[cant][1] * 0.15;
 							margenx = new_vec[cant][0] > 1 ? new_vec[cant][0] * 0.20 : 1;
 							//console.log(margen)
