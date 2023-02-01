@@ -136,6 +136,33 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+	
+
+	<div class="position-fixed" style="background-color: #ffffff;padding: 60px 0px 0px 0px; right: 90px;width:0px">
+
+
+		
+
+			<div class="card-body">
+				<div style="text-align: center; ">
+					<button type="button" onclick="musica()" class="btn btn-secondary btn-xs"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-off-fill" viewBox="0 0 16 16">
+						<path d="M10.717 3.55A.5.5 0 0 1 11 4v8a.5.5 0 0 1-.812.39L7.825 10.5H5.5A.5.5 0 0 1 5 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+					  </svg></button>
+				</div>
+			</div>
+		
+	</div>
+
+
+
+
+
+
 	
 	<div class="position-fixed" id="ventanamini2d" style="bottom: 0px;right:0px;height: 500px;width: 400px;background-color: #ffffff;overflow: hidden;display: none"  >
 		<iframe id="mini2d" src="index2dcorta.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
@@ -550,11 +577,8 @@ function open_winmini(){
 		);
 
 		
-
-
-
-		// create an AudioListener and add it to the camera
-		const listener = new THREE.AudioListener();
+// create an AudioListener and add it to the camera
+const listener = new THREE.AudioListener();
 		camera.add(listener);
 
 		// create a global audio source
@@ -569,6 +593,13 @@ function open_winmini(){
 			sound.play();
 		});
 
+
+		function musica() {
+
+		
+			sound.setVolume(0);
+		};
+	
 
 
 		/*
