@@ -657,6 +657,26 @@
 
 		}
 
+
+//Sonido TRUENO
+		// create an AudioListener and add it to the camera
+		const listener = new THREE.AudioListener();
+		camera.add(listener);
+
+		// create a global audio source
+		const soundTrueno = new THREE.Audio(listener);
+
+		// load a sound and set it as the Audio object's buffer
+		const audioLoader = new THREE.AudioLoader();
+		audioLoader.load('Trueno_Vacio_ogg.ogg', function (buffer) {
+			soundTrueno.setBuffer(buffer);
+			soundTrueno.setLoop(true);
+			soundTrueno.setVolume(0.5);
+		
+		});
+
+//Sonido FIN DEL TRUENO
+
 		var iniciar_ = false;
 		var max_y_canvas = 0;
 		var max_x_canvas = 0;
@@ -769,8 +789,10 @@
 							document.getElementById('Alargamiento').value = Math.round10(prierox,-3);
 							document.getElementById('Carga').value = Math.round10(segundoy,-3);
 						}
+						
 					} else {
 						garra.position.y = 0.35
+						soundTrueno.play();
 					}
 					//	console.log(garra.position.y)
 				}
@@ -894,7 +916,7 @@
 
 		// load a sound and set it as the Audio object's buffer
 		const audioLoader = new THREE.AudioLoader();
-		audioLoader.load('sound_ogg.ogg', function (buffer) {
+		audioLoader.load('sound_ogg_Sin_Trueno.ogg', function (buffer) {
 			sound.setBuffer(buffer);
 			sound.setLoop(true);
 			sound.setVolume(0.5);
