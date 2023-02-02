@@ -4,7 +4,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Laboratorio de tension - Universidad del Valle - Reider Muñoz</title>
+	<title>Laboratorio de flexión - Universidad del Valle - Reider Muñoz</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -46,6 +46,13 @@
 			top: 0;
 			left: 0;
 		}
+
+		.lbl {
+
+			text-align: center;
+
+
+		}
 	</style>
 
 </head>
@@ -54,27 +61,27 @@
 
 	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
 
+
 		<div class="row">
 			<div class="col-md-3">
 				<a href="https://bayron479.github.io/estruclab_web/"
-					class="d-flex align-items-center text-dark tesxt-decoration-none">
+					class="d-flex align-items-center text-dark text-decoration-none">
 					<img src="logo.png" style="height: 30px;">
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
 			</div>
-
 			<div class="col-md-6" style="text-align: center;">
-				<h4>LABORATORIO DE TORSIÓN</h4>
+				<h4>LABORATORIO DE FLEXIÓN</h4>
 			</div>
 
 			<div class="col-md-1" style="text-align: left;">
-				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual Torsión</a>
+				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual Flexión</a>
 			</div>
 
 			<div class="col-md-2" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Tracción</a>
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_compresion56.html">Compresión</a>					
-				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_flexionanimacion.html">Flexión</a>
+				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_torsion.html">Torsión</a>
 
 				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a> -->
 			</div>
@@ -109,25 +116,20 @@
 				<form class="row g-2">
 
 					<label class="form-label mt-3"
-						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo
-						de
-						Probeta<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo de Probeta<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
 					</label>
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
-						<option value="" selected></option>
-						<!-- <option value="torsion_Cobre" >Cobre</option> -->
-				<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
+						<option value="" selected> </option>
+						<option value="Copr_Madera_AStm_D_143" >Madera (ASTM D143) </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-				<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
-						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
-						<option value="torque_Dulce_103">Acero A36 </option>
-				<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
-					<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
-				<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
+
 					</select>
+
+
+
 					<!--		<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Diametro (mm)<i
 								data-tippy-content="Texto de altura"
@@ -135,25 +137,9 @@
 						<input type="number" class="form-control form-control-sm" name="Diametro" id="Diametro"
 							placeholder="">
 					</div>
+
 -->
-					
-
-					<div class="col-auto" style="width: 180px">
-						<label class="form-label"
-							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;">Diamtro de la barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
-						</label>
-						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
-							style="width:170px; " onclick="cambiossegunacero()">
-				<!--		<option value="Numero2" selected>#2</option>
-							<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-							<option value="" selected></option>
-							<option value="Numero3">12.7 mm</option>
-
-						</select>
-					</div>
-
-					<div class="col-auto" style="width:180px">
+					<div class="lbl">
 						<label class="form-label" style="font-size: 14px">Longitud inicial (mm)<i
 								data-tippy-content="Texto de altura"
 								class="ti ti-question-mark text-primary"></i></label>
@@ -162,13 +148,68 @@
 					</div>
 
 
+					<div class="row g-2">
+						<!--
+						<label class="form-label"
+							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
+							barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+						</label>
+
+						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
+							style="width:180px; ">
+							<option value="df" selected> </option>
+							<!-- <option value="tension_barra1">Acero AISI SAE 1020</option>
+				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
+						<!--
+							<option value="Numero1">28.96066083</option>
+							<option value="Numero4">#4</option>
+							<option value="Numero5">#5</option>
+							<option value="Numero6">#6</option>
+							<option value="Numero7">#7</option>
+							<option value="NUmero8">#8</option>
+							<option value="Numero9">#9</option>
+							<option value="Numero10">#10</option>
+							<option value="Numero11">#11</option>
+							<option value="Numero14">#14</option>
+							<option value="Numero18">#18</option>
+
+						</select> -->
+
+
+
+						<div class="row">
+							<div class="col" style="width:180px">
+								<label class="form-label" style="font-size: 14px">base (mm)<i
+										data-tippy-content="Texto de altura"
+										class="ti ti-question-mark text-primary"></i></label>
+								<input type="number" class="form-control form-control-sm" style="height:37px"
+									name="base_perfil" id="base_perfil" placeholder=""	onchange="cambioAltura()">
+							</div>
+							<div class="col" style="width:180px">
+								<label class="form-label" style="font-size: 14px">altura (mm)<i
+										data-tippy-content="Texto de altura"
+										class="ti ti-question-mark text-primary"></i></label>
+								<input type="number" class="form-control form-control-sm" style="height:37px"
+									name="altura_perfil" id="altura_perfil" placeholder="" onchange="cambioAltura()">
+							</div>
+						</div>
+
+
+					</div>
+
 				</form>
+
 				<div style="text-align: center;" class="mt-3">
 					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<a type="button" onclick="Diametro(),Altura(), iniciar()" class="btn btn-secondary">Iniciar</a>
+					<button type="button" onclick="Altura(),alt_per(),base_per(), iniciar()"
+						class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
-					<a type="button" href="indexrelojvariosensayos.html" class="btn btn-primary">Reiniciar</a>
+					<a type="button" href="indexrelojvariosensayos_flexionanimacion.html" class="btn btn-primary">Reiniciar</a>
 				</div>
+
+
+
+
 			</div>
 		</div>
 
@@ -179,14 +220,14 @@
 			<div class="card-body">
 				<form class="row g-2">
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Angulo (rad)<i
+						<label class="form-label" style="font-size:14px">Deflexión (mm)<i
 								data-tippy-content="La deformacion de la probeta entre dos puntos fijos "
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="text" class="form-control form-control-sm" name="Angulo" id="Angulo"
+						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Torque (N-m)<i
+						<label class="form-label" style="font-size: 14px">Carga (N)<i
 								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="text" class="form-control form-control-sm" name="Carga" id="Carga" placeholder="">
@@ -197,12 +238,10 @@
 
 		</div>
 
-
-		
 		<div style="text-align: center;" class="mt-1	">
-			<!-- <svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+			<!--<svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
 				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
-			  </svg> -->
+			  </svg>-->
 
 			  <svg  type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
 				<path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
@@ -220,9 +259,10 @@
 			  </svg>
 
 
-			 <!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+			  <!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
 				<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"/>
 			  </svg> -->
+
 
 			  <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
 				<path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
@@ -234,21 +274,21 @@
 
 			<!-- <svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
 				<path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
-				
 			</svg> -->
+
 
 			<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
 				<path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
 			  </svg>
 
 
-
 				</div>
+
 
 	</div>
 
 	<div class="position-fixed" id="ventanamini2d"
-		style="bottom: 0px;right:0px;height: 330px;width: 540px;background-color: #ffffff;overflow: hidden;display: none">
+		style="bottom: 100px;right:0px;height: 250px;width: 350px;background-color: #ffffff;overflow: hidden;display: none; scale: 1.5;">
 		<iframe id="mini2d" src="index2d.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
 
@@ -257,9 +297,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="torque_Dulce_103.js"></script>
-	<script src="torsion_Cobre_103.js"></script>
+	<script src="Flexion_carga_Madera_ASTM143_Nueva.js"></script>
+
+	
 
 
 	<script>
@@ -267,11 +310,11 @@
 
 		function cambioAltura() {
 			var altura = document.getElementById('Altura').value;
-			if (altura < 30 || altura > 200) {
+			if (altura < 360 || altura > 900) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 360 mm y menor a 900 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -281,14 +324,22 @@
 			}
 		}
 
+
 		function cambiossegunacero() {
 			var prueba565656 = 120;
-			switch (document.getElementById('Diametro_barra').value) {
+			switch (document.getElementById('select_barra').value) {
 
-				case 'Numero3':
-					document.getElementById('Altura').value = 200;
-				/*	document.getElementById('Diametro_barra').value = "Numero5";*/
 				
+
+				case 'Copr_Madera_AStm_D_143':
+					document.getElementById('Altura').value = 763.5;
+					document.getElementById('base_perfil').value = 47.8;
+					document.getElementById('altura_perfil').value = 48.3;
+					
+					
+					break;
+
+
 			}
 
 		}
@@ -318,21 +369,21 @@
 				scales: {
 					x: {
 						type: 'linear',
-						max: 200,
+						max: 0.5,
 						min: 0,
 						title: {
 							display: true,
-							text: 'Angulo (rad) '
+							text: 'Deflexion (mm)'
 						}
 					},
 
 					y: {
 						type: 'linear',
-						max: 6.5,
+						max: 400,
 						min: 1,
 						title: {
 							display: true,
-							text: 'Torque (N-m)'
+							text: 'Carga (N)'
 						}
 					}
 				}
@@ -343,10 +394,9 @@
 
 
 		var scene = new THREE.Scene();
-		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000); //1,1000
 		var garra;
-		var barra_cortaa;
-		var barra_tosio;
+		
 
 		document.addEventListener('keydown', onKeyDown);
 
@@ -413,55 +463,59 @@
 		cubeabajo2.position.z = 0.63
 */
 
-		(function () {
 
-			/**
-			 * Ajuste decimal de un número.
-			 *
-			 * @param	{String}	type	El tipo de ajuste.
-			 * @param	{Number}	value	El número.
-			 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
-			 * @returns	{Number}			El valor ajustado.
-			 */
-			function decimalAdjust(type, value, exp) {
-				// Si el exp es indefinido o cero...
-				if (typeof exp === 'undefined' || +exp === 0) {
-					return Math[type](value);
+		
+		
+
+			(function () {
+
+				/**
+				 * Ajuste decimal de un número.
+				 *
+				 * @param	{String}	type	El tipo de ajuste.
+				 * @param	{Number}	value	El número.
+				 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
+				 * @returns	{Number}			El valor ajustado.
+				 */
+				function decimalAdjust(type, value, exp) {
+					// Si el exp es indefinido o cero...
+					if (typeof exp === 'undefined' || +exp === 0) {
+						return Math[type](value);
+					}
+					value = +value;
+					exp = +exp;
+					// Si el valor no es un número o el exp no es un entero...
+					if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+						return NaN;
+					}
+					// Cambio
+					value = value.toString().split('e');
+					value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+					// Volver a cambiar
+					value = value.toString().split('e');
+					return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
 				}
-				value = +value;
-				exp = +exp;
-				// Si el valor no es un número o el exp no es un entero...
-				if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-					return NaN;
+
+				// Redondeo decimal
+				if (!Math.round10) {
+					Math.round10 = function (value, exp) {
+						return decimalAdjust('round', value, exp);
+					};
 				}
-				// Cambio
-				value = value.toString().split('e');
-				value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-				// Volver a cambiar
-				value = value.toString().split('e');
-				return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-			}
+				// Redondeo hacia abajo
+				if (!Math.floor10) {
+					Math.floor10 = function (value, exp) {
+						return decimalAdjust('floor', value, exp);
+					};
+				}
+				// Redondeo hacia arriba
+				if (!Math.ceil10) {
+					Math.ceil10 = function (value, exp) {
+						return decimalAdjust('ceil', value, exp);
+					};
+				}
 
-			// Redondeo decimal
-			if (!Math.round10) {
-				Math.round10 = function (value, exp) {
-					return decimalAdjust('round', value, exp);
-				};
-			}
-			// Redondeo hacia abajo
-			if (!Math.floor10) {
-				Math.floor10 = function (value, exp) {
-					return decimalAdjust('floor', value, exp);
-				};
-			}
-			// Redondeo hacia arriba
-			if (!Math.ceil10) {
-				Math.ceil10 = function (value, exp) {
-					return decimalAdjust('ceil', value, exp);
-				};
-			}
-
-		})();
+			})();
 
 
 		function modulo_elastico() {
@@ -477,27 +531,27 @@
 
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
-		camera.position.set(1.66709100739706, 2.533636599894739, 0.8891350287239972); // posicion de la camara (0, 5, 5) 
-		controls.target.set(-0.4703463268087177, 2.4514580675204374, 0.8747976642979516);
-
+		camera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713); // posicion de la camara (0, 5, 5) 
+		controls.target.set(-0.7032029168893309, 1.5781128106857465, -2.674084323532686);
 		function centroflecha(){
-			camera.position.set(1.66709100739706, 2.533636599894739, 0.8891350287239972);
-			controls.target.set(-0.4703463268087177, 2.4514580675204374, 0.8747976642979516);
+			camera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713);
+			controls.target.set(-0.7032029168893309, 1.5781128106857465, -2.674084323532686);
 				}
 
 			function Derechaflecha(){
-			camera.position.set(-0.04301167125926145, 2.6131826458308764, -0.5088322837551023);
-			controls.target.set(-0.14794006744903476, 2.3788762058317654, 0.8868513800017561);
+			camera.position.set(-0.013339131201084098, 1.7631364734603905, -5.81584090959034);
+			controls.target.set(0.5272368126955405, 0.6034317683953212, -0.58488854449178);
 				}
 				function Izquierdaflecha(){
-			camera.position.set(0.000734195804004939, 2.621712779629144, 1.7274071564896971);
-			controls.target.set(-0.10064350117795648, 2.516294002361346, 0.7973774927475255);
+			camera.position.set(-0.11560805692136791, 1.6741675982201003, -0.8033330515684081);
+			controls.target.set(-0.1689515591178106, 1.436593182191341, -2.356775354107174);
 				}
 
 				function Arribaflecha(){
-			camera.position.set(-0.008251580272468723, 3.683612547774721, 0.6457435778972822);
-			controls.target.set(-0.17057968240305285, 2.3452823030051353, 0.6419385819636291);
+			camera.position.set(-0.05708354813761654, 2.7952215397888005, -3.313058859018486);
+			controls.target.set(-0.08200439705341282, 2.336772356535047, -3.31343600892615);
 				}
+
 
 		function zoom() {
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
@@ -509,42 +563,68 @@
 
 
 		}
-		console.log(camera.position)
-		function zoom3d() {
-			window.open("indexrelojvariosensayos.html", "hola", "width=400px, height=600px,")
-			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
-			//camera.position.y=3 // posicison de la camara (0, 5, 5)
-			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
-		}
-
-		function open_win() {
+	/*	function open_win() {
 			window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			//camera.position.y=3 // posicison de la camara (0, 5, 5)
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
-		}
+		}*/
 		function open_manual() {
-			window.open("Laboratorio_de_Torsion.pdf", "Laboratorio de tracción", "width=800px, height=1000px,")
+			window.open("Laboratorio_de_flexion.pdf", "Laboratorio de flexión", "width=800px, height=1000px,")
 			// camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			// //camera.position.y=3 // posicison de la camara (0, 5, 5)
 			// controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 		}
 
 
-		
+
 		controls.update();
 
 		var D = 1;
 		var Alt = 1;
-		function Diametro() {
+		/* function Diametro() {
 			var Diaetro_barra_en_mm = document.getElementById('Diametro_barra').value;
-			if (Diaetro_barra_en_mm == "Numero2") {
-				D = 6.4;
+			if (Diaetro_barra_en_mm == "Numero66") {
+				D = 28.96066083;
 
-			} else if (Diaetro_barra_en_mm == "Numero3") {
-				D = 11.1;
-			} 
+			} else if (Diaetro_barra_en_mm == "Numero1") {
+				D = 28.9;
+
+			} else if (Diaetro_barra_en_mm == "Numero4") {
+				D = 12.7;
+			} else if (Diaetro_barra_en_mm == "Numero5") {
+				D = 15.9;
+			} else if (Diaetro_barra_en_mm == "Numero6") {
+				D = 19.1;
+			} else if (Diaetro_barra_en_mm == "Numero7") {
+				D = 22.2;
+			} else if (Diaetro_barra_en_mm == "NUmero8") {
+				D = 25.4;
+			} else if (Diaetro_barra_en_mm == "Numero9") {
+				D = 28.7;
+			} else if (Diaetro_barra_en_mm == "Numero10") {
+				D = 32.3;
+			} else if (Diaetro_barra_en_mm == "Numero11") {
+				D = 35.8;
+			} else if (Diaetro_barra_en_mm == "Numero14") {
+				D = 43;
+			} else if (Diaetro_barra_en_mm == "Numero18") {
+				D = 57.3;
+			}
 			console.log(D)
+		}*/
+
+		var bas_per = 1;
+		var altu_per = 1;
+
+		function base_per() {
+			bas_per = parseFloat(document.getElementById('base_perfil').value);
+		}
+
+		function alt_per() {
+
+			altu_per = parseFloat(document.getElementById('altura_perfil').value);
+
 		}
 
 
@@ -560,16 +640,16 @@
 			switch (event.code) {
 
 				case 'ArrowUp':
-				case 'KeyW': controls.target.y = controls.target.y + 2;
+				case 'KeyW': camera.position.x = camera.position.x - 2;
 
 				case 'ArrowDown':
-				case 'KeyS': controls.target.y = controls.target.y - 1;
+				case 'KeyS': camera.position.x = camera.position.x + 1;
 
 				case 'ArrowLeft':
-				case 'KeyA': controls.target.z = controls.target.z + 2;
+				case 'KeyA': camera.position.z = camera.position.z + 2;
 
 				case 'ArrowRight':
-				case 'KeyD': controls.target.z = controls.target.z - 1;
+				case 'KeyD': camera.position.z = camera.position.z - 1;
 
 				// case 'KeyC': controls.crouch = true; break;
 				// case 'Space': controls.jump = true; break;
@@ -587,12 +667,20 @@
 		var mixer;
         var clock = new THREE.Clock();
 
-
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
+			
+		
 
+			
+				
+			
+
+	
+
+			
 
 			if (iniciar_) {
 
@@ -604,51 +692,46 @@
 
 
 
-				var Area = Math.PI * (D / 2) * (D / 2);
+
+				var Area = 2* bas_per * altu_per * altu_per / (3 * Alt);
+			//	console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
+				//	console.log(garra.position.y)
 
-					if (garra.position.y <= 0.29) {
-						garra.position.y += 0.00001
+					if (garra.position.y >= -0.221930) {
+						garra.position.y += -0.00001
+
+					//	console.log(garra.position.y)
 
 						var datos_traccion;
-						
-						datos_traccion=[];
-						
+
 						switch (document.getElementById('select_barra').value) {
-							case 'torque_Dulce_103':
-								datos_traccion = torque_Dulce_103;
+							case 'Copr_Madera_AStm_D_143':
+								datos_traccion = Flexion_carga_Madera_ASTM143_Nueva;
 								break;
-							case 'torsion_Cobre_103':
-								datos_traccion = torsion_Cobre_103;
+							case 'Copr_Acer_E9':
+								datos_traccion = Copr_Acer_E9;
 								break;
+
 						}
-
-						var minrandom = 0;
-						var maxrandom = 1;
-
-						
-
-						var yradnom = Math.random()*(maxrandom - minrandom)+minrandom;
-
 
 						new_vec = datos_traccion;
 
 
-						new_vec = [];
+						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0], datos_traccion[key][1]];
+							operavec = [datos_traccion[key][0], datos_traccion[key][1] * Area];
 							new_vec.push(operavec)
 						}
 
-							console.log(new_vec)
+						//	console.log(new_vec)
 
 						/* max_y_canvas = (datos_traccion[cant][1] +50) > max_y_canvas ? (datos_traccion[cant][1] +50) : max_y_canvas;
 
 */
-
 
 						var margen = 1;
 						if (contador_barra1.length % 31 == 0) {
@@ -671,18 +754,17 @@
 */
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y
-console.log(prierox)
-console.log(segundoy)
-							document.getElementById('Angulo').value = Math.round10(prierox,-3);
-							document.getElementById('Carga').value = Math.round10(segundoy,-3);
+
+							document.getElementById('Alargamiento').value = prierox;
+							document.getElementById('Carga').value = segundoy;
 						}
 					} else {
-						garra.position.y = 0.35
-						scene.remove(barra_tosricion)
-						scene.add(barra_tosricion_cortado)
-
+						garra.position.y = -0.221930
+						scene.remove(vigafle)
+						scene.add(vigafle_rota)
+					
 					}
-					console.log(garra.position.y)
+					//	console.log(garra.position.y)
 				}
 
 			}
@@ -705,11 +787,11 @@ console.log(segundoy)
 		function iniciar() {
 
 			var altura = document.getElementById('Altura').value;
-			if (altura < 30 || altura > 200) {
+			if (altura < 360 || altura > 900) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
+					text: 'El valor debe ser mayor a 360 mm y menor a 900 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -718,8 +800,9 @@ console.log(segundoy)
 
 			} else {
 				iniciar_ = true;
+				
 				document.getElementById("ventanamini2d").style.display = "block";
-				document.getElementById('mini2d').src = "index2dcorta_torsion.html";
+				document.getElementById('mini2d').src = "index2dcorta_flexion.html";
 				//open_win();
 			}
 
@@ -734,7 +817,7 @@ console.log(segundoy)
 
 		// Load a glTF resource
 		loader.load(
-			'Lab_Torsion4.gltf',//'scene.gltf'
+			'escenario_flexion_mader2.gltf',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -762,7 +845,7 @@ console.log(segundoy)
 
 		// Load a glTF resource
 		loader2.load(
-			'vacio.gltf',//'scene.gltf'
+			'carga-flexion1puntos.gltf',//'scene.gltf'
 			function (gltf) {
 				garra = gltf.scene;
 				scene.add(garra);
@@ -773,9 +856,10 @@ console.log(segundoy)
 				gltf.asset; // Object
 
 				console.log('completado!.....')
-				garra.position.z += 1.587
-				garra.position.x += -0.001
-				garra.position.y += 0.258
+				garra.position.z += 0
+				garra.position.x += 0
+				garra.position.y += -0.19
+			
 				renderer.render(scene, camera);
 
 
@@ -789,52 +873,14 @@ console.log(segundoy)
 				//	console.log('An error happened');
 			}
 		);
-
-
-
-		// Instantiate a loader
+		
+	
 		const loader3 = new THREE.GLTFLoader();
-
-		// Load a glTF resource
 		loader3.load(
-			'barra_tosricion_cortado.gltf',//'scene.gltf'
-			function (gltf) {
-				barra_tosricion_cortado = gltf.scene;
-				scene.add(barra_cortaa);
-				gltf.animations; // Array<THREE.AnimationClip>
-				gltf.scene; // THREE.Group
-				gltf.scenes; // Array<THREE.Group>
-				gltf.cameras; // Array<THREE.Camera>
-				gltf.asset; // Object
-
-				console.log('completado!.....')
-				barra_tosricion_cortado.position.z += -9.3
-				barra_tosricion_cortado.position.x += 0.01
-				barra_tosricion_cortado.position.y += -0.001
-				renderer.render(scene, camera);
-
-
-			},
-			// called while loading is progressing
-			function (xhr) {
-				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-			},
-			// called when loading has errors
-			function (error) {
-				//	console.log('An error happened');
-			}
-		);
-
-		// Instantiate a loader
-		const loader4 = new THREE.GLTFLoader();
-
-		// Load a glTF resource
-		loader4.load(
+			
 			'barraPintada_movimie.gltf',//'scene.gltf'
 			function (gltf) {
-
-				barra_tosricion = gltf.scene;
-
+				vigafle = gltf.scene;
                 mixer= new THREE.AnimationMixer(gltf.scene);
 
                 //gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
@@ -845,30 +891,72 @@ console.log(segundoy)
 				action.loop = THREE.LoopOnce;
 				action.clampWhenFinished = true;
 				action.play();
+
+
 			
 
-				console.log('completado!.....')
-				barra_tosricion.position.z += -0.23 //Lados
-				barra_tosricion.position.x += 0 //en frente
-				barra_tosricion.position.y += 1.35 //arriba 1.35
-				barra_tosricion.scale.z =0.08
-				barra_tosricion.scale.y = 0.04
-				barra_tosricion.scale.x = 0.04
+
+				vigafle.position.z += -0.23
+				vigafle.position.x += 0
+				vigafle.position.y += 1.35
+				// vigafle.scale.z = 0.08
+				// vigafle.scale.y = 0.04
+				// vigafle.scale.x = 0.04
+
 				scene.add(gltf.scene);
 				renderer.render(scene, camera);
+
 
 
 			},
 			// called while loading is progressing
 			function (xhr) {
+				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 			},
 			// called when loading has errors
 			function (error) {
+				console.log('An error happened');
 				//	console.log('An error happened');
 			}
 		);
 
+
+// Instantiate a loader
+
+		 
+const loader4 = new THREE.GLTFLoader();
+
+// Load a glTF resource
+loader4.load(
+	'vigasolad_esta.gltf',//'scene.gltf'
+	function (gltf) {
+		vigafle_rota = gltf.scene;
+
+	//	scene.add(gltf.scene);
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+		renderer.render(scene, camera);
+
+		vigafle_rota.position.z += -3.5
+		vigafle_rota.position.x += 0
+		vigafle_rota.position.y += 1.405
+		vigafle_rota.scale.z = 0.15
+		vigafle_rota.scale.y = 0.9
+
+	},
+	// called while loading is progressing
+	function (xhr) {
+		//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+	},
+	// called when loading has errors
+	function (error) {
+		//	console.log('An error happened');
+	}
+);
 
 
 		// create an AudioListener and add it to the camera
