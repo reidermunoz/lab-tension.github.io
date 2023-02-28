@@ -288,8 +288,8 @@
 	</div>
 
 	<div class="position-fixed" id="ventanamini2d"
-		style="bottom: 100px;right:0px;height: 250px;width: 350px;background-color: #ffffff;overflow: hidden;display: none; scale: 1.5;">
-		<iframe id="mini2d" src="index2d.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
+		style="transform: rotate(180deg);resize: both;bottom: 100px;right:100px;height: 250px;width: 350px;background-color: #ffffff;overflow: hidden;display: none; scale: 1.5;">
+		<iframe id="mini2d" src="index2d.html" style="transform: rotate(180deg);width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
@@ -878,7 +878,7 @@
 		const loader3 = new THREE.GLTFLoader();
 		loader3.load(
 			
-			'vigasolad.gltf',//'scene.gltf'
+			'FlexionDinamico.gltf',//'scene.gltf'
 			function (gltf) {
 				vigafle = gltf.scene;
                 mixer= new THREE.AnimationMixer(gltf.scene);
@@ -895,9 +895,10 @@
 
 				vigafle.position.z += -3.5
 				vigafle.position.x += 0
-				vigafle.position.y += 1.405
-				vigafle.scale.z = 0.15
-				vigafle.scale.y = 0.9
+				vigafle.position.y += 1.727
+				vigafle.scale.z = 0.08  //Largo
+				vigafle.scale.y = 0.18 //Alto
+				vigafle.scale.x = 0.18  //Grosor
 
 				scene.add(gltf.scene);
 				renderer.render(scene, camera);

@@ -4,57 +4,203 @@
 <head>
     <title>Dentro de la caja</title>
     <style>
-        .cuadrado {
-            width: 100px;
-            /* Ancho de 150 píxeles */
-            height: 30px;
-            /* Alto de 150 píxeles */
-            background: rgb(228, 90, 26);
-            /* Fondo de color rojo */
-            border: 0px solid #000;
-            /* Borde color negro y de 1 píxel de grosor */
-            position: relative;
-            top: -106.2px;
-            left: 80px;
-            border-radius: 2px;
-        }
 
-        #garra2d {
-            position: absolute;
-        }
+#rectangulo { 
+	width: 500px; 
+	height: 70px; 
+	background: #134113; 
+	left:45px; 
+	top:10px; 
+	position: absolute; 
+	animation-name: ani_maqur;
+	animation-duration: 5s;
+} 
+
+#rectangulo2 { 
+	width: 70px;
+	height: 25px;
+	background: #474A47; 
+	left:260px;
+	top:80px; 
+	position: absolute;
+	animation-name: ani_maqur2;
+	animation-duration: 5s;
+}
+
+#rectangulo3 {
+	width: 100px; 
+	height: 9px;
+	background: #121312;
+	left:245px;
+	top:105px;
+	position: absolute;
+	animation-name: ani_maqur3;
+	animation-duration: 5s;
+}
+
+#rectangulo4 {
+	width: 45px;
+	height: 25px;
+	background: #134113; 
+	left:272px;
+	top:113.5px; 
+	position: absolute;
+	animation-name: ani_maqur4;
+	animation-duration: 5s;
+}
+
+#circulo {
+	width: 18px;
+	height: 18px; 
+	background: #121312;
+	left:285px;
+	top:130px; 
+	position: absolute;
+	border-radius:50%;
+	animation-name: ani_maquc;
+	animation-duration: 5s;
+ }  
+
+
+
+ .flexion {
+	left:195px;
+	top:102px;
+	scale:2.5;
+	position: absolute;
+	clip-path: polygon(10% 37%, 20% 37%, 30% 37%, 40% 37%, 50% 37%, 60% 37%, 70% 37%, 80% 37%, 90% 37%, 90% 50%, 80% 50%, 70% 50%, 60% 50%, 50% 50%, 40% 50%, 30% 50%, 20% 50%, 10% 50%);
+	animation-name: ani_rec;
+	animation-duration: 5s;
+} 
+
+@keyframes ani_rec{
+	0%{clip-path: polygon(10% 37%, 20% 37%, 30% 37%, 40% 37%, 50% 37%, 60% 37%, 70% 37%, 80% 37%, 90% 37%, 90% 50%, 80% 50%, 70% 50%, 60% 50%, 50% 50%, 40% 50%, 30% 50%, 20% 50%, 10% 50%);}
+	100% {clip-path: polygon(12% 37%, 20% 38%, 30% 39%, 40% 40%, 50% 40.5%, 60% 40%, 70% 39%, 80% 38%, 88% 37%, 90% 50%, 80% 51%, 70% 52%, 60% 53%, 50% 53.5%, 40% 53%, 30% 52%, 20% 51%, 10% 50%);}
+}
+
+@keyframes ani_maqur{ 
+	0%{} 
+	100%{top:33px;} 
+} 
+
+@keyframes ani_maqur2{ 
+	0%{} 
+	100%{top:103px;} 
+} 
+
+@keyframes ani_maqur3{ 
+	0%{} 
+	100%{top:128px;} 
+} 
+
+@keyframes ani_maqur4{ 
+	0%{} 
+	100%{top:136.5px; } 
+} 
+
+@keyframes ani_maquc{ 
+	0%{} 
+	100%{top:153px; } 
+} 
+
+
+
+#rectanguloab { 
+	width: 30px; 
+	height: 30px; 
+	background: #134113; 
+	left:105px;  
+	top:240px; 
+	position: absolute; 
+
+}
+ 
+#rectanguloab2 { 
+	width: 30px; 
+	height: 30px; 
+	background: #134113; 
+	left:455px; 
+	top:240px; 
+	position: absolute; 
+
+} 
+
+#rectanguloab3 { 
+	width: 500px; 
+	height: 10px; 
+	background: #121312; 
+	left:45px; 
+	top:260px; 
+	position: absolute; 
+
+} 
+
+#rectanguloab4 { 
+	width: 570px; 
+	height: 70px; 
+	background: #121312; 
+	left:10px; 
+	top:270px; 
+	position: absolute; 
+
+} 
+
+#rectanguloab5 { 
+	width: 570px; 
+	height: 30px; 
+	background: #134113; 
+	left:10px; 
+	top:340px; 
+	position: absolute; 
+
+} 
+
+#circulo1 {
+	width: 18px;
+	height: 18px; 
+	background: #121312;
+	left:110px;
+	top:230px; 
+	position: absolute;
+	border-radius:50%;
+
+ }  
+ 
+ #circulo2 {
+	width: 18px;
+	height: 18px; 
+	background: #121312;
+	left:461px;
+	top:230px; 
+	position: absolute;
+	border-radius:50%;
+
+ }  
     </style>
 </head>
 
-<body
-    style="padding: 0px;height: 900px;width: 400px;padding: 0px;overflow: hidden;background-color: #cccccc;zoom: 125%;">
-    <div class="caja">
-        <div id="garra2d"><img src="flexionarriba.png" style="width:250px;padding: -10px 0px 0px 0px;"></div>
-    </div>
-    <div class="cajaabajo">
-        <div id="abajo2d"><img src="flexionabajo.png" style="width:250px;padding: 40px 0px 0px 0px"></div>
-    </div>
+<body style="zoom: 55%;">
 
-    <div class="cuadrado"></div>
-
-
-    <script>
-
-        // var movimniento = setInterval(() => {
-        //     var garra = document.getElementById('garra2d');
-        //     var posicion = garra.style.top.replace('px','');
-        //     console.log(posicion)
-        //     garra.style.top = ( posicion- 1) +'px';
-
-        //     if(posicion < -44){
-        //         clearInterval(movimniento)
-
-        //         garra.style.top = '-60px';
-
-        //     }
-        // }, 1160);
-
-
-    </script>
-</body>
+	<div id="rectangulo"></div>
+	<div id="rectangulo2"></div>
+	<div id="rectangulo3"></div>
+	<div id="rectangulo4"></div>
+	<div id="circulo"></div>
+	
+	<div>
+		<img src="ma.PNG" alt="" width="200px" class="img-fluid flexion">
+	</div>
+	
+	<div id="rectanguloab"></div>
+	<div id="rectanguloab2"></div>
+	<div id="rectanguloab3"></div>
+	<div id="rectanguloab4"></div>
+	<div id="rectanguloab5"></div>
+	<div id="circulo1"></div>
+	<div id="circulo2"></div>
+	
+	
+	
+   </body>
 
 </html>
