@@ -31,6 +31,12 @@
 
 
 	<style>
+		.responsive {
+			width: 100%;
+			height: auto;
+		}
+
+
 		html,
 		body {
 			margin: 0;
@@ -80,7 +86,8 @@
 
 			<div class="col-md-2" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Tracción</a>
-				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_compresion56.html">Compresión</a>					
+				<a class="btn btn-sm btn-outline-secondary"
+					href="indexrelojvariosensayos_compresion56.html">Compresión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_torsion.html">Torsión</a>
 
 				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a> -->
@@ -116,13 +123,14 @@
 				<form class="row g-2">
 
 					<label class="form-label mt-3"
-						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo de Probeta<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo
+						de Probeta<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
 					</label>
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
 						<option value="" selected> </option>
-						<option value="Copr_Madera_AStm_D_143" >Madera (ASTM D143) </option>
+						<option value="Copr_Madera_AStm_D_143">Madera (ASTM D143) </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 
@@ -183,7 +191,7 @@
 										data-tippy-content="Texto de altura"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
-									name="base_perfil" id="base_perfil" placeholder=""	onchange="cambioAltura()">
+									name="base_perfil" id="base_perfil" placeholder="" onchange="cambioAltura()">
 							</div>
 							<div class="col" style="width:180px">
 								<label class="form-label" style="font-size: 14px">altura (mm)<i
@@ -204,7 +212,8 @@
 					<button type="button" onclick="Altura(),alt_per(),base_per(), iniciar()"
 						class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
-					<a type="button" href="indexrelojvariosensayos_flexionanimacion.html" class="btn btn-primary">Reiniciar</a>
+					<a type="button" href="indexrelojvariosensayos_flexionanimacion.html"
+						class="btn btn-primary">Reiniciar</a>
 				</div>
 
 
@@ -243,9 +252,11 @@
 				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
 			  </svg>-->
 
-			  <svg  type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
-				<path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
-			  </svg>
+			<svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z" />
+			</svg>
 
 
 		</div>
@@ -254,21 +265,25 @@
 				<path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
 			  </svg>-->
 
-			  <svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
-				<path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
-			  </svg>
+			<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z" />
+			</svg>
 
 
-			  <!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+			<!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
 				<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"/>
 			  </svg> -->
 
 
-			  <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
-				<path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
-			  </svg>
+			<svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
+				<path
+					d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z" />
+			</svg>
 
-			 <!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+			<!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
 				<path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
 			  </svg>-->
 
@@ -277,19 +292,26 @@
 			</svg> -->
 
 
-			<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
-				<path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
-			  </svg>
+			<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z" />
+			</svg>
 
 
-				</div>
+		</div>
 
 
 	</div>
 
 	<div class="position-fixed" id="ventanamini2d"
-		style="transform: rotate(180deg);resize: both;bottom: 100px;right:100px;height: 250px;width: 350px;background-color: #ffffff;overflow: hidden;display: none; scale: 1.5;">
-		<iframe id="mini2d" src="index2d.html" style="transform: rotate(180deg);width: 100%;height:100%;overflow:hidden;"></iframe>
+		style="transform: rotate(180deg);resize: both;bottom: 100px;right:100px;height: 310px;width: 440px;background-color: #ffffff;overflow: hidden;display: none; scale: 1.5;">
+		<iframe id="mini2d" src="index2d.html"
+			style="transform: rotate(180deg);width: 100%;height:100%;overflow:hidden;"></iframe>
+
+		</script>
+
+
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
@@ -302,7 +324,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="Flexion_carga_Madera_ASTM143_Nueva.js"></script>
 
-	
+
 
 
 	<script>
@@ -329,14 +351,14 @@
 			var prueba565656 = 120;
 			switch (document.getElementById('select_barra').value) {
 
-				
+
 
 				case 'Copr_Madera_AStm_D_143':
 					document.getElementById('Altura').value = 763.5;
 					document.getElementById('base_perfil').value = 47.8;
 					document.getElementById('altura_perfil').value = 48.3;
-					
-					
+
+
 					break;
 
 
@@ -396,7 +418,7 @@
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000); //1,1000
 		var garra;
-		
+
 
 		document.addEventListener('keydown', onKeyDown);
 
@@ -464,58 +486,58 @@
 */
 
 
-		
-		
 
-			(function () {
 
-				/**
-				 * Ajuste decimal de un número.
-				 *
-				 * @param	{String}	type	El tipo de ajuste.
-				 * @param	{Number}	value	El número.
-				 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
-				 * @returns	{Number}			El valor ajustado.
-				 */
-				function decimalAdjust(type, value, exp) {
-					// Si el exp es indefinido o cero...
-					if (typeof exp === 'undefined' || +exp === 0) {
-						return Math[type](value);
-					}
-					value = +value;
-					exp = +exp;
-					// Si el valor no es un número o el exp no es un entero...
-					if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-						return NaN;
-					}
-					// Cambio
-					value = value.toString().split('e');
-					value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-					// Volver a cambiar
-					value = value.toString().split('e');
-					return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-				}
 
-				// Redondeo decimal
-				if (!Math.round10) {
-					Math.round10 = function (value, exp) {
-						return decimalAdjust('round', value, exp);
-					};
-				}
-				// Redondeo hacia abajo
-				if (!Math.floor10) {
-					Math.floor10 = function (value, exp) {
-						return decimalAdjust('floor', value, exp);
-					};
-				}
-				// Redondeo hacia arriba
-				if (!Math.ceil10) {
-					Math.ceil10 = function (value, exp) {
-						return decimalAdjust('ceil', value, exp);
-					};
-				}
+		(function () {
 
-			})();
+			/**
+			 * Ajuste decimal de un número.
+			 *
+			 * @param	{String}	type	El tipo de ajuste.
+			 * @param	{Number}	value	El número.
+			 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
+			 * @returns	{Number}			El valor ajustado.
+			 */
+			function decimalAdjust(type, value, exp) {
+				// Si el exp es indefinido o cero...
+				if (typeof exp === 'undefined' || +exp === 0) {
+					return Math[type](value);
+				}
+				value = +value;
+				exp = +exp;
+				// Si el valor no es un número o el exp no es un entero...
+				if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+					return NaN;
+				}
+				// Cambio
+				value = value.toString().split('e');
+				value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+				// Volver a cambiar
+				value = value.toString().split('e');
+				return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+			}
+
+			// Redondeo decimal
+			if (!Math.round10) {
+				Math.round10 = function (value, exp) {
+					return decimalAdjust('round', value, exp);
+				};
+			}
+			// Redondeo hacia abajo
+			if (!Math.floor10) {
+				Math.floor10 = function (value, exp) {
+					return decimalAdjust('floor', value, exp);
+				};
+			}
+			// Redondeo hacia arriba
+			if (!Math.ceil10) {
+				Math.ceil10 = function (value, exp) {
+					return decimalAdjust('ceil', value, exp);
+				};
+			}
+
+		})();
 
 
 		function modulo_elastico() {
@@ -533,24 +555,24 @@
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713); // posicion de la camara (0, 5, 5) 
 		controls.target.set(-0.7032029168893309, 1.5781128106857465, -2.674084323532686);
-		function centroflecha(){
+		function centroflecha() {
 			camera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713);
 			controls.target.set(-0.7032029168893309, 1.5781128106857465, -2.674084323532686);
-				}
+		}
 
-			function Derechaflecha(){
+		function Derechaflecha() {
 			camera.position.set(-0.013339131201084098, 1.7631364734603905, -5.81584090959034);
 			controls.target.set(0.5272368126955405, 0.6034317683953212, -0.58488854449178);
-				}
-				function Izquierdaflecha(){
+		}
+		function Izquierdaflecha() {
 			camera.position.set(-0.11560805692136791, 1.6741675982201003, -0.8033330515684081);
 			controls.target.set(-0.1689515591178106, 1.436593182191341, -2.356775354107174);
-				}
+		}
 
-				function Arribaflecha(){
+		function Arribaflecha() {
 			camera.position.set(-0.05708354813761654, 2.7952215397888005, -3.313058859018486);
 			controls.target.set(-0.08200439705341282, 2.336772356535047, -3.31343600892615);
-				}
+		}
 
 
 		function zoom() {
@@ -563,12 +585,12 @@
 
 
 		}
-	/*	function open_win() {
-			window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
-			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
-			//camera.position.y=3 // posicison de la camara (0, 5, 5)
-			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
-		}*/
+		/*	function open_win() {
+				window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
+				camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+				//camera.position.y=3 // posicison de la camara (0, 5, 5)
+				controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+			}*/
 		function open_manual() {
 			window.open("Laboratorio_de_flexion.pdf", "Laboratorio de flexión", "width=800px, height=1000px,")
 			// camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
@@ -665,45 +687,45 @@
 		var max_x_canvas = 0;
 
 		var mixer;
-        var clock = new THREE.Clock();
+		var clock = new THREE.Clock();
 
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
-			
-		
 
-			
-				
-			
 
-	
 
-			
+
+
+
+
+
+
+
 
 			if (iniciar_) {
 
 				var delta = clock.getDelta();
 
-				if ( mixer ) mixer.update( delta/5.353 ); //if ( mixer ) mixer.update( delta/5.353);
+				if (mixer) mixer.update(delta / 5.353); //if ( mixer ) mixer.update( delta/5.353);
 
 				renderer.render(scene, camera);
 
 
 
 
-				var Area = 2* bas_per * altu_per * altu_per / (3 * Alt);
-			//	console.log(Area)
+				var Area = 2 * bas_per * altu_per * altu_per / (3 * Alt);
+				//	console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
-				//	console.log(garra.position.y)
+					//	console.log(garra.position.y)
 
 					if (garra.position.y >= -0.221930) {
 						garra.position.y += -0.00001
 
-					//	console.log(garra.position.y)
+						//	console.log(garra.position.y)
 
 						var datos_traccion;
 
@@ -762,7 +784,7 @@
 						garra.position.y = -0.221930
 						scene.remove(vigafle)
 						scene.add(vigafle_rota)
-					
+
 					}
 					//	console.log(garra.position.y)
 				}
@@ -800,7 +822,7 @@
 
 			} else {
 				iniciar_ = true;
-				
+
 				document.getElementById("ventanamini2d").style.display = "block";
 				document.getElementById('mini2d').src = "index2dcorta_flexion.html";
 				//open_win();
@@ -859,7 +881,7 @@
 				garra.position.z += 0
 				garra.position.x += 0
 				garra.position.y += -0.19
-			
+
 				renderer.render(scene, camera);
 
 
@@ -873,21 +895,21 @@
 				//	console.log('An error happened');
 			}
 		);
-		
-	
+
+
 		const loader3 = new THREE.GLTFLoader();
 		loader3.load(
-			
+
 			'FlexionDinamico.gltf',//'scene.gltf'
 			function (gltf) {
 				vigafle = gltf.scene;
-                mixer= new THREE.AnimationMixer(gltf.scene);
+				mixer = new THREE.AnimationMixer(gltf.scene);
 
-                //gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
+				//gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
 
 				const clock = new THREE.Clock();
-				var clip = gltf.animations[ 0 ];
-				var action = mixer.clipAction( clip );
+				var clip = gltf.animations[0];
+				var action = mixer.clipAction(clip);
 				action.loop = THREE.LoopOnce;
 				action.clampWhenFinished = true;
 				action.play();
@@ -919,41 +941,41 @@
 		);
 
 
-// Instantiate a loader
+		// Instantiate a loader
 
-		 
-const loader4 = new THREE.GLTFLoader();
 
-// Load a glTF resource
-loader4.load(
-	'vigasolad_esta.gltf',//'scene.gltf'
-	function (gltf) {
-		vigafle_rota = gltf.scene;
+		const loader4 = new THREE.GLTFLoader();
 
-	//	scene.add(gltf.scene);
-		gltf.animations; // Array<THREE.AnimationClip>
-		gltf.scene; // THREE.Group
-		gltf.scenes; // Array<THREE.Group>
-		gltf.cameras; // Array<THREE.Camera>
-		gltf.asset; // Object
-		renderer.render(scene, camera);
+		// Load a glTF resource
+		loader4.load(
+			'vigasolad_esta.gltf',//'scene.gltf'
+			function (gltf) {
+				vigafle_rota = gltf.scene;
 
-		vigafle_rota.position.z += -3.5
-		vigafle_rota.position.x += 0
-		vigafle_rota.position.y += 1.405
-		vigafle_rota.scale.z = 0.15
-		vigafle_rota.scale.y = 0.9
+				//	scene.add(gltf.scene);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+				renderer.render(scene, camera);
 
-	},
-	// called while loading is progressing
-	function (xhr) {
-		//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-	},
-	// called when loading has errors
-	function (error) {
-		//	console.log('An error happened');
-	}
-);
+				vigafle_rota.position.z += -3.5
+				vigafle_rota.position.x += 0
+				vigafle_rota.position.y += 1.405
+				vigafle_rota.scale.z = 0.15
+				vigafle_rota.scale.y = 0.9
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				//	console.log('An error happened');
+			}
+		);
 
 
 		// create an AudioListener and add it to the camera
