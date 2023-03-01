@@ -305,15 +305,16 @@
 	</div>
 
 	<div class="position-fixed" id="ventanamini2d"
-		style="transform: rotate(180deg);resize: both;bottom: 100px;right:100px;height: 310px;width: 440px;background-color: #ffffff;overflow: hidden;display: none; scale: 1.5;">
-		<iframe id="mini2d" src="index2d.html"
-			style="transform: rotate(180deg);width: 100%;height:100%;overflow:hidden;"></iframe>
+		style="transform: rotate(180deg);resize: both;bottom: 0px;right:0px;height: 310px;width: 440px;background-color: #ffffff;overflow: hidden;display: none">
+		<iframe id="mini2d" src="https://stackoverflow.com/questions/10086693/resize-on-div-element"
+			style="transform: rotate(180deg);width: 100%;height:100%;overflow:hidden;" scrolling=""></iframe>
 
 		</script>
 
 
 	</div>
 
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -1004,6 +1005,21 @@
 			renderer.render( scene, camera );
 		};
 		animate(); */
+
+
+		$('#ventanamini2d').on('click',function () {
+			var height = $(this).height();
+			var width = $(this).width();
+			var menor = width > height ? height : width;
+			console.log(menor)
+
+			var scala = menor / 380;
+
+			$('#mini2d').css('transform','rotate(180deg) scale('+scala+')')
+
+		})
+
+		
 
 
 	</script>
