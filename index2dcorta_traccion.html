@@ -2,125 +2,142 @@
 <html>
 
 <head>
-    <title>Dentro de la caja</title>
-    <style>
-        .resizable {
-            resize: both;
-            overflow: hidden;
-            border: 1px solid black;
-        }
-        #rectangulo5 {
-	width: 50px;
-	height: 70px;
-	background: #2A682A;
-	left:40px;
-	top:61px;
-	position: fixed;
-	border-radius:5%;
-	animation-name: ani_recaa;
-	animation-duration: 10s;
-	animation-fill-mode: forwards;
-} 
+	<title>Dentro de la caja</title>
+	<style>
+		#rectangulo5 {
+			width: 50px;
+			height: 70px;
+			background: #2A682A;
+			left: 80px;
+			top: 81px;
+			position: fixed;
+			border-radius: 5%;
+			animation-name: ani_recaa;
+			animation-duration: 10s;
+			animation-fill-mode: forwards;
+		}
 
 
- #rectangulo3 {
-	width: 70px;
-	height: 80px;
-	background: #2A682A;
-	left:30px;
-	top:111px;
-	position: fixed;
-	border-radius:5%;
-	animation-name: ani_reca;
-	animation-duration: 10s;
-	animation-fill-mode: forwards;
-} 
+		#rectangulo3 {
+			width: 70px;
+			height: 80px;
+			background: #2A682A;
+			left: 70px;
+			top: 131px;
+			position: fixed;
+			border-radius: 5%;
+			animation-name: ani_reca;
+			animation-duration: 10s;
+			animation-fill-mode: forwards;
+		}
 
 
-/* probeta */
+		/* probeta */
 
 
-  #rectangulo1 {
-	width: 70px;
-	height: 200px;
-	background: #4B4F4B;
-	left:40px;
-	top:161px;
-	scale:2;
-	position: absolute;
-	clip-path: polygon(35% 27%, 50% 27%, 50% 67%, 46.5% 70%, 38.5% 70%, 35% 67%);
-	animation-name: ani_rec;
-	animation-duration: 10s;
-	animation-fill-mode: forwards;
-} 
+		#rectangulo1 {
+			width: 70px;
+			height: 200px;
+			background: #4B4F4B;
+			left: 80px;
+			top: 181px;
+			scale: 2;
+			position: absolute;
+			clip-path: polygon(35% 27%, 50% 27%, 50% 67%, 46.5% 70%, 38.5% 70%, 35% 67%);
+			animation-name: ani_rec;
+			animation-duration: 10s;
+			animation-fill-mode: forwards;
+		}
 
 
 
- #rectangulo {
-	width: 70px;
-	height: 200px;
-	background: #4B4F4B;
-	left:40px;
-	top:301px;
-	scale:2;
-	position: absolute;
-	clip-path: polygon(35% 30%, 38.5% 27%, 46.5% 27%, 50% 30%, 50% 70%, 35% 70%);
-} 
+		#rectangulo {
+			width: 70px;
+			height: 200px;
+			background: #4B4F4B;
+			left: 80px;
+			top: 321px;
+			scale: 2;
+			position: absolute;
+			clip-path: polygon(35% 30%, 38.5% 27%, 46.5% 27%, 50% 30%, 50% 70%, 35% 70%);
+		}
 
-/* FIn de probeta */
-
-
-  #rectangulo4 {
-	width: 70px;
-	height: 80px;
-	background: #2A682A;
-	left:30px;
-	top:451px;
-	position: fixed;
-	border-radius:5%;
-} 
-#rectangulo6 {
-	width: 50px;
-	height: 70px;
-	background: #2A682A;
-	left:40px;
-	top:526px;
-	position: fixed;
-	border-radius:5%;
-} 
-#circulo {
-	width: 35px;
-	height: 35px;
-	background: #2A682A;
-	left:47px;
-	top:576px;
-	position: fixed;
-	border-radius:50%;
-} 
+		/* FIn de probeta */
 
 
- @keyframes ani_rec{ 
-	0%{}  
-	99.99%{top:130px;background: #4B4F4B}
-	100%{top:110px}
- } 
+		#rectangulo4 {
+			width: 70px;
+			height: 80px;
+			background: #2A682A;
+			left: 70px;
+			top: 471px;
+			position: fixed;
+			border-radius: 5%;
+		}
 
-@keyframes ani_reca{
-	0%{} 
-	99.99%{top:80px;}
-	100%{top:60px;}
- } 
- @keyframes ani_recaa{
-	0%{} 
-	99.99%{top:30px;}
-	100%{top:10px;}
- } 
-    </style>
+		#rectangulo6 {
+			width: 50px;
+			height: 70px;
+			background: #2A682A;
+			left: 80px;
+			top: 546px;
+			position: fixed;
+			border-radius: 5%;
+		}
+
+		#circulo {
+			width: 35px;
+			height: 35px;
+			background: #2A682A;
+			left: 87px;
+			top: 596px;
+			position: fixed;
+			border-radius: 50%;
+		}
+
+
+		@keyframes ani_rec {
+			0% {}
+
+			99.99% {
+				top: 150px;
+				background: #4B4F4B
+			}
+
+			100% {
+				top: 130px
+			}
+		}
+
+		@keyframes ani_reca {
+			0% {}
+
+			99.99% {
+				top: 100px;
+			}
+
+			100% {
+				top: 80px;
+			}
+		}
+
+		@keyframes ani_recaa {
+			0% {}
+
+			99.99% {
+				top: 50px;
+			}
+
+			100% {
+				top: 30px;
+			}
+		}
+	</style>
 </head>
 
 <body style="zoom: 70%;">
 
-    <div id="rectangulo5"></div>
+	<div id="rectangulo5"></div>
 	<div id="rectangulo1"></div>
 	<div id="rectangulo"></div>
 	<div id="rectangulo3"></div>
