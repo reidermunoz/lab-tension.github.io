@@ -305,9 +305,9 @@
 	</div>
 
 	<div class="position-fixed" id="ventanamini2d"
-		style="bottom: 0px;right:0px;height: 310px;width: 440px;background-color: #ffffff;overflow: hidden;display: none;">
+		style="transform: rotate(180deg);resize: both;bottom: 0px;right:0px;height: 310px;width: 440px;background-color: #ffffff;overflow: hidden;display: none;">
 		<iframe id="mini2d"
-			style="width: 100%;height:100%;overflow:hidden;border: 2px solid "
+			style="transform: rotate(180deg);width: 100%;height:100%;overflow:hidden;border: 2px solid "
 			scrolling=""></iframe>
 
 		</script>
@@ -1008,6 +1008,20 @@
 		animate(); */
 
 
+		$('#ventanamini2d').on('click', function () {
+
+
+			var height = $(this).height();
+			var width = $(this).width();
+			var menor = width > height ? height : width;
+			setTimeout(() => {
+				var scala = menor / 380;
+				scala = scala > 1 ? scala : 1;
+				$('#mini2d').css('transform', 'rotate(180deg) scale(' + scala + ')')
+				$('#mini2d').css('height', height+'px')
+				$('#mini2d').css('width', width+'px')
+			},500)
+		});
 
 
 
