@@ -726,7 +726,7 @@
 
 		// Load a glTF resource
 		loader.load(
-			'Lab_Torsion4.gltf',//'scene.gltf'
+			'Lab_Torsion4.gltf',//'scene.gltf'   Escenario y maquina sin barra
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -789,7 +789,7 @@
 
 		// Load a glTF resource
 		loader3.load(
-			'barra_tosricion_cortado.gltf',//'scene.gltf'
+			'barra_danada.gltf',//'scene.gltf'  barra cortada escena ultima, antigua
 			function (gltf) {
 				barra_tosricion_cortado = gltf.scene;
 				scene.add(barra_cortaa);
@@ -800,11 +800,13 @@
 				gltf.asset; // Object
 
 				console.log('completado!.....')
-				barra_tosricion_cortado.position.z += -9.3
-				barra_tosricion_cortado.position.x += 0.01
-				barra_tosricion_cortado.position.y += -0.001
-				renderer.render(scene, camera);
-
+				barra_tosricion_cortado.position.z +=  -0.23
+				barra_tosricion_cortado.position.x += 0
+				barra_tosricion_cortado.position.y +=1.35
+				barra_tosricion_cortado.scale.z = 0.08
+				barra_tosricion_cortado.scale.y = 0.04
+				barra_tosricion_cortado.scale.x = 0.04
+				renderer.render(scene, camera);		
 
 			},
 			// called while loading is progressing
