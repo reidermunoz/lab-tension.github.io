@@ -214,17 +214,7 @@
 
 
 
-		<div style="text-align: center;" class="mt-1	">
-			<!--<svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
-				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
-			  </svg>-->
-
-			  <svg  type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
-				<path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
-			  </svg>
-
-
-		</div>
+	</br>
 		<div style="text-align: center;" class="mt-1">
 			<!--<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
 				<path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
@@ -501,27 +491,24 @@ var geometrycilindro = new THREE.CylinderGeometry(0.05, 0.05, 0.09, 32);
 		}
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
-		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
-
+		camera.position.set(4.28683023525798, 1.7709637994563634, -0.012281931284530022); // posicion de la camara (0, 5, 5) 
+		controls.target.set(-0.2773047298402608, 1.0735852448013725, -0.012281931284530302);
 		function centroflecha(){
-			camera.position.set(1.7635816353914981, 1.8347950925610317, 0.16463116563173347);
-			controls.target.set(-0.47968991718879844, 1.7819228371923617, 0.35131564004338245);
+			camera.position.set(1.501311989921791, 1.5030491871222211, -0.056585344069267254);
+			controls.target.set(-0.4163787782531378, 1.2990943870908422, 0.03126166833828421);
 				}
 
 			function Derechaflecha(){
-			camera.position.set(0.06126837168823679, 1.8755083832142612, -1.2708440270559638);
-			controls.target.set(0.14533605948724349, 1.730226894676921, -0.24126841056202938);
-				}
-				function Izquierdaflecha(){
-			camera.position.set(-0.01364266170339136, 1.8549514906947322, 1.129527550691957);
-			controls.target.set(-0.04140357232327803, 1.8463011750021652, 0.7161876768959998);
+			camera.position.set(0.050101150740551464, 1.5406698277657715, -1.214128948170122);
+			controls.target.set(0.12597223897915508, 1.409553284360822, -0.2849369542843453);
 				}
 
-				function Arribaflecha(){
-			camera.position.set(-0.049771421686070995, 3.100206014401884, 0.05500078024639481);
-			controls.target.set(-0.09139378917770244, 2.3345121792479646, 0.05437087104429345);
+			function Izquierdaflecha(){
+			camera.position.set(-0.03828113104765385, 1.5594032379037555, 1.1204063354358242);
+			controls.target.set(-0.06688991775420092, 1.553780383415491, 0.7246088622514782);
 				}
 
+			
 
 		function zoom() {
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
