@@ -251,7 +251,7 @@
 
 	</div>
 
-	<div class="position-fixed" style="background-color: #ffffff;padding: 60px 0px 0px 0px; left: 400px;width:0px">
+	<!-- <div class="position-fixed" style="background-color: #ffffff;padding: 60px 0px 0px 0px; left: 400px;width:0px">
 
 		<div class="card-body">
 			<div style="text-align: center; ">
@@ -270,7 +270,7 @@
 			</div>
 		</div>
 	
-</div>
+</div> -->
 
 
 	<div class="position-fixed" id="ventanamini2d"
@@ -801,7 +801,7 @@
 
 
 		function iniciar() {
-			musica()
+			// musica()
 
 			var altura = document.getElementById('Altura').value;
 			if (altura < 30 || altura > 200) {
@@ -892,32 +892,32 @@
 
 
 
-		function musica() {
-		// create an AudioListener and add it to the camera
-		const listener = new THREE.AudioListener();
-		camera.add(listener);
+	// 	function musica() {
+	// 	// create an AudioListener and add it to the camera
+	// 	const listener = new THREE.AudioListener();
+	// 	camera.add(listener);
 
-		// create a global audio source
-		const sound = new THREE.Audio(listener);
+	// 	// create a global audio source
+	// 	const sound = new THREE.Audio(listener);
 
-		// load a sound and set it as the Audio object's buffer
-		const audioLoader = new THREE.AudioLoader();
-		audioLoader.load('sound_ogg_Sin_Trueno.ogg', function (buffer) {
-			sound.setBuffer(buffer);
-			sound.setLoop(true);
-			sound.setVolume(0.5);
-			sound.play();
-		});
+	// 	// load a sound and set it as the Audio object's buffer
+	// 	const audioLoader = new THREE.AudioLoader();
+	// 	audioLoader.load('sound_ogg_Sin_Trueno.ogg', function (buffer) {
+	// 		sound.setBuffer(buffer);
+	// 		sound.setLoop(true);
+	// 		sound.setVolume(0.5);
+	// 		sound.play();
+	// 	});
 
-	};
+	// };
 
-		function musicaquitar() {
-			sound.setVolume(0);
-		};
+		// function musicaquitar() {
+		// 	sound.setVolume(0);
+		// };
 
-		function musicaTrue() {
-			sound.setVolume(0.5);
-		};
+		// function musicaTrue() {
+		// 	sound.setVolume(0.5);
+		// };
 
 
 		/*
