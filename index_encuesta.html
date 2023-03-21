@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta laboratorio - Reider Munoz</title>
+    <link rel="stylesheet" href="estilo_encuesta.css">
+</head>
+<body>
+    <header>
+        <h1>Encuesta Laboratorio</h1>
+        <p>Tracción</p>
+    </header>
+
+    <div class="container">
+        <section id="p0">
+            <h3>1 - Que es la traccion?</h3>
+            <label>
+                <input type="radio" value="1" name="p0" onclick="respuesta(0,this)"> P1R2
+            </label>
+            <label>
+                <input type="radio" value="2" name="p0" onclick="respuesta(0,this)"> P1R2
+            </label>
+            <label>
+                <input type="radio" value="3" name="p0" onclick="respuesta(0,this)"> P1R2
+            </label>
+        </section>
+        <section id="p1">
+            <h3>2 - Que es barra</h3>
+            <label>
+                <input type="radio" value="1" name="p1" onclick="respuesta(1,this)"> P2R1
+            </label>
+            <label>
+                <input type="radio" value="2" name="p1" onclick="respuesta(1,this)"> P2R2
+            </label>
+            <label>
+                <input type="radio" value="3" name="p1" onclick="respuesta(1,this)"> P2R3
+            </label>
+        </section>
+
+        <section id="p2">
+            <h3>3 - Que es maquina universal</h3>
+            <label>
+                <input type="radio" value="1" name="p2" onclick="respuesta(2,this)"> P3R1
+            </label>
+            <label>
+                <input type="radio" value="2" name="p2" onclick="respuesta(2,this)"> P3R2
+            </label>
+            <label>
+                <input type="radio" value="3" name="p2" onclick="respuesta(2,this)"> P3R3
+            </label>
+        </section>
+        
+
+        <section id="p3">
+            <h3>4 - Que es barra</h3>
+            <label>
+                <input type="radio" value="1" name="p3" onclick="respuesta(3,this)"> P4R1
+            </label>
+            <label>
+                <input type="radio" value="2" name="p3" onclick="respuesta(3,this)"> P4R2
+            </label>
+            <label>
+                <input type="radio" value="3" name="p3" onclick="respuesta(3,this)"> P4R3
+            </label>
+        </section>
+        
+
+        <section id="p4">
+            <h3>5 - Que es asd</h3>
+            <label>
+                <input type="radio" value="1" name="p4" onclick="respuesta(4,this)"> P5R1
+            </label>
+            <label>
+                <input type="radio" value="2" name="p4" onclick="respuesta(4,this)"> P5R1
+            </label>
+            <label>
+                <input type="radio" value="3" name="p4" onclick="respuesta(4,this)"> P5R1
+            </label>
+        </section>
+
+        <button onclick="corregir()">Corregir</button>
+        <h2>Cantidad de acertadas: <span id="resultado"></span></h2>
+    </div>
+    <script src="script_encuesta.js"></script>
+</body>
+</html>
