@@ -100,7 +100,6 @@
 				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
-
 			</div>-->
 		</div>
 	</div>
@@ -931,7 +930,8 @@
 
 		// Load a glTF resource
 		loader4.load(
-			'vigasolad_esta.gltf',//'scene.gltf'
+			// 'vigasolad_esta.gltf',//'scene.gltf'
+			'Flexion_rota.gltf',//'scene.gltf'
 			function (gltf) {
 				vigafle_rota = gltf.scene;
 
@@ -945,9 +945,11 @@
 
 				vigafle_rota.position.z += -3.5
 				vigafle_rota.position.x += 0
-				vigafle_rota.position.y += 1.405
-				vigafle_rota.scale.z = 0.15
-				vigafle_rota.scale.y = 0.9
+				vigafle_rota.position.y += 1.727
+				vigafle_rota.scale.z = 0.08
+				vigafle_rota.scale.y = 0.18
+				vigafle_rota.scale.x = 0.18
+
 
 			},
 			// called while loading is progressing
