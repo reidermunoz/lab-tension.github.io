@@ -78,6 +78,8 @@
 	animation-duration: 53s;
 	animation-fill-mode: forwards;
 
+	
+
 } 
 
 @keyframes ani_rec{
@@ -184,6 +186,24 @@
 	border-radius:50%;
 
  }  
+
+ .flexion2 {
+	left:195px;
+	top:350px;
+	scale:2.5;
+	position: absolute;
+	clip-path: polygon(10% 37%, 20% 37%, 30% 37%, 40% 37%, 50% 37%, 60% 37%, 70% 37%, 80% 37%, 90% 37%, 90% 50%, 80% 50%, 70% 50%, 60% 50%, 50% 50%, 40% 50%, 30% 50%, 20% 50%, 10% 50%);
+	animation-name: ani_rec2;
+	animation-duration: 53s;
+	animation-fill-mode: forwards;
+ }
+ 
+ @keyframes ani_rec{
+	0%{clip-path: polygon(10% 37%, 20% 37%, 30% 37%, 40% 37%, 50% 37%, 60% 37%, 70% 37%, 80% 37%, 90% 37%, 90% 50%, 80% 50%, 70% 50%, 60% 50%, 50% 50%, 40% 50%, 30% 50%, 20% 50%, 10% 50%);}
+	100% {clip-path: polygon(11% 36.5%, 20% 37%, 30% 37.5%, 40% 38%, 50% 38.5%, 60% 38%, 70% 37.5%, 80% 37%, 89% 36.5%, 90% 50%, 80% 50.5%, 70% 51%, 60% 51.5%, 50% 51.75%, 40% 51.5%, 30% 51%, 20% 50.5%, 10% 50%);}
+}
+
+
 	</style>
 </head>
 
@@ -205,6 +225,9 @@
 	<div id="rectanguloab5"></div>
 	<div id="circulo1"></div>
 	<div id="circulo2"></div>
+	<div>
+		<img src="ma.PNG" alt="" width="200px" class="img-fluid flexion2">
+	</div>
 	
 	
 	
