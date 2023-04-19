@@ -759,8 +759,8 @@
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y
 
-							document.getElementById('Alargamiento').value = prierox;
-							document.getElementById('Carga').value = segundoy;
+							document.getElementById('Alargamiento').value = Math.round10(prierox,-3);
+							document.getElementById('Carga').value = Math.round10(segundoy,-3);
 						}
 					} else {
 						garra.position.y = -0.221930

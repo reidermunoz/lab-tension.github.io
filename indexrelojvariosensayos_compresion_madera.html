@@ -117,8 +117,8 @@
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onchange="cambiossegunacero()">
 						<option value="" selected></option>
-						<option value="Copr_Acer_E9">ACERO (ASTM) E9)</option>
-						<option value="Copr_Madera_AStm_D_143" selected>Madera (ASTM D143) </option>
+						<!-- <option value="Copr_Acer_E9">ACERO (ASTM) E9</option> -->
+						<option value="Copr_Madera_AStm_D_143" selected>Madera (ASTM D143_Pino) </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 
@@ -239,9 +239,7 @@
 				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
 			  </svg>-->
 
-			  <svg  type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
-				<path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
-			  </svg>
+			  
 
 
 
@@ -277,11 +275,11 @@
 
 				</div>
 	</div>
-
-	<div class="position-fixed" id="ventanamini2d"
+ 
+	<!-- <div class="position-fixed" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 300px;width: 400px;background-color: #ffffff;overflow: hidden;display: none">
 		<iframe id="mini2d" src="index2d.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
-	</div>
+	</div>  -->
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
@@ -719,8 +717,8 @@
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y
 
-							document.getElementById('Alargamiento').value = prierox;
-							document.getElementById('Carga').value = segundoy;
+							document.getElementById('Alargamiento').value = Math.round10(prierox,-3);
+							document.getElementById('Carga').value = Math.round10(segundoy,-3);
 						}
 					} else {
 						garra.position.y = 0.35
