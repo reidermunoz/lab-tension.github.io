@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Laboratorio de compresion madera  - Universidad del Valle - Reider Muñoz</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/1.35.0/iconfont/tabler-icons.min.css"
+		integrity="sha512-tpsEzNMLQS7w9imFSjbEOHdZav3/aObSESAL1y5jyJDoICFF2YwEdAHOPdOr1t+h8hTzar0flphxR76pd0V1zQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+	<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+	<style>
+		html,
+		body {
+			margin: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		#ventana {
+			background-color: #ffffff;
+			width: 400px;
+			height: 200px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.lbl {
+
+			text-align: center;
+
+
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
+
+
+		<div class="row">
+			<div class="col-md-3">
+				<a href="https://reidermunoz.github.io/lab-tension.github.io/"
+					class="d-flex align-items-center text-dark text-decoration-none">
+					<img src="logo.png" style="height: 30px;">
+					<span class="fs-8">LABORATORIOS VIRTUALES</span>
+				</a>
+			</div>
+
+
+
+			<div class="col-md-9" style="text-align: right;">
+				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Traccion</a>
+				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_flexion.html">Flexion</a>
+				<a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a>
+			</div>
+
+			<!--	<div class="col-md-9" style="text-align: right;">s
+				
+				<a class="btn btn-sm btn-outline-secondary" href="index copy.html">aaTorsión</a>
+				<a class="btn btn-sm btn-outline-secondary" href="https://reidermunoz.github.io/lab-tension.github.io/">SISTorsión</a>
+				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
+				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
+				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
+
+			</div>-->
+		</div>
+	</div>
+
+	<div class="position-fixed" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
+
+		<div class="card mb-1" style="width: 100%;">
+			<div class="card-body">
+				<canvas id="myChart" style="width: 200px;height: 100px;"></canvas>
+			</div>
+		</div>
+
+		<div class="card mb-1" style="width: 100%;">
+			<div class="card-header text-center bg-primary text-white">Ingrese los valores</div>
+
+			<div class="card-body">
+				<!--
+				<span style="text-align: center; padding: 0; padding-left: 100px; font-size: 30px;">Ingrese los datos de: </span>
+				-->
+				<form class="row g-2">
+
+					<label class="form-label mt-3"
+						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo
+						de
+						Probeta<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+					</label>
+
+					<select id="select_barra" class="form-select" aria-label="Default select example"
+						onchange="cambiossegunacero()">
+						<option value="" selected></option>
+						<!-- <option value="Copr_Acer_E9">ACERO (ASTM) E9</option> -->
+						<option value="Copr_Madera_AStm_D_143" selected>Madera (ASTM D143_Pino_Paralela) </option>
+						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
+				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
+
+					</select>
+
+
+
+					<!--		<div class="col-auto" style="width:180px">
+						<label class="form-label" style="font-size:14px">Diametro (mm)<i
+								data-tippy-content="Texto de altura"
+								class="ti ti-question-mark text-primary"></i></label>
+						<input type="number" class="form-control form-control-sm" name="Diametro" id="Diametro"
+							placeholder="">
+					</div>
+
+-->
+					<div class="lbl">
+						<label class="form-label" style="font-size: 14px">Longitud inicial (mm)<i
+								data-tippy-content="Texto de altura"
+								class="ti ti-question-mark text-primary"></i></label>
+						<input type="number" class="form-control form-control-sm" style="height:37px" name="Altura"
+							id="Altura" placeholder="" value="150.74" onchange="cambioAltura()">
+					</div>
+
+
+					<div class="row g-2">
+						<!--
+						<label class="form-label"
+							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
+							barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+						</label>
+
+						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
+							style="width:180px; ">
+							<option value="df" selected> </option>
+							<!-- <option value="tension_barra1">Acero AISI SAE 1020</option>
+				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
+						<!--
+							<option value="Numero1">28.96066083</option>
+							<option value="Numero4">#4</option>
+							<option value="Numero5">#5</option>
+							<option value="Numero6">#6</option>
+							<option value="Numero7">#7</option>
+							<option value="NUmero8">#8</option>
+							<option value="Numero9">#9</option>
+							<option value="Numero10">#10</option>
+							<option value="Numero11">#11</option>
+							<option value="Numero14">#14</option>
+							<option value="Numero18">#18</option>
+
+						</select> -->
+
+						<div class="row">
+							<div class="col" style="width:180px">
+								<label class="form-label" style="font-size: 14px">base (mm)<i
+										data-tippy-content="Texto de altura"
+										class="ti ti-question-mark text-primary"></i></label>
+								<input type="number" class="form-control form-control-sm" style="height:37px"
+									name="base_perfil" id="base_perfil" placeholder="" value="50"
+									onchange="cambioAltura()">
+							</div>
+							<div class="col" style="width:180px">
+								<label class="form-label" style="font-size: 14px">altura (mm)<i
+										data-tippy-content="Texto de altura"
+										class="ti ti-question-mark text-primary"></i></label>
+								<input type="number" class="form-control form-control-sm" style="height:37px"
+									name="altura_perfil" id="altura_perfil" placeholder="" value="50"
+									onchange="cambioAltura()">
+							</div>
+						</div>
+
+
+					</div>
+
+				</form>
+
+				<div style="text-align: center;" class="mt-3">
+					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
+					<button type="button" onclick="Altura(),alt_per(),base_per(), iniciar()"
+						class="btn btn-secondary">Iniciar</button>
+					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
+					<a type="button" href="indexrelojvariosensayos.html" class="btn btn-primary">Reiniciar</a>
+				</div>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="card mt-2" style="width: 100%;">
+			<div class="card-header text-center bg-primary text-white">Resultados</div>
+
+			<div class="card-body">
+				<form class="row g-2">
+					<div class="col-auto" style="width:180px">
+						<label class="form-label" style="font-size:14px">deformación (mm)<i
+								data-tippy-content="La deformacion de la probeta entre dos puntos fijos "
+								class="ti ti-question-mark text-primary"></i></label>
+						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
+							placeholder="">
+					</div>
+					<div class="col-auto" style="width:180px">
+						<label class="form-label" style="font-size: 14px">Carga (N)<i
+								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
+								class="ti ti-question-mark text-primary"></i></label>
+						<input type="text" class="form-control form-control-sm" name="Carga" id="Carga" placeholder="">
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+
+		<div style="text-align: center;" class="mt-1	">
+			<!--<svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+			  </svg>-->
+
+			  
+
+
+
+		</div>
+		<div style="text-align: center;" class="mt-1">
+			<!--<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+				<path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+			</svg>-->
+
+			<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
+			</svg>
+
+
+			  <!--<svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+				<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"/>
+			  </svg>--> 
+
+			  <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
+				<path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
+			  </svg>
+			 <!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+				<path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+			  </svg>-->
+
+			<!--<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+				<path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+			</svg>-->
+
+			<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+			</svg>
+
+				</div>
+	</div>
+ 
+	<!-- <div class="position-fixed" id="ventanamini2d"
+		style="bottom: 0px;right:0px;height: 300px;width: 400px;background-color: #ffffff;overflow: hidden;display: none">
+		<iframe id="mini2d" src="index2d.html" style="width: 100%;height:100%;overflow:hidden;"></iframe>
+	</div>  -->
+
+	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="Copr_Acer_E9.js"></script>
+	<script src="Copr_Madera_AStM_D_143.js"></script>
+
+
+	<script>
+		tippy('[data-tippy-content]');
+
+		function cambioAltura() {
+			var altura = document.getElementById('Altura').value;
+			if (altura < 20 || altura > 200) {
+				document.getElementById('Altura').value = '';
+				Swal.fire({
+					title: 'Error!',
+					text: 'El valor debe ser mayor a 20 mm y menor a 200 mm',
+					icon: 'error',
+					confirmButtonText: 'OK',
+					timer: 10000,
+					timerProgressBar: true,
+				})
+
+			}
+		}
+
+
+		function cambiossegunacero() {
+			var prueba565656 = 120;
+			switch (document.getElementById('select_barra').value) {
+
+				case 'Copr_Acer_E9':
+					document.getElementById('Altura').value = 26.05;
+					location.href="indexrelojvariosensayos_compresion.html";
+
+					break;
+
+				case 'Copr_Madera_AStm_D_143':
+					document.getElementById('Altura').value = 150.74;
+					
+
+					break;
+
+				default:
+				 	document.getElementById('Altura').value = '';
+					document.getElementById('Diametro_barra').value = "";
+
+			}
+
+		}
+
+		var ctx = document.getElementById("myChart").getContext("2d");
+		const contador_barra1 = [];
+		const chart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				datasets: [{
+					borderColor: 'rgb(222,42,22)',
+					borderWidth: 2,
+					pointRadius: 0,
+					data: [],
+				}]
+			},
+			options: {
+				animation: {
+					duration: 0
+				},
+				interaction: {
+					intersect: false
+				},
+				plugins: {
+					legend: false
+				},
+				scales: {
+					x: {
+						type: 'linear',
+						max: 0.5,
+						min: 0,
+						title: {
+							display: true,
+							text: 'deformación (mm)'
+						}
+					},
+
+					y: {
+						type: 'linear',
+						max: 400,
+						min: 1,
+						title: {
+							display: true,
+							text: 'Carga (N)'
+						}
+					}
+				}
+			}
+		});
+
+		var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+		var garra;
+
+		document.addEventListener('keydown', onKeyDown);
+
+		const container = document.getElementById('3d');
+
+
+		const renderer = new THREE.WebGLRenderer();
+
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		document.body.appendChild(renderer.domElement);
+
+		clock = new THREE.Clock();
+
+		scene = new THREE.Scene();
+		scene.background = new THREE.Color(0xa0a0a0);
+		scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+
+		const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+		hemiLight.position.set(0, 20, 0);
+		scene.add(hemiLight);
+
+		const dirLight = new THREE.DirectionalLight(0xffffff);
+		dirLight.position.set(- 3, 10, - 10);
+		dirLight.castShadow = true;
+		dirLight.shadow.camera.top = 2;
+		dirLight.shadow.camera.bottom = - 2;
+		dirLight.shadow.camera.left = - 2;
+		dirLight.shadow.camera.right = 2;
+		dirLight.shadow.camera.near = 0.1;
+		dirLight.shadow.camera.far = 40;
+		scene.add(dirLight);
+
+		// scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
+
+		// ground
+		/*
+		const mesh = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshPhongMaterial({ color: 0x999999, depthWrite: false }));
+		mesh.rotation.x = - Math.PI / 2;
+		mesh.receiveShadow = true;
+		scene.add(mesh);
+		var geometry = new THREE.CylinderGeometry(0.05, 0.05, 0.3, 32);
+		var material = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
+		var cube = new THREE.Mesh(geometry, material);
+		scene.add(cube);
+		cube.position.y = 3.005
+		cube.position.z = 0.63
+		var geometryabajo = new THREE.CylinderGeometry(0.05, 0.04, 0.024, 32);
+		var materialabajo = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
+		var cubeabajo = new THREE.Mesh(geometryabajo, materialabajo);
+		scene.add(cubeabajo);
+		cubeabajo.position.y = 2.828
+		cubeabajo.position.z = 0.63
+		var geometry2 = new THREE.CylinderGeometry(0.05, 0.05, 0.4, 32);
+		var material2 = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
+		var cube2 = new THREE.Mesh(geometry2, material2);
+		scene.add(cube2);
+		cube2.position.y = 2.63
+		cube2.position.z = 0.63
+		var geometryabajo2 = new THREE.CylinderGeometry(0.04, 0.05, 0.024, 32);
+		var materialabajo2 = new THREE.MeshBasicMaterial({ color: 0xaa9a9a });
+		var cubeabajo2 = new THREE.Mesh(geometryabajo2, materialabajo2);
+		scene.add(cubeabajo2);
+		cubeabajo2.position.y = 2.84
+		cubeabajo2.position.z = 0.63
+*/
+
+		// var geometrycubomadera = new THREE.BoxGeometry(0.1, 0.30, 0.1);
+		// var materialcubo = new THREE.MeshPhongMaterial({ color: 0xE7B158 });
+		// var cubecubo = new THREE.Mesh(geometrycubomadera, materialcubo);
+		// cubecubo.position.y = 1.585
+		// cubecubo.position.z = -0.04
+		// scene.add(cubecubo);
+
+
+		
+		
+
+			(function () {
+
+				/**
+				 * Ajuste decimal de un número.
+				 *
+				 * @param	{String}	type	El tipo de ajuste.
+				 * @param	{Number}	value	El número.
+				 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
+				 * @returns	{Number}			El valor ajustado.
+				 */
+				function decimalAdjust(type, value, exp) {
+					// Si el exp es indefinido o cero...
+					if (typeof exp === 'undefined' || +exp === 0) {
+						return Math[type](value);
+					}
+					value = +value;
+					exp = +exp;
+					// Si el valor no es un número o el exp no es un entero...
+					if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+						return NaN;
+					}
+					// Cambio
+					value = value.toString().split('e');
+					value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+					// Volver a cambiar
+					value = value.toString().split('e');
+					return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+				}
+
+				// Redondeo decimal
+				if (!Math.round10) {
+					Math.round10 = function (value, exp) {
+						return decimalAdjust('round', value, exp);
+					};
+				}
+				// Redondeo hacia abajo
+				if (!Math.floor10) {
+					Math.floor10 = function (value, exp) {
+						return decimalAdjust('floor', value, exp);
+					};
+				}
+				// Redondeo hacia arriba
+				if (!Math.ceil10) {
+					Math.ceil10 = function (value, exp) {
+						return decimalAdjust('ceil', value, exp);
+					};
+				}
+
+			})();
+
+
+		function modulo_elastico() {
+			var num1 = (202.358513779528 - 5.08919783464567);
+			var num2 = (0.00647290640394089 - 0);
+			var modulo_elastico = Math.round10(num1 / num2, -2);
+			document.getElementById('modulo_elastico').value = modulo_elastico + ' MPa';
+
+		}
+
+		const controls = new THREE.OrbitControls(camera, renderer.domElement);
+		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
+
+		function centroflecha(){
+			camera.position.set(1.7635816353914981, 1.8347950925610317, 0.16463116563173347);
+			controls.target.set(-0.47968991718879844, 1.7819228371923617, 0.35131564004338245);
+				}
+
+			function Derechaflecha(){
+			camera.position.set(0.06126837168823679, 1.8755083832142612, -1.2708440270559638);
+			controls.target.set(0.14533605948724349, 1.730226894676921, -0.24126841056202938);
+				}
+				function Izquierdaflecha(){
+			camera.position.set(-0.01364266170339136, 1.8549514906947322, 1.129527550691957);
+			controls.target.set(-0.04140357232327803, 1.8463011750021652, 0.7161876768959998);
+				}
+
+				function Arribaflecha(){
+			camera.position.set(-0.049771421686070995, 3.100206014401884, 0.05500078024639481);
+			controls.target.set(-0.09139378917770244, 2.3345121792479646, 0.05437087104429345);
+				}
+
+
+		function zoom() {
+			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			//camera.position.y=3 // posicion de la camara (0, 5, 5)
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+
+			//	console.log(camera.position)
+			//	console.log(controls.target)
+
+
+		}
+	/*	function open_win() {
+			window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
+			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+			//camera.position.y=3 // posicison de la camara (0, 5, 5)
+			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+		}*/
+
+		controls.update();
+
+		var D = 1;
+		var Alt = 1;
+		/* function Diametro() {
+			var Diaetro_barra_en_mm = document.getElementById('Diametro_barra').value;
+			if (Diaetro_barra_en_mm == "Numero66") {
+				D = 28.96066083;
+
+			} else if (Diaetro_barra_en_mm == "Numero1") {
+				D = 28.9;
+
+			} else if (Diaetro_barra_en_mm == "Numero4") {
+				D = 12.7;
+			} else if (Diaetro_barra_en_mm == "Numero5") {
+				D = 15.9;
+			} else if (Diaetro_barra_en_mm == "Numero6") {
+				D = 19.1;
+			} else if (Diaetro_barra_en_mm == "Numero7") {
+				D = 22.2;
+			} else if (Diaetro_barra_en_mm == "NUmero8") {
+				D = 25.4;
+			} else if (Diaetro_barra_en_mm == "Numero9") {
+				D = 28.7;
+			} else if (Diaetro_barra_en_mm == "Numero10") {
+				D = 32.3;
+			} else if (Diaetro_barra_en_mm == "Numero11") {
+				D = 35.8;
+			} else if (Diaetro_barra_en_mm == "Numero14") {
+				D = 43;
+			} else if (Diaetro_barra_en_mm == "Numero18") {
+				D = 57.3;
+			}
+			console.log(D)
+		}*/
+
+		var bas_per = 1;
+		var altu_per = 1;
+
+		function base_per() {
+			bas_per = parseFloat(document.getElementById('base_perfil').value);
+		}
+
+		function alt_per() {
+
+			altu_per = parseFloat(document.getElementById('altura_perfil').value);
+
+		}
+
+
+		function Altura() {
+			Alt = parseFloat(document.getElementById('Altura').value);
+
+		}
+
+		renderer.render(scene, camera);
+
+		function onKeyDown(event) {
+
+			switch (event.code) {
+
+				case 'ArrowUp':
+				case 'KeyW': camera.position.x = camera.position.x - 2;
+
+				case 'ArrowDown':
+				case 'KeyS': camera.position.x = camera.position.x + 1;
+
+				case 'ArrowLeft':
+				case 'KeyA': camera.position.z = camera.position.z + 2;
+
+				case 'ArrowRight':
+				case 'KeyD': camera.position.z = camera.position.z - 1;
+
+				// case 'KeyC': controls.crouch = true; break;
+				// case 'Space': controls.jump = true; break;
+				// case 'ControlLeft':
+				// case 'ControlRight': controls.attack = true; break;
+
+			}
+
+		}
+
+		var iniciar_ = false;
+		var max_y_canvas = 0;
+		var max_x_canvas = 0;
+
+		function Ruido() {
+			var Escalar_gauseano =0.1;
+			var media = 0;
+			var desvis = 1;
+
+			var r1 = Math.random();
+			var r2 = Math.random();
+
+			var z0 = Escalar_gauseano * Math.sqrt(-2.0 * Math.log(r1)) * Math.cos(2 * Math.PI * r2);
+
+			return z0 + desvis + media;
+
+		}
+
+		var archivo_datos=[];
+
+		var mixer;
+		var clock = new THREE.Clock();
+
+
+		function animate() {
+			requestAnimationFrame(animate);
+			controls.update();
+			//console.log(camera.position)
+
+
+			if (iniciar_) {
+
+				var delta = clock.getDelta();
+
+				if (mixer) mixer.update(delta / 5.353); //if ( mixer ) mixer.update( delta/5.353);
+
+				renderer.render(scene, camera);
+
+
+
+				var Area = bas_per * altu_per;
+				console.log(Area)
+				if (garra) {
+					var cant = chart.data.datasets[0].data.length;
+					contador_barra1.push(1);
+
+					if (garra.position.y >= -0.3415500000000003255) {
+						garra.position.y += -0.00001
+						console.log(garra.position.y)
+
+
+
+						var datos_traccion;
+
+						switch (document.getElementById('select_barra').value) {
+							case 'Copr_Madera_AStm_D_143':
+								datos_traccion = Copr_Madera_AStm_D_143;
+								break;
+							case 'Copr_Acer_E9':
+								datos_traccion = Copr_Acer_E9;
+								break;
+
+						}
+
+						new_vec = datos_traccion;
+
+
+						new_vec = []
+
+						for (const key in datos_traccion) {
+							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area];
+							new_vec.push(operavec)
+						}
+
+						//	console.log(new_vec)
+
+						/* max_y_canvas = (datos_traccion[cant][1] +50) > max_y_canvas ? (datos_traccion[cant][1] +50) : max_y_canvas;
+
+*/
+
+						var margen = 1;
+						if (contador_barra1.length % 31 == 0) {
+
+							margen = new_vec[cant][1] * 0.15;
+							margenx = new_vec[cant][0] > 1 ? new_vec[cant][0] * 0.20 : 1;
+							//console.log(margen)
+
+							max_y_canvas = (new_vec[cant][1] + margen) > max_y_canvas ? (new_vec[cant][1] + margen) : max_y_canvas;
+							max_x_canvas = (new_vec[cant][0] + margenx) > max_x_canvas ? (new_vec[cant][0] + margenx) : max_x_canvas;
+
+
+							chart.data.datasets[0].data.push({ x: new_vec[cant][0], y: new_vec[cant][1] });
+							chart.options.scales.y.max = parseInt(max_y_canvas);
+							chart.options.scales.x.max = parseInt(max_x_canvas);
+
+
+							chart.update();
+							/*console.log(chart.data.datasets[0].data[cant].x)
+*/
+							let prierox = chart.data.datasets[0].data[cant].x;
+							let segundoy = chart.data.datasets[0].data[cant].y
+
+							document.getElementById('Alargamiento').value = Math.round10(prierox,-3);
+							document.getElementById('Carga').value = Math.round10(segundoy,-3);
+						}
+					} else {
+						garra.position.y = -0.3415500000000003255
+					}
+					//	console.log(garra.position.y)
+				}
+
+			}
+			renderer.render(scene, camera);
+		}
+
+		function descaga() {
+			var ws = XLSX.utils.json_to_sheet(new_vec);
+
+			/* add to workbook */
+			var wb = XLSX.utils.book_new();
+			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
+
+			/* generate an XLSX file */
+			XLSX.writeFile(wb, "Datos.xlsx");
+		}
+		animate()
+
+
+		function iniciar() {
+
+			var altura = document.getElementById('Altura').value;
+			if (altura < 20 || altura > 200) {
+				document.getElementById('Altura').value = '';
+				Swal.fire({
+					title: 'Error!',
+					text: 'El valor debe ser mayor a 20 mm y menor a 200 mm',
+					icon: 'error',
+					confirmButtonText: 'OK',
+					timer: 10000,
+					timerProgressBar: true,
+				})
+
+			} else {
+				iniciar_ = true;
+				document.getElementById("ventanamini2d").style.display = "block";
+				document.getElementById('mini2d').src = "index2d.html";
+				open_win();
+			}
+
+		}
+
+		// Instantiate a loader
+		const loader = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader.load(
+			'laboratorio-compresion.gltf',//'scene.gltf'
+			function (gltf) {
+				scene.add(gltf.scene);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+				renderer.render(scene, camera);
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				//	console.log('An error happened');
+			}
+		);
+
+
+
+		// Instantiate a loader
+		const loader2 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader2.load(
+			'compresion-carga.gltf',//'scene.gltf'
+			function (gltf) {
+				garra = gltf.scene;
+				scene.add(garra);
+				gltf.animations; // Array<THREE.AnimationClip>
+				gltf.scene; // THREE.Group
+				gltf.scenes; // Array<THREE.Group>
+				gltf.cameras; // Array<THREE.Camera>
+				gltf.asset; // Object
+
+				console.log('completado!.....')
+				garra.position.z += 0
+				garra.position.x += 0
+				garra.position.y += -0.309
+				renderer.render(scene, camera);
+
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				//	console.log('An error happened');
+			}
+		);
+
+
+		// Instantiate a loader
+		const loader3 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader3.load(
+			'madera_compr_defor1.gltf',//'scene.gltf'
+			function (gltf) {
+				madera_compre_def = gltf.scene;
+
+				mixer = new THREE.AnimationMixer(gltf.scene);
+
+				const clock = new THREE.Clock();
+				var clip = gltf.animations[0];
+				var action = mixer.clipAction(clip);
+				action.loop = THREE.LoopOnce;
+				action.clampWhenFinished = true;
+				action.play();
+
+
+				console.log('completado!.....')
+				madera_compre_def.position.z += -0.04  //izquierda  derecha
+				madera_compre_def.position.x += 0 //alfrente
+				madera_compre_def.position.y += 1.44  //arriba
+				madera_compre_def.scale.y=0.2
+				madera_compre_def.scale.x=0.2
+				madera_compre_def.scale.z=0.2
+				scene.add(gltf.scene);
+				renderer.render(scene, camera);
+
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				//	console.log('An error happened');
+			}
+		);
+
+
+
+		// create an AudioListener and add it to the camera
+		const listener = new THREE.AudioListener();
+		camera.add(listener);
+
+		// create a global audio source
+		const sound = new THREE.Audio(listener);
+
+		// load a sound and set it as the Audio object's buffer
+		const audioLoader = new THREE.AudioLoader();
+		audioLoader.load('sound_ogg.ogg', function (buffer) {
+			sound.setBuffer(buffer);
+			sound.setLoop(true);
+			sound.setVolume(0.5);
+			sound.play();
+		});
+
+
+
+		/*
+		var animate = function () {
+			requestAnimationFrame( animate );
+			cube.rotation.x += 0.01;
+			cube.rotation.y += 0.01;
+			renderer.render( scene, camera );
+		};
+		animate(); */
+
+
+	</script>
+</body>
+
+</html>
