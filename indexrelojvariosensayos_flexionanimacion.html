@@ -292,9 +292,7 @@
 
 	<div class="position-fixed" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 400px;width: 600px;background-color: #ffffff;overflow: hidden;display: none;">
-		<iframe id="mini2d"
-			style="width: 100%;height:100%;overflow:hidden;border: 2px solid " scrolling="no"></iframe>
-
+		<iframe id="mini2d" onload="iframeMini2dLoaded()" src="" style="width: 100%;height:100%;overflow:hidden;border: 2px solid " scrolling="no"></iframe>
 		</script>
 
 
@@ -668,6 +666,21 @@
 		var max_y_canvas = 0;
 		var max_x_canvas = 0;
 
+		function Ruido() {
+			var Escalar_gauseano =0.1;
+			var media = 0;
+			var desvis = 1;
+
+			var r1 = Math.random();
+			var r2 = Math.random();
+
+			var z0 = Escalar_gauseano * Math.sqrt(-2.0 * Math.log(r1)) * Math.cos(2 * Math.PI * r2);
+
+			return z0 + desvis + media;
+
+		}
+
+
 		var mixer;
 		var clock = new THREE.Clock();
 
@@ -675,14 +688,6 @@
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
-
-
-
-
-
-
-
-
 
 
 
@@ -727,7 +732,7 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0], datos_traccion[key][1] * Area];
+							operavec = [datos_traccion[key][0], (datos_traccion[key][1]) * Area];
 							new_vec.push(operavec)
 						}
 
@@ -777,9 +782,13 @@
 
 		function descaga() {
 			var ws = XLSX.utils.json_to_sheet(new_vec);
-
+		
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
+			var header1 = ["Deflexion (mm)"];
+			var header2 = ["Carga (N)"];
+			XLSX.utils.sheet_add_aoa(ws, [header1], { origin: "A1" });
+			XLSX.utils.sheet_add_aoa(ws, [header2], { origin: "B1" });
 			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
 
 			/* generate an XLSX file */
@@ -803,7 +812,6 @@
 				})
 
 			} else {
-				iniciar_ = true;
 
 				document.getElementById("ventanamini2d").style.display = "block";
 				document.getElementById('mini2d').src = "index2dcorta_flexion.html";
@@ -812,7 +820,10 @@
 
 
 		}
+		function iframeMini2dLoaded(){
+			iniciar_ = true;
 
+		}
 
 
 
