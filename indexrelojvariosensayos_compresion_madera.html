@@ -648,6 +648,22 @@
 		var max_y_canvas = 0;
 		var max_x_canvas = 0;
 
+		function Ruido() {
+			var Escalar_gauseano =0.1;
+			var media = 0;
+			var desvis = 1;
+
+			var r1 = Math.random();
+			var r2 = Math.random();
+
+			var z0 = Escalar_gauseano * Math.sqrt(-2.0 * Math.log(r1)) * Math.cos(2 * Math.PI * r2);
+
+			return z0 + desvis + media;
+
+		}
+
+		var archivo_datos=[];
+
 		var mixer;
 		var clock = new THREE.Clock();
 

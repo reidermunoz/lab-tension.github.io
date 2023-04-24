@@ -125,7 +125,8 @@
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 						<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
 						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
-						<option value="torque_Dulce_103">Acero A36 </option>
+						<option value="Torsion_Ductil">Acero A36 (Ductil) </option>
+						<option value="Torsion_Fragil">Hierro fundido (Fragil) </option>
 						<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
 						<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
 						<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
@@ -248,8 +249,7 @@
 
 	<div class="position-fixed" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 150px;width: 540px;background-color: #ffffff;overflow: hidden;display: none; scale: 2">
-		<iframe id="mini2d" src="index2d.html"
-			style="width: 100%;height:100%;overflow:hidden;"></iframe>
+		<iframe id="mini2d" onload="iframeMini2dLoaded()" src="" style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
@@ -258,8 +258,8 @@
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="torque_Dulce_103.js"></script>
-	<script src="torsion_Cobre_103.js"></script>
+	<script src="Torsion_Ductil.js"></script>
+	<script src="Torsion_Fragil.js"></script>
 
 
 	<script>
@@ -576,6 +576,23 @@
 		var max_y_canvas = 0;
 		var max_x_canvas = 0;
 
+		function Ruido() {
+			var Escalar_gauseano =0.1;
+			var media = 0;
+			var desvis = 1;
+
+			var r1 = Math.random();
+			var r2 = Math.random();
+
+			var z0 = Escalar_gauseano * Math.sqrt(-2.0 * Math.log(r1)) * Math.cos(2 * Math.PI * r2);
+
+			return z0 + desvis + media;
+
+		}
+
+		var archivo_datos=[];
+		
+
 		var mixer;
 		var clock = new THREE.Clock();
 
@@ -609,11 +626,11 @@
 						datos_traccion = [];
 
 						switch (document.getElementById('select_barra').value) {
-							case 'torque_Dulce_103':
-								datos_traccion = torque_Dulce_103;
+							case 'Torsion_Ductil':
+								datos_traccion = Torsion_Ductil;
 								break;
-							case 'torsion_Cobre_103':
-								datos_traccion = torsion_Cobre_103;
+							case 'Torsion_Fragil':
+								datos_traccion = Torsion_Fragil;
 								break;
 						}
 
@@ -709,12 +726,16 @@
 				})
 
 			} else {
-				iniciar_ = true;
 				document.getElementById("ventanamini2d").style.display = "block";
 				document.getElementById('mini2d').src = "index2dcorta_torsion.html";
 				//open_win();
 			}
 
+
+		}
+
+		function iframeMini2dLoaded(){
+			iniciar_ = true;
 
 		}
 
