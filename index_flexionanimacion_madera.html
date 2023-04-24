@@ -723,17 +723,16 @@
 							case 'Copr_Acer_E9':
 								datos_traccion = Copr_Acer_E9;
 								break;
-
 						}
 
-						new_vec = datos_traccion;
 
 
-						new_vec = []
 
-						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0], (datos_traccion[key][1]) * Area];
-							new_vec.push(operavec)
+						var fila_ = datos_traccion[cant]
+						var new_vec = [fila_[0]* Alt,(Ruido() + fila_[1]) * Area / 1000];
+
+						if(archivo_datos.length == cant){
+							archivo_datos.push(new_vec);
 						}
 
 						//	console.log(new_vec)
@@ -745,15 +744,15 @@
 						var margen = 1;
 						if (contador_barra1.length % 31 == 0) {
 
-							margen = new_vec[cant][1] * 0.15;
-							margenx = new_vec[cant][0] > 1 ? new_vec[cant][0] * 0.20 : 1;
+							margen = archivo_datos[cant][1] * 0.15;
+							margenx = archivo_datos[cant][0] > 1 ? archivo_datos[cant][0] * 0.20 : 1;
 							//console.log(margen)
 
-							max_y_canvas = (new_vec[cant][1] + margen) > max_y_canvas ? (new_vec[cant][1] + margen) : max_y_canvas;
-							max_x_canvas = (new_vec[cant][0] + margenx) > max_x_canvas ? (new_vec[cant][0] + margenx) : max_x_canvas;
+							max_y_canvas = (archivo_datos[cant][1] + margen) > max_y_canvas ? (archivo_datos[cant][1] + margen) : max_y_canvas;
+							max_x_canvas = (archivo_datos[cant][0] + margenx) > max_x_canvas ? (archivo_datos[cant][0] + margenx) : max_x_canvas;
 
 
-							chart.data.datasets[0].data.push({ x: new_vec[cant][0], y: new_vec[cant][1] });
+							chart.data.datasets[0].data.push({ x: archivo_datos[cant][0], y: archivo_datos[cant][1] });
 							chart.options.scales.y.max = parseInt(max_y_canvas);
 							chart.options.scales.x.max = parseInt(max_x_canvas);
 
@@ -764,8 +763,8 @@
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y
 
-							document.getElementById('Alargamiento').value = Math.round10(prierox,-3);
-							document.getElementById('Carga').value = Math.round10(segundoy,-3);
+							document.getElementById('Alargamiento').value = prierox.toFixed(3);
+							document.getElementById('Carga').value = segundoy.toFixed(3);
 						}
 					} else {
 						garra.position.y = -0.221930
@@ -781,7 +780,7 @@
 		}
 
 		function descaga() {
-			var ws = XLSX.utils.json_to_sheet(new_vec);
+			var ws = XLSX.utils.json_to_sheet(archivo_datos);
 		
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
