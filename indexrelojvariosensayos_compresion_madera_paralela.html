@@ -116,9 +116,10 @@
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onchange="cambiossegunacero()">
-						<option value="" selected></option>
+						<option value=""></option>
 						<!-- <option value="Copr_Acer_E9">ACERO (ASTM) E9</option> -->
 						<option value="Copr_Madera_AStm_D_143" selected>Madera (ASTM D143_Pino_Paralela) </option>
+						<option value="Copr_Madera_AStm_D_143" >Madera (ASTM D143_Pino_Perpendicular) </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 
@@ -140,7 +141,7 @@
 								data-tippy-content="Texto de altura"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="number" class="form-control form-control-sm" style="height:37px" name="Altura"
-							id="Altura" placeholder="" value="150.74" onchange="cambioAltura()">
+							id="Altura" placeholder="" value="195" onchange="cambioAltura()">
 					</div>
 
 
@@ -173,19 +174,19 @@
 
 						<div class="row">
 							<div class="col" style="width:180px">
-								<label class="form-label" style="font-size: 14px">base (mm)<i
+								<label class="form-label" style="font-size: 14px">ancho (mm)<i
 										data-tippy-content="Texto de altura"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
-									name="base_perfil" id="base_perfil" placeholder="" value="50"
+									name="base_perfil" id="base_perfil" placeholder="" value="45.1"
 									onchange="cambioAltura()">
 							</div>
 							<div class="col" style="width:180px">
-								<label class="form-label" style="font-size: 14px">altura (mm)<i
+								<label class="form-label" style="font-size: 14px">Canto (mm)<i
 										data-tippy-content="Texto de altura"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
-									name="altura_perfil" id="altura_perfil" placeholder="" value="50"
+									name="altura_perfil" id="altura_perfil" placeholder="" value="70.9"
 									onchange="cambioAltura()">
 							</div>
 						</div>

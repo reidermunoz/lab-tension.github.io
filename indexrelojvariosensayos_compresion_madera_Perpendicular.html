@@ -665,6 +665,7 @@
 		var archivo_datos=[];
 
 		var mixer;
+		var mixer1;
 		var clock = new THREE.Clock();
 
 
@@ -679,7 +680,7 @@
 				var delta = clock.getDelta();
 
 				if (mixer) mixer.update(delta / 5.353); //if ( mixer ) mixer.update( delta/5.353);
-
+				if (mixer1) mixer1.update(delta / 5.353); //if ( mixer ) mixer.update( delta/5.353);
 				renderer.render(scene, camera);
 
 
@@ -862,7 +863,7 @@
 
 		// Load a glTF resource
 		loader3.load(
-			'madera_compr_defor1.gltf',//'scene.gltf'
+			'madera_compr_perpendicula_superiorr.gltf',//'scene.gltf'
 			function (gltf) {
 				madera_compre_def = gltf.scene;
 
@@ -897,6 +898,48 @@
 				//	console.log('An error happened');
 			}
 		);
+
+		// Instantiate a loader
+		const loader4 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
+		loader4.load(
+			'madera_compr_perpendicula_inferiorr.gltf',//'scene.gltf'
+			function (gltf) {
+				madera_compre_def = gltf.scene;
+
+				mixer1 = new THREE.AnimationMixer(gltf.scene);
+
+				const clock = new THREE.Clock();
+				var clip = gltf.animations[0];
+				var action = mixer1.clipAction(clip);
+				action.loop = THREE.LoopOnce;
+				action.clampWhenFinished = true;
+				action.play();
+
+
+				console.log('completado!.....')
+				madera_compre_def.position.z += -0.04  //izquierda  derecha
+				madera_compre_def.position.x += 0 //alfrente
+				madera_compre_def.position.y += 1.44  //arriba
+				madera_compre_def.scale.y=0.2
+				madera_compre_def.scale.x=0.2
+				madera_compre_def.scale.z=0.2
+				scene.add(gltf.scene);
+				renderer.render(scene, camera);
+
+
+			},
+			// called while loading is progressing
+			function (xhr) {
+				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				//	console.log('An error happened');
+			}
+		);
+
 
 
 
