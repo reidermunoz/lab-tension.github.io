@@ -116,9 +116,10 @@
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onchange="cambiossegunacero()">
-						<option value="" selected></option>
+						<option value="" ></option>
 						<!-- <option value="Copr_Acer_E9">ACERO (ASTM) E9</option> -->
-						<option value="Copr_Madera_AStm_D_143" selected>Madera (ASTM D143_Pino_Paralela) </option>
+						<option value="Copr_Madera_Pino_Paralela">Madera (ASTM D143_Pino_Paralela) </option>
+						<option value="Copr_Madera_Pino_Perpendicular" selected>Madera (ASTM D143_Pino_Perpendicular)  </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 
@@ -289,8 +290,8 @@
 
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="Copr_Acer_E9.js"></script>
-	<script src="Copr_Madera_AStM_D_143.js"></script>
+	<script src="Copr_Madera_Pino_Paralela.js"></script>
+	<script src="Copr_Madera_Pino_Perpendicular.js"></script>
 
 
 	<script>
@@ -317,14 +318,14 @@
 			var prueba565656 = 120;
 			switch (document.getElementById('select_barra').value) {
 
-				case 'Copr_Acer_E9':
-					document.getElementById('Altura').value = 26.05;
+				case 'Copr_Madera_Pino_Paralela':
+					document.getElementById('Altura').value = 195;
 					location.href="indexrelojvariosensayos_compresion.html";
 
 					break;
 
-				case 'Copr_Madera_AStm_D_143':
-					document.getElementById('Altura').value = 150.74;
+				case 'Copr_Madera_Pino_Perpendicular':
+					document.getElementById('Altura').value = 195;
 					
 
 					break;
@@ -700,11 +701,11 @@
 						var datos_traccion;
 
 						switch (document.getElementById('select_barra').value) {
-							case 'Copr_Madera_AStm_D_143':
-								datos_traccion = Copr_Madera_AStm_D_143;
+							case 'Copr_Madera_Pino_Paralela':
+								datos_traccion = Copr_Madera_Pino_Paralela;
 								break;
-							case 'Copr_Acer_E9':
-								datos_traccion = Copr_Acer_E9;
+							case 'Copr_Madera_Pino_Perpendicular':
+								datos_traccion = Copr_Madera_Pino_Perpendicular;
 								break;
 
 						}
