@@ -91,26 +91,40 @@
 	
 	
 } 
-#Fallo {
+/* #Fallo {
 	width: 3px;
 	height: 15px;
-	background: #FFFFFF;
+	background: #3500f3;
 	left:270px;
 	top:58px;
 	opacity:0;
 	position: fixed;
 	border-radius:5%;
 	animation-name: ani_fallo;
+	animation-duration: 4.8s;
+	animation-fill-mode: forwards;
+} */
+
+
+.falla45 {
+	left:170px;
+	top:20px;
+	background: #ffffff;
+	position: absolute;
+	clip-path: polygon(98% 0%, 100% 0%, 50% 50%, 48% 50%);
+	opacity:0;
+	animation-name: ani_fallo;
 	animation-duration: 53.8s;
 	animation-fill-mode: forwards;
 }
+
 
  @keyframes ani_LinTor{ 
 	0%{} 
 	100%{clip-path: polygon(0 25%, 75% 30%, 75% 31.5%, 0 26.5%);} 
  }
  
- @keyframes ani_fallo{ 
+@keyframes ani_fallo{ 
 	0%{} 
 	99.99%{opacity:0;} 
 	100%{opacity:1;}
@@ -130,6 +144,9 @@
 	<div id="probeta"></div>
 	<div>
 		<img src="LinTorsion.PNG" alt="" width="200px" class="img-fluid torsion">
+	</div>
+	<div>
+		<img src="Falla.PNG" alt="" width="200px" class="img-fluid falla45">
 	</div>
 	<div id="Fallo"></div>
 	

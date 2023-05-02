@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="Resumen del contenido de la página">  
+    <title>Dentro de la caja</title>
+    <style>
+ #rectangulo1 { 
+	width: 500px; 
+	height: 70px; 
+	background: #5a5a5a; 
+	left:10px; 
+	top:10px; 
+	position: absolute; 
+	animation-name: ani_rec1;
+	animation-duration: 5s;
+    animation-fill-mode: forwards;
+} 
+
+
+#rectangulo2 { 
+	width: 180px;
+	height: 25px;
+	background: #474A47; 
+	left:170px;
+	top:80px; 
+	position: absolute;
+    animation-name: ani_rec2;
+	animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+/* probeta */
+ 
+ 
+/* .made {
+	clip-path: polygon(0% 100%, 30% 100%, 30% 70%, 30% 0%, 0% 0%, 0% 70%);
+	left:210px;
+	top:112px;
+	position: absolute;
+	animation-name: ani_rec;
+	animation-duration: 5s;
+    animation-fill-mode: forwards;
+}  */
+
+.made_arriba {
+	width: 80px;
+	height: 95px;
+	left:220px;
+	top:105px; 
+	position: absolute;
+    transform: skewX(0deg); /* Standard syntax */
+	animation-name: ani_rec;
+	animation-duration: 5s;
+    animation-fill-mode: forwards;
+} 
+
+.made_abajo {
+	width: 80px;
+	height: 45px;
+	left:220px;
+	top: 200px; 
+	position: absolute;
+  transform: skewX(0deg); /* Standard syntax */
+  animation-name: ani_recabajo;
+	animation-duration: 5s;
+    animation-fill-mode: forwards;
+} 
+
+
+@keyframes ani_rec{
+	0%{}
+	100%{transform: skewX(10deg);}
+}
+
+@keyframes ani_recabajo{
+	0%{}
+	100%{transform: skewX(-10deg);left:224px;}
+}
+
+
+
+/* @keyframes ani_rec1{
+	0%{}
+	100%{top:20px}
+} 
+
+@keyframes ani_rec2{
+	0%{}
+	100%{top:90px}
+}   */
+
+ #rectangulo3 { 
+	width: 500px; 
+	height: 70px; 
+	background: #5a5a5a; 
+	left:10px; 
+	top:260px; 
+	position: absolute; 
+	
+} 
+
+#rectangulo4 { 
+	width: 220px;
+	height: 15px;
+	background: #474A47; 
+	left:155px;
+	top:245px; 
+	position: absolute;
+
+}
+
+
+
+    </style>
+</head>
+
+    <body style="zoom: 100%;">
+
+	<div id="rectangulo1"></div>
+	<div id="rectangulo2"></div>
+	<div id="rectangulo"></div>
+	<div id="ovalao"></div>
+	<div>
+		<img src="madera_imgane_paralela_r_abajo.jpg" alt="" width="200px" class="img-fluid made_abajo">
+	</div>
+	<div>
+		<img src="madera_imgane_paralela_r_arriba.jpg" alt="" width="200px" class="img-fluid made_arriba">
+	</div>
+
+	<div id="rectangulo3"></div>
+	<div id="rectangulo4"></div>
+	
+	
+   </body>
+
+</html>

@@ -247,11 +247,10 @@
 
 	</div>
 
-	<!-- <div class="position-fixed" id="ventanamini2d"
+	<div class="position-fixed" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 150px;width: 540px;background-color: #ffffff;overflow: hidden;display: none; scale: 2">
-		<iframe id="mini2d" src="index2d.html"
-			style="width: 100%;height:100%;overflow:hidden;"></iframe>
-	</div> -->
+		<iframe id="mini2d" onload="iframeMini2dLoaded()" src="" style="width: 100%;height:100%;overflow:hidden;"></iframe>
+	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
@@ -744,17 +743,20 @@
 				})
 
 			} else {
-				iniciar_ = true;
 				document.getElementById("ventanamini2d").style.display = "block";
-				document.getElementById('mini2d').src = "index2dcorta_torsion.html";
+				document.getElementById('mini2d').src = "index2dcorta_torsion_45.html";
 				//open_win();
 			}
 
+		}
+
+		function iframeMini2dLoaded(){
+			iniciar_ = true;
 
 		}
 
 
-
+		
 
 		// Instantiate a loader
 		const loader = new THREE.GLTFLoader();
