@@ -40,8 +40,11 @@
 	top: 105px; 
 	width: 80px;
 	height: 28px; 
- 	position: fixed;
+ 	position: absolute;
     transform: skewX(0deg); 
+	animation-name: ani_rec_1;
+	animation-duration: 5s;
+    animation-fill-mode: forwards;  
 
 } 
  
@@ -81,7 +84,7 @@
 	height: 28px; 
 	position: absolute;
     transform: skewX(0deg); 
-    animation-name: ani_reca_4;
+    animation-name: ani_rec_4;
 	animation-duration: 5s;
     animation-fill-mode: forwards;  
 }      
@@ -94,7 +97,7 @@
 	height: 28px; 
 	position: absolute;
 	transform: skewX(0deg); 
-	animation-name: ani_reca_4;
+	animation-name: ani_rec_5;
 	animation-duration: 5s;
 	animation-fill-mode: forwards;  
 }  
@@ -107,38 +110,44 @@
 	height: 28.8px; 
 	position: absolute;
 	transform: skewX(0deg); 
-	animation-name: ani_reca_4;
+	animation-name: ani_reca_6;
 	animation-duration: 5s;
 	animation-fill-mode: forwards;  
 }  
 
-
-
-
-/* 
-@keyframes ani_rec{
+@keyframes ani_rec_1{
 	0%{}
-	100%{transform: skewX(10deg);left:224px;}
+	100%{transform: skewX(4deg);left:220px;}
 }
 
 @keyframes ani_rec_2{
 	0%{}
-	100%{transform: skewX(2deg);left:220.5px;}
+	100%{transform: skewX(3deg);left:221.5px;}
 }
-
-
 
 @keyframes ani_rec_3{
 	0%{}
-	100%{transform: skewX(10deg);left:224px;}
+	100%{transform: skewX(0deg);left:220px;}
 }
 
-@keyframes ani_reca_4{
+@keyframes ani_rec_4{
 	0%{}
-	100%{transform: skewX(-10deg);left:224px;}
+	100%{transform: skewX(00deg);left:220px}
 }
 
 
+@keyframes ani_rec_5{
+	0%{}
+	100%{transform: skewX(00deg);left:220px;}
+}
+
+@keyframes ani_reca_6{
+	0%{}
+	100%{transform: skewX(0deg);left:225px;}
+}
+
+
+/*
 
 @keyframes ani_rec1{
 	0%{}
