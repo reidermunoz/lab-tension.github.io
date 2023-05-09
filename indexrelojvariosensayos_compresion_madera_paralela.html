@@ -76,9 +76,9 @@
 
 			</div>
 
-			<!-- <div class="col-md-1" style="text-align: left;">
-				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual Tracción</a>
-			</div> -->
+			<div class="col-md-1" style="text-align: left;">
+				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual compresion</a>
+			</div>
 
 
 
@@ -227,7 +227,7 @@
 			<div class="card-body">
 				<form class="row g-2">
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">deformación (mm)<i
+						<label class="form-label" style="font-size:14px">Deformación (mm)<i
 								data-tippy-content="La deformacion de la probeta entre dos puntos fijos "
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
@@ -378,7 +378,7 @@
 						min: 0,
 						title: {
 							display: true,
-							text: 'deformación (mm)'
+							text: 'Deformación (mm)'
 						}
 					},
 
@@ -776,6 +776,11 @@
 
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
+
+			var header1 = ["Deformacion (mm)"];
+			var header2 = ["Carga (kN)"];
+			XLSX.utils.sheet_add_aoa(ws, [header1], { origin: "A1" });
+			XLSX.utils.sheet_add_aoa(ws, [header2], { origin: "B1" });
 			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
 
 			/* generate an XLSX file */
