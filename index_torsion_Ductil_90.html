@@ -717,8 +717,8 @@
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
 
-			var header1 = ["deformacion (deg)"];
-			var header2 = ["Carga (N-m)"];
+			var header1 = ["Angulo (deg)"];
+			var header2 = ["Torque (N-m)"];
 			XLSX.utils.sheet_add_aoa(ws, [header1], { origin: "A1" });
 			XLSX.utils.sheet_add_aoa(ws, [header2], { origin: "B1" });
 			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
