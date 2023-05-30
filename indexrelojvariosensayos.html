@@ -528,6 +528,15 @@
 
 
 
+		const keyboardState = {}; // Objeto para almacenar el estado de las teclas presionadas
+
+document.addEventListener('keydown', (event) => {
+  keyboardState[event.code] = true;
+});
+
+document.addEventListener('keyup', (event) => {
+  keyboardState[event.code] = false;
+});
 
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
