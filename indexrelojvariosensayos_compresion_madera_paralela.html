@@ -234,7 +234,7 @@
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Carga (N)<i
+						<label class="form-label" style="font-size: 14px">Carga (kN)<i
 								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="text" class="form-control form-control-sm" name="Carga" id="Carga" placeholder="">
@@ -388,7 +388,7 @@
 						min: 1,
 						title: {
 							display: true,
-							text: 'Carga (N)'
+							text: 'Carga (kN)'
 						}
 					}
 				}
@@ -617,8 +617,8 @@
 			console.log(D)
 		}*/
 
-		var bas_per = 1;
-		var altu_per = 1;
+		var bas_per = 45.1;
+		var altu_per = 70.9;
 
 		function base_per() {
 			bas_per = parseFloat(document.getElementById('base_perfil').value);
@@ -733,7 +733,7 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area];
+							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area/1000];
 							new_vec.push(operavec)
 						}
 
