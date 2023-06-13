@@ -309,6 +309,40 @@
 	<script src="Acero_A588.js"></script>
 
 	<script>
+function orientacion90() {
+			var altura = document.getElementById('Altura').value;
+			if (altura < 30 || altura > 200) {
+				document.getElementById('Altura').value = '';
+				Swal.fire({
+					title: 'Error!',
+					text: 'Orientacion 90',
+					icon: 'error',
+					confirmButtonText: 'OK',
+					timer: 10000,
+					timerProgressBar: true,
+				})
+
+			}
+		}
+
+		function orientacion0() {
+			var altura = document.getElementById('Altura').value;
+			if (altura < 30 || altura > 200) {
+				document.getElementById('Altura').value = '';
+				Swal.fire({
+					title: 'Error!',
+					text: 'Orientacion 0',
+					icon: 'error',
+					confirmButtonText: 'OK',
+					timer: 10000,
+					timerProgressBar: true,
+				})
+
+			}
+		}
+
+
+
 		// Verificar la orientación inicial del dispositivo
 		window.addEventListener('DOMContentLoaded', checkOrientation);
 		window.addEventListener('orientationchange', checkOrientation);
@@ -318,11 +352,11 @@
 		  if (window.orientation === 90 || window.orientation === -90) {
 			// La orientación es horizontal, ocultar el mensaje
 			document.getElementById('rotateMessage').style.display = 'none';
-			alert('orientacion: 90')
+			orientacion90()
 		  } else {
 			// La orientación no es horizontal, mostrar el mensaje
 			document.getElementById('rotateMessage').style.display = 'block';
-			alert('orientacion: 0')
+			orientacion0()
 		  }
 		}
 	  </script>
@@ -344,6 +378,9 @@
 
 			}
 		}
+
+		
+
 
 		function cambiossegunacero() {
 			var prueba565656 = 120;
