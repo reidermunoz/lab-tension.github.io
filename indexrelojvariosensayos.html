@@ -279,7 +279,7 @@
 		</div>
 	
 </div> -->
-
+<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
 
 	<div class="position-fixed" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 700px;width: 200px;background-color: #ffffff;overflow: hidden;display: none; scale: 2.3; margin: 0 auto;">
@@ -308,7 +308,22 @@
 	<script src="Acero_A572.js"></script>
 	<script src="Acero_A588.js"></script>
 
-
+	<script>
+		// Verificar la orientación inicial del dispositivo
+		window.addEventListener('DOMContentLoaded', checkOrientation);
+		window.addEventListener('orientationchange', checkOrientation);
+	
+		// Función para verificar la orientación del dispositivo
+		function checkOrientation() {
+		  if (window.orientation === 90 || window.orientation === -90) {
+			// La orientación es horizontal, ocultar el mensaje
+			document.getElementById('rotateMessage').style.display = 'none';
+		  } else {
+			// La orientación no es horizontal, mostrar el mensaje
+			document.getElementById('rotateMessage').style.display = 'block';
+		  }
+		}
+	  </script>
 	<script>
 		tippy('[data-tippy-content]');
 
