@@ -46,6 +46,12 @@
 			top: 0;
 			left: 0;
 		}
+
+		@media only screen and (min-width: 360px) and (max-width: 768px) {
+			.barra_opcion {
+				width: 100px !important;
+			}
+		}
 	</style>
 
 </head>
@@ -92,7 +98,8 @@
 		</div>
 	</div>
 
-	<div class="position-fixed" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
+	<div class="position-fixed barra_opcion"
+		style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
 
 		<div class="card mb-1" style="width: 100%;">
 			<div class="card-body">
@@ -279,11 +286,12 @@
 		</div>
 	
 </div> -->
-<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
+	<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
 
 	<div class="position-fixed" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 700px;width: 200px;background-color: #ffffff;overflow: hidden;display: none; scale: 2.3; margin: 0 auto;">
-		<iframe id="mini2d" onload="iframeMini2dLoaded()" src="" style="width: 100%;height:100%;overflow:hidden;"></iframe>
+		<iframe id="mini2d" onload="iframeMini2dLoaded()" src=""
+			style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
@@ -309,68 +317,68 @@
 	<script src="Acero_A588.js"></script>
 
 	<script>
-function orientacion90() {
-			var altura = document.getElementById('Altura').value;
-			if (altura < 30 || altura > 200) {
-				document.getElementById('Altura').value = '';
-				Swal.fire({
-					title: 'Error!',
-					text: 'Orientacion 90',
-					icon: 'error',
-					confirmButtonText: 'OK',
-					timer: 10000,
-					timerProgressBar: true,
-				})
 
-			}
-		}
 
 		function orientacion0() {
 			var altura = document.getElementById('Altura').value;
 			if (altura < 30 || altura > 200) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
-					title: 'Error!',
-					text: 'Orientacion 0',
-					icon: 'error',
+					title: 'Orientacion',
+					text: 'Por favor gira el telefono de forma horizontal',
+					//			icon: 'warning',
+					imageUrl: 'rotate_icon.png',
+					imageWidth: 100,
+					imageHeight: 100,
 					confirmButtonText: 'OK',
-					timer: 10000,
-					timerProgressBar: true,
+				}).then((result) => {
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						window.open('indexrelojvariosensayos.html', "_self");
+						
+					}
 				})
+
 
 			}
 		}
 
-		function isMobileDevice() {
-  return /Mobi/i.test(navigator.userAgent);
-}
-
-// Ejemplo de uso
-if (isMobileDevice()) {
-  alert('La página se está visualizando desde un dispositivo móvil.');
-} else {
-  alert('La página se está visualizando desde un ordenador.');
-}
 
 
-		// Verificar la orientación inicial del dispositivo
+
+
+		// // Verificar la orientación inicial del dispositivo
 		// window.addEventListener('DOMContentLoaded', checkOrientation);
 		// window.addEventListener('orientationchange', checkOrientation);
-	
-		// // Función para verificar la orientación del dispositivo
-		// function checkOrientation() {
-		//   if (window.orientation === 90 || window.orientation === -90) {
-		// 	// La orientación es horizontal, ocultar el mensaje
-		// 	document.getElementById('rotateMessage').style.display = 'none';
-		// 	orientacion90()
-		//   } else {
-		// 	// La orientación no es horizontal, mostrar el mensaje
-		// 	document.getElementById('rotateMessage').style.display = 'block';
-		// 	orientacion0()
-		//   }
-		// }
 
-	  </script>
+		// Función para verificar la orientación del dispositivo
+		function checkOrientation() {
+			if (window.orientation === 90 || window.orientation === -90) {
+				// La orientación es horizontal, ocultar el mensaje
+				document.getElementById('rotateMessage').style.display = 'none';
+
+			} else {
+				// La orientación no es horizontal, mostrar el mensaje
+				document.getElementById('rotateMessage').style.display = 'block';
+				orientacion0()
+			}
+		}
+
+		function isMobileDevice() {
+			return /Mobi/i.test(navigator.userAgent);
+		}
+
+		// Ejemplo de uso
+		if (isMobileDevice()) {
+			//alert('La página se está visualizando desde un dispositivo móvil.');
+			checkOrientation()
+		} else {
+			//alert('La página se está visualizando desde un ordenador.');
+		}
+
+
+
+	</script>
 	<script>
 		tippy('[data-tippy-content]');
 
@@ -390,7 +398,7 @@ if (isMobileDevice()) {
 			}
 		}
 
-		
+
 
 
 		function cambiossegunacero() {
@@ -417,7 +425,7 @@ if (isMobileDevice()) {
 			}
 
 		}
-		
+
 		var ctx = document.getElementById("myChart").getContext("2d");
 		const contador_barra1 = [];
 		const chart = new Chart(ctx, {
@@ -599,13 +607,13 @@ if (isMobileDevice()) {
 
 		const keyboardState = {}; // Objeto para almacenar el estado de las teclas presionadas
 
-document.addEventListener('keydown', (event) => {
-  keyboardState[event.code] = true;
-});
+		document.addEventListener('keydown', (event) => {
+			keyboardState[event.code] = true;
+		});
 
-document.addEventListener('keyup', (event) => {
-  keyboardState[event.code] = false;
-});
+		document.addEventListener('keyup', (event) => {
+			keyboardState[event.code] = false;
+		});
 
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -754,7 +762,7 @@ document.addEventListener('keyup', (event) => {
 		var max_x_canvas = 0;
 
 		function Ruido() {
-			var Escalar_gauseano =0.1;
+			var Escalar_gauseano = 0.1;
 			var media = 0;
 			var desvis = 1;
 
@@ -767,7 +775,7 @@ document.addEventListener('keyup', (event) => {
 
 		}
 
-		var archivo_datos=[];
+		var archivo_datos = [];
 
 		function animate() {
 			requestAnimationFrame(animate);
@@ -827,13 +835,13 @@ document.addEventListener('keyup', (event) => {
 
 
 						var fila_ = datos_traccion[cant]
-						var new_vec = [fila_[0]* Alt,(Ruido() + fila_[1]) * Area / 1000];
+						var new_vec = [fila_[0] * Alt, (Ruido() + fila_[1]) * Area / 1000];
 
-						if(archivo_datos.length == cant){
+						if (archivo_datos.length == cant) {
 							archivo_datos.push(new_vec);
 						}
-						
-						
+
+
 						/* max_y_canvas = (datos_traccion[cant][1] +50) > max_y_canvas ? (datos_traccion[cant][1] +50) : max_y_canvas;
 
 */
@@ -883,7 +891,7 @@ document.addEventListener('keyup', (event) => {
 
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
-			
+
 
 			var header1 = ["Alargamiento (mm)"];
 			var header2 = ["Carga (kN)"];
@@ -922,7 +930,7 @@ document.addEventListener('keyup', (event) => {
 
 		}
 
-		function iframeMini2dLoaded(){
+		function iframeMini2dLoaded() {
 			iniciar_ = true;
 
 		}
