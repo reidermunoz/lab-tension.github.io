@@ -341,24 +341,35 @@ function orientacion90() {
 			}
 		}
 
+		function isMobileDevice() {
+  return /Mobi/i.test(navigator.userAgent);
+}
+
+// Ejemplo de uso
+if (isMobileDevice()) {
+  alert('La página se está visualizando desde un dispositivo móvil.');
+} else {
+  alert('La página se está visualizando desde un ordenador.');
+}
 
 
 		// Verificar la orientación inicial del dispositivo
-		window.addEventListener('DOMContentLoaded', checkOrientation);
-		window.addEventListener('orientationchange', checkOrientation);
+		// window.addEventListener('DOMContentLoaded', checkOrientation);
+		// window.addEventListener('orientationchange', checkOrientation);
 	
-		// Función para verificar la orientación del dispositivo
-		function checkOrientation() {
-		  if (window.orientation === 90 || window.orientation === -90) {
-			// La orientación es horizontal, ocultar el mensaje
-			document.getElementById('rotateMessage').style.display = 'none';
-			orientacion90()
-		  } else {
-			// La orientación no es horizontal, mostrar el mensaje
-			document.getElementById('rotateMessage').style.display = 'block';
-			orientacion0()
-		  }
-		}
+		// // Función para verificar la orientación del dispositivo
+		// function checkOrientation() {
+		//   if (window.orientation === 90 || window.orientation === -90) {
+		// 	// La orientación es horizontal, ocultar el mensaje
+		// 	document.getElementById('rotateMessage').style.display = 'none';
+		// 	orientacion90()
+		//   } else {
+		// 	// La orientación no es horizontal, mostrar el mensaje
+		// 	document.getElementById('rotateMessage').style.display = 'block';
+		// 	orientacion0()
+		//   }
+		// }
+
 	  </script>
 	<script>
 		tippy('[data-tippy-content]');
