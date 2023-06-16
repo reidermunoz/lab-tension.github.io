@@ -47,7 +47,8 @@
 			left: 0;
 		}
 
-		 @media only screen and (min-width: 360px) and (max-width: 1000px) {
+		@media only screen and (min-width: 360px) and (max-width: 1000px) {
+
 			/* .barra_opcion {
 				width: 300px !important;
 				height: 100% !important;
@@ -55,39 +56,44 @@
 			.barra_opcion {
 				overflow: auto !important;
 				width: 300px !important;
-			
+
 			}
+
 			.border-bottom {
 				height: 12% !important;
 			}
-			.logo_st{
+
+			.logo_st {
 				height: 30px !important;
 			}
-			.btn-outline-secondary{
-				
+
+			.btn-outline-secondary {
+
 				font-size: 7px !important;
 				text-align: center !important;
 			}
 
-			.col-md-2{
+			.col-md-2 {
 				text-align: left !important;
 				font-size: 4px !important;
 			}
-			.venta2d_style{
+
+			.venta2d_style {
 
 				height: 400px !important;
 				width: 100px !important;
-			
 
-			} 
-			 #mini2d{
+
+			}
+
+			#mini2d {
 				height: 500px !important;
 				width: 800px !important;
 
-			} 
-				
+			}
 
-		} 
+
+		}
 	</style>
 
 </head>
@@ -215,8 +221,8 @@
 						<label class="form-label Num_barra1" style="font-size: 14px">Longitud inicial (mm)<i
 								data-tippy-content="Texto de altura"
 								class="ti ti-question-mark text-primary"></i></label>
-						<input type="number" class="form-control form-control-sm Alt_sty" style="height:39px" name="Altura"
-							id="Altura" placeholder="" onchange="cambioAltura()">
+						<input type="number" class="form-control form-control-sm Alt_sty" style="height:39px"
+							name="Altura" id="Altura" placeholder="" onchange="cambioAltura()">
 					</div>
 
 
@@ -353,41 +359,10 @@
 	<script src="Acero_A588.js"></script>
 
 	<script>
-
-
-		function orientacion0() {
-			var altura = document.getElementById('Altura').value;
-			if (altura < 30 || altura > 200) {
-				document.getElementById('Altura').value = '';
-				Swal.fire({
-					title: 'Orientacion',
-					text: 'Por favor gira el telefono de forma horizontal',
-					//			icon: 'warning',
-					imageUrl: 'rotate_icon.png',
-					imageWidth: 100,
-					imageHeight: 100,
-					confirmButtonText: 'OK',
-				}).then((result) => {
-					/* Read more about isConfirmed, isDenied below */
-					if (result.isConfirmed) {
-						window.open('indexrelojvariosensayos.html', "_self");
-						
-					}
-				})
-
-
-			}
+		function isMobileDevice() {
+			return /Mobi/i.test(navigator.userAgent);
 		}
 
-
-
-
-
-		// // Verificar la orientación inicial del dispositivo
-		// window.addEventListener('DOMContentLoaded', checkOrientation);
-		// window.addEventListener('orientationchange', checkOrientation);
-
-		// Función para verificar la orientación del dispositivo
 		function checkOrientation() {
 			if (window.orientation === 90 || window.orientation === -90) {
 				// La orientación es horizontal, ocultar el mensaje
@@ -400,9 +375,64 @@
 			}
 		}
 
-		function isMobileDevice() {
-			return /Mobi/i.test(navigator.userAgent);
+		function orientacion0() {
+			if (isMobileDevice() && window.orientation !== 90 || window.orientation !== -90) {
+				Swal.fire({
+					title: 'Orientacion',
+					text: 'Por favor gira el telefono de forma horizontal',
+					//			icon: 'warning',
+					imageUrl: 'rotate_icon.png',
+					imageWidth: 100,
+					imageHeight: 100,
+					confirmButtonText: 'OK',
+				}).then((result) => {
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						window.open('indexrelojvariosensayos.html', "_self");
+
+					}
+				})
+
+
+			}
 		}
+
+
+		// function orientacion0() {
+		// 	var altura = document.getElementById('Altura').value;
+		// 	if (altura < 30 || altura > 200) {
+		// 		document.getElementById('Altura').value = '';
+		// 		Swal.fire({
+		// 			title: 'Orientacion',
+		// 			text: 'Por favor gira el telefono de forma horizontal',
+		// 			//			icon: 'warning',
+		// 			imageUrl: 'rotate_icon.png',
+		// 			imageWidth: 100,
+		// 			imageHeight: 100,
+		// 			confirmButtonText: 'OK',
+		// 		}).then((result) => {
+		// 			/* Read more about isConfirmed, isDenied below */
+		// 			if (result.isConfirmed) {
+		// 				window.open('indexrelojvariosensayos.html', "_self");
+
+		// 			}
+		// 		})
+
+
+		// 	}
+		// }
+		
+
+
+
+		// // Verificar la orientación inicial del dispositivo
+		// window.addEventListener('DOMContentLoaded', checkOrientation);
+		// window.addEventListener('orientationchange', checkOrientation);
+
+		// Función para verificar la orientación del dispositivo
+
+
+
 
 		// Ejemplo de uso
 		if (isMobileDevice()) {

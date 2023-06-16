@@ -4,7 +4,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Laboratorio de compresion madera  - Universidad del Valle - Reider Muñoz</title>
+	<title>Laboratorio de compresion madera - Universidad del Valle - Reider Muñoz</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -51,6 +51,53 @@
 
 			text-align: center;
 
+		}
+
+		@media only screen and (min-width: 360px) and (max-width: 1000px) {
+
+			/* .barra_opcion {
+	width: 300px !important;
+	height: 100% !important;
+} */
+			.barra_opcion {
+				overflow: auto !important;
+				width: 300px !important;
+
+			}
+
+			.border-bottom {
+				height: 12% !important;
+			}
+
+			.logo_st {
+				height: 30px !important;
+			}
+
+			.btn-outline-secondary {
+
+				font-size: 7px !important;
+				text-align: center !important;
+			}
+
+			.col-md-2 {
+				text-align: left !important;
+				font-size: 4px !important;
+			}
+
+			.venta2d_style {
+
+				height: 400px !important;
+				width: 100px !important;
+
+
+			}
+
+			#mini2d {
+				height: 500px !important;
+				width: 800px !important;
+
+			}
+
 
 		}
 	</style>
@@ -64,8 +111,8 @@
 
 		<div class="row">
 			<div class="col-md-3">
-				<a href="https://reidermunoz.github.io/lab-tension.github.io/"
-					class="d-flex align-items-center text-dark text-decoration-none">
+				<a href="https://bayron479.github.io/estruclab_web/"
+					class="d-flex align-items-center text-dark text-decoration-none logo_st">
 					<img src="logo.png" style="height: 30px;">
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
@@ -78,14 +125,15 @@
 
 			<div class="col-md-1" style="text-align: left;">
 				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual Compresion</a>
-			</div> 
-			
+			</div>
+
 
 
 
 			<div class="col-md-2" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Traccion</a>
-				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_flexionanimacion.html">Flexion</a>
+				<a class="btn btn-sm btn-outline-secondary"
+					href="indexrelojvariosensayos_flexionanimacion.html">Flexion</a>
 				<a class="btn btn-sm btn-outline-secondary" href="index_torsion_Ductil_90.html">Torsion</a>
 			</div>
 
@@ -101,7 +149,7 @@
 		</div>
 	</div>
 
-	<div class="position-fixed" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
+	<div class="position-fixed barra_opcion smaller" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
 
 		<div class="card mb-1" style="width: 100%;">
 			<div class="card-body">
@@ -126,10 +174,11 @@
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onchange="cambiossegunacero()">
-						<option value="" ></option>
+						<option value=""></option>
 						<!-- <option value="Copr_Acer_E9">ACERO (ASTM) E9</option> -->
 						<option value="Copr_Madera_Pino_Paralela">Madera (ASTM D143_Pino_Paralela) </option>
-						<option value="Copr_Madera_Pino_Perpendicular" selected>Madera (ASTM D143_Pino_Perpendicular)  </option>
+						<option value="Copr_Madera_Pino_Perpendicular" selected>Madera (ASTM D143_Pino_Perpendicular)
+						</option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 
@@ -211,7 +260,8 @@
 					<button type="button" onclick="Altura(),alt_per(),base_per(), iniciar()"
 						class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
-					<a type="button" href="indexrelojvariosensayos_compresion_madera_Perpendicular.html" class="btn btn-primary">Reiniciar</a>
+					<a type="button" href="indexrelojvariosensayos_compresion_madera_Perpendicular.html"
+						class="btn btn-primary">Reiniciar</a>
 				</div>
 
 
@@ -250,7 +300,7 @@
 				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
 			  </svg>-->
 
-			  
+
 
 
 
@@ -260,19 +310,23 @@
 				<path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
 			</svg>-->
 
-			<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
-				<path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
+			<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z" />
 			</svg>
 
 
-			  <!--<svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+			<!--<svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
 				<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"/>
-			  </svg>--> 
+			  </svg>-->
 
-			  <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
-				<path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
-			  </svg>
-			 <!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+			<svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
+				<path
+					d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z" />
+			</svg>
+			<!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
 				<path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
 			  </svg>-->
 
@@ -280,17 +334,20 @@
 				<path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
 			</svg>-->
 
-			<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
-				<path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+			<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z" />
 			</svg>
 
-				</div>
+		</div>
 	</div>
- 
-	 <div class="position-fixed" id="ventanamini2d"
+
+	<div class="position-fixed venta2d_style" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 330px;width: 520px;background-color: #ffffff;overflow: hidden;display: none">
-		<iframe id="mini2d" onload="iframeMini2dLoaded()" src="" style="width: 100%;height:100%;overflow:hidden;"></iframe>
-	</div>  
+		<iframe id="mini2d" onload="iframeMini2dLoaded()" src=""
+			style="width: 100%;height:100%;overflow:hidden;"></iframe>
+	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
@@ -302,6 +359,93 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="Copr_Madera_Pino_Paralela.js"></script>
 	<script src="Copr_Madera_Pino_Perpendicular.js"></script>
+
+	<script>
+		function isMobileDevice() {
+			return /Mobi/i.test(navigator.userAgent);
+		}
+
+		function checkOrientation() {
+			if (window.orientation === 90 || window.orientation === -90) {
+				// La orientación es horizontal, ocultar el mensaje
+				document.getElementById('rotateMessage').style.display = 'none';
+
+			} else {
+				// La orientación no es horizontal, mostrar el mensaje
+				document.getElementById('rotateMessage').style.display = 'block';
+				orientacion0()
+			}
+		}
+
+		function orientacion0() {
+			if (isMobileDevice() && window.orientation !== 90 || window.orientation !== -90) {
+				Swal.fire({
+					title: 'Orientacion',
+					text: 'Por favor gira el telefono de forma horizontal',
+					//			icon: 'warning',
+					imageUrl: 'rotate_icon.png',
+					imageWidth: 100,
+					imageHeight: 100,
+					confirmButtonText: 'OK',
+				}).then((result) => {
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						window.open('indexrelojvariosensayos_compresion_madera_Perpendicular.html', "_self");
+
+					}
+				})
+
+
+			}
+		}
+
+
+		// function orientacion0() {
+		// 	var altura = document.getElementById('Altura').value;
+		// 	if (altura < 30 || altura > 200) {
+		// 		document.getElementById('Altura').value = '';
+		// 		Swal.fire({
+		// 			title: 'Orientacion',
+		// 			text: 'Por favor gira el telefono de forma horizontal',
+		// 			//			icon: 'warning',
+		// 			imageUrl: 'rotate_icon.png',
+		// 			imageWidth: 100,
+		// 			imageHeight: 100,
+		// 			confirmButtonText: 'OK',
+		// 		}).then((result) => {
+		// 			/* Read more about isConfirmed, isDenied below */
+		// 			if (result.isConfirmed) {
+		// 				window.open('indexrelojvariosensayos.html', "_self");
+
+		// 			}
+		// 		})
+
+
+		// 	}
+		// }
+
+
+
+
+
+		// // Verificar la orientación inicial del dispositivo
+		// window.addEventListener('DOMContentLoaded', checkOrientation);
+		// window.addEventListener('orientationchange', checkOrientation);
+
+		// Función para verificar la orientación del dispositivo
+
+
+
+
+		// Ejemplo de uso
+		if (isMobileDevice()) {
+			//alert('La página se está visualizando desde un dispositivo móvil.');
+			checkOrientation()
+		} else {
+			//alert('La página se está visualizando desde un ordenador.');
+		}
+
+	</script>
 
 
 	<script>
@@ -330,18 +474,18 @@
 
 				case 'Copr_Madera_Pino_Paralela':
 					document.getElementById('Altura').value = 195;
-					location.href="indexrelojvariosensayos_compresion_madera_paralela.html";
+					location.href = "indexrelojvariosensayos_compresion_madera_paralela.html";
 
 					break;
 
 				case 'Copr_Madera_Pino_Perpendicular':
 					document.getElementById('Altura').value = 195;
-					
+
 
 					break;
 
 				default:
-				 	document.getElementById('Altura').value = '';
+					document.getElementById('Altura').value = '';
 					document.getElementById('Diametro_barra').value = "";
 
 			}
@@ -471,58 +615,58 @@
 		// scene.add(cubecubo);
 
 
-		
-		
 
-			(function () {
 
-				/**
-				 * Ajuste decimal de un número.
-				 *
-				 * @param	{String}	type	El tipo de ajuste.
-				 * @param	{Number}	value	El número.
-				 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
-				 * @returns	{Number}			El valor ajustado.
-				 */
-				function decimalAdjust(type, value, exp) {
-					// Si el exp es indefinido o cero...
-					if (typeof exp === 'undefined' || +exp === 0) {
-						return Math[type](value);
-					}
-					value = +value;
-					exp = +exp;
-					// Si el valor no es un número o el exp no es un entero...
-					if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-						return NaN;
-					}
-					// Cambio
-					value = value.toString().split('e');
-					value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-					// Volver a cambiar
-					value = value.toString().split('e');
-					return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-				}
 
-				// Redondeo decimal
-				if (!Math.round10) {
-					Math.round10 = function (value, exp) {
-						return decimalAdjust('round', value, exp);
-					};
-				}
-				// Redondeo hacia abajo
-				if (!Math.floor10) {
-					Math.floor10 = function (value, exp) {
-						return decimalAdjust('floor', value, exp);
-					};
-				}
-				// Redondeo hacia arriba
-				if (!Math.ceil10) {
-					Math.ceil10 = function (value, exp) {
-						return decimalAdjust('ceil', value, exp);
-					};
-				}
+		(function () {
 
-			})();
+			/**
+			 * Ajuste decimal de un número.
+			 *
+			 * @param	{String}	type	El tipo de ajuste.
+			 * @param	{Number}	value	El número.
+			 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
+			 * @returns	{Number}			El valor ajustado.
+			 */
+			function decimalAdjust(type, value, exp) {
+				// Si el exp es indefinido o cero...
+				if (typeof exp === 'undefined' || +exp === 0) {
+					return Math[type](value);
+				}
+				value = +value;
+				exp = +exp;
+				// Si el valor no es un número o el exp no es un entero...
+				if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+					return NaN;
+				}
+				// Cambio
+				value = value.toString().split('e');
+				value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+				// Volver a cambiar
+				value = value.toString().split('e');
+				return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+			}
+
+			// Redondeo decimal
+			if (!Math.round10) {
+				Math.round10 = function (value, exp) {
+					return decimalAdjust('round', value, exp);
+				};
+			}
+			// Redondeo hacia abajo
+			if (!Math.floor10) {
+				Math.floor10 = function (value, exp) {
+					return decimalAdjust('floor', value, exp);
+				};
+			}
+			// Redondeo hacia arriba
+			if (!Math.ceil10) {
+				Math.ceil10 = function (value, exp) {
+					return decimalAdjust('ceil', value, exp);
+				};
+			}
+
+		})();
 
 
 		function modulo_elastico() {
@@ -536,24 +680,24 @@
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
 		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
 
-		function centroflecha(){
+		function centroflecha() {
 			camera.position.set(1.7635816353914981, 1.8347950925610317, 0.16463116563173347);
 			controls.target.set(-0.47968991718879844, 1.7819228371923617, 0.35131564004338245);
-				}
+		}
 
-			function Derechaflecha(){
+		function Derechaflecha() {
 			camera.position.set(0.06126837168823679, 1.8755083832142612, -1.2708440270559638);
 			controls.target.set(0.14533605948724349, 1.730226894676921, -0.24126841056202938);
-				}
-				function Izquierdaflecha(){
+		}
+		function Izquierdaflecha() {
 			camera.position.set(-0.01364266170339136, 1.8549514906947322, 1.129527550691957);
 			controls.target.set(-0.04140357232327803, 1.8463011750021652, 0.7161876768959998);
-				}
+		}
 
-				function Arribaflecha(){
+		function Arribaflecha() {
 			camera.position.set(-0.049771421686070995, 3.100206014401884, 0.05500078024639481);
 			controls.target.set(-0.09139378917770244, 2.3345121792479646, 0.05437087104429345);
-				}
+		}
 
 
 		function zoom() {
@@ -566,12 +710,12 @@
 
 
 		}
-	/*	function open_win() {
-			window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
-			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
-			//camera.position.y=3 // posicison de la camara (0, 5, 5)
-			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
-		}*/
+		/*	function open_win() {
+				window.open("index2dcorta.html", "hola", "width=400px, height=600px,")
+				camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
+				//camera.position.y=3 // posicison de la camara (0, 5, 5)
+				controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
+			}*/
 		function open_manual() {
 			window.open("Manual_de_compresion.pdf", "Laboratorio de tracción", "width=800px, height=1000px,")
 			// camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
@@ -666,7 +810,7 @@
 		var max_x_canvas = 0;
 
 		function Ruido() {
-			var Escalar_gauseano =0.1;
+			var Escalar_gauseano = 0.1;
 			var media = 0;
 			var desvis = 1;
 
@@ -679,7 +823,7 @@
 
 		}
 
-		var archivo_datos=[];
+		var archivo_datos = [];
 
 		var mixer;
 		var mixer1;
@@ -732,7 +876,7 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area/1000];
+							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area / 1000];
 							new_vec.push(operavec)
 						}
 
@@ -764,8 +908,8 @@
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y
 
-							document.getElementById('Alargamiento').value = Math.round10(prierox,-3);
-							document.getElementById('Carga').value = Math.round10(segundoy,-3);
+							document.getElementById('Alargamiento').value = Math.round10(prierox, -3);
+							document.getElementById('Carga').value = Math.round10(segundoy, -3);
 						}
 					} else {
 						garra.position.y = -0.3415500000000003255
@@ -817,7 +961,7 @@
 
 		}
 
-		function iframeMini2dLoaded(){
+		function iframeMini2dLoaded() {
 			iniciar_ = true;
 
 		}
@@ -907,9 +1051,9 @@
 				madera_compre_def.position.z += -0.04  //izquierda  derecha
 				madera_compre_def.position.x += 0 //alfrente
 				madera_compre_def.position.y += 1.44  //arriba
-				madera_compre_def.scale.y=0.2
-				madera_compre_def.scale.x=0.2
-				madera_compre_def.scale.z=0.2
+				madera_compre_def.scale.y = 0.2
+				madera_compre_def.scale.x = 0.2
+				madera_compre_def.scale.z = 0.2
 				scene.add(gltf.scene);
 				renderer.render(scene, camera);
 
@@ -948,9 +1092,9 @@
 				madera_compre_def.position.z += -0.04  //izquierda  derecha
 				madera_compre_def.position.x += 0 //alfrente
 				madera_compre_def.position.y += 1.44  //arriba
-				madera_compre_def.scale.y=0.2
-				madera_compre_def.scale.x=0.2
-				madera_compre_def.scale.z=0.2
+				madera_compre_def.scale.y = 0.2
+				madera_compre_def.scale.x = 0.2
+				madera_compre_def.scale.z = 0.2
 				scene.add(gltf.scene);
 				renderer.render(scene, camera);
 

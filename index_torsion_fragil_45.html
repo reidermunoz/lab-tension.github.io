@@ -46,6 +46,54 @@
 			top: 0;
 			left: 0;
 		}
+
+		@media only screen and (min-width: 360px) and (max-width: 1000px) {
+
+			/* .barra_opcion {
+width: 300px !important;
+height: 100% !important;
+} */
+			.barra_opcion {
+				overflow: auto !important;
+				width: 300px !important;
+
+			}
+
+			.border-bottom {
+				height: 12% !important;
+			}
+
+			.logo_st {
+				height: 30px !important;
+			}
+
+			.btn-outline-secondary {
+
+				font-size: 7px !important;
+				text-align: center !important;
+			}
+
+			.col-md-2 {
+				text-align: left !important;
+				font-size: 4px !important;
+			}
+
+			.venta2d_style {
+
+				height: 400px !important;
+				width: 100px !important;
+
+
+			}
+
+			#mini2d {
+				height: 500px !important;
+				width: 800px !important;
+
+			}
+
+
+		}
 	</style>
 
 </head>
@@ -57,7 +105,7 @@
 		<div class="row">
 			<div class="col-md-3">
 				<a href="https://bayron479.github.io/estruclab_web/"
-					class="d-flex align-items-center text-dark tesxt-decoration-none">
+					class="d-flex align-items-center text-dark tesxt-decoration-none logo_st">
 					<img src="logo.png" style="height: 30px;">
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
@@ -93,7 +141,7 @@
 		</div>
 	</div>
 
-	<div class="position-fixed" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
+	<div class="position-fixed barra_opcion smaller" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
 
 		<div class="card mb-1" style="width: 100%;">
 			<div class="card-body">
@@ -238,7 +286,7 @@
 				<path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
 			  </svg>-->
 
-	
+
 
 
 
@@ -247,9 +295,12 @@
 
 	</div>
 
-	<div class="position-fixed" id="ventanamini2d"
+	<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
+
+	<div class="position-fixed venta2d_style" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 150px;width: 540px;background-color: #ffffff;overflow: hidden;display: none; scale: 2">
-		<iframe id="mini2d" onload="iframeMini2dLoaded()" src="" style="width: 100%;height:100%;overflow:hidden;"></iframe>
+		<iframe id="mini2d" onload="iframeMini2dLoaded()" src=""
+			style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
@@ -260,6 +311,93 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="Torsion_Ductil.js"></script>
 	<script src="Torsion_Fragil.js"></script>
+
+	<script>
+		function isMobileDevice() {
+			return /Mobi/i.test(navigator.userAgent);
+		}
+
+		function checkOrientation() {
+			if (window.orientation === 90 || window.orientation === -90) {
+				// La orientación es horizontal, ocultar el mensaje
+				document.getElementById('rotateMessage').style.display = 'none';
+
+			} else {
+				// La orientación no es horizontal, mostrar el mensaje
+				document.getElementById('rotateMessage').style.display = 'block';
+				orientacion0()
+			}
+		}
+
+		function orientacion0() {
+			if (isMobileDevice() && window.orientation !== 90 || window.orientation !== -90) {
+				Swal.fire({
+					title: 'Orientacion',
+					text: 'Por favor gira el telefono de forma horizontal',
+					//			icon: 'warning',
+					imageUrl: 'rotate_icon.png',
+					imageWidth: 100,
+					imageHeight: 100,
+					confirmButtonText: 'OK',
+				}).then((result) => {
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						window.open('index_torsion_fragil_45.html', "_self");
+
+					}
+				})
+
+
+			}
+		}
+
+
+		// function orientacion0() {
+		// 	var altura = document.getElementById('Altura').value;
+		// 	if (altura < 30 || altura > 200) {
+		// 		document.getElementById('Altura').value = '';
+		// 		Swal.fire({
+		// 			title: 'Orientacion',
+		// 			text: 'Por favor gira el telefono de forma horizontal',
+		// 			//			icon: 'warning',
+		// 			imageUrl: 'rotate_icon.png',
+		// 			imageWidth: 100,
+		// 			imageHeight: 100,
+		// 			confirmButtonText: 'OK',
+		// 		}).then((result) => {
+		// 			/* Read more about isConfirmed, isDenied below */
+		// 			if (result.isConfirmed) {
+		// 				window.open('indexrelojvariosensayos.html', "_self");
+
+		// 			}
+		// 		})
+
+
+		// 	}
+		// }
+
+
+
+
+
+		// // Verificar la orientación inicial del dispositivo
+		// window.addEventListener('DOMContentLoaded', checkOrientation);
+		// window.addEventListener('orientationchange', checkOrientation);
+
+		// Función para verificar la orientación del dispositivo
+
+
+
+
+		// Ejemplo de uso
+		if (isMobileDevice()) {
+			//alert('La página se está visualizando desde un dispositivo móvil.');
+			checkOrientation()
+		} else {
+			//alert('La página se está visualizando desde un ordenador.');
+		}
+
+	</script>
 
 
 	<script>
@@ -288,18 +426,18 @@
 				case 'Torsion_Ductil':
 					document.getElementById('Altura').value = 119;
 					document.getElementById('Diametro_barra').value = "Numero3";
-					location.href="index_torsion_Ductil_90.html";
+					location.href = "index_torsion_Ductil_90.html";
 
 					break;
 
 				case 'Torsion_Fragil':
 					document.getElementById('Altura').value = 59;
 					document.getElementById('Diametro_barra').value = "Numero3";
-					
+
 
 					break;
-				 default:
-				 	document.getElementById('Altura').value = '';
+				default:
+					document.getElementById('Altura').value = '';
 					document.getElementById('Diametro_barra').value = "";
 
 			}
@@ -496,8 +634,8 @@
 			controls.target.set(-0.41891832061529294, 1.2872381782955329, -0.11912689398622633);
 		}
 
-		
-	
+
+
 
 		function Arribaflecha() {
 			camera.position.set(-0.022024585049454936, 2.572945991216031, -0.13774446070129626);
@@ -590,7 +728,7 @@
 		var max_x_canvas = 0;
 
 		function Ruido() {
-			var Escalar_gauseano =0.1;
+			var Escalar_gauseano = 0.1;
 			var media = 0;
 			var desvis = 1;
 
@@ -603,8 +741,8 @@
 
 		}
 
-		var archivo_datos=[];
-		
+		var archivo_datos = [];
+
 
 		var mixer;
 		var clock = new THREE.Clock();
@@ -659,9 +797,9 @@
 
 
 						var fila_ = datos_traccion[cant]
-						var new_vec = [fila_[0], Ruido()+fila_[1]];
+						var new_vec = [fila_[0], Ruido() + fila_[1]];
 
-						if(archivo_datos.length == cant){
+						if (archivo_datos.length == cant) {
 							archivo_datos.push(new_vec);
 						}
 
@@ -750,13 +888,13 @@
 
 		}
 
-		function iframeMini2dLoaded(){
+		function iframeMini2dLoaded() {
 			iniciar_ = true;
 
 		}
 
 
-		
+
 
 		// Instantiate a loader
 		const loader = new THREE.GLTFLoader();
@@ -837,13 +975,13 @@
 				gltf.asset; // Object
 
 				console.log('completado!.....')
-				barra_tosricion_cortado.position.z +=  -0.23
+				barra_tosricion_cortado.position.z += -0.23
 				barra_tosricion_cortado.position.x += 0
-				barra_tosricion_cortado.position.y +=1.35
+				barra_tosricion_cortado.position.y += 1.35
 				barra_tosricion_cortado.scale.z = 0.08
 				barra_tosricion_cortado.scale.y = 0.04
 				barra_tosricion_cortado.scale.x = 0.04
-				renderer.render(scene, camera);		
+				renderer.render(scene, camera);
 
 			},
 			// called while loading is progressing

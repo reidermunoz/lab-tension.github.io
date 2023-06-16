@@ -57,6 +57,54 @@
 
 			text-align: center;
 
+		}
+
+
+		@media only screen and (min-width: 360px) and (max-width: 1000px) {
+
+			/* .barra_opcion {
+	width: 300px !important;
+	height: 100% !important;
+} */
+			.barra_opcion {
+				overflow: auto !important;
+				width: 300px !important;
+
+			}
+
+			.border-bottom {
+				height: 12% !important;
+			}
+
+			.logo_st {
+				height: 30px !important;
+			}
+
+			.btn-outline-secondary {
+
+				font-size: 7px !important;
+				text-align: center !important;
+			}
+
+			.col-md-2 {
+				text-align: left !important;
+				font-size: 4px !important;
+			}
+
+			.venta2d_style {
+
+				height: 400px !important;
+				width: 100px !important;
+
+
+			}
+
+			#mini2d {
+				height: 500px !important;
+				width: 800px !important;
+
+			}
+
 
 		}
 	</style>
@@ -71,7 +119,7 @@
 		<div class="row">
 			<div class="col-md-3">
 				<a href="https://bayron479.github.io/estruclab_web/"
-					class="d-flex align-items-center text-dark text-decoration-none">
+					class="d-flex align-items-center text-dark text-decoration-none logo_st">
 					<img src="logo.png" style="height: 30px;">
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
@@ -104,7 +152,7 @@
 		</div>
 	</div>
 
-	<div class="position-fixed" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
+	<div class="position-fixed barra_opcion smaller" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
 
 		<div class="card mb-1" style="width: 100%;">
 			<div class="card-body">
@@ -245,7 +293,7 @@
 			</div>
 
 		</div>
-	</br>
+		</br>
 		<div style="text-align: center;" class="mt-1">
 			<!--<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
 				<path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
@@ -290,9 +338,12 @@
 
 	</div>
 
-	<div class="position-fixed" id="ventanamini2d"
+	<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
+
+	<div class="position-fixed venta2d_style" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 400px;width: 600px;background-color: #ffffff;overflow: hidden;display: none;">
-		<iframe id="mini2d" onload="iframeMini2dLoaded()" src="" style="width: 100%;height:100%;overflow:hidden;border: 2px solid " scrolling="no"></iframe>
+		<iframe id="mini2d" onload="iframeMini2dLoaded()" src=""
+			style="width: 100%;height:100%;overflow:hidden;border: 2px solid " scrolling="no"></iframe>
 		</script>
 
 
@@ -309,6 +360,92 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="Flexion_carga_Madera_ASTM143_Nueva.js"></script>
 
+	<script>
+		function isMobileDevice() {
+			return /Mobi/i.test(navigator.userAgent);
+		}
+
+		function checkOrientation() {
+			if (window.orientation === 90 || window.orientation === -90) {
+				// La orientación es horizontal, ocultar el mensaje
+				document.getElementById('rotateMessage').style.display = 'none';
+
+			} else {
+				// La orientación no es horizontal, mostrar el mensaje
+				document.getElementById('rotateMessage').style.display = 'block';
+				orientacion0()
+			}
+		}
+
+		function orientacion0() {
+			if (isMobileDevice() && window.orientation !== 90 || window.orientation !== -90) {
+				Swal.fire({
+					title: 'Orientacion',
+					text: 'Por favor gira el telefono de forma horizontal',
+					//			icon: 'warning',
+					imageUrl: 'rotate_icon.png',
+					imageWidth: 100,
+					imageHeight: 100,
+					confirmButtonText: 'OK',
+				}).then((result) => {
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						window.open('indexrelojvariosensayos_flexionanimacion.html', "_self");
+
+					}
+				})
+
+
+			}
+		}
+
+
+		// function orientacion0() {
+		// 	var altura = document.getElementById('Altura').value;
+		// 	if (altura < 30 || altura > 200) {
+		// 		document.getElementById('Altura').value = '';
+		// 		Swal.fire({
+		// 			title: 'Orientacion',
+		// 			text: 'Por favor gira el telefono de forma horizontal',
+		// 			//			icon: 'warning',
+		// 			imageUrl: 'rotate_icon.png',
+		// 			imageWidth: 100,
+		// 			imageHeight: 100,
+		// 			confirmButtonText: 'OK',
+		// 		}).then((result) => {
+		// 			/* Read more about isConfirmed, isDenied below */
+		// 			if (result.isConfirmed) {
+		// 				window.open('indexrelojvariosensayos.html', "_self");
+
+		// 			}
+		// 		})
+
+
+		// 	}
+		// }
+
+
+
+
+
+		// // Verificar la orientación inicial del dispositivo
+		// window.addEventListener('DOMContentLoaded', checkOrientation);
+		// window.addEventListener('orientationchange', checkOrientation);
+
+		// Función para verificar la orientación del dispositivo
+
+
+
+
+		// Ejemplo de uso
+		if (isMobileDevice()) {
+			//alert('La página se está visualizando desde un dispositivo móvil.');
+			checkOrientation()
+		} else {
+			//alert('La página se está visualizando desde un ordenador.');
+		}
+
+	</script>
 
 
 
@@ -667,7 +804,7 @@
 		var max_x_canvas = 0;
 
 		function Ruido() {
-			var Escalar_gauseano =0.1;
+			var Escalar_gauseano = 0.1;
 			var media = 0;
 			var desvis = 1;
 
@@ -679,7 +816,7 @@
 			return z0 + desvis + media;
 
 		}
-		var archivo_datos=[];
+		var archivo_datos = [];
 
 		var mixer;
 		var clock = new THREE.Clock();
@@ -764,8 +901,8 @@
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y
 
-							document.getElementById('Alargamiento').value = Math.round10(prierox,-3);
-							document.getElementById('Carga').value = Math.round10(segundoy,-3);
+							document.getElementById('Alargamiento').value = Math.round10(prierox, -3);
+							document.getElementById('Carga').value = Math.round10(segundoy, -3);
 						}
 					} else {
 						garra.position.y = -0.221930
@@ -782,7 +919,7 @@
 
 		function descaga() {
 			var ws = XLSX.utils.json_to_sheet(new_vec);
-		
+
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
 			var header1 = ["Deflexion (mm)"];
@@ -820,7 +957,7 @@
 
 
 		}
-		function iframeMini2dLoaded(){
+		function iframeMini2dLoaded() {
 			iniciar_ = true;
 
 		}
