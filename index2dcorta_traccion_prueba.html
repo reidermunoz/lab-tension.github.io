@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Dentro de la caja</title>
+	<style>
+		#rectangulo5 {
+			width: 50px;
+			height: 70px;
+			background: #2A682A;
+			left: 80px;
+			top: 81px;
+			position: fixed;
+			border-radius: 5%;
+			animation-name: ani_recaa;
+			animation-duration: 53s;
+			animation-fill-mode: forwards;
+		}
+
+
+		#rectangulo3 {
+			width: 70px;
+			height: 80px;
+			background: #2A682A;
+			left: 70px;
+			top: 131px;
+			position: fixed;
+			border-radius: 5%;
+			animation-name: ani_reca;
+			animation-duration: 53s;
+			animation-fill-mode: forwards;
+		}
+
+
+		/* probeta */
+
+
+		#rectangulo1 {
+			width: 70px;
+			height: 200px;
+			background: #4B4F4B;
+			left: 80px;
+			top: 181px;
+			scale: 2;
+			position: absolute;
+			clip-path: polygon(35% 27%, 50% 27%, 50% 67%, 46.5% 70%, 38.5% 70%, 35% 67%);
+			animation-name: ani_rec;
+			animation-duration: 53s;
+			animation-fill-mode: forwards;
+		}
+
+
+
+		#rectangulo {
+			width: 70px;
+			height: 200px;
+			background: #4B4F4B;
+			left: 80px;
+			top: 321px;
+			scale: 2;
+			position: absolute;
+			clip-path: polygon(35% 30%, 38.5% 27%, 46.5% 27%, 50% 30%, 50% 70%, 35% 70%);
+		}
+
+		/* FIn de probeta */
+
+
+		#rectangulo4 {
+			width: 70px;
+			height: 80px;
+			background: #2A682A;
+			left: 70px;
+			top: 471px;
+			position: fixed;
+			border-radius: 5%;
+		}
+
+		#rectangulo6 {
+			width: 50px;
+			height: 70px;
+			background: #2A682A;
+			left: 80px;
+			top: 546px;
+			position: fixed;
+			border-radius: 5%;
+		}
+
+		#circulo {
+			width: 35px;
+			height: 35px;
+			background: #2A682A;
+			left: 87px;
+			top: 596px;
+			position: fixed;
+			border-radius: 50%;
+		}
+
+
+		@keyframes ani_rec {
+			0% {}
+
+			99.99% {
+				top: 160px;
+				background: #4B4F4B
+			}
+
+			100% {
+				top: 130px
+			}
+		}
+
+		@keyframes ani_reca {
+			0% {}
+
+			99.99% {
+				top: 130px;
+			}
+
+			100% {
+				top: 80px;
+			}
+		}
+
+		@keyframes ani_recaa {
+			0% {}
+
+			99.99% {
+				top: 80px;
+			}
+
+			100% {
+				top: 30px;
+			}
+		}
+		@media only screen and (min-width: 360px) and (max-width: 1000px) {
+			#rectangulo5{
+				left: 15px !important;
+			}
+			#rectangulo1{
+				left: 15px !important;
+			}
+			#rectangulo{
+				left: 15px !important;
+			}
+			#rectangulo3{
+				left: 5px !important;
+			}
+			#rectangulo4{
+				left: 5px !important;
+			}
+			#rectangulo6{
+				left: 15px !important;
+			}
+			#circulo{
+				left: 22px !important;
+			}
+
+
+		}
+	</style>
+</head>
+
+<body style="zoom: 120%;">
+
+	<div id="rectangulo5"></div>
+	<div id="rectangulo1"></div>
+	<div id="rectangulo"></div>
+	<div id="rectangulo3"></div>
+	<div id="rectangulo4"></div>
+	<div id="rectangulo6"></div>
+	<div id="circulo"></div>
+
+</body>
+
+</html>
