@@ -429,7 +429,7 @@ height: 100% !important;
 
 
 				case 'Torsion_Ductil':
-					document.getElementById('Altura').value = 119;
+					document.getElementById('Altura').value = 199;
 					document.getElementById('Diametro_barra').value = "Numero3";
 
 					break;
@@ -690,7 +690,7 @@ height: 100% !important;
 				D = 6.4;
 
 			} else if (Diaetro_barra_en_mm == "Numero3") {
-				D = 11.1;
+				D = 12;
 			}
 			console.log(D)
 		}
@@ -769,7 +769,9 @@ height: 100% !important;
 
 
 
-				var Area = Math.PI * (D / 2) * (D / 2);
+				var Momento_Polar_inercia =( Math.PI * (D / 2) * (D / 2) * (D / 2) * (D / 2) ) / 2;
+				console.log('el momento polar es ' + Momento_Polar_inercia)
+
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
@@ -802,7 +804,7 @@ height: 100% !important;
 
 
 						var fila_ = datos_traccion[cant]
-						var new_vec = [fila_[0], Ruido() + fila_[1]];
+						var new_vec = [fila_[0] *Alt * 57.2958 / (D/2) , ((Ruido() + fila_[1]) * Momento_Polar_inercia / (D/2))/1000];
 
 						if (archivo_datos.length == cant) {
 							archivo_datos.push(new_vec);
