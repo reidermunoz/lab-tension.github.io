@@ -885,7 +885,7 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0] * Alt, datos_traccion[key][1] * Area / 1000];
+							operavec = [datos_traccion[key][0] * Alt, (Ruido()+datos_traccion[key][1] )* Area / 1000];
 							new_vec.push(operavec)
 						}
 
