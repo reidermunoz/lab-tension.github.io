@@ -184,7 +184,7 @@
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
 						<option value="" selected> </option>
-						<option value="Copr_Madera_AStm_D_143">Madera (ASTM D143) </option>
+						<option value="Copr_Madera_AStm_D_143">Madera de pino </option>
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 
@@ -483,9 +483,9 @@
 
 
 				case 'Copr_Madera_AStm_D_143':
-					document.getElementById('Altura').value = 763.5;
-					document.getElementById('base_perfil').value = 47.8;
-					document.getElementById('altura_perfil').value = 48.3;
+					document.getElementById('Altura').value = 248;
+					document.getElementById('base_perfil').value = 30.8;
+					document.getElementById('altura_perfil').value = 30.8;
 
 
 					break;
@@ -876,7 +876,7 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0], (datos_traccion[key][1]) * Area];
+							operavec = [datos_traccion[key][0], 2*(Ruido() + datos_traccion[key][1]) * bas_per*altu_per*altu_per/(3*Alt)];
 							new_vec.push(operavec)
 						}
 
@@ -944,7 +944,7 @@
 		function iniciar() {
 
 			var altura = document.getElementById('Altura').value;
-			if (altura < 360 || altura > 900) {
+			if (altura < 200 || altura > 900) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
