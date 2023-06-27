@@ -178,7 +178,7 @@
 
 					<label class="form-label mt-3"
 						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo
-						de Probeta<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+						de Probeta<i data-tippy-content="Tipo de la muestra del material el cual se le va a llevar a cabo prueba a flexión de sección rectangular" class="ti ti-question-mark text-primary"></i>
 					</label>
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
@@ -203,7 +203,7 @@
 -->
 					<div class="lbl">
 						<label class="form-label" style="font-size: 14px">Longitud inicial (mm)<i
-								data-tippy-content="Texto de altura"
+								data-tippy-content="Distancia entre los puntos de apoyo"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="number" class="form-control form-control-sm" style="height:37px" name="Altura"
 							id="Altura" placeholder="" onchange="cambioAltura()">
@@ -241,15 +241,15 @@
 
 						<div class="row">
 							<div class="col" style="width:180px">
-								<label class="form-label" style="font-size: 14px">base (mm)<i
-										data-tippy-content="Texto de altura"
+								<label class="form-label" style="font-size: 14px">canto (mm)<i
+										data-tippy-content="Refiere al grosor de la sección transversal de la muestra; representa la distancia desde un lado frontal al lado posterior de la probeta"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
 									name="base_perfil" id="base_perfil" placeholder="" onchange="cambioAltura()">
 							</div>
 							<div class="col" style="width:180px">
 								<label class="form-label" style="font-size: 14px">altura (mm)<i
-										data-tippy-content="Texto de altura"
+										data-tippy-content="Medida vertical de la sección transversal de la muestra; representa la distancia desde un lado inferior al lado superior de la probeta"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
 									name="altura_perfil" id="altura_perfil" placeholder="" onchange="cambioAltura()">
@@ -284,14 +284,14 @@
 				<form class="row g-2">
 					<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Deflexión (mm)<i
-								data-tippy-content="La deformacion de la probeta entre dos puntos fijos "
+								data-tippy-content="Desplazamiento vertical que experimenta la probeta en su punto central"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size: 14px">Carga (N)<i
-								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
+								data-tippy-content="Carga lateral que se le aplica a la probeta hasta su rotura"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="text" class="form-control form-control-sm" name="Carga" id="Carga" placeholder="">
 					</div>
