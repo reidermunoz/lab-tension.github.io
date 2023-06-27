@@ -265,7 +265,7 @@
 					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
 					<button type="button" onclick="Altura(),alt_per(),base_per(), iniciar()"
 						class="btn btn-secondary">Iniciar</button>
-					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
+					<a type="button" onclick="descaga(), descargarPDF()" class="btn btn-success">Datos</a>
 					<a type="button" href="indexrelojvariosensayos_compresion_madera_Perpendicular.html"
 						class="btn btn-primary">Reiniciar</a>
 				</div>
@@ -944,7 +944,19 @@
 
 			/* generate an XLSX file */
 			XLSX.writeFile(wb, "Datos.xlsx");
+			descargarPDF('Laboratorio_de_Resistencia_de_Materiales__Compresión____DEF (1).pdf');
 		}
+
+		function descargarPDF(url) {
+			var link = document.createElement('a');
+			link.href = url;
+			link.download = 'Laboratorio_compresion.pdf';
+			link.target = '_blank';
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		}
+
 		animate()
 
 
