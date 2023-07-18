@@ -176,7 +176,7 @@
 					<label class="form-label mt-3"
 						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo
 						de
-						Probeta<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
+						Probeta<i data-tippy-content="Tipo de la muestra del material el cual se le va a llevar a cabo prueba a compresión de sección rectangular" class="ti ti-question-mark text-primary"></i>
 					</label>
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
@@ -203,7 +203,7 @@
 -->
 					<div class="lbl">
 						<label class="form-label" style="font-size: 14px">Longitud inicial (mm)<i
-								data-tippy-content="Texto de altura"
+								data-tippy-content="Longitud entre las prensas, representando la longitud calibrada de la probeta"
 								class="ti ti-question-mark text-primary"></i></label>
 						<input type="number" class="form-control form-control-sm" style="height:37px" name="Altura"
 							id="Altura" placeholder="" value="195" onchange="cambioAltura()">
@@ -240,7 +240,7 @@
 						<div class="row">
 							<div class="col" style="width:180px">
 								<label class="form-label" style="font-size: 14px">ancho (mm)<i
-										data-tippy-content="Texto de altura"
+										data-tippy-content="Medida horizontal de la sección transversal de la muestra; representa la distancia desde un lado al otro de la probeta"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
 									name="base_perfil" id="base_perfil" placeholder="" value="45.1"
@@ -248,7 +248,7 @@
 							</div>
 							<div class="col" style="width:180px">
 								<label class="form-label" style="font-size: 14px">Canto (mm)<i
-										data-tippy-content="Texto de altura"
+										data-tippy-content="Refiere al grosor de la sección transversal de la muestra; representa la distancia desde un lado frontal al lado posterior de la probeta"
 										class="ti ti-question-mark text-primary"></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
 									name="altura_perfil" id="altura_perfil" placeholder="" value="70.9"
@@ -726,7 +726,7 @@
 				controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 			}*/
 		function open_manual() {
-			window.open("Manual_de_compresion.pdf", "Laboratorio de tracción", "width=800px, height=1000px,")
+			window.open("Manual_carga_uniaxial_Flexion___DEF.pdf", "Laboratorio de tracción", "width=800px, height=1000px,")
 			// camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			// //camera.position.y=3 // posicison de la camara (0, 5, 5)
 			// controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
@@ -944,7 +944,19 @@
 
 			/* generate an XLSX file */
 			XLSX.writeFile(wb, "Datos.xlsx");
+			descargarPDF('Laboratorio_de_Resistencia_de_Materiales__Compresión____DEF (1).pdf');
 		}
+
+		function descargarPDF(url) {
+			var link = document.createElement('a');
+			link.href = url;
+			link.download = 'Laboratorio_compresion.pdf';
+			link.target = '_blank';
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		}
+
 		animate()
 
 
