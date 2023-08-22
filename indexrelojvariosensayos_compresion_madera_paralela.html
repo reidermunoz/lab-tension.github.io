@@ -856,14 +856,14 @@
 
 
 				var Area = bas_per * altu_per;
-				console.log(Area)
+				//console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
 
 					if (garra.position.y >= -0.3415500000000003255) {
 						garra.position.y += -0.00001
-						console.log(garra.position.y)
+				//		console.log(garra.position.y)
 
 
 
@@ -900,15 +900,16 @@
 
 							margen = new_vec[cant][1] * 0.15;
 							margenx = new_vec[cant][0] > 1 ? new_vec[cant][0] * 0.20 : 1;
-							//console.log(margen)
+							
 
 							max_y_canvas = (new_vec[cant][1] + margen) > max_y_canvas ? (new_vec[cant][1] + margen) : max_y_canvas;
 							max_x_canvas = (new_vec[cant][0] + margenx) > max_x_canvas ? (new_vec[cant][0] + margenx) : max_x_canvas;
+				
 
 
 							chart.data.datasets[0].data.push({ x: new_vec[cant][0], y: new_vec[cant][1] });
 							chart.options.scales.y.max = parseInt(max_y_canvas);
-							chart.options.scales.x.max = parseInt(max_x_canvas);
+							chart.options.scales.x.max = max_x_canvas;
 
 
 							chart.update();
