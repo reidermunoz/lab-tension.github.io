@@ -268,10 +268,10 @@
 					</div>
 
 				</form>
-
+				
 				<div style="text-align: center;" class="mt-3">
 					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<button type="button" onclick="Altura(),alt_per(),base_per(), iniciar()"
+					<button type="button" name="button_iniciar" id="button_iniciar" onclick="Altura(),alt_per(),base_per(), iniciar()"
 						class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
 					<a type="button" href="indexrelojvariosensayos_compresion_madera_paralela.html"
@@ -381,6 +381,12 @@
 	<script src="Copr_Madera_Pino_Perpendicular.js"></script>
 
 	<script>
+
+		var btnAceptar = document.getElementById("button_iniciar");
+		var disableButton = function () { this.disabled = true; };
+		btnAceptar.addEventListener('click', disableButton, false);
+
+		
 		function isMobileDevice() {
 			return /Mobi/i.test(navigator.userAgent);
 		}
