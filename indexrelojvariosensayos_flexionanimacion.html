@@ -113,7 +113,7 @@
 			}
 
 
-		}
+		} 
 	</style>
 
 </head>
@@ -570,7 +570,8 @@
 		const container = document.getElementById('3d');
 
 
-		const renderer = new THREE.WebGLRenderer();
+		const renderer = new THREE.WebGLRenderer({ antialias:true });
+		
 
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		document.body.appendChild(renderer.domElement);
@@ -631,7 +632,14 @@
 */
 
 
-
+// Ajusta el tamaño de la pantalla 
+		window.addEventListener('resize', AdjustSize);
+		function AdjustSize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.render(scene, camera);
+		}
 
 
 		(function () {
