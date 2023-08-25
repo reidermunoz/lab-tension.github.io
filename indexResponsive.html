@@ -567,6 +567,7 @@
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 		var garra;
+		var sprite;
 
 		document.addEventListener('keydown', onKeyDown);
 
@@ -598,6 +599,22 @@
 		dirLight.shadow.camera.near = 0.1;
 		dirLight.shadow.camera.far = 40;
 		scene.add(dirLight);
+
+
+		const dpr = window.devicePixelRatio;
+
+		const textureSize = 128 * dpr;
+		const vector = new THREE.Vector2();
+		
+
+
+		texture = new THREE.FramebufferTexture( textureSize, textureSize );
+		
+		const spriteMaterial = new THREE.SpriteMaterial( { map: texture } );
+		
+		sprite = new THREE.Sprite( spriteMaterial );
+		sprite.scale.set( textureSize, textureSize, 1 );
+		
 
 		// scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
 
@@ -693,6 +710,27 @@
 		}
 
 
+		
+		
+
+		updateSpritePosition();
+
+
+
+		function updateSpritePosition(){
+
+			const halfWidth = window.innerHeight / 4;
+			const halfHeight = window.innerHeight / 4;
+
+			const halfImageWidth = textureSize / 2; 
+			const halfImageHeight = textureSize / 2;
+
+			sprite.position.set( - halfWidth + halfImageWidth, halfHeight - halfImageHeight , 1);
+			console.log(sprite)
+
+		}
+
+
 
 		const keyboardState = {}; // Objeto para almacenar el estado de las teclas presionadas
 
@@ -734,7 +772,7 @@
 
 
 		}
-		console.log(camera.position)
+		//console.log(camera.position)
 		function zoom3d() {
 			window.open("indexrelojvariosensayos.html", "hola", "width=400px, height=600px,")
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
@@ -790,7 +828,7 @@
 			} else if (Diaetro_barra_en_mm == "Numero18") {
 				D = 57.3;
 			}
-			console.log(D)
+			//console.log(D)
 		}
 
 
@@ -972,7 +1010,12 @@
 				}
 
 			}
+			vector.x = (window.innerWidth * dpr / 2 ) - (textureSize / 2);
+			vector.y = (window.innerHeight * dpr / 2) - (textureSize/2);
+			//console.log(vector);
+			renderer.copyFramebufferToTexture( vector, texture );
 			renderer.render(scene, camera);
+			
 		}
 
 		function descaga() {
@@ -1006,6 +1049,7 @@
 
 
 		animate()
+		
 
 
 		function iniciar() {
@@ -1030,7 +1074,8 @@
 
 				//open_win();
 			}
-
+			scene.add( sprite );
+		console.log(sprite)
 
 		}
 
