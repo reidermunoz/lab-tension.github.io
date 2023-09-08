@@ -46,17 +46,17 @@
 	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
 		<div class="row">
 			<div class="col-md-3">
-				<a href="https://reidermunoz.github.io/lab-tension.github.io/" class="d-flex align-items-center text-dark text-decoration-none">
-					<img src="logo.png" style="height: 30px;">
+				<a href="https://bayron479.github.io/estruclab_web/"
+					class="d-flex align-items-center text-dark tesxt-decoration-none logo_st">
+					<img src="logo.png" style="height: 40px;">
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
 			</div>
-			<div class="col-md-9" style="text-align: right;" >
-				<a  class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Tracción</a>
-				<a  class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_compresion56.html">Compresión</a>
-				<a  class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos_flexionanimacion.html">Flexión</a>
+			<div class="col-md-6" style="text-align: center;">
+				<h4>RESISTENCIA DE MATERIALES</h4>
 
 			</div>
+			
 		<!--	<div class="col-md-9" style="text-align: right;">s
 				
 				<a class="btn btn-sm btn-outline-secondary" href="index copy.html">aaTorsión</a>
@@ -494,8 +494,8 @@ const loader4 = new THREE.GLTFLoader();
 				gltf.cameras; // Array<THREE.Camera>
 				gltf.asset; // Object
 				
-				Lab_2.position.z += 1.587
-				Lab_2.position.x += 8.001
+				Lab_2.position.z += 3.587
+				Lab_2.position.x += 4.001
 				Lab_2.position.y += 0.258
 
 				renderer.render(scene, camera);
@@ -510,6 +510,36 @@ const loader4 = new THREE.GLTFLoader();
 				console.log('An error happened');
 			}
 		);
+
+		const loader5 = new THREE.GLTFLoader();
+
+// Load a glTF resource
+loader5.load(
+	'TorsionMaquina.gltf',//'scene.gltf'
+	function (gltf) {
+		MaquTor=gltf.scene;
+		scene.add(gltf.scene);
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+		MaquTor.position.z += -5.587
+		MaquTor.position.x += 4.001
+		MaquTor.position.y += 0.258
+		renderer.render(scene, camera);
+
+	},
+	// called while loading is progressing
+	function (xhr) {
+		console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+	},
+	// called when loading has errors
+	function (error) {
+		console.log('An error happened');
+	}
+);
 
 
 		// create an AudioListener and add it to the camera

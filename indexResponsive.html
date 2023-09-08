@@ -4,7 +4,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Laboratorio de torsión - Universidad del Valle - Reider Muñoz</title>
+	<title>Laboratorio de tracción - Universidad del Valle - Reider Muñoz</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -57,9 +57,9 @@
 		@media only screen and (min-width: 360px) and (max-width: 1000px) {
 
 			/* .barra_opcion {
-width: 300px !important;
-height: 100% !important;
-} */
+				width: 300px !important;
+				height: 100% !important;
+			} */
 			.barra_opcion {
 				overflow: auto !important;
 				width: 300px !important;
@@ -90,13 +90,15 @@ height: 100% !important;
 				height: 400px !important;
 				width: 100px !important;
 
+
 			}
 
 			#mini2d {
-				height: 500px !important;
-				width: 800px !important;
+				height: 300px !important;
+				width: 400px !important;
 
 			}
+			
 
 
 		}
@@ -108,31 +110,31 @@ height: 100% !important;
 
 	<div class="position-fixed w-100 p-3 border-bottom" style="z-index: 100000;background-color: #ffffff;">
 
-
 		<div class="row">
 			<div class="col-md-3">
 				<a href="https://bayron479.github.io/estruclab_web/"
-					class="d-flex align-items-center text-dark text-decoration-none logo_st">
+					class="d-flex align-items-center text-dark tesxt-decoration-none logo_st">
 					<img src="logo.png" style="height: 30px;">
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
 			</div>
 			<div class="col-md-6" style="text-align: center;">
-				<h4>LABORATORIO DE TORSIÓN</h4>
+				<h4>LABORATORIO DE TRACCIÓN</h4>
+
 			</div>
 
 			<div class="col-md-1" style="text-align: left;">
-				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual Torsión</a>
+				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual Tracción</a>
 			</div>
 
 			<div class="col-md-2" style="text-align: right;">
-				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Tracción</a>
 				<a class="btn btn-sm btn-outline-secondary"
-					href="indexrelojvariosensayos_compresion_madera_paralela.html">Compresión</a>
+					href="indexrelojvariosensayos_compresion_madera_Perpendicular.html">Compresión</a>
 				<a class="btn btn-sm btn-outline-secondary"
 					href="indexrelojvariosensayos_flexionanimacion.html">Flexión</a>
-
-				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a> -->
+				<a class="btn btn-sm btn-outline-secondary" href="index_torsion_Ductil_90.html">Torsión</a>
+				<!-- <a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos copy">Prueba</a> -->
+				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsión</a> -->
 			</div>
 
 			<!--	<div class="col-md-9" style="text-align: right;">s
@@ -147,10 +149,11 @@ height: 100% !important;
 		</div>
 	</div>
 
-	<div class="position-fixed barra_opcion smaller" style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
+	<div class="position-fixed barra_opcion smaller"
+		style="width: 400px;background-color: #ffffff;padding: 70px 5px; height: 100%;">
 
 		<div class="card mb-1" style="width: 100%;">
-			<div class="card-body">
+			<div class="card-body grafica_style">
 				<canvas id="myChart" style="width: 200px;height: 100px;"></canvas>
 			</div>
 		</div>
@@ -158,32 +161,39 @@ height: 100% !important;
 		<div class="card mb-1" style="width: 100%;">
 			<div class="card-header text-center bg-primary text-white">Ingrese los valores</div>
 
-			<div class="card-body">
+			<div class="card-body targeta_entrada" style="width: 100%;">
 				<!--
 				<span style="text-align: center; padding: 0; padding-left: 100px; font-size: 30px;">Ingrese los datos de: </span>
 				-->
 				<form class="row g-2">
 
-					<label class="form-label mt-3"
-						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo de Probeta <i data-tippy-content="Tipo de la muestra del material el cual se le va a llevar a cabo prueba a torsión de sección circular" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
-							<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-						  </svg></i>
+					<label class="form-label mt-3  text_e"
+						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;content: '\fa3e';">Tipo
+						de
+						Probeta <i
+							data-tippy-content="Tipo de la muestra del material el cual se le va a llevar a cabo prueba a tracción de sección circular"
+							class="text-primary" >
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
+								<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
+							  </svg> </i>
 					</label>
 
-					<select id="select_barra" class="form-select" aria-label="Default select example"
+					<select id="select_barra" class="form-select col-6" aria-label="Default select example"
 						onclick="cambiossegunacero()">
-						<option value=""></option>
-						<!-- <option value="torsion_Cobre" >Cobre</option> -->
+						<option value="" selected></option>
+						<option value="Acero_A36">Acero ASTM A36(111)</option>
 						<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
 						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
 				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 						<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
 						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
-						<option value="Torsion_Ductil">Acero A36 (Ductil) </option>
-						<option value="Torsion_Fragil">Hierro fundido (Fragil) </option>
+						<option value="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
+						<option value="Acero_A514">Acero ASTM A514</option>
 						<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
 						<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
+						<option value="Acero_A572">Acero ASTM A572</option>
 						<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
+						<option value="Acero_A588">Acero ASTM A588</option>
 					</select>
 					<!--		<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Diametro (mm)<i
@@ -195,42 +205,53 @@ height: 100% !important;
 -->
 
 
-					<div class="col-auto" style="width: 180px">
-						<label class="form-label"
-							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;">Diámetro de la barra <i data-tippy-content="Medida del diámetro de la muestra o probeta utilizada"
-								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
+					<div class=".col-md-6 .col-sm-6 .col-6 Num_barra" style="width: 180px">
+						<label class="form-label Num_barra "
+							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
+							barra <i data-tippy-content="Representación del diámetro de la barra"
+								class="text-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-								  </svg></i>
+								  </svg> </i>
 						</label>
-						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
+						<select id="Diametro_barra" class=".col-md-3 .col-sm-3 .col-3 form-select sel_barra " aria-label="Default select example"
 							style="width:170px; " onclick="cambiossegunacero()">
 							<!--		<option value="Numero2" selected>#2</option>
 							<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
+						<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 							<option value="" selected></option>
-							<option value="Numero3" >12 mm</option>
-
+							<option value="Numero3">#3</option>
+							<!--		<option value="Numero4">#4</option>-->
+							<option value="Numero5">#5</option>
+							<!--		<option value="Numero6">#6</option>
+							<option value="Numero7">#7</option>-->
+							<option value="NUmero8">#8</option>
+							<!--		<option value="Numero9">#9</option>
+							<option value="Numero10">#10</option>
+							<option value="Numero11">#11</option>
+							<option value="Numero14">#14</option>
+							<option value="Numero18">#18</option>-->
 						</select>
 					</div>
 
-					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Longitud inicial (mm) <i
+
+					<div class=".col-md-3 .col-sm-3 .col-3 Num_barra" style="width:180px">
+						<label class="form-label Num_barra1" style="font-size: 14px">Longitud inicial (mm) <i
 								data-tippy-content="Longitud entre las prensas, representando la longitud calibrada de la barra "
 								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-								  </svg></i></label>
-						<input type="number" class="form-control form-control-sm" style="height:37px" name="Altura"
-							id="Altura" placeholder="" onchange="cambioAltura()">
+								  </svg> </i></label>
+						<input type="number" class=".col-md-3 .col-sm-3 .col-3 form-control form-control-sm Alt_sty" style="height:39px"
+							name="Altura" id="Altura" placeholder="" onchange="cambioAltura()">
 					</div>
+
 
 
 				</form>
 				<div style="text-align: center;" class="mt-3">
 					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<button type="button"  name="button_iniciar" id="button_iniciar" onclick="Diametro(),Altura(), iniciar()" class="btn btn-secondary">Iniciar</button>
-					<!-- <a type="button"  name="button_iniciar" id="button_iniciar" onclick="Diametro(),Altura(), iniciar()" class="btn btn-secondary">Iniciar</a> -->
+					<a type="button" onclick="Diametro(),Altura(), iniciar()" class="btn btn-secondary">Iniciar</a>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
-					<a type="button" href="index_torsion_Ductil_90.html" class="btn btn-primary">Reiniciar</a>
+					<a type="button" href="indexrelojvariosensayos.html" class="btn btn-primary">Reiniciar</a>
 				</div>
 			</div>
 		</div>
@@ -242,17 +263,17 @@ height: 100% !important;
 			<div class="card-body">
 				<form class="row g-2">
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Ángulo (grad) <i
-								data-tippy-content="La deformación angular de la probeta entre dos puntos fijos"
+						<label class="form-label" style="font-size:14px">Alargamiento (mm) <i
+								data-tippy-content="La deformación de la probeta entre dos puntos fijos "
 								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-								  </svg></i></label>
-						<input type="text" class="form-control form-control-sm" name="Angulo" id="Angulo"
+								  </svg> </i></label>
+						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Torque (N-m) <i
-								data-tippy-content="Momento torsor que se le aplica a la probeta para inducir una deformación torsional hasta su rotura"
+						<label class="form-label" style="font-size: 14px">Carga (kN) <i
+								data-tippy-content="Carga axial aplicada a la probeta hasta su rotura"
 								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
 								  </svg></i></label>
@@ -266,24 +287,17 @@ height: 100% !important;
 
 
 
-		<div style="text-align: center;" class="mt-1	">
-			<!-- <svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
-				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
-			  </svg> -->
-
-			<svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
-				fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
-				<path fill-rule="evenodd"
-					d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z" />
-			</svg>
-
-
-		</div>
+		</br>
 		<div style="text-align: center;" class="mt-1">
 			<!--<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
 				<path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
 			  </svg>-->
 
+			<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z" />
+			</svg>
 
 
 			<!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
@@ -300,17 +314,47 @@ height: 100% !important;
 				<path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
 			  </svg>-->
 
+			<!-- <svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+				<path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+				
+			</svg> -->
+
+			<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+				fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z" />
+			</svg>
+
 
 
 		</div>
 
 	</div>
 
+	<!-- <div class="position-fixed" style="background-color: #ffffff;padding: 60px 0px 0px 0px; left: 400px;width:0px">
+
+		<div class="card-body">
+			<div style="text-align: center; ">
+				<button type="button" onclick="musicaquitar()" class="btn btn-secondary btn-xs"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-off-fill" viewBox="0 0 16 16">
+					<path d="M10.717 3.55A.5.5 0 0 1 11 4v8a.5.5 0 0 1-.812.39L7.825 10.5H5.5A.5.5 0 0 1 5 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+				  </svg></button>
+			</div>
+		</div>
+		<div class="card-body">
+			<div style="text-align: center; ">
+				<button type="button" onclick="musicaTrue()" class="btn btn-secondary btn-xs"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
+					<path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+					<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+					<path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+				  </svg></button>
+			</div>
+		</div>
+	
+</div> -->
 	<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
 
-
 	<div class="position-fixed venta2d_style" id="ventanamini2d"
-		style="bottom: 0px;right:0px;height: 150px;width: 540px;background-color: #ffffff;overflow: hidden;display: none; scale: 2">
+		style="bottom: 0px;right:0px;height: 500px;width: 200px;background-color: #ffffff;overflow: hidden;display: none; scale: 2.3; margin: 0 auto;">
 		<iframe id="mini2d" onload="iframeMini2dLoaded()" src=""
 			style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div>
@@ -321,16 +365,23 @@ height: 100% !important;
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="Torsion_Ductil.js"></script>
-	<script src="Torsion_Fragil.js"></script>
+	<script src="tension_barra1.js"></script>
+	<script src="tension_compresion.js"></script>
+	<script src="Trac_Acer_Corten.js"></script>
+	<script src="Trac_Acer_Dulce.js"></script>
+	<script src="Trac_Acer_Alum.js"></script>
+	<script src="Trac_ASTM_A37.js"></script>
+	<script src="Trac_ASTM_A48.js"></script>
+	<script src="Trac_ASTM_A53.js"></script>
+	<script src="Trac_ASTM_A370.js"></script>
+	<script src="Trac_Poli_1200E.js"></script>
+	<script src="Profe.js"></script>
+	<script src="Acero_A36.js"></script>
+	<script src="Acero_A514.js"></script>
+	<script src="Acero_A572.js"></script>
+	<script src="Acero_A588.js"></script>
 
 	<script>
-
-		var btnAceptar = document.getElementById("button_iniciar");
-		var disableButton = function () { this.disabled = true; };
-		btnAceptar.addEventListener('click', disableButton, false);
-
-
 		function isMobileDevice() {
 			return /Mobi/i.test(navigator.userAgent);
 		}
@@ -360,7 +411,7 @@ height: 100% !important;
 				}).then((result) => {
 					/* Read more about isConfirmed, isDenied below */
 					if (result.isConfirmed) {
-						window.open('index_torsion_Ductil_90.html', "_self");
+						window.open('indexrelojvariosensayos.html', "_self");
 
 					}
 				})
@@ -397,7 +448,6 @@ height: 100% !important;
 
 
 
-
 		// // Verificar la orientación inicial del dispositivo
 		// window.addEventListener('DOMContentLoaded', checkOrientation);
 		// window.addEventListener('orientationchange', checkOrientation);
@@ -415,9 +465,9 @@ height: 100% !important;
 			//alert('La página se está visualizando desde un ordenador.');
 		}
 
+
+
 	</script>
-
-
 	<script>
 		tippy('[data-tippy-content]');
 
@@ -437,26 +487,28 @@ height: 100% !important;
 			}
 		}
 
+
+
+
 		function cambiossegunacero() {
 			var prueba565656 = 120;
-			switch (document.getElementById('select_barra').value) {
+			switch (document.getElementById('Diametro_barra').value) {
 
+				case 'Numero3':
+					document.getElementById('Altura').value = 4 * 9.5;
+					/*	document.getElementById('Diametro_barra').value = "Numero5";*/
 
-				case 'Torsion_Ductil':
-					document.getElementById('Altura').value = 199;
-					document.getElementById('Diametro_barra').value = "Numero3";
+					break;
+
+				case 'Numero5':
+					document.getElementById('Altura').value = 15.9 * 4;
+					break;
+				case 'NUmero8':
+					document.getElementById('Altura').value = 25.4 * 4;
 
 					break;
 
-				case 'Torsion_Fragil':
-					document.getElementById('Altura').value = 59;
-					document.getElementById('Diametro_barra').value = "Numero3";
-					location.href = "index_torsion_fragil_45.html";
 
-					break;
-				default:
-					document.getElementById('Altura').value = '';
-					document.getElementById('Diametro_barra').value = "";
 
 
 			}
@@ -488,21 +540,21 @@ height: 100% !important;
 				scales: {
 					x: {
 						type: 'linear',
-						max: 200,
+						max: 0.5,
 						min: 0,
 						title: {
 							display: true,
-							text: 'Ángulo (grad) '
+							text: 'Alargamiento (mm)'
 						}
 					},
 
 					y: {
 						type: 'linear',
-						max: 6.5,
+						max: 400,
 						min: 1,
 						title: {
 							display: true,
-							text: 'Torque (N-m)'
+							text: 'Carga (kN)'
 						}
 					}
 				}
@@ -515,8 +567,7 @@ height: 100% !important;
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 		var garra;
-		var barra_cortaa;
-		var barra_tosio;
+		var sprite;
 
 		document.addEventListener('keydown', onKeyDown);
 
@@ -548,6 +599,22 @@ height: 100% !important;
 		dirLight.shadow.camera.near = 0.1;
 		dirLight.shadow.camera.far = 40;
 		scene.add(dirLight);
+
+
+		const dpr = window.devicePixelRatio;
+
+		const textureSize = 128 * dpr;
+		const vector = new THREE.Vector2();
+		
+
+
+		texture = new THREE.FramebufferTexture( textureSize, textureSize );
+		
+		const spriteMaterial = new THREE.SpriteMaterial( { map: texture } );
+		
+		sprite = new THREE.Sprite( spriteMaterial );
+		sprite.scale.set( textureSize, textureSize, 1 );
+		
 
 		// scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
 
@@ -643,23 +710,57 @@ height: 100% !important;
 		}
 
 
+		
+		
+
+		updateSpritePosition();
+
+
+
+		function updateSpritePosition(){
+
+			const halfWidth = window.innerHeight / 4;
+			const halfHeight = window.innerHeight / 4;
+
+			const halfImageWidth = textureSize / 2; 
+			const halfImageHeight = textureSize / 2;
+
+			sprite.position.set( - halfWidth + halfImageWidth, halfHeight - halfImageHeight , 1);
+			console.log(sprite)
+
+		}
+
+
+
+		const keyboardState = {}; // Objeto para almacenar el estado de las teclas presionadas
+
+		document.addEventListener('keydown', (event) => {
+			keyboardState[event.code] = true;
+		});
+
+		document.addEventListener('keyup', (event) => {
+			keyboardState[event.code] = false;
+		});
+
 
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
-		camera.position.set(2.623917589028803, 1.5523722813138823, -0.007796147599023889); // posicion de la camara (0, 5, 5) 
-		controls.target.set(-0.41405549994498525, 1.215009234103099, 0.19064399270873364);
+		camera.position.set(4.392896269791471, 2.5595138120172916, 0.3402221527192796); // posicion de la camara (0, 5, 5) 
+		controls.target.set(-0.4635177729052855, 2.37279817257186, 0.3076466115234572);
 
 		function centroflecha() {
-			camera.position.set(1.3220377470786526, 1.3541731065302292, -0.10744902105268447);
-			controls.target.set(-0.41891832061529294, 1.2872381782955329, -0.11912689398622633);
+			camera.position.set(1.351088356309295, 2.5699784395849394, 0.7015115437687262);
+			controls.target.set(-0.4776718258634109, 2.4516120883143437, 0.7729959524653404);
 		}
 
-
-
-
-		function Arribaflecha() {
-			camera.position.set(-0.022024585049454936, 2.572945991216031, -0.13774446070129626);
-			controls.target.set(-0.022024809003858285, 2.349041643407037, -0.13774445862701337);
+		function Derechaflecha() {
+			camera.position.set(-0.04301167125926145, 2.6131826458308764, -0.5088322837551023);
+			controls.target.set(-0.14794006744903476, 2.3788762058317654, 0.8868513800017561);
 		}
+		function Izquierdaflecha() {
+			camera.position.set(0.000734195804004939, 2.621712779629144, 1.7274071564896971);
+			controls.target.set(-0.10064350117795648, 2.516294002361346, 0.7973774927475255);
+		}
+
 
 		function zoom() {
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
@@ -671,7 +772,7 @@ height: 100% !important;
 
 
 		}
-		console.log(camera.position)
+		//console.log(camera.position)
 		function zoom3d() {
 			window.open("indexrelojvariosensayos.html", "hola", "width=400px, height=600px,")
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
@@ -686,7 +787,7 @@ height: 100% !important;
 			controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 		}
 		function open_manual() {
-			window.open("Manual_de_Torsion___DEF.pdf", "Laboratorio de tracción", "width=800px, height=1000px,")
+			window.open("Manual_carga_uniaxial_Flexion___DEF.pdf", "Laboratorio de tracción", "width=800px, height=1000px,")
 			// camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			// //camera.position.y=3 // posicison de la camara (0, 5, 5)
 			// controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
@@ -704,9 +805,30 @@ height: 100% !important;
 				D = 6.4;
 
 			} else if (Diaetro_barra_en_mm == "Numero3") {
-				D = 12;
+				D = 9.5;
+
+			} else if (Diaetro_barra_en_mm == "Numero4") {
+				D = 12.7;
+			} else if (Diaetro_barra_en_mm == "Numero5") {
+				D = 15.9;
+			} else if (Diaetro_barra_en_mm == "Numero6") {
+				D = 19.1;
+			} else if (Diaetro_barra_en_mm == "Numero7") {
+				D = 22.2;
+			} else if (Diaetro_barra_en_mm == "NUmero8") {
+				D = 25.4;
+			} else if (Diaetro_barra_en_mm == "Numero9") {
+				D = 28.7;
+			} else if (Diaetro_barra_en_mm == "Numero10") {
+				D = 32.3;
+			} else if (Diaetro_barra_en_mm == "Numero11") {
+				D = 35.8;
+			} else if (Diaetro_barra_en_mm == "Numero14") {
+				D = 43;
+			} else if (Diaetro_barra_en_mm == "Numero18") {
+				D = 57.3;
 			}
-			console.log(D)
+			//console.log(D)
 		}
 
 
@@ -742,6 +864,26 @@ height: 100% !important;
 
 		}
 
+
+		//Sonido TRUENO
+		// // create an AudioListener and add it to the camera
+		// const listener = new THREE.AudioListener();
+		// camera.add(listener);
+
+		// // create a global audio source
+		// const soundTrueno = new THREE.Audio(listener);
+
+		// // load a sound and set it as the Audio object's buffer
+		// const audioLoader = new THREE.AudioLoader();
+		// audioLoader.load('Trueno_Vacio_ogg.ogg', function (buffer) {
+		// 	soundTrueno.setBuffer(buffer);
+		// 	soundTrueno.setLoop(true);
+		// 	soundTrueno.setVolume(0.5);
+
+		// });
+
+		//Sonido FIN DEL TRUENO
+
 		var iniciar_ = false;
 		var max_y_canvas = 0;
 		var max_x_canvas = 0;
@@ -762,11 +904,6 @@ height: 100% !important;
 
 		var archivo_datos = [];
 
-
-		var mixer;
-		var clock = new THREE.Clock();
-
-
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
@@ -775,17 +912,7 @@ height: 100% !important;
 
 			if (iniciar_) {
 
-				var delta = clock.getDelta();
-
-				if (mixer) mixer.update(delta / 5.353); //if ( mixer ) mixer.update( delta/5.353);
-
-				renderer.render(scene, camera);
-
-
-
-				var Momento_Polar_inercia =( Math.PI * (D / 2) * (D / 2) * (D / 2) * (D / 2) ) / 2;
-				console.log('el momento polar es ' + Momento_Polar_inercia)
-
+				var Area = Math.PI * (D / 2) * (D / 2);
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
@@ -795,30 +922,47 @@ height: 100% !important;
 
 						var datos_traccion;
 
-						datos_traccion = [];
-
 						switch (document.getElementById('select_barra').value) {
-							case 'Torsion_Ductil':
-								datos_traccion = Torsion_Ductil;
+							case 'Acero_A36':
+								datos_traccion = Acero_A36;
 								break;
-							case 'Torsion_Fragil':
-								datos_traccion = Torsion_Fragil;
+							case 'Acero_A514':
+								datos_traccion = Acero_A514;
+								break;
+							case 'Acero_A572':
+								datos_traccion = Acero_A572;
+								break;
+							case 'Trac_Acer_Corten':
+								datos_traccion = Trac_Acer_Corten;
+								break;
+							case 'Acero_A588':
+								datos_traccion = Acero_A588;
+								break;
+							case 'Trac_Acer_Alum':
+								datos_traccion = Trac_Acer_Alum;
+								break;
+							case 'Trac_ASTM_A37':
+								datos_traccion = Trac_ASTM_A37;
+								break;
+							case 'Trac_ASTM_A48':
+								datos_traccion = Trac_ASTM_A48;
+								break;
+							case 'Trac_ASTM_A53':
+								datos_traccion = Trac_ASTM_A53;
+								break;
+							case 'Trac_ASTM_A370':
+								datos_traccion = Trac_ASTM_A370;
+								break;
+							case 'Trac_ASTM_A572':
+								datos_traccion = Trac_ASTM_A572;
 								break;
 						}
 
-						var minrandom = 0;
-						var maxrandom = 1;
 
-
-
-						var yradnom = Math.random() * (maxrandom - minrandom) + minrandom;
-
-
-						new_vec = datos_traccion;
 
 
 						var fila_ = datos_traccion[cant]
-						var new_vec = [fila_[0] *Alt * 57.2958 / (D/2) , ((Ruido() + fila_[1]) * Momento_Polar_inercia / (D/2))/1000];
+						var new_vec = [fila_[0] * Alt, (Ruido() + fila_[1]) * Area / 1000];
 
 						if (archivo_datos.length == cant) {
 							archivo_datos.push(new_vec);
@@ -831,8 +975,10 @@ height: 100% !important;
 
 
 						var margen = 1;
-						if (contador_barra1.length % 31 == 0) {
+						if (contador_barra1.length % 10 == 0) {
 
+							// margen = new_vec[cant][1] * 0.15;
+							// margenx = new_vec[cant][0] > 1 ? new_vec[cant][0] * 0.20 : 1;
 							margen = archivo_datos[cant][1] * 0.15;
 							margenx = archivo_datos[cant][0] > 1 ? archivo_datos[cant][0] * 0.20 : 1;
 							//console.log(margen)
@@ -850,23 +996,26 @@ height: 100% !important;
 							/*console.log(chart.data.datasets[0].data[cant].x)
 */
 							let prierox = chart.data.datasets[0].data[cant].x;
-							let segundoy = chart.data.datasets[0].data[cant].y
-							console.log(prierox)
-							console.log(segundoy)
-							document.getElementById('Angulo').value = prierox.toFixed(3);
+							let segundoy = chart.data.datasets[0].data[cant].y;
+
+							document.getElementById('Alargamiento').value = prierox.toFixed(3);
 							document.getElementById('Carga').value = segundoy.toFixed(3);
 						}
+
 					} else {
 						garra.position.y = 0.35
-						scene.remove(barra_tosricion)
-						scene.add(barra_tosricion_cortado)
-
+					//	soundTrueno.play();
 					}
-					console.log(garra.position.y)
+					//	console.log(garra.position.y)
 				}
 
 			}
+			vector.x = (window.innerWidth * dpr / 2 ) - (textureSize / 2);
+			vector.y = (window.innerHeight * dpr / 2) - (textureSize/2);
+			//console.log(vector);
+			renderer.copyFramebufferToTexture( vector, texture );
 			renderer.render(scene, camera);
+			
 		}
 
 		function descaga() {
@@ -875,29 +1024,36 @@ height: 100% !important;
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
 
-			var header1 = ["Ángulo (grad)"];
-			var header2 = ["Torque (N-m)"];
+
+			var header1 = ["Alargamiento (mm)"];
+			var header2 = ["Carga (kN)"];
 			XLSX.utils.sheet_add_aoa(ws, [header1], { origin: "A1" });
 			XLSX.utils.sheet_add_aoa(ws, [header2], { origin: "B1" });
 			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
-
 			/* generate an XLSX file */
 			XLSX.writeFile(wb, "Datos.xlsx");
-			descargarPDF('Laboratorio_de_Resistencia_de_Materiales__torsión____DEF.pdf');
+			descargarPDF('Lab_1___Resistencia_de_materiales.pdf');
 		}
+
 		function descargarPDF(url) {
 			var link = document.createElement('a');
 			link.href = url;
-			link.download = 'Laboratorio_Torsion.pdf';
+			link.download = 'Laboratorio_traccion.pdf';
 			link.target = '_blank';
 			document.body.appendChild(link);
 			link.click();
 			document.body.removeChild(link);
 		}
+		
+		
+
 
 		animate()
+		
+
 
 		function iniciar() {
+			// musica()
 
 			var altura = document.getElementById('Altura').value;
 			if (altura < 30 || altura > 200) {
@@ -912,10 +1068,14 @@ height: 100% !important;
 				})
 
 			} else {
+
 				document.getElementById("ventanamini2d").style.display = "block";
-				document.getElementById('mini2d').src = "index2dcorta_torsion.html";
+				document.getElementById('mini2d').src = "index2dcorta_traccion.html";
+
 				//open_win();
 			}
+			scene.add( sprite );
+		console.log(sprite)
 
 		}
 
@@ -932,7 +1092,7 @@ height: 100% !important;
 
 		// Load a glTF resource
 		loader.load(
-			'Lab_Torsion4.gltf',//'scene.gltf'   Escenario y maquina sin barra
+			'salontraccion.glb',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -960,7 +1120,7 @@ height: 100% !important;
 
 		// Load a glTF resource
 		loader2.load(
-			'vacio.gltf',//'scene.gltf'
+			'Garra.gltf',//'scene.gltf'
 			function (gltf) {
 				garra = gltf.scene;
 				scene.add(garra);
@@ -990,102 +1150,33 @@ height: 100% !important;
 
 
 
-		// Instantiate a loader
-		const loader3 = new THREE.GLTFLoader();
 
-		// Load a glTF resource
-		loader3.load(
-			'barra_danada.gltf',//'scene.gltf'  barra cortada escena ultima, antigua
-			function (gltf) {
-				barra_tosricion_cortado = gltf.scene;
-				scene.add(barra_cortaa);
-				gltf.animations; // Array<THREE.AnimationClip>
-				gltf.scene; // THREE.Group
-				gltf.scenes; // Array<THREE.Group>
-				gltf.cameras; // Array<THREE.Camera>
-				gltf.asset; // Object
+	// 	function musica() {
+	// 	// create an AudioListener and add it to the camera
+	// 	const listener = new THREE.AudioListener();
+	// 	camera.add(listener);
 
-				console.log('completado!.....')
-				barra_tosricion_cortado.position.z += -0.23
-				barra_tosricion_cortado.position.x += 0
-				barra_tosricion_cortado.position.y += 1.35
-				barra_tosricion_cortado.scale.z = 0.08
-				barra_tosricion_cortado.scale.y = 0.04
-				barra_tosricion_cortado.scale.x = 0.04
-				renderer.render(scene, camera);
+	// 	// create a global audio source
+	// 	const sound = new THREE.Audio(listener);
 
-			},
-			// called while loading is progressing
-			function (xhr) {
-				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-			},
-			// called when loading has errors
-			function (error) {
-				//	console.log('An error happened');
-			}
-		);
+	// 	// load a sound and set it as the Audio object's buffer
+	// 	const audioLoader = new THREE.AudioLoader();
+	// 	audioLoader.load('sound_ogg_Sin_Trueno.ogg', function (buffer) {
+	// 		sound.setBuffer(buffer);
+	// 		sound.setLoop(true);
+	// 		sound.setVolume(0.5);
+	// 		sound.play();
+	// 	});
 
-		// Instantiate a loader
-		const loader4 = new THREE.GLTFLoader();
+	// };
 
-		// Load a glTF resource
-		loader4.load(
-			'barraPintada_movimie.gltf',//'scene.gltf'
-			function (gltf) {
+		// function musicaquitar() {
+		// 	sound.setVolume(0);
+		// };
 
-				barra_tosricion = gltf.scene;
-
-				mixer = new THREE.AnimationMixer(gltf.scene);
-
-				//gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
-
-				const clock = new THREE.Clock();
-				var clip = gltf.animations[0];
-				var action = mixer.clipAction(clip);
-				action.loop = THREE.LoopOnce;
-				action.clampWhenFinished = true;
-				action.play();
-
-
-				console.log('completado!.....')
-				barra_tosricion.position.z += -0.23 //Lados
-				barra_tosricion.position.x += 0 //en frente
-				barra_tosricion.position.y += 1.35 //arriba 1.35
-				barra_tosricion.scale.z = 0.08
-				barra_tosricion.scale.y = 0.04
-				barra_tosricion.scale.x = 0.04
-				scene.add(gltf.scene);
-				renderer.render(scene, camera);
-
-			},
-			// called while loading is progressing
-			function (xhr) {
-				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-			},
-			// called when loading has errors
-			function (error) {
-				//	console.log('An error happened');
-			}
-		);
-
-
-
-		// create an AudioListener and add it to the camera
-		// const listener = new THREE.AudioListener();
-		// camera.add(listener);
-
-		// // create a global audio source
-		// const sound = new THREE.Audio(listener);
-
-		// // load a sound and set it as the Audio object's buffer
-		// const audioLoader = new THREE.AudioLoader();
-		// audioLoader.load('sound_ogg.ogg', function (buffer) {
-		// 	sound.setBuffer(buffer);
-		// 	sound.setLoop(true);
+		// function musicaTrue() {
 		// 	sound.setVolume(0.5);
-		// 	sound.play();
-		// });
-
+		// };
 
 
 		/*
