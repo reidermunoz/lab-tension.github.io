@@ -353,8 +353,8 @@
 
 
 	<div class="position-fixed venta2d_style" id="ventanamini2d"
-		style="bottom: 0px;right:0px;height: 200px;width: 200px;background-color: #ffffff;overflow: hidden;display: block;border:1px solid">
-		<div id="vistaMiniatura" style="width: 200px;height: 200px;"></div>
+		style="bottom: 0px;right:0px;height: 350px;width: 350px;background-color: #ffffff;overflow: hidden;display: block;border:1px solid">
+		<div id="vistaMiniatura" style="width: 350px;height: 350px;"></div>
 		<!--
 		
 		<iframe id="mini2d" onload="iframeMini2dLoaded()" src=""
@@ -626,7 +626,7 @@
 
 		// Cámara y renderizador para la miniatura
 		var contenedorMiniatura = document.getElementById('vistaMiniatura');
-		var thumbnailCamera = new THREE.PerspectiveCamera(75, 1, 0.9, 1000);
+		var thumbnailCamera = new THREE.PerspectiveCamera(45, 1, 0.9, 1000);
 		thumbnailCamera.position.set(1.5,1.5,-3);
 
 
@@ -954,16 +954,9 @@
 
 			
 
-			thumbnailCamera.position.set(1,1.76,-3.5);
+			thumbnailCamera.position.set(1,1.76,-3.49);
 			thumbnailCamera.rotation.set(2.82,-4.7,-2.82);
 			console.log(tempcont)
-			//thumbnailCamera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713);
-			//thumbnailCamera.quaternion.set(0.63,-0.01,0.77,0.024);
-
-
-			
-	
-
 
 			rendererMiniatura.render(scene, thumbnailCamera);
 		}
