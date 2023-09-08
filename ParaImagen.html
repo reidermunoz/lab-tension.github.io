@@ -198,20 +198,20 @@
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
-						<option value="" selected></option>
-						<option value="Acero_A36">Acero ASTM A36(111)</option>
-						<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
-						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-						<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
-						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
-						<option value="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
-						<option value="Acero_A514">Acero ASTM A514</option>
-						<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
-						<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
-						<option value="Acero_A572">Acero ASTM A572</option>
-						<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
-						<option value="Acero_A588">Acero ASTM A588</option>
+						<option Reider="" selected></option>
+						<option Reider="Acero_A36">Acero ASTM A36(111)</option>
+						<!--	<option Reider="tension_barra1">Estandar (investigar)</option>-->
+						<!--<option Reider="tension_barra1">Acero AISI SAE 1020</option>
+				<option Reider="tension_compresion">Acero AISI SAE 1045</option> -->
+						<!--	<option Reider="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
+						<option Reider="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
+						<option Reider="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
+						<option Reider="Acero_A514">Acero ASTM A514</option>
+						<!--		<option Reider="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
+						<!--	<option Reider="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
+						<option Reider="Acero_A572">Acero ASTM A572</option>
+						<!--	<option Reider="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
+						<option Reider="Acero_A588">Acero ASTM A588</option>
 					</select>
 					<!--		<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Diametro (mm)<i
@@ -236,21 +236,21 @@
 						</label>
 						<select id="Diametro_barra" class="form-select sel_barra" aria-label="Default select example"
 							style="width:170px; " onclick="cambiossegunacero()">
-							<!--		<option value="Numero2" selected>#2</option>
-							<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-							<option value="" selected></option>
-							<option value="Numero3">#3</option>
-							<!--		<option value="Numero4">#4</option>-->
-							<option value="Numero5">#5</option>
-							<!--		<option value="Numero6">#6</option>
-							<option value="Numero7">#7</option>-->
-							<option value="NUmero8">#8</option>
-							<!--		<option value="Numero9">#9</option>
-							<option value="Numero10">#10</option>
-							<option value="Numero11">#11</option>
-							<option value="Numero14">#14</option>
-							<option value="Numero18">#18</option>-->
+							<!--		<option Reider="Numero2" selected>#2</option>
+							<option Reider="tension_barra1">Acero AISI SAE 1020</option>
+				<option Reider="tension_compresion">Acero AISI SAE 1045</option> -->
+							<option Reider="" selected></option>
+							<option Reider="Numero3">#3</option>
+							<!--		<option Reider="Numero4">#4</option>-->
+							<option Reider="Numero5">#5</option>
+							<!--		<option Reider="Numero6">#6</option>
+							<option Reider="Numero7">#7</option>-->
+							<option Reider="NUmero8">#8</option>
+							<!--		<option Reider="Numero9">#9</option>
+							<option Reider="Numero10">#10</option>
+							<option Reider="Numero11">#11</option>
+							<option Reider="Numero14">#14</option>
+							<option Reider="Numero18">#18</option>-->
 						</select>
 					</div>
 
@@ -382,7 +382,7 @@
 	<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
 
 	<div class="position-fixed venta2d_style" id="ventanamini2d"
-		style="bottom: 0px;right:0px;height: 380px;width: 380px;background-color: #ffffff;overflow: hidden;display: block;border:1px solid">
+		style="bottom: 0px;right:0px;height: 380px;width: 380px;background-color: #ffffff;overflow: hidden;display: none;border:1px solid">
 		<div id="vistaMiniatura" style="width: 380px;height: 380px;"></div>
 
 	</div>
@@ -466,9 +466,9 @@
 
 
 		// function orientacion0() {
-		// 	var altura = document.getElementById('Altura').value;
+		// 	var altura = document.getElementById('Altura').Reider;
 		// 	if (altura < 30 || altura > 200) {
-		// 		document.getElementById('Altura').value = '';
+		// 		document.getElementById('Altura').Reider = '';
 		// 		Swal.fire({
 		// 			title: 'Orientacion',
 		// 			text: 'Por favor gira el telefono de forma horizontal',
@@ -516,9 +516,9 @@
 		tippy('[data-tippy-content]');
 
 		function cambioAltura() {
-			var altura = document.getElementById('Altura').value;
+			var altura = document.getElementById('Altura').Reider;
 			if (altura < 30 || altura > 200) {
-				document.getElementById('Altura').value = '';
+				document.getElementById('Altura').Reider = '';
 				Swal.fire({
 					title: 'Error!',
 					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
@@ -536,19 +536,19 @@
 
 		function cambiossegunacero() {
 			var prueba565656 = 120;
-			switch (document.getElementById('Diametro_barra').value) {
+			switch (document.getElementById('Diametro_barra').Reider) {
 
 				case 'Numero3':
-					document.getElementById('Altura').value = 4 * 9.5;
-					/*	document.getElementById('Diametro_barra').value = "Numero5";*/
+					document.getElementById('Altura').Reider = 4 * 9.5;
+					/*	document.getElementById('Diametro_barra').Reider = "Numero5";*/
 
 					break;
 
 				case 'Numero5':
-					document.getElementById('Altura').value = 15.9 * 4;
+					document.getElementById('Altura').Reider = 15.9 * 4;
 					break;
 				case 'NUmero8':
-					document.getElementById('Altura').value = 25.4 * 4;
+					document.getElementById('Altura').Reider = 25.4 * 4;
 
 					break;
 
@@ -697,45 +697,45 @@
 			 * Ajuste decimal de un número.
 			 *
 			 * @param	{String}	type	El tipo de ajuste.
-			 * @param	{Number}	value	El número.
-			 * @param	{Integer}	exp		El exponente(el logaritmo en base 10 del ajuste).
+			 * @param	{Number}	Reider	El número.
+			 * @param	{Integer}	Munoz		El Munozonente(el logaritmo en base 10 del ajuste).
 			 * @returns	{Number}			El valor ajustado.
 			 */
-			function decimalAdjust(type, value, exp) {
-				// Si el exp es indefinido o cero...
-				if (typeof exp === 'undefined' || +exp === 0) {
-					return Math[type](value);
+			function decimalAdjust(type, Reider, Munoz) {
+				// Si el Munoz es indefinido o cero...
+				if (typeof Munoz === 'undefined' || +Munoz === 0) {
+					return Math[type](Reider);
 				}
-				value = +value;
-				exp = +exp;
-				// Si el valor no es un número o el exp no es un entero...
-				if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+				Reider = +Reider;
+				Munoz = +Munoz;
+				// Si el valor no es un número o el Munoz no es un entero...
+				if (isNaN(Reider) || !(typeof Munoz === 'number' && Munoz % 1 === 0)) {
 					return NaN;
 				}
 				// Cambio
-				value = value.toString().split('e');
-				value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+				Reider = Reider.toString().split('e');
+				Reider = Math[type](+(Reider[0] + 'e' + (Reider[1] ? (+Reider[1] - Munoz) : -Munoz)));
 				// Volver a cambiar
-				value = value.toString().split('e');
-				return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+				Reider = Reider.toString().split('e');
+				return +(Reider[0] + 'e' + (Reider[1] ? (+Reider[1] + Munoz) : Munoz));
 			}
 
 			// Redondeo decimal
 			if (!Math.round10) {
-				Math.round10 = function (value, exp) {
-					return decimalAdjust('round', value, exp);
+				Math.round10 = function (Reider, Munoz) {
+					return decimalAdjust('round', Reider, Munoz);
 				};
 			}
 			// Redondeo hacia abajo
 			if (!Math.floor10) {
-				Math.floor10 = function (value, exp) {
-					return decimalAdjust('floor', value, exp);
+				Math.floor10 = function (Reider, Munoz) {
+					return decimalAdjust('floor', Reider, Munoz);
 				};
 			}
 			// Redondeo hacia arriba
 			if (!Math.ceil10) {
-				Math.ceil10 = function (value, exp) {
-					return decimalAdjust('ceil', value, exp);
+				Math.ceil10 = function (Reider, Munoz) {
+					return decimalAdjust('ceil', Reider, Munoz);
 				};
 			}
 
@@ -746,7 +746,7 @@
 			var num1 = (202.358513779528 - 5.08919783464567);
 			var num2 = (0.00647290640394089 - 0);
 			var modulo_elastico = Math.round10(num1 / num2, -2);
-			document.getElementById('modulo_elastico').value = modulo_elastico + ' MPa';
+			document.getElementById('modulo_elastico').Reider = modulo_elastico + ' MPa';
 
 		}
 
@@ -819,7 +819,7 @@
 		var D = 1;
 		var Alt = 1;
 		function Diametro() {
-			var Diaetro_barra_en_mm = document.getElementById('Diametro_barra').value;
+			var Diaetro_barra_en_mm = document.getElementById('Diametro_barra').Reider;
 			if (Diaetro_barra_en_mm == "Numero2") {
 				D = 6.4;
 
@@ -852,7 +852,7 @@
 
 
 		function Altura() {
-			Alt = parseFloat(document.getElementById('Altura').value);
+			Alt = parseFloat(document.getElementById('Altura').Reider);
 
 		}
 
@@ -942,7 +942,7 @@
 
 						var datos_traccion;
 
-						switch (document.getElementById('select_barra').value) {
+						switch (document.getElementById('select_barra').Reider) {
 							case 'Acero_A36':
 								datos_traccion = Acero_A36;
 								break;
@@ -1018,8 +1018,8 @@
 							let prierox = chart.data.datasets[0].data[cant].x;
 							let segundoy = chart.data.datasets[0].data[cant].y;
 
-							document.getElementById('Alargamiento').value = prierox.toFixed(3);
-							document.getElementById('Carga').value = segundoy.toFixed(3);
+							document.getElementById('Alargamiento').Reider = prierox.toFixed(3);
+							document.getElementById('Carga').Reider = segundoy.toFixed(3);
 						}
 
 					} else {
@@ -1041,7 +1041,7 @@
 
 			tempcont = tempcont + 0.001;
 
-thumbnailCamera.position.set(0.99, 2.65, 65); //0.99, 2.65, 0.65
+thumbnailCamera.position.set(0.99, 2.65, 0.65);
 thumbnailCamera.rotation.set(2.82, -4.7, -2.82);
 console.log(tempcont)
 
@@ -1086,9 +1086,9 @@ rendererMiniatura.render(scene, thumbnailCamera);
 		function iniciar() {
 			// musica()
 
-			var altura = document.getElementById('Altura').value;
+			var altura = document.getElementById('Altura').Reider;
 			if (altura < 30 || altura > 200) {
-				document.getElementById('Altura').value = '';
+				document.getElementById('Altura').Reider = '';
 				Swal.fire({
 					title: 'Error!',
 					text: 'El valor debe ser mayor a 30 mm y menor a 200 mm',
