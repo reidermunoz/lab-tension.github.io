@@ -129,8 +129,7 @@
 			<div class="col-md-2" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary"
 					href="indexrelojvariosensayos_compresion_madera_Perpendicular.html">Compresión</a>
-					<a class="btn btn-sm btn-outline-secondary"
-					href="aa.html">aa</a>
+				<a class="btn btn-sm btn-outline-secondary" href="aa.html">aa</a>
 				<a class="btn btn-sm btn-outline-secondary"
 					href="indexrelojvariosensayos_flexionanimacion.html">Flexión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="index_torsion_Ductil_90.html">Torsión</a>
@@ -368,7 +367,7 @@
 	<div class="position-fixed venta2d_style" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 380px;width: 380px;background-color: #ffffff;overflow: hidden;display: block;border:1px solid">
 		<div id="vistaMiniatura" style="width: 380px;height: 380px;"></div>
-	
+
 	</div>
 
 	<!-- <div class="position-fixed venta2d_style" id="ventanamini2d"
@@ -664,8 +663,8 @@
 
 		// Cámara y renderizador para la miniatura
 		var contenedorMiniatura = document.getElementById('vistaMiniatura');
-		var thumbnailCamera = new THREE.PerspectiveCamera(45, 1, 0.9, 1000);
-		thumbnailCamera.position.set(1.5,1.5,-3);
+		var thumbnailCamera = new THREE.PerspectiveCamera(35, 1, 0.9, 1000);
+		thumbnailCamera.position.set(1.5, 1.5, -3);
 
 
 
@@ -1016,11 +1015,11 @@
 			}
 			renderer.render(scene, camera);
 
-			
-			tempcont = tempcont +0.001;
 
-			thumbnailCamera.position.set(0.99,2.5699784395849394, 0.7015115437687262);
-			thumbnailCamera.rotation.set(2.82,-4.7,-2.82);
+			tempcont = tempcont + 0.001;
+
+			thumbnailCamera.position.set(0.99, 2.65, 0.7015115437687262);
+			thumbnailCamera.rotation.set(2.82, -4.7, -2.82);
 			console.log(tempcont)
 
 			rendererMiniatura.render(scene, thumbnailCamera);
