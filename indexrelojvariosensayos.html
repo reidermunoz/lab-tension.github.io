@@ -146,7 +146,7 @@
 			<div class="col-md-2" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary"
 					href="indexrelojvariosensayos_compresion_madera_Perpendicular.html">Compresión</a>
-			
+
 				<a class="btn btn-sm btn-outline-secondary"
 					href="indexrelojvariosensayos_flexionanimacion.html">Flexión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="index_torsion_Ductil_90.html">Torsión</a>
@@ -271,8 +271,8 @@
 
 				</form>
 				<div style="text-align: center;" class="mt-3">
-					<button type="button" name="button_iniciar" id="button_iniciar"
-						onclick="iniciar()" class="btn btn-secondary">Iniciar</button>
+					<button type="button" name="button_iniciar" id="button_iniciar" onclick="iniciar()"
+						class="btn btn-secondary">Iniciar</button>
 					<!-- <a type="button" name="button_iniciar" id="button_iniciar" onclick="Diametro(), Altura(), iniciar()" class="btn btn-secondary"><span class="fa fa-check"></span>Iniciar</a> -->
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
 					<a type="button" href="indexrelojvariosensayos.html" class="btn btn-primary">Reiniciar</a>
@@ -1028,12 +1028,12 @@
 					}
 					//	console.log(garra.position.y)
 
-					
-			
+
+
 				}
 
-				
-				
+
+
 
 			}
 			renderer.render(scene, camera);
@@ -1041,11 +1041,11 @@
 
 			tempcont = tempcont + 0.001;
 
-thumbnailCamera.position.set(0.99, 2.65, 65); //0.99, 2.65, 0.65
-thumbnailCamera.rotation.set(2.82, -4.7, -2.82);
-//console.log(tempcont)
+			thumbnailCamera.position.set(0.99, 2.65, 0.65); //0.99, 2.65, 0.65
+			thumbnailCamera.rotation.set(2.82, -4.7, -2.82);
+			//console.log(tempcont)
 
-rendererMiniatura.render(scene, thumbnailCamera);
+			rendererMiniatura.render(scene, thumbnailCamera);
 
 
 		}
