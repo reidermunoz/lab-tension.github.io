@@ -296,7 +296,7 @@
 				<div style="text-align: center;" class="mt-3">
 					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
 					<button type="button" name="button_iniciar" id="button_iniciar"
-						onclick="Altura(),alt_per(),base_per(), iniciar()" class="btn btn-secondary">Iniciar</button>
+						onclick="iniciar()" class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
 					<a type="button" href="indexrelojvariosensayos_compresion_madera_Perpendicular.html"
 						class="btn btn-primary">Reiniciar</a>
@@ -991,7 +991,7 @@
 
 			thumbnailCamera.position.set(1, 1.6, -0); //profundidad,elevacion,transversal
 			thumbnailCamera.rotation.set(2.82, -4.7, -2.82);
-			console.log(tempcont)
+			//console.log(tempcont)
 
 			rendererMiniatura.render(scene, thumbnailCamera);
 
@@ -1029,6 +1029,9 @@
 
 
 		function iniciar() {
+			Altura();
+			alt_per();
+			base_per();
 
 			var altura = document.getElementById('Altura').value;
 			if (altura < 20 || altura > 200) {
@@ -1043,17 +1046,21 @@
 				})
 
 			} else {
-				document.getElementById("ventanamini2d").style.display = "block";
-				document.getElementById('mini2d').src = "index2dcorta_compr_madera_perpendicular.html";
-				open_win();
+
+				iniciar_ = true;
+
+
+				// document.getElementById("ventanamini2d").style.display = "block";
+				// document.getElementById('mini2d').src = "index2dcorta_compr_madera_perpendicular.html";
+				// open_win();
 			}
 
 		}
 
-		function iframeMini2dLoaded() {
-			iniciar_ = true;
+		// function iframeMini2dLoaded() {
+		// 	iniciar_ = true;
 
-		}
+		// }
 
 		// Instantiate a loader
 		const loader = new THREE.GLTFLoader();
