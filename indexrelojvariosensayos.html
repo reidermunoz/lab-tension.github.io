@@ -200,17 +200,9 @@
 						onclick="cambiossegunacero()">
 						<option value="" selected></option>
 						<option value="Acero_A36">Acero ASTM A36(111)</option>
-						<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
-						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-						<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
-						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
 						<option value="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
 						<option value="Acero_A514">Acero ASTM A514</option>
-						<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
-						<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
 						<option value="Acero_A572">Acero ASTM A572</option>
-						<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
 						<option value="Acero_A588">Acero ASTM A588</option>
 					</select>
 					<!--		<div class="col-auto" style="width:180px">
@@ -227,9 +219,8 @@
 						<label class="form-label Num_barra"
 							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
 							barra <i data-tippy-content="Representación del diámetro de la barra"
-								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg"
-									width="16" height="16" fill="currentColor" class="bi bi-question-square-fill"
-									viewBox="0 0 16 16">
+								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 									<path
 										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
 								</svg></i>
@@ -931,6 +922,8 @@
 
 						var datos_traccion;
 
+
+
 						switch (document.getElementById('select_barra').value) {
 							case 'Acero_A36':
 								datos_traccion = Acero_A36;
@@ -966,9 +959,6 @@
 								datos_traccion = Trac_ASTM_A572;
 								break;
 						}
-
-
-
 
 						var fila_ = datos_traccion[cant]
 						var new_vec = [fila_[0] * Alt, (Ruido() + fila_[1]) * Area / 1000];
@@ -1040,20 +1030,73 @@
 		}
 
 		function descaga() {
-			var ws = XLSX.utils.json_to_sheet(archivo_datos);
 
+
+
+			var nombredeBarra;
+			var longBarra;
+			var nombre = document.getElementById('select_barra').value;
+
+			var numeroBarra;
+			var barraDaimetro = document.getElementById('Diametro_barra').value;
+			switch (nombre) {
+				case 'Acero_A36':
+					nombredeBarra = "Acero ASTM A36";
+					break;
+
+				case 'Trac_Acer_Alum':
+					nombredeBarra = "Aluminio 6061";
+					break;
+				case 'Acero_A514':
+					nombredeBarra = "Acero ASTM A514";
+					break;
+				case 'Acero_A572':
+					nombredeBarra = "Acero ASTM A572";
+					break;
+				case 'Acero_A588':
+					nombredeBarra = "Acero ASTM A588";
+					break;
+			}
+
+			switch (barraDaimetro) {
+				case 'Numero3':
+					numeroBarra = "#3";
+					longBarra = 38 ;
+
+					break;
+				case 'Numero5':
+					numeroBarra = "#5";
+					longBarra = 63.6 ;
+					break;
+				case 'NUmero8':
+					numeroBarra = "#8";
+					longBarra = 101.6 ;
+					break;
+			
+			}
+
+			archivo_datos[0][3] = nombredeBarra;
+			archivo_datos[0][4] = numeroBarra;
+			archivo_datos[0][5] = longBarra;
+
+			var ws = XLSX.utils.json_to_sheet(archivo_datos);
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
-
-
 			var header1 = ["Alargamiento (mm)"];
 			var header2 = ["Carga (kN)"];
+			var header3 = ["Tipo de Barra"];
+			var header4 = ["# de barra"];
+			var header5 = ["Longitud de la barra (mm)"];
+
 			XLSX.utils.sheet_add_aoa(ws, [header1], { origin: "A1" });
 			XLSX.utils.sheet_add_aoa(ws, [header2], { origin: "B1" });
+			XLSX.utils.sheet_add_aoa(ws, [header3], { origin: "C1" });
+			XLSX.utils.sheet_add_aoa(ws, [header4], { origin: "D1" });
+			XLSX.utils.sheet_add_aoa(ws, [header5], { origin: "E1" });
 			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
 			/* generate an XLSX file */
 			XLSX.writeFile(wb, "Datos.xlsx");
-			descargarPDF('Lab_1___Resistencia_de_materiales.pdf');
+			//descargarPDF('Lab_1___Resistencia_de_materiales.pdf');
 		}
 
 		function descargarPDF(url) {

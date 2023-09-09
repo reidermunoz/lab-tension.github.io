@@ -192,26 +192,11 @@ height: 100% !important;
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
 						<option value=""></option>
-						<!-- <option value="torsion_Cobre" >Cobre</option> -->
-						<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
-						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-						<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
-						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
 						<option value="Torsion_Ductil">Acero A36 (Ductil) </option>
 						<option value="Torsion_Fragil">Hierro fundido (Fragil) </option>
-						<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
-						<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
-						<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
+
 					</select>
-					<!--		<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Diametro (mm)<i
-								data-tippy-content="Texto de altura"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="number" class="form-control form-control-sm" name="Diametro" id="Diametro"
-							placeholder="">
-					</div>
--->
+
 
 
 					<div class="col-auto" style="width: 180px">
@@ -927,6 +912,31 @@ height: 100% !important;
 		}
 
 		function descaga() {
+			var nombredeBarra;
+			var longBarra;
+			var nombre = document.getElementById('select_barra').value;
+
+			var numeroBarra;
+
+			switch (nombre) {
+				case 'Torsion_Ductil':
+					nombredeBarra = "Acero A36";
+					numeroBarra = 12;
+					longBarra = 199;
+					break;
+
+				case 'Torsion_Fragil':
+					nombredeBarra = "Hierro fundido";
+					numeroBarra = 12.7;
+					longBarra = 199;
+					break;
+	
+			}
+			
+			archivo_datos[0][3] = nombredeBarra;
+			archivo_datos[0][4] = numeroBarra;
+			archivo_datos[0][5] = longBarra;
+
 			var ws = XLSX.utils.json_to_sheet(archivo_datos);
 
 			/* add to workbook */
@@ -934,13 +944,19 @@ height: 100% !important;
 
 			var header1 = ["Ángulo (grad)"];
 			var header2 = ["Torque (N-m)"];
+			var header3 = ["Tipo de Probeta"];
+			var header4 = ["Diametro de la barra (mm)"];
+			var header5 = ["Longitud de la barra (mm)"]
 			XLSX.utils.sheet_add_aoa(ws, [header1], { origin: "A1" });
 			XLSX.utils.sheet_add_aoa(ws, [header2], { origin: "B1" });
+			XLSX.utils.sheet_add_aoa(ws, [header3], { origin: "C1" });
+			XLSX.utils.sheet_add_aoa(ws, [header4], { origin: "D1" });
+			XLSX.utils.sheet_add_aoa(ws, [header5], { origin: "E1" });
 			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
 
 			/* generate an XLSX file */
 			XLSX.writeFile(wb, "Datos.xlsx");
-			descargarPDF('Laboratorio_de_Resistencia_de_Materiales__torsión____DEF.pdf');
+			//descargarPDF('Laboratorio_de_Resistencia_de_Materiales__torsión____DEF.pdf');
 		}
 		function descargarPDF(url) {
 			var link = document.createElement('a');
