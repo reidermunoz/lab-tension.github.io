@@ -145,8 +145,6 @@
 			</div>
 
 
-
-
 			<div class="col-md-2" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Tracción</a>
 				<a class="btn btn-sm btn-outline-secondary"
@@ -154,15 +152,6 @@
 				<a class="btn btn-sm btn-outline-secondary" href="index_torsion_Blanco.html">Torsión</a>
 			</div>
 
-			<!--	<div class="col-md-9" style="text-align: right;">s
-				
-				<a class="btn btn-sm btn-outline-secondary" href="index copy.html">aaTorsión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="https://reidermunoz.github.io/lab-tension.github.io/">SISTorsión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
-
-			</div>-->
 		</div>
 	</div>
 
@@ -179,9 +168,7 @@
 			<div class="card-header text-center bg-primary text-white">Ingrese los valores</div>
 
 			<div class="card-body">
-				<!--
-				<span style="text-align: center; padding: 0; padding-left: 100px; font-size: 30px;">Ingrese los datos de: </span>
-				-->
+
 				<form class="row g-2">
 
 					<label class="form-label mt-3"
@@ -199,12 +186,10 @@
 					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onchange="cambiossegunacero()">
 						<option value=""></option>
-						<!-- <option value="Copr_Acer_E9">ACERO (ASTM) E9</option> -->
 						<option value="Copr_Madera_Pino_Paralela">Madera (ASTM D143_Pino_Paralela) </option>
 						<option value="Copr_Madera_Pino_Perpendicular" selected>Madera (ASTM D143_Pino_Perpendicular)
 						</option>
-						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
+
 
 					</select>
 
@@ -228,36 +213,12 @@
 										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
 								</svg></i></label>
 						<input type="number" class="form-control form-control-sm" style="height:37px" name="Altura"
-							id="Altura" placeholder="" value="195" onchange="cambioAltura()">
+							id="Altura" placeholder="" value="195" onchange="cambioAltura()" disabled>
 					</div>
 
 
 					<div class="row g-2">
-						<!--
-						<label class="form-label"
-							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
-							barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
-						</label>
-
-						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
-							style="width:180px; ">
-							<option value="df" selected> </option>
-							<!-- <option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-						<!--
-							<option value="Numero1">28.96066083</option>
-							<option value="Numero4">#4</option>
-							<option value="Numero5">#5</option>
-							<option value="Numero6">#6</option>
-							<option value="Numero7">#7</option>
-							<option value="NUmero8">#8</option>
-							<option value="Numero9">#9</option>
-							<option value="Numero10">#10</option>
-							<option value="Numero11">#11</option>
-							<option value="Numero14">#14</option>
-							<option value="Numero18">#18</option>
-
-						</select> -->
+						
 
 						<div class="row">
 							<div class="col" style="width:180px">
@@ -271,7 +232,7 @@
 										</svg></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
 									name="base_perfil" id="base_perfil" placeholder="" value="45.1"
-									onchange="cambioAltura()">
+									onchange="cambioAltura()" disabled>
 							</div>
 							<div class="col" style="width:180px">
 								<label class="form-label" style="font-size: 14px">Canto (mm) <i
@@ -284,7 +245,7 @@
 										</svg></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
 									name="altura_perfil" id="altura_perfil" placeholder="" value="70.9"
-									onchange="cambioAltura()">
+									onchange="cambioAltura()" disabled>
 							</div>
 						</div>
 
@@ -542,8 +503,10 @@
 					break;
 
 				default:
-					document.getElementById('Altura').value = '';
-					document.getElementById('Diametro_barra').value = "";
+				document.getElementById('Altura').value = '';
+					document.getElementById('altura_perfil').value = '';
+					document.getElementById('base_perfil').value = '';
+					location.href = "indexrelojvariosensayos_compresion_madera_blanco.html";
 
 			}
 

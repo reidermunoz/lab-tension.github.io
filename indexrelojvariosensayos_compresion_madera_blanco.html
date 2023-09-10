@@ -4,7 +4,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Laboratorio de flexión - Universidad del Valle - Reider Muñoz</title>
+	<title>Laboratorio de compresion madera - Universidad del Valle - Reider Muñoz</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -31,12 +31,6 @@
 
 
 	<style>
-		.responsive {
-			width: 100%;
-			height: auto;
-		}
-
-
 		html,
 		body {
 			margin: 0;
@@ -65,7 +59,6 @@
 
 			}
 		}
-
 
 		@media only screen and (min-width: 360px) and (max-width: 1000px) {
 
@@ -143,21 +136,24 @@
 					<span class="fs-8">LABORATORIOS VIRTUALES</span>
 				</a>
 			</div>
+
 			<div class="col-md-6" style="text-align: center;">
-				<h4>LABORATORIO DE FLEXIÓN</h4>
+				<h4>LABORATORIO DE COMPRESIÓN</h4>
+
 			</div>
 
 			<div class="col-md-1" style="text-align: left;">
-				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual Flexión</a>
+				<a class="btn btn-sm btn-outline-secondary" onclick="open_manual()">Manual compresión</a>
 			</div>
+
+
+
 
 			<div class="col-md-2" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos.html">Tracción</a>
 				<a class="btn btn-sm btn-outline-secondary"
-					href="indexrelojvariosensayos_compresion_madera_blanco.html">Compresión</a>
+					href="indexrelojvariosensayos_flexionanimacion.html">Flexión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="index_torsion_Blanco.html">Torsión</a>
-
-				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsion</a> -->
 			</div>
 
 			<!--	<div class="col-md-9" style="text-align: right;">s
@@ -167,6 +163,7 @@
 				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
 				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
+
 			</div>-->
 		</div>
 	</div>
@@ -191,8 +188,9 @@
 
 					<label class="form-label mt-3"
 						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo
-						de Probeta <i
-							data-tippy-content="Tipo de la muestra del material el cual se le va a llevar a cabo prueba a flexión de sección rectangular"
+						de
+						Probeta <i
+							data-tippy-content="Tipo de la muestra del material el cual se le va a llevar a cabo prueba a compresión de sección rectangular"
 							class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 								fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 								<path
@@ -201,68 +199,44 @@
 					</label>
 
 					<select id="select_barra" class="form-select" aria-label="Default select example"
-						onclick="cambiossegunacero()">
-						<option value="" selected> </option>
-						<option value="Copr_Madera_AStm_D_143">Madera de pino </option>
-						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-
+						onchange="cambiossegunacero()">
+						<option value="" selected></option>
+						<option value="Copr_Madera_Pino_Paralela">Madera (ASTM D143_Pino_Paralela) </option>
+						<option value="Copr_Madera_Pino_Perpendicular">Madera (ASTM D143_Pino_Perpendicular) </option>
+				
 					</select>
 
 
 
-					<!--		<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Diametro (mm)<i
-								data-tippy-content="Texto de altura"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="number" class="form-control form-control-sm" name="Diametro" id="Diametro"
-							placeholder="">
-					</div>
-
--->
 					<div class="lbl">
 						<label class="form-label" style="font-size: 14px">Longitud inicial (mm) <i
-								data-tippy-content="Distancia entre los puntos de apoyo" class="text-primary"><svg
-									xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-									class="bi bi-question-square-fill" viewBox="0 0 16 16">
+								data-tippy-content="Longitud entre las prensas, representando la longitud calibrada de la probeta"
+								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 									<path
 										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
 								</svg></i></label>
 						<input type="number" class="form-control form-control-sm" style="height:37px" name="Altura"
-							id="Altura" placeholder="" onchange="cambioAltura()">
+							id="Altura" placeholder=""  onchange="cambioAltura()" disabled>
 					</div>
 
 
 					<div class="row g-2">
-						<!--
-						<label class="form-label"
-							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
-							barra<i data-tippy-content="Texto de Probeta" class="ti ti-question-mark text-primary"></i>
-						</label>
-
-						<select id="Diametro_barra" class="form-select" aria-label="Default select example"
-							style="width:180px; ">
-							<option value="df" selected> </option>
-							<!-- <option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-						<!--
-							<option value="Numero1">28.96066083</option>
-							<option value="Numero4">#4</option>
-							<option value="Numero5">#5</option>
-							<option value="Numero6">#6</option>
-							<option value="Numero7">#7</option>
-							<option value="NUmero8">#8</option>
-							<option value="Numero9">#9</option>
-							<option value="Numero10">#10</option>
-							<option value="Numero11">#11</option>
-							<option value="Numero14">#14</option>
-							<option value="Numero18">#18</option>
-
-						</select> -->
-
-
 
 						<div class="row">
+							<div class="col" style="width:180px">
+								<label class="form-label" style="font-size: 14px">Ancho (mm) <i
+										data-tippy-content="Medida horizontal de la sección transversal de la muestra; representa la distancia desde un lado al otro de la probeta"
+										class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+											height="16" fill="currentColor" class="bi bi-question-square-fill"
+											viewBox="0 0 16 16">
+											<path
+												d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
+										</svg></i></label>
+								<input type="number" class="form-control form-control-sm" style="height:37px"
+									name="base_perfil" id="base_perfil" placeholder=""
+									onchange="cambioAltura()" disabled>
+							</div>
 							<div class="col" style="width:180px">
 								<label class="form-label" style="font-size: 14px">Canto (mm) <i
 										data-tippy-content="Refiere al grosor de la sección transversal de la muestra; representa la distancia desde un lado frontal al lado posterior de la probeta"
@@ -273,19 +247,7 @@
 												d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
 										</svg></i></label>
 								<input type="number" class="form-control form-control-sm" style="height:37px"
-									name="base_perfil" id="base_perfil" placeholder="" onchange="cambioAltura()">
-							</div>
-							<div class="col" style="width:180px">
-								<label class="form-label" style="font-size: 14px">Altura (mm) <i
-										data-tippy-content="Medida vertical de la sección transversal de la muestra; representa la distancia desde un lado inferior al lado superior de la probeta"
-										class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-											height="16" fill="currentColor" class="bi bi-question-square-fill"
-											viewBox="0 0 16 16">
-											<path
-												d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
-										</svg></i></label>
-								<input type="number" class="form-control form-control-sm" style="height:37px"
-									name="altura_perfil" id="altura_perfil" placeholder="" onchange="cambioAltura()">
+									name="altura_perfil" id="altura_perfil" placeholder="" onchange="cambioAltura()" disabled>
 							</div>
 						</div>
 
@@ -299,7 +261,7 @@
 					<button type="button" name="button_iniciar" id="button_iniciar"
 						onclick="iniciar()" class="btn btn-secondary">Iniciar</button>
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
-					<a type="button" href="indexrelojvariosensayos_flexionanimacion.html"
+					<a type="button" href="indexrelojvariosensayos_compresion_madera_paralela.html"
 						class="btn btn-primary">Reiniciar</a>
 				</div>
 
@@ -316,9 +278,9 @@
 			<div class="card-body">
 				<form class="row g-2">
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Deflexión (mm) <i
-								data-tippy-content="Desplazamiento vertical que experimenta la probeta en su punto central"
-								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+						<label class="form-label" style="font-size:14px">Deformación (mm) <i
+								data-tippy-content="La deformación de la probeta entre dos puntos fijos "
+								class=" text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 									fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 									<path
 										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
@@ -327,9 +289,9 @@
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size: 14px">Carga (N) <i
-								data-tippy-content="Carga lateral que se le aplica a la probeta hasta su rotura"
-								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+						<label class="form-label" style="font-size: 14px">Carga (kN) <i
+								data-tippy-content="Carga axial que se le aplica a la probeta hasta su rotura"
+								class=" text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 									fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
 									<path
 										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
@@ -341,11 +303,21 @@
 			</div>
 
 		</div>
-		</br>
+
+		<div style="text-align: center;" class="mt-1	">
+			<!--<svg type="button" onclick="Arribaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+				<path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+			  </svg>-->
+
+
+
+
+
+		</div>
 		<div style="text-align: center;" class="mt-1">
 			<!--<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
 				<path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
-			  </svg>-->
+			</svg>-->
 
 			<svg type="button" onclick="Izquierdaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
 				fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
@@ -354,25 +326,22 @@
 			</svg>
 
 
-			<!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+			<!--<svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
 				<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"/>
-			  </svg> -->
-
+			  </svg>-->
 
 			<svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
 				fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
 				<path
 					d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z" />
 			</svg>
-
 			<!-- <svg type="button" onclick="centroflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
 				<path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
 			  </svg>-->
 
-			<!-- <svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+			<!--<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
 				<path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
-			</svg> -->
-
+			</svg>-->
 
 			<svg type="button" onclick="Derechaflecha()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
 				fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
@@ -380,29 +349,25 @@
 					d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z" />
 			</svg>
 
-
 		</div>
-
-
 	</div>
 
 	<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
 
 	<!-- <div class="position-fixed venta2d_style" id="ventanamini2d"
-		style="bottom: 0px;right:0px;height: 400px;width: 600px;background-color: #ffffff;overflow: hidden;display: none;">
+		style="bottom: 0px;right:0px;height: 330px;width: 520px;background-color: #ffffff;overflow: hidden;display: none">
 		<iframe id="mini2d" onload="iframeMini2dLoaded()" src=""
-			style="width: 100%;height:100%;overflow:hidden;border: 2px solid " scrolling="no"></iframe>
-		</script>
-
-
+			style="width: 100%;height:100%;overflow:hidden;"></iframe>
 	</div> -->
+
 	<div class="position-fixed venta2d_style" id="ventanamini2d"
-		style="bottom: 0px;right:0px;height: 400px;width: 400px;background-color: #ffffff;overflow: hidden;display: block;border:1px solid">
-		<div id="vistaMiniatura" style="width: 400px;height: 400px;"></div>
+		style="bottom: 0px;right:0px;height: 380px;width: 380px;background-color: #ffffff;overflow: hidden;display: block;border:1px solid">
+		<div id="vistaMiniatura" style="width: 380px;height: 380px;"></div>
 
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -411,12 +376,15 @@
 
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="Flexion_carga_Madera_ASTM143_Nueva.js"></script>
+	<script src="Copr_Madera_Pino_Paralela.js"></script>
+	<script src="Copr_Madera_Pino_Perpendicular.js"></script>
 
 	<script>
+
 		var btnAceptar = document.getElementById("button_iniciar");
 		var disableButton = function () { this.disabled = true; };
 		btnAceptar.addEventListener('click', disableButton, false);
+
 
 		function isMobileDevice() {
 			return /Mobi/i.test(navigator.userAgent);
@@ -447,7 +415,7 @@
 				}).then((result) => {
 					/* Read more about isConfirmed, isDenied below */
 					if (result.isConfirmed) {
-						window.open('indexrelojvariosensayos_flexionanimacion.html', "_self");
+						window.open('indexrelojvariosensayos_compresion_madera_paralela.html', "_self");
 
 					}
 				})
@@ -505,17 +473,16 @@
 	</script>
 
 
-
 	<script>
 		tippy('[data-tippy-content]');
 
 		function cambioAltura() {
 			var altura = document.getElementById('Altura').value;
-			if (altura < 360 || altura > 900) {
+			if (altura < 20 || altura > 200) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 360 mm y menor a 900 mm',
+					text: 'El valor debe ser mayor a 20 mm y menor a 200 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -530,16 +497,22 @@
 			var prueba565656 = 120;
 			switch (document.getElementById('select_barra').value) {
 
-
-
-				case 'Copr_Madera_AStm_D_143':
-					document.getElementById('Altura').value = 248;
-					document.getElementById('base_perfil').value = 30.8;
-					document.getElementById('altura_perfil').value = 30.8;
-
+				case 'Copr_Madera_Pino_Paralela':
+					document.getElementById('Altura').value = 195;
+					location.href = "indexrelojvariosensayos_compresion_madera_paralela.html";
 
 					break;
 
+				case 'Copr_Madera_Pino_Perpendicular':
+					document.getElementById('Altura').value = 195;
+					location.href = "indexrelojvariosensayos_compresion_madera_Perpendicular.html";
+					
+
+					break;
+
+				default:
+					document.getElementById('Altura').value = '';
+					document.getElementById('Diametro_barra').value = "";
 
 			}
 
@@ -574,7 +547,7 @@
 						min: 0,
 						title: {
 							display: true,
-							text: 'Deflexion (mm)'
+							text: 'Deformación (mm)'
 						}
 					},
 
@@ -584,28 +557,23 @@
 						min: 1,
 						title: {
 							display: true,
-							text: 'Carga (N)'
+							text: 'Carga (kN)'
 						}
 					}
 				}
 			}
 		});
 
-
-
-
 		var scene = new THREE.Scene();
-		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000); //1,1000
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 		var garra;
-
 
 		document.addEventListener('keydown', onKeyDown);
 
 		const container = document.getElementById('3d');
 
 
-		const renderer = new THREE.WebGLRenderer({ antialias: true });
-
+		const renderer = new THREE.WebGLRenderer();
 
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		document.body.appendChild(renderer.domElement);
@@ -665,18 +633,17 @@
 		cubeabajo2.position.z = 0.63
 */
 
+		// var geometrycubomadera = new THREE.BoxGeometry(0.1, 0.30, 0.1);
+		// var materialcubo = new THREE.MeshPhongMaterial({ color: 0xE7B158 });
+		// var cubecubo = new THREE.Mesh(geometrycubomadera, materialcubo);
+		// cubecubo.position.y = 1.585
+		// cubecubo.position.z = -0.04
+		// scene.add(cubecubo);
 
-		// Ajusta el tamaño de la pantalla 
-		window.addEventListener('resize', AdjustSize);
-		function AdjustSize() {
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			renderer.render(scene, camera);
-		}
 
+		// Cámara y renderizador para la miniatura
 		var contenedorMiniatura = document.getElementById('vistaMiniatura');
-		var thumbnailCamera = new THREE.PerspectiveCamera(45, 1, 0.9, 1000);
+		var thumbnailCamera = new THREE.PerspectiveCamera(30, 1, 0.9, 1000);
 		thumbnailCamera.position.set(1.5, 1.5, -3);
 
 
@@ -685,7 +652,6 @@
 		var rendererMiniatura = new THREE.WebGLRenderer();
 		rendererMiniatura.setSize(contenedorMiniatura.offsetWidth, contenedorMiniatura.offsetHeight);
 		contenedorMiniatura.appendChild(rendererMiniatura.domElement);
-
 
 
 		(function () {
@@ -747,25 +713,26 @@
 
 		}
 
-
-
-
-
 		const controls = new THREE.OrbitControls(camera, renderer.domElement);
-		camera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713); // posicion de la camara (0, 5, 5) 
-		controls.target.set(-0.7032029168893309, 1.5781128106857465, -2.674084323532686);
+		camera.position.set(5, 2, 0); // posicion de la camara (0, 5, 5) 
+
 		function centroflecha() {
-			camera.position.set(2.146425315079968, 1.7604829431001092, -3.234478631311713);
-			controls.target.set(-0.7032029168893309, 1.5781128106857465, -2.674084323532686);
+			camera.position.set(1.7635816353914981, 1.8347950925610317, 0.16463116563173347);
+			controls.target.set(-0.47968991718879844, 1.7819228371923617, 0.35131564004338245);
 		}
 
 		function Derechaflecha() {
-			camera.position.set(-0.006253229803632743, 1.905395947011642, -5.508050808710874);
-			controls.target.set(0.4416002541211133, 0.7710296025121054, -0.5396365492712342);
+			camera.position.set(0.06126837168823679, 1.8755083832142612, -1.2708440270559638);
+			controls.target.set(0.14533605948724349, 1.730226894676921, -0.24126841056202938);
 		}
 		function Izquierdaflecha() {
-			camera.position.set(0.008557983675210885, 1.8554837860512792, -1.6895558182963146);
-			controls.target.set(-0.01615559307840886, 1.7454176425948302, -2.4092520136216984);
+			camera.position.set(-0.01364266170339136, 1.8549514906947322, 1.129527550691957);
+			controls.target.set(-0.04140357232327803, 1.8463011750021652, 0.7161876768959998);
+		}
+
+		function Arribaflecha() {
+			camera.position.set(-0.049771421686070995, 3.100206014401884, 0.05500078024639481);
+			controls.target.set(-0.09139378917770244, 2.3345121792479646, 0.05437087104429345);
 		}
 
 
@@ -786,12 +753,11 @@
 				controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 			}*/
 		function open_manual() {
-			window.open("Manual_carga_uniaxial_Flexion___DEF.pdf", "Laboratorio de flexión", "width=800px, height=1000px,")
+			window.open("Manual_carga_uniaxial_Flexion___DEF.pdf", "Laboratorio de tracción", "width=800px, height=1000px,")
 			// camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
 			// //camera.position.y=3 // posicison de la camara (0, 5, 5)
 			// controls.target.set(-0.7090738020603329, 2.414713071006456, 0.6197697240451334);
 		}
-
 
 
 		controls.update();
@@ -830,8 +796,8 @@
 			console.log(D)
 		}*/
 
-		var bas_per = 1;
-		var altu_per = 1;
+		var bas_per = 45.1;
+		var altu_per = 70.9;
 
 		function base_per() {
 			bas_per = parseFloat(document.getElementById('base_perfil').value);
@@ -893,16 +859,17 @@
 			return z0 + desvis + media;
 
 		}
+
 		var archivo_datos = [];
 
 		var mixer;
 		var clock = new THREE.Clock();
+
 		var tempcont = -5;
 		function animate() {
 			requestAnimationFrame(animate);
 			controls.update();
 			//console.log(camera.position)
-
 
 
 			if (iniciar_) {
@@ -915,27 +882,26 @@
 
 
 
-
-				var Area = 2 * bas_per * altu_per * altu_per / (3 * Alt);
-				//	console.log(Area)
+				var Area = bas_per * altu_per;
+				//console.log(Area)
 				if (garra) {
 					var cant = chart.data.datasets[0].data.length;
 					contador_barra1.push(1);
-					//	console.log(garra.position.y)
 
-					if (garra.position.y >= -0.221930) {
+					if (garra.position.y >= -0.3415500000000003255) {
 						garra.position.y += -0.00001
+						//		console.log(garra.position.y)
 
-						//	console.log(garra.position.y)
+
 
 						var datos_traccion;
 
 						switch (document.getElementById('select_barra').value) {
-							case 'Copr_Madera_AStm_D_143':
-								datos_traccion = Flexion_carga_Madera_ASTM143_Nueva;
+							case 'Copr_Madera_Pino_Perpendicular':
+								datos_traccion = Copr_Madera_Pino_Perpendicular;
 								break;
-							case 'Copr_Acer_E9':
-								datos_traccion = Copr_Acer_E9;
+							case 'Copr_Madera_Pino_Paralela':
+								datos_traccion = Copr_Madera_Pino_Paralela;
 								break;
 
 						}
@@ -946,7 +912,7 @@
 						new_vec = []
 
 						for (const key in datos_traccion) {
-							operavec = [datos_traccion[key][0], 2 * (Ruido() + datos_traccion[key][1]) * bas_per * altu_per * altu_per / (3 * Alt)];
+							operavec = [datos_traccion[key][0] * Alt, (Ruido() + datos_traccion[key][1]) * Area / 1000];
 							new_vec.push(operavec)
 						}
 
@@ -961,15 +927,16 @@
 
 							margen = new_vec[cant][1] * 0.15;
 							margenx = new_vec[cant][0] > 1 ? new_vec[cant][0] * 0.20 : 1;
-							//console.log(margen)
+
 
 							max_y_canvas = (new_vec[cant][1] + margen) > max_y_canvas ? (new_vec[cant][1] + margen) : max_y_canvas;
 							max_x_canvas = (new_vec[cant][0] + margenx) > max_x_canvas ? (new_vec[cant][0] + margenx) : max_x_canvas;
 
 
+
 							chart.data.datasets[0].data.push({ x: new_vec[cant][0], y: new_vec[cant][1] });
 							chart.options.scales.y.max = parseInt(max_y_canvas);
-							chart.options.scales.x.max = parseInt(max_x_canvas);
+							chart.options.scales.x.max = max_x_canvas;
 
 
 							chart.update();
@@ -982,10 +949,7 @@
 							document.getElementById('Carga').value = Math.round10(segundoy, -3);
 						}
 					} else {
-						garra.position.y = -0.221930
-						scene.remove(vigafle)
-						scene.add(vigafle_rota)
-
+						garra.position.y = -0.3415500000000003255
 					}
 					//	console.log(garra.position.y)
 				}
@@ -995,49 +959,57 @@
 
 			tempcont = tempcont + 0.001;
 
-
-			thumbnailCamera.position.set(1, 1.76, -3.49);//profundidad,elevacion,transversal
+			thumbnailCamera.position.set(1, 1.6, -0); //profundidad,elevacion,transversal
 			thumbnailCamera.rotation.set(2.82, -4.7, -2.82);
 			//console.log(tempcont)
 
 			rendererMiniatura.render(scene, thumbnailCamera);
 
-
 		}
 
 		function descaga() {
+
+
 
 			var nombredeBarra;
 			var nombre = document.getElementById('select_barra').value;
 			var longBarra;
 			var cantoexcel;
-			var alturaexcel;
+			var anchoexcel;
 			switch (nombre) {
-				case 'Copr_Madera_AStm_D_143':
-					nombredeBarra = "Madera de pino";
-					longBarra = 248;
-					cantoexcel= 30.8;
-					alturaexcel = 30.8;
+				case 'Copr_Madera_Pino_Paralela':
+					nombredeBarra = "Madera de pino, fibras paralelas";
+					longBarra = document.getElementById('Altura').value;
+					cantoexcel= 70.9;
+					anchoexcel = 45.1;
+					break;
+				case 'Copr_Madera_Pino_Perpendicular':
+					nombredeBarra = "Madera de pino, fibras perpendicular";
+					longBarra = document.getElementById('Altura').value;
+					cantoexcel= 70.9;
+					anchoexcel = 45.1;
 					break;
 
 			}
 
-			
+
 			new_vec[0][3] = nombredeBarra;
 			new_vec[0][4] = longBarra;
-			new_vec[0][5] = cantoexcel;
-			new_vec[0][6] = alturaexcel;
+			new_vec[0][5] = anchoexcel;
+			new_vec[0][6] = cantoexcel;
+
 
 			var ws = XLSX.utils.json_to_sheet(new_vec);
 
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
-			var header1 = ["Deflexion (mm)"];
-			var header2 = ["Carga (N)"];
-			var header3 = ["Tipo de Barra"];
-			var header4 = ["Longitud de la barra (mm)"];
-			var header5 = ["Canto (mm)"];
-			var header6 = ["Altura (mm)"];
+
+			var header1 = ["Deformacion (mm)"];
+			var header2 = ["Carga (kN)"];
+			var header3 = ["Tipo de probeta"];
+			var header4 = ["Longitud inicial (mm)"];
+			var header5 = ["Ancho (mm)"];
+			var header6 = ["Canto (mm)"];
 			XLSX.utils.sheet_add_aoa(ws, [header1], { origin: "A1" });
 			XLSX.utils.sheet_add_aoa(ws, [header2], { origin: "B1" });
 			XLSX.utils.sheet_add_aoa(ws, [header3], { origin: "C1" });
@@ -1048,12 +1020,13 @@
 
 			/* generate an XLSX file */
 			XLSX.writeFile(wb, "Datos.xlsx");
-			//descargarPDF('Laboratorio_de_Resistencia_de_Materiales__Flexión____DEF.pdf');
+			descargarPDF('Laboratorio_de_Resistencia_de_Materiales__Compresión____DEF (1).pdf');
 		}
+
 		function descargarPDF(url) {
 			var link = document.createElement('a');
 			link.href = url;
-			link.download = 'Laboratorio_Flexion.pdf';
+			link.download = 'Laboratorio_compresion.pdf';
 			link.target = '_blank';
 			document.body.appendChild(link);
 			link.click();
@@ -1070,11 +1043,11 @@
 			base_per();
 
 			var altura = document.getElementById('Altura').value;
-			if (altura < 200 || altura > 900) {
+			if (altura < 20 || altura > 200) {
 				document.getElementById('Altura').value = '';
 				Swal.fire({
 					title: 'Error!',
-					text: 'El valor debe ser mayor a 360 mm y menor a 900 mm',
+					text: 'El valor debe ser mayor a 20 mm y menor a 200 mm',
 					icon: 'error',
 					confirmButtonText: 'OK',
 					timer: 10000,
@@ -1082,30 +1055,25 @@
 				})
 
 			} else {
-
 				iniciar_ = true;
 
 				// document.getElementById("ventanamini2d").style.display = "block";
-				// document.getElementById('mini2d').src = "index2dcorta_flexion.html";
-				//open_win();
+				// document.getElementById('mini2d').src = "index2dcorta_compr_madera_paralela.html";
 			}
 
-
 		}
-		/*
-		function iframeMini2dLoaded() {
-			iniciar_ = true;
 
-		}*/
+		// function iframeMini2dLoaded() {
+		// 	iniciar_ = true;
 
-
+		// }
 
 		// Instantiate a loader
 		const loader = new THREE.GLTFLoader();
 
 		// Load a glTF resource
 		loader.load(
-			'escenario_flexion_mader2.gltf',//'scene.gltf'
+			'laboratorio-compresion.gltf',//'scene.gltf'
 			function (gltf) {
 				scene.add(gltf.scene);
 				gltf.animations; // Array<THREE.AnimationClip>
@@ -1133,7 +1101,7 @@
 
 		// Load a glTF resource
 		loader2.load(
-			'carga-flexion1puntos.gltf',//'scene.gltf'
+			'compresion-carga.gltf',//'scene.gltf'
 			function (gltf) {
 				garra = gltf.scene;
 				scene.add(garra);
@@ -1146,8 +1114,7 @@
 				console.log('completado!.....')
 				garra.position.z += 0
 				garra.position.x += 0
-				garra.position.y += -0.19
-
+				garra.position.y += -0.309
 				renderer.render(scene, camera);
 
 
@@ -1163,15 +1130,16 @@
 		);
 
 
+		// Instantiate a loader
 		const loader3 = new THREE.GLTFLoader();
+
+		// Load a glTF resource
 		loader3.load(
-
-			'FlexionDinamico.gltf',//'scene.gltf'
+			'madera_compr_defor1.gltf',//'scene.gltf'
 			function (gltf) {
-				vigafle = gltf.scene;
-				mixer = new THREE.AnimationMixer(gltf.scene);
+				madera_compre_def = gltf.scene;
 
-				//gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
+				mixer = new THREE.AnimationMixer(gltf.scene);
 
 				const clock = new THREE.Clock();
 				var clip = gltf.animations[0];
@@ -1180,61 +1148,17 @@
 				action.clampWhenFinished = true;
 				action.play();
 
-
-				vigafle.position.z += -3.5
-				vigafle.position.x += 0
-				vigafle.position.y += 1.727
-				vigafle.scale.z = 0.08  //Largo
-				vigafle.scale.y = 0.18 //Alto
-				vigafle.scale.x = 0.18  //Grosor
-
+				console.log('completado!.....')
+				madera_compre_def.position.z += -0.04  //izquierda  derecha
+				madera_compre_def.position.x += 0 //alfrente
+				madera_compre_def.position.y += 1.44  //arriba
+				madera_compre_def.scale.y = 0.2
+				madera_compre_def.scale.x = 0.2
+				madera_compre_def.scale.z = 0.2
 				scene.add(gltf.scene);
 				renderer.render(scene, camera);
 
 
-
-			},
-			// called while loading is progressing
-			function (xhr) {
-				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-				//	console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-			},
-			// called when loading has errors
-			function (error) {
-				console.log('An error happened');
-				//	console.log('An error happened');
-			}
-		);
-
-
-		// Instantiate a loader
-
-
-		const loader4 = new THREE.GLTFLoader();
-
-		// Load a glTF resource
-		loader4.load(
-			// 'vigasolad_esta.gltf',//'scene.gltf'
-			'Flexion_rota.gltf',//'scene.gltf'
-			function (gltf) {
-				vigafle_rota = gltf.scene;
-
-				//	scene.add(gltf.scene);
-				gltf.animations; // Array<THREE.AnimationClip>
-				gltf.scene; // THREE.Group
-				gltf.scenes; // Array<THREE.Group>
-				gltf.cameras; // Array<THREE.Camera>
-				gltf.asset; // Object
-				renderer.render(scene, camera);
-
-				vigafle_rota.position.z += -3.5
-				vigafle_rota.position.x += 0
-				vigafle_rota.position.y += 1.727
-				vigafle_rota.scale.z = 0.08
-				vigafle_rota.scale.y = 0.18
-				vigafle_rota.scale.x = 0.18
-
-
 			},
 			// called while loading is progressing
 			function (xhr) {
@@ -1247,7 +1171,8 @@
 		);
 
 
-		// create an AudioListener and add it to the camera
+
+		// // create an AudioListener and add it to the camera
 		// const listener = new THREE.AudioListener();
 		// camera.add(listener);
 
@@ -1273,11 +1198,6 @@
 			renderer.render( scene, camera );
 		};
 		animate(); */
-
-
-
-
-
 
 
 	</script>
