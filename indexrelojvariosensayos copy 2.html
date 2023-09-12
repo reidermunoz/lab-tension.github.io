@@ -10,12 +10,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
+
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
 		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
 		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
 		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 		crossorigin="anonymous"></script>
@@ -96,7 +98,23 @@
 				width: 400px !important;
 
 			}
-			
+
+			#ventanamini2d {
+				height: 280px !important;
+				width: 280px !important;
+
+			}
+
+			#vistaMiniatura {
+				height: 280px !important;
+				width: 280px !important;
+
+			}
+
+			/* <div class="position-fixed venta2d_style" id="ventanamini2d"
+		style="bottom: 0px;right:0px;height: 380px;width: 380px;background-color: #ffffff;overflow: hidden;display: block;border:1px solid">
+		<div id="vistaMiniatura" style="width: 380px;height: 380px;"></div> */
+
 
 
 		}
@@ -127,23 +145,14 @@
 
 			<div class="col-md-2" style="text-align: right;">
 				<a class="btn btn-sm btn-outline-secondary"
-					href="indexrelojvariosensayos_compresion_madera_Perpendicular.html">Compresión</a>
+					href="indexrelojvariosensayos_compresion_madera_blanco.html">Compresión</a>
+
 				<a class="btn btn-sm btn-outline-secondary"
 					href="indexrelojvariosensayos_flexionanimacion.html">Flexión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="index_torsion_Ductil_90.html">Torsión</a>
-				<!-- <a class="btn btn-sm btn-outline-secondary" href="indexrelojvariosensayos copy">Prueba</a> -->
-				<!-- <a class="btn btn-sm btn-outline-secondary" href="index.html">Torsión</a> -->
+				<a class="btn btn-sm btn-outline-secondary" href="index_torsion_Blanco.html">Torsión</a>
+
 			</div>
 
-			<!--	<div class="col-md-9" style="text-align: right;">s
-				
-				<a class="btn btn-sm btn-outline-secondary" href="index copy.html">aaTorsión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="https://reidermunoz.github.io/lab-tension.github.io/">SISTorsión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
-				<a class="btn btn-sm btn-outline-secondary" href="#">Torsión</a>
-
-			</div>-->
 		</div>
 	</div>
 
@@ -160,94 +169,70 @@
 			<div class="card-header text-center bg-primary text-white">Ingrese los valores</div>
 
 			<div class="card-body targeta_entrada" style="width: 100%;">
-				<!--
-				<span style="text-align: center; padding: 0; padding-left: 100px; font-size: 30px;">Ingrese los datos de: </span>
-				-->
+
 				<form class="row g-2">
 
-					<label class="form-label mt-3  text_e"
-						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;content: '\fa3e';">Tipo
+					<label class="form-label mt-3 text_e"
+						style="font-size:14px; display: inline-block ;width: 350px; text-align: center; padding: 0;">Tipo
 						de
 						Probeta <i
 							data-tippy-content="Tipo de la muestra del material el cual se le va a llevar a cabo prueba a tracción de sección circular"
-							class="text-primary" >
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
-								<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-							  </svg> </i>
+							class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
+								<path
+									d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
+							</svg></i>
 					</label>
 
-					<select id="select_barra" class="form-select col-6" aria-label="Default select example"
+					<select id="select_barra" class="form-select" aria-label="Default select example"
 						onclick="cambiossegunacero()">
 						<option value="" selected></option>
 						<option value="Acero_A36">Acero ASTM A36(111)</option>
-						<!--	<option value="tension_barra1">Estandar (investigar)</option>-->
-						<!--<option value="tension_barra1">Acero AISI SAE 1020</option>
-				<option value="tension_compresion">Acero AISI SAE 1045</option> -->
-						<!--	<option value="Trac_Acer_Corten">Acero Corten (ASTM E8)</option>
-						<option value="Trac_Acer_Dulce">Acero Dulce (Carbono 2%)</option> -->
 						<option value="Trac_Acer_Alum">Aluminio 6061 (ASTM A370) </option>
 						<option value="Acero_A514">Acero ASTM A514</option>
-						<!--		<option value="Trac_ASTM_A48">ASTM A48 (Hierro gris) ( norma ASTM E8/E8M)</option>-->
-						<!--	<option value="Trac_ASTM_A53">ASTM A53 (aleacion del acero al carbono)(Norma ASTM A370)</option>-->
 						<option value="Acero_A572">Acero ASTM A572</option>
-						<!--	<option value="Trac_Poli_1200E">Polímero Reciclado Ultrapyc 1200E (No me sirve)</option>-->
 						<option value="Acero_A588">Acero ASTM A588</option>
 					</select>
-					<!--		<div class="col-auto" style="width:180px">
-						<label class="form-label" style="font-size:14px">Diametro (mm)<i
-								data-tippy-content="Texto de altura"
-								class="ti ti-question-mark text-primary"></i></label>
-						<input type="number" class="form-control form-control-sm" name="Diametro" id="Diametro"
-							placeholder="">
-					</div>
--->
 
-
-					<div class=".col-md-6 .col-sm-6 .col-6 Num_barra" style="width: 180px">
-						<label class="form-label Num_barra "
+					<div class="col-auto Num_barra" style="width: 180px">
+						<label class="form-label Num_barra"
 							style="font-size:14px; display: inline-block ;width: 180px; text-align: center;"># de la
 							barra <i data-tippy-content="Representación del diámetro de la barra"
-								class="text-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
-									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-								  </svg> </i>
+								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
+									<path
+										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
+								</svg></i>
 						</label>
-						<select id="Diametro_barra" class=".col-md-3 .col-sm-3 .col-3 form-select sel_barra " aria-label="Default select example"
+						<select id="Diametro_barra" class="form-select sel_barra" aria-label="Default select example"
 							style="width:170px; " onclick="cambiossegunacero()">
-							<!--		<option value="Numero2" selected>#2</option>
-							<option value="tension_barra1">Acero AISI SAE 1020</option>
-						<option value="tension_compresion">Acero AISI SAE 1045</option> -->
 							<option value="" selected></option>
 							<option value="Numero3">#3</option>
-							<!--		<option value="Numero4">#4</option>-->
 							<option value="Numero5">#5</option>
-							<!--		<option value="Numero6">#6</option>
-							<option value="Numero7">#7</option>-->
 							<option value="NUmero8">#8</option>
-							<!--		<option value="Numero9">#9</option>
-							<option value="Numero10">#10</option>
-							<option value="Numero11">#11</option>
-							<option value="Numero14">#14</option>
-							<option value="Numero18">#18</option>-->
 						</select>
 					</div>
 
 
-					<div class=".col-md-3 .col-sm-3 .col-3 Num_barra" style="width:180px">
+					<div class="col-auto Num_barra" style="width:180px">
 						<label class="form-label Num_barra1" style="font-size: 14px">Longitud inicial (mm) <i
 								data-tippy-content="Longitud entre las prensas, representando la longitud calibrada de la barra "
-								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
-									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-								  </svg> </i></label>
-						<input type="number" class=".col-md-3 .col-sm-3 .col-3 form-control form-control-sm Alt_sty" style="height:39px"
-							name="Altura" id="Altura" placeholder="" onchange="cambioAltura()">
+								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
+									<path
+										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
+								</svg></i></label>
+						<input type="number" class="form-control form-control-sm Alt_sty" style="height:39px"
+							name="Altura" id="Altura" placeholder="" onchange="cambioAltura()" disabled>
 					</div>
 
 
 
 				</form>
 				<div style="text-align: center;" class="mt-3">
-					<!--	<button type="button" onclick="open_win()" class="btn btn-primary">Zoom</button>-->
-					<a type="button" onclick="Diametro(),Altura(), iniciar()" class="btn btn-secondary">Iniciar</a>
+					<button type="button" name="button_iniciar" id="button_iniciar" onclick="iniciar()"
+						class="btn btn-secondary">Iniciar</button>
+					<!-- <a type="button" name="button_iniciar" id="button_iniciar" onclick="Diametro(), Altura(), iniciar()" class="btn btn-secondary"><span class="fa fa-check"></span>Iniciar</a> -->
 					<a type="button" onclick="descaga()" class="btn btn-success">Datos</a>
 					<a type="button" href="indexrelojvariosensayos.html" class="btn btn-primary">Reiniciar</a>
 				</div>
@@ -263,18 +248,22 @@
 					<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size:14px">Alargamiento (mm) <i
 								data-tippy-content="La deformación de la probeta entre dos puntos fijos "
-								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
-									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-								  </svg> </i></label>
+								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
+									<path
+										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
+								</svg></i></label>
 						<input type="text" class="form-control form-control-sm" name="Alargamiento" id="Alargamiento"
 							placeholder="">
 					</div>
 					<div class="col-auto" style="width:180px">
 						<label class="form-label" style="font-size: 14px">Carga (kN) <i
 								data-tippy-content="Carga axial aplicada a la probeta hasta su rotura"
-								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
-									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-								  </svg></i></label>
+								class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-question-square-fill" viewBox="0 0 16 16">
+									<path
+										d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
+								</svg></i></label>
 						<input type="text" class="form-control form-control-sm" name="Carga" id="Carga" placeholder="">
 					</div>
 
@@ -352,10 +341,18 @@
 	<div id="rotateMessage">Por favor, gira tu dispositivo a una orientación horizontal.</div>
 
 	<div class="position-fixed venta2d_style" id="ventanamini2d"
+		style="bottom: 0px;right:0px;height: 380px;width: 380px;background-color: #ffffff;overflow: hidden;display: block;border:1px solid">
+		<div id="vistaMiniatura" style="width: 380px;height: 380px;"></div>
+
+	</div>
+
+	<!-- <div class="position-fixed venta2d_style" id="ventanamini2d"
 		style="bottom: 0px;right:0px;height: 500px;width: 200px;background-color: #ffffff;overflow: hidden;display: none; scale: 2.3; margin: 0 auto;">
 		<iframe id="mini2d" onload="iframeMini2dLoaded()" src=""
 			style="width: 100%;height:100%;overflow:hidden;"></iframe>
-	</div>
+	</div> -->
+
+
 
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
@@ -379,7 +376,15 @@
 	<script src="Acero_A572.js"></script>
 	<script src="Acero_A588.js"></script>
 
+
+
 	<script>
+
+		var btnAceptar = document.getElementById("button_iniciar");
+		var disableButton = function () { this.disabled = true; };
+		btnAceptar.addEventListener('click', disableButton, false);
+
+
 		function isMobileDevice() {
 			return /Mobi/i.test(navigator.userAgent);
 		}
@@ -565,7 +570,6 @@
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 		var garra;
-		var sprite;
 
 		document.addEventListener('keydown', onKeyDown);
 
@@ -597,22 +601,6 @@
 		dirLight.shadow.camera.near = 0.1;
 		dirLight.shadow.camera.far = 40;
 		scene.add(dirLight);
-
-
-		const dpr = window.devicePixelRatio;
-
-		const textureSize = 128 * dpr;
-		const vector = new THREE.Vector2();
-		
-
-
-		texture = new THREE.FramebufferTexture( textureSize, textureSize );
-		
-		const spriteMaterial = new THREE.SpriteMaterial( { map: texture } );
-		
-		sprite = new THREE.Sprite( spriteMaterial );
-		sprite.scale.set( textureSize, textureSize, 1 );
-		
 
 		// scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
 
@@ -647,6 +635,20 @@
 		cubeabajo2.position.y = 2.84
 		cubeabajo2.position.z = 0.63
 */
+
+
+		// Cámara y renderizador para la miniatura
+		var contenedorMiniatura = document.getElementById('vistaMiniatura');
+		var thumbnailCamera = new THREE.PerspectiveCamera(30, 1, 0.9, 1000);
+		thumbnailCamera.position.set(1.5, 1.5, -3);
+
+
+
+		thumbnailCamera.lookAt(scene.position);
+		var rendererMiniatura = new THREE.WebGLRenderer();
+		rendererMiniatura.setSize(contenedorMiniatura.offsetWidth, contenedorMiniatura.offsetHeight);
+		contenedorMiniatura.appendChild(rendererMiniatura.domElement);
+
 
 		(function () {
 
@@ -708,28 +710,6 @@
 		}
 
 
-		
-		
-
-		updateSpritePosition();
-
-
-
-		function updateSpritePosition(){
-
-			const halfWidth = window.innerHeight / 4;
-			const halfHeight = window.innerHeight / 4;
-
-			const halfImageWidth = textureSize / 2; 
-			const halfImageHeight = textureSize / 2;
-
-			sprite.position.set( - halfWidth + halfImageWidth, halfHeight - halfImageHeight , 1);
-			console.log(sprite)
-
-		}
-
-
-
 		const keyboardState = {}; // Objeto para almacenar el estado de las teclas presionadas
 
 		document.addEventListener('keydown', (event) => {
@@ -770,7 +750,7 @@
 
 
 		}
-		//console.log(camera.position)
+		console.log(camera.position)
 		function zoom3d() {
 			window.open("indexrelojvariosensayos.html", "hola", "width=400px, height=600px,")
 			camera.position.set(1.1225234645935336, 2.430378387715647, 0.7119134614268835); // posicion de la camara (0, 5, 5)
@@ -826,7 +806,7 @@
 			} else if (Diaetro_barra_en_mm == "Numero18") {
 				D = 57.3;
 			}
-			//console.log(D)
+			console.log(D)
 		}
 
 
@@ -901,6 +881,7 @@
 		}
 
 		var archivo_datos = [];
+		var tempcont = -5;
 
 		function animate() {
 			requestAnimationFrame(animate);
@@ -919,6 +900,8 @@
 						garra.position.y += 0.00001
 
 						var datos_traccion;
+
+
 
 						switch (document.getElementById('select_barra').value) {
 							case 'Acero_A36':
@@ -955,9 +938,6 @@
 								datos_traccion = Trac_ASTM_A572;
 								break;
 						}
-
-
-
 
 						var fila_ = datos_traccion[cant]
 						var new_vec = [fila_[0] * Alt, (Ruido() + fila_[1]) * Area / 1000];
@@ -1002,35 +982,100 @@
 
 					} else {
 						garra.position.y = 0.35
-					//	soundTrueno.play();
+						//	soundTrueno.play();
 					}
 					//	console.log(garra.position.y)
+
+
+
 				}
 
+
+
+
 			}
-			vector.x = (window.innerWidth * dpr / 2 ) - (textureSize / 2);
-			vector.y = (window.innerHeight * dpr / 2) - (textureSize/2);
-			//console.log(vector);
-			renderer.copyFramebufferToTexture( vector, texture );
 			renderer.render(scene, camera);
-			
+
+
+			tempcont = tempcont + 0.001;
+
+			thumbnailCamera.position.set(0.99, 2.65, 65); //0.99, 2.65, 0.65
+			thumbnailCamera.rotation.set(2.82, -4.7, -2.82);
+			//console.log(tempcont)
+
+			rendererMiniatura.render(scene, thumbnailCamera);
+
+
 		}
 
 		function descaga() {
-			var ws = XLSX.utils.json_to_sheet(archivo_datos);
 
+
+
+			var nombredeBarra;
+			var longBarra;
+			var nombre = document.getElementById('select_barra').value;
+
+			var numeroBarra;
+			var barraDaimetro = document.getElementById('Diametro_barra').value;
+			switch (nombre) {
+				case 'Acero_A36':
+					nombredeBarra = "Acero ASTM A36";
+					break;
+
+				case 'Trac_Acer_Alum':
+					nombredeBarra = "Aluminio 6061";
+					break;
+				case 'Acero_A514':
+					nombredeBarra = "Acero ASTM A514";
+					break;
+				case 'Acero_A572':
+					nombredeBarra = "Acero ASTM A572";
+					break;
+				case 'Acero_A588':
+					nombredeBarra = "Acero ASTM A588";
+					break;
+			}
+
+			switch (barraDaimetro) {
+				case 'Numero3':
+					numeroBarra = "#3";
+					longBarra = 38 ;
+
+					break;
+				case 'Numero5':
+					numeroBarra = "#5";
+					longBarra = 63.6 ;
+					break;
+				case 'NUmero8':
+					numeroBarra = "#8";
+					longBarra = 101.6 ;
+					break;
+			
+			}
+
+			archivo_datos[0][3] = nombredeBarra;
+			archivo_datos[0][4] = numeroBarra;
+			archivo_datos[0][5] = longBarra;
+
+			var ws = XLSX.utils.json_to_sheet(archivo_datos);
 			/* add to workbook */
 			var wb = XLSX.utils.book_new();
-
-
 			var header1 = ["Alargamiento (mm)"];
 			var header2 = ["Carga (kN)"];
+			var header3 = ["Tipo de Barra"];
+			var header4 = ["# de barra"];
+			var header5 = ["Longitud de la barra (mm)"];
+
 			XLSX.utils.sheet_add_aoa(ws, [header1], { origin: "A1" });
 			XLSX.utils.sheet_add_aoa(ws, [header2], { origin: "B1" });
+			XLSX.utils.sheet_add_aoa(ws, [header3], { origin: "C1" });
+			XLSX.utils.sheet_add_aoa(ws, [header4], { origin: "D1" });
+			XLSX.utils.sheet_add_aoa(ws, [header5], { origin: "E1" });
 			XLSX.utils.book_append_sheet(wb, ws, "Datos_Laboratorio");
 			/* generate an XLSX file */
 			XLSX.writeFile(wb, "Datos.xlsx");
-			descargarPDF('Lab_1___Resistencia_de_materiales.pdf');
+			//descargarPDF('Lab_1___Resistencia_de_materiales.pdf');
 		}
 
 		function descargarPDF(url) {
@@ -1042,15 +1087,17 @@
 			link.click();
 			document.body.removeChild(link);
 		}
-		
-		
+
+
 
 
 		animate()
-		
 
 
 		function iniciar() {
+
+			Diametro();
+			Altura();
 			// musica()
 
 			var altura = document.getElementById('Altura').value;
@@ -1067,20 +1114,32 @@
 
 			} else {
 
-				document.getElementById("ventanamini2d").style.display = "block";
-				document.getElementById('mini2d').src = "index2dcorta_traccion.html";
+				iniciar_ = true;
+
+
+
+
+				//document.getElementById("ventanamini2d").style.display = "block";
+				//document.getElementById('mini2d').src = "index2dcorta_traccion.html";
+
 
 				//open_win();
 			}
-			scene.add( sprite );
-		console.log(sprite)
+
+
+
 
 		}
 
+		/*
 		function iframeMini2dLoaded() {
 			iniciar_ = true;
 
 		}
+		*/
+
+
+
 
 
 
